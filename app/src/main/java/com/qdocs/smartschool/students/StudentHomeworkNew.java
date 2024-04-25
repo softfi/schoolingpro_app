@@ -46,6 +46,7 @@ public class StudentHomeworkNew extends BaseActivity {
     ColorStateList def;
     CardView card_view_outer;
     TextView pending,completed,select,evaluated;
+
     RecyclerView homeworkListView;
     ArrayList<String> homeworkIdList = new ArrayList<String>();
     ArrayList<String> homeworkTitleList = new ArrayList<String>();
@@ -258,6 +259,7 @@ public class StudentHomeworkNew extends BaseActivity {
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getHomeworkUrl;
         Log.e("URL", url);
+        Log.d("TAG", requestBody+"getHomeWork url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -371,7 +373,7 @@ public class StudentHomeworkNew extends BaseActivity {
         pd.show();
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getstudentsubjectUrl;
-
+        Log.d("TAG", requestBody+"getScanWork url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

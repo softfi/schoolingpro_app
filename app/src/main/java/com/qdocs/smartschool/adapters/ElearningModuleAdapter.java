@@ -199,17 +199,17 @@ public class ElearningModuleAdapter extends RecyclerView.Adapter<ElearningModule
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("lesson_plan")){
                             Utility.setLocale(context.getApplicationContext(), Utility.getSharedPreferences(context.getApplicationContext(), Constants.langCode));
-                            Intent lessonplanintent = new Intent(context, StudentSyllabusTimetable.class);
+                            Intent lessonplanintent = new Intent(context, StudentSyllabusTimetable.class);      ///
                             context.startActivity(lessonplanintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("online_examination")){
                             Utility.setLocale(context.getApplicationContext(), Utility.getSharedPreferences(context.getApplicationContext(), Constants.langCode));
-                            Intent onlineexamintent = new Intent(context, StudentOnlineExam.class);
+                            Intent onlineexamintent = new Intent(context, StudentOnlineExam.class);          //
                             context.startActivity(onlineexamintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("download_center")){
                             Utility.setLocale(context.getApplicationContext(), Utility.getSharedPreferences(context.getApplicationContext(), Constants.langCode));
-                            Intent downloadintent = new Intent(context, StudentDownloads.class);
+                            Intent downloadintent = new Intent(context, StudentDownloads.class);        //
                             context.startActivity(downloadintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("online_course")){

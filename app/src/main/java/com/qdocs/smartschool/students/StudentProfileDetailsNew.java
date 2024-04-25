@@ -120,6 +120,7 @@ public class StudentProfileDetailsNew extends BaseActivity {
 
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getStudentProfileUrl;
+        Log.d("TAG", requestBody+"djfjfhg url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

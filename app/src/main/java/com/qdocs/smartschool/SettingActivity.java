@@ -238,6 +238,7 @@ public class SettingActivity extends BaseActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getstudentcurrentlanguageUrl;
         Log.e("URL", url);
+        Log.d("TAG", requestBody+"getfghhh url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

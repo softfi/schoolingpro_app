@@ -15,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.utils.Constants;
@@ -22,6 +23,8 @@ import com.qdocs.smartschool.utils.Utility;
 import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import static android.widget.Toast.makeText;
@@ -53,21 +56,26 @@ public class AboutSchool extends BaseActivity {
         nameLayout = findViewById(R.id.about_nameLay);
         nameLayout.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour)));
         if (Utility.isConnectingToInternet(getApplicationContext())) {
-            getDataFromApi();
+
+            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            JSONObject obj=new JSONObject(params);
+            Log.e("params ", obj.toString());
+            getDataFromApi(obj.toString());
         } else {
             makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    private void getDataFromApi () {
+    private void getDataFromApi (String bodyParams) {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
-
+        final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getSchoolDetailsUrl;
         Log.e("URL", url);
+        Log.d("TAG", "getapi url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -120,6 +128,14 @@ public class AboutSchool extends BaseActivity {
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
+            }
+            public byte[] getBody() throws AuthFailureError {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(AboutSchool.this);//Creating a Request Queue

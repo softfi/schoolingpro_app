@@ -309,6 +309,7 @@ public class StudentAttendance extends BaseActivity implements CustomCalendar.Ro
 
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getAttendanceUrl;
+        Log.d("TAG", requestBody+"getAttendentApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

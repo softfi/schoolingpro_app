@@ -313,6 +313,8 @@ public class StudentClassTimetable extends BaseActivity {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getClassScheduleUrl;
+
+       // Log.d("TAG", requestBody+"getclassTApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

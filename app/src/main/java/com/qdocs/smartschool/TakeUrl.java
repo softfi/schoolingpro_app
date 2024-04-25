@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -27,6 +28,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.utils.Constants;
+import com.qdocs.smartschool.utils.MyApp;
 import com.qdocs.smartschool.utils.Utility;
 
 import org.json.JSONException;
@@ -53,7 +55,17 @@ public class TakeUrl extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            getWindow().setStatusBarColor(Color.WHITE);
+
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            getWindow().setStatusBarColor(Color.BLACK);
+
+        }
+       // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.take_url_activity);
 
         urlET = findViewById(R.id.et_domain_takeUrl);
@@ -77,7 +89,7 @@ public class TakeUrl extends Activity {
                 } else {
                     if (Utility.isConnectingToInternet(TakeUrl.this)) {
 
-                        getDataFromApi(appDomain);
+                        getDataFhromApi ();
                     } else {
                         makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                     }
@@ -105,93 +117,81 @@ public class TakeUrl extends Activity {
         Utility.setSharedPreference(getApplicationContext(), Constants.currentLocale, localeName);
     }
 
-    private void getDataFromApi(String domain) {
+
+
+    private void getDataFhromApi () {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
 
-        if (!domain.contains("/")) {
-            domain += "/";
-        }
-
-        final String url = domain;
-        Log.d("Verification Url", url);
+        final String url = "https://schoolingpro.in/admin/app";
+        Log.d("url", "getDataFromApi: "+url.toString());
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
-                Log.d("Result", "fghnjh"+result);
-
+                Log.d("Result", "getDataFromApii: "+result.toString());
                 if (result != null) {
                     pd.dismiss();
+                    try {
+                        JSONObject object = new JSONObject(result);
+                        String success = "200"; //object.getString("status");
+                        if (success.equals("200")) {
+                            Log.d("TAG", "onResponse: "+success);
 
-                    isMaintenanceMode();            //here's........................
+                            Utility.setSharedPreferenceBoolean(getApplicationContext(), "isUrlTaken", true);
+                            Utility.setSharedPreference(MyApp.getContext(), Constants.apiUrl, object.getString("url"));
+                            Utility.setSharedPreference(MyApp.getContext(), Constants.imagesUrl, object.getString("site_url"));
+                            String app_ver= object.getString("app_ver");
+                            Utility.setSharedPreference(getApplicationContext(), Constants.app_ver, app_ver);
+                            String appLogo = object.getString("site_url") + "uploads/school_content/logo/app_logo/" + object.getString("app_logo");
+                            Utility.setSharedPreference(MyApp.getContext(), Constants.appLogo, appLogo );
 
-                    /* try {
-                         JSONObject object = new JSONObject(result);
+                            String secColour = object.getString("app_secondary_color_code");
+                            String primaryColour = object.getString("app_primary_color_code");
 
-                         String success = "200"; //object.getString("status");
-                         if (success.equals("200")) {
-                             //Log.d("TAG", "fhgjuoio: "+"Success");
-                             Utility.setSharedPreferenceBoolean(getApplicationContext(), "isUrlTaken", true);
-                             Utility.setSharedPreference(MyApp.getContext(), Constants.baseUrl, object.getString("url"));
-                             Utility.setSharedPreference(MyApp.getContext(), Constants.siteUrl, object.getString("site_url"));
-                             String app_ver= object.getString("app_ver");
-                             Utility.setSharedPreference(getApplicationContext(), Constants.app_ver, app_ver);
-                             String appLogo = object.getString("site_url") + "uploads/school_content/logo/app_logo/" + object.getString("app_logo");
-                             Utility.setSharedPreference(MyApp.getContext(), Constants.appLogo, appLogo );
+                            if(secColour.length() == 7 && primaryColour.length() == 7) {
+                                Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, secColour);
+                                Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, primaryColour);
+                            }else {
+                                Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, Constants.defaultSecondaryColour);
+                                Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, Constants.defaultPrimaryColour);
+                            }
+                            Log.e("apiUrl Utility", Utility.getSharedPreferences(getApplicationContext(), "apiUrl"));
+                            langCode = object.getString("lang_code");
+                            Utility.setSharedPreference(getApplicationContext(), Constants.langCode,langCode);
 
-                             String secColour = object.getString("app_secondary_color_code");
-                             String primaryColour = object.getString("app_primary_color_code");
+                            if(!langCode.isEmpty()) {
+                                setLocale(langCode);
+                            }
 
-                            String sec0Colour = "#E7F1EE";
-                             String pri0maryColour = "#424242";
+                            Intent asd = new Intent(getApplicationContext(), Login.class);
+                            startActivity(asd);
+                            finish();
 
-                             if(secColour.length() == 7 && primaryColour.length() == 7) {
-                                 Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, secColour);
-                                 Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, primaryColour);
-                             }else {
-                                 Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, Constants.defaultSecondaryColour);
-                                 Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, Constants.defaultPrimaryColour);
-                             }
-                             Log.e("apiUrl Utility", Utility.getSharedPreferences(getApplicationContext(), "apiUrl"));
-                             langCode = object.getString("lang_code");
-                             Utility.setSharedPreference(getApplicationContext(), Constants.langCode,langCode);
-
-                             if(!langCode.isEmpty()) {
-                                 setLocale(langCode);
-                             }
-
-                          //   ismaintenancemode();
-
-
-                         } else {
-                             Toast.makeText(getApplicationContext(), "Invalid Domain.", Toast.LENGTH_SHORT).show();
-                         }
-                     } catch (JSONException e) {
-                             langCode = "";
-                         e.printStackTrace();
-                     }*/
-
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Invalid Domain.", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        langCode = "";
+                        e.printStackTrace();
+                    }
                 } else {
                     pd.dismiss();
-
                     Toast.makeText(getApplicationContext(), "Invalid Domain.", Toast.LENGTH_SHORT).show();
                 }
             }
-
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("TAG", "onErrorResponse: " + error);
                 pd.dismiss();
                 System.out.println("not responding");
                 try {
-                    int statusCode = error.networkResponse.statusCode;
+                    int  statusCode = error.networkResponse.statusCode;
                     NetworkResponse response = error.networkResponse;
-                    Log.e("Volley Error", statusCode + " " + Arrays.toString(response.data));
-                    if (error instanceof ClientError) {
+                    Log.e("Volley Error",""+statusCode+" "+response.data.toString());
+                    if(error instanceof ClientError) {
                         Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
@@ -201,7 +201,6 @@ public class TakeUrl extends Activity {
                 }
             }
         });
-
         RequestQueue requestQueue = Volley.newRequestQueue(TakeUrl.this); //Creating a Request Queue
         requestQueue.add(stringRequest);//Adding request to the queue
     }
@@ -276,7 +275,108 @@ public class TakeUrl extends Activity {
         requestQueue.add(stringRequest); //Adding request to the queue
 
     }
+   /* private void getDataFromApi(String domain) {
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Loading");
+        pd.setCancelable(false);
+        pd.show();
 
+        if (!domain.contains("/")) {
+            domain += "/";
+        }
+
+        final String url = domain;
+        Log.d("Verification Url", url);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String result) {
+                Log.d("Result", "fghnjh"+result);
+
+                if (result != null) {
+                    pd.dismiss();
+
+                    isMaintenanceMode();            //here's........................
+
+                    */
+    /* try {
+                         JSONObject object = new JSONObject(result);
+
+                         String success = "200"; //object.getString("status");
+                         if (success.equals("200")) {
+                             //Log.d("TAG", "fhgjuoio: "+"Success");
+                             Utility.setSharedPreferenceBoolean(getApplicationContext(), "isUrlTaken", true);
+                             Utility.setSharedPreference(MyApp.getContext(), Constants.baseUrl, object.getString("url"));
+                             Utility.setSharedPreference(MyApp.getContext(), Constants.siteUrl, object.getString("site_url"));
+                             String app_ver= object.getString("app_ver");
+                             Utility.setSharedPreference(getApplicationContext(), Constants.app_ver, app_ver);
+                             String appLogo = object.getString("site_url") + "uploads/school_content/logo/app_logo/" + object.getString("app_logo");
+                             Utility.setSharedPreference(MyApp.getContext(), Constants.appLogo, appLogo );
+
+                             String secColour = object.getString("app_secondary_color_code");
+                             String primaryColour = object.getString("app_primary_color_code");
+
+                            String sec0Colour = "#E7F1EE";
+                             String pri0maryColour = "#424242";
+
+                             if(secColour.length() == 7 && primaryColour.length() == 7) {
+                                 Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, secColour);
+                                 Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, primaryColour);
+                             }else {
+                                 Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, Constants.defaultSecondaryColour);
+                                 Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, Constants.defaultPrimaryColour);
+                             }
+                             Log.e("apiUrl Utility", Utility.getSharedPreferences(getApplicationContext(), "apiUrl"));
+                             langCode = object.getString("lang_code");
+                             Utility.setSharedPreference(getApplicationContext(), Constants.langCode,langCode);
+
+                             if(!langCode.isEmpty()) {
+                                 setLocale(langCode);
+                             }
+
+                          //   ismaintenancemode();
+
+
+                         } else {
+                             Toast.makeText(getApplicationContext(), "Invalid Domain.", Toast.LENGTH_SHORT).show();
+                         }
+                     } catch (JSONException e) {
+                             langCode = "";
+                         e.printStackTrace();
+                     }*/
+    /*
+
+                } else {
+                    pd.dismiss();
+
+                    Toast.makeText(getApplicationContext(), "Invalid Domain.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("TAG", "onErrorResponse: " + error);
+                pd.dismiss();
+                System.out.println("not responding");
+                try {
+                    int statusCode = error.networkResponse.statusCode;
+                    NetworkResponse response = error.networkResponse;
+                    Log.e("Volley Error", statusCode + " " + Arrays.toString(response.data));
+                    if (error instanceof ClientError) {
+                        Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (NullPointerException npe) {
+                    Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(TakeUrl.this); //Creating a Request Queue
+        requestQueue.add(stringRequest);//Adding request to the queue
+    }*/
    /* private void baseUrlApi () {
 
         final ProgressDialog pd = new ProgressDialog(this);

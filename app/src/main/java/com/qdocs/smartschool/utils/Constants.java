@@ -129,6 +129,7 @@ public class Constants {
     public static final String primaryColour = "primaryColour";
     public static final String secondaryColour = "secondaryColour";
     public static final String app_ver = "app_ver";
+    public static final String apiUrl = "apiUrl";
     public static final String appLogo = "appLogo";
     //  public static final String apiUrl = "apiUrl";
     public static final String imagesUrl = "imagesUrl";

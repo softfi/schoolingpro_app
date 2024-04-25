@@ -101,6 +101,7 @@ public class StudentSyllabusStatus extends BaseActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getsyllabussubjectsUrl;
         Log.e("URL", url);
+        Log.d("TAG", requestBody+"getclassSSApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

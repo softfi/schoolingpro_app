@@ -190,6 +190,8 @@ public class StudentOnlineExam extends BaseActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getOnlineExamUrl;
         Log.e("URL", url);
+
+        Log.d("TAG", requestBody+"getOnlineWork url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

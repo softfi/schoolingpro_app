@@ -189,16 +189,16 @@ public class AcademicModuleAdapter extends RecyclerView.Adapter<AcademicModuleAd
             public void onClick(View view) {
                 if (position == 0) {
                     if (album.getName().equals("class_timetable")) {
-                        Intent classtimetableintent = new Intent(context, StudentClassTimetable.class);
+                        Intent classtimetableintent = new Intent(context, StudentClassTimetable.class);      //
                         context.startActivity(classtimetableintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         holder.modulename.setText(context.getApplicationContext().getString(R.string.timeTable));
                     } else if (album.getName().equals("syllabus_status")) {
-                        Intent syllabustatusintent = new Intent(context, StudentSyllabusStatus.class);
+                        Intent syllabustatusintent = new Intent(context, StudentSyllabusStatus.class);//
                         context.startActivity(syllabustatusintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("attendance")) {
-                        Intent attendanceintent = new Intent(context, StudentAttendance.class);
+                        Intent attendanceintent = new Intent(context, StudentAttendance.class);    //
                         context.startActivity(attendanceintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("examinations")) {

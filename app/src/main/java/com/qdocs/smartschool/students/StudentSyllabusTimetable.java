@@ -699,6 +699,8 @@ public class StudentSyllabusTimetable extends BaseActivity {
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getlessonplanUrl;
         System.out.println("url==="+url);
+
+        Log.d("TAG", requestBody+"getsyllabsWork url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

@@ -58,6 +58,8 @@ import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
+
+import static android.content.ContentValues.TAG;
 import static android.widget.Toast.makeText;
 
 public class Login extends Activity {
@@ -109,7 +111,9 @@ public class Login extends Activity {
                 String domain = Utility.getSharedPreferences(getApplicationContext(), Constants.appDomain);
                 System.out.println(" BEFORE PRIVACY URL"+domain);
                 if(!domain.endsWith("/")) {
+
                     domain += "/";
+
                 }
                 System.out.println("PRIVACY URL"+domain);
                 domain += Constants.privacyPolicyUrl;
@@ -305,25 +309,27 @@ public class Login extends Activity {
          pd.show();
 
         final String requestBody = bodyParams;
-         String url = Constants.mainUrl+Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.loginUrl;
+         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.loginUrl;
          Log.d("URL", "sddfhk"+url);
          StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
              @Override
              public void onResponse(String result) {
                  Log.d("TAG", "LoginReponse: "+result);
                  if (result != null) {
+                     Log.d("TAG", "LoginReponjk "+result);
                      pd.dismiss();
                      try {
-                         //Log.e("Result", result);
+                         Log.d("TAG", "LoginReponj ");
                          JSONObject object = new JSONObject(result);
-
+                         Log.d("TAG", "LoginReponj "+object);
                          String success = object.getString("status");
                          String message = object.getString("message");
+
                         // Utility.setSharedPreference(getApplicationContext(), Constants.loginType, object.getString("role"));
                          if (success.equals("1")) {
                              Utility.setSharedPreference(getApplicationContext(), Constants.loginType, object.getString("role"));
                              JSONObject data = object.getJSONObject("record");
-
+                             Log.d("TAG", "LoginReponj "+data);
                              Utility.setSharedPreference(getApplicationContext(), Constants.userId, object.getString("id"));
                              Utility.setSharedPreference(getApplicationContext(), "accessToken", object.getString("token"));
 
@@ -340,6 +346,7 @@ public class Login extends Activity {
                              dateFormat = dateFormat.replace("d", "dd");
                              dateFormat = dateFormat.replace("Y", "yyyy");
                              System.out.println("dateFormat===" + dateFormat);
+                             Log.d("TAG", "LoginReponjert "+dateFormat);
                              Utility.setSharedPreference(getApplicationContext(), "dateFormat", dateFormat);
 
                              String datesFormat = data.getString("date_format");
@@ -358,11 +365,13 @@ public class Login extends Activity {
                              Utility.setSharedPreference(getApplicationContext(), Constants.userImage, imgUrl);
                              Utility.setSharedPreference(getApplicationContext(), Constants.userName, data.getString("username"));
                              Utility.setSharedPreference(getApplicationContext(), "schoolName", data.getString("sch_name"));
-
+                             Log.d("TAG", "onResponse: ");
                              if(data.getString("role").equals("parent")) {
+                                 Log.d("TAG", "onResponsef: ");
                                  Utility.setSharedPreference(getApplicationContext(), Constants.parentsId, data.getString("id"));
                                  JSONArray childArray = data.getJSONArray("parent_childs");
-                                 if(childArray.length() == 1) {
+                                 Log.d("TAG", "LoginReponjd "+childArray);
+                                /* if(childArray.length() == 1) {
                                      Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", true);
                                      Utility.setSharedPreferenceBoolean(getApplicationContext(), "hasMultipleChild", false);
                                      Utility.setSharedPreference(getApplicationContext(), Constants.studentId, childArray.getJSONObject(0).getString("student_id"));
@@ -372,6 +381,7 @@ public class Login extends Activity {
                                      startActivity(asd);
                                      finish();
                                  } else {
+                                     Log.d("TAG", "onResponseh: ");
                                      Utility.setSharedPreferenceBoolean(getApplicationContext(), "hasMultipleChild", true);
                                      childNameList.clear(); childIdList.clear(); childImageList.clear();
                                      childClassList.clear(); childListAdapter.clear();
@@ -385,17 +395,17 @@ public class Login extends Activity {
                                      }
                                      childListAdapter.notifyDataSetChanged();
                                      showChildList();
-                                 }
+                                 }*/
 
-                                 if (Utility.isConnectingToInternet(getApplicationContext())) {
+                                 /*if (Utility.isConnectingToInternet(getApplicationContext())) {
                                      params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                                      JSONObject currobject=new JSONObject(params);
                                      Log.e("params ", currobject.toString());
-                                     System.out.println("params== "+ currobject.toString());
-                                     getCurrencyDataFromApi(currobject.toString());
+                                     System.out.println("params== "+ currobject);
+                                    // getCurrencyDataFromApi(currobject.toString());
                                  } else {
                                      makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
-                                 }
+                                 }*/
                                  Log.e("CHILD ARRAY LENGTH", childArray.length()+"..");
                              } else if (data.getString("role").equals("student")) {
                                  Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", true);
@@ -442,10 +452,13 @@ public class Login extends Activity {
          }) {
              @Override
              public Map<String, String> getHeaders() throws AuthFailureError {
-                 headers.put("Client-Service", "smartschool");
-                 headers.put("Auth-Key", "schoolAdmin@");
-                 headers.put("Content-Type", "application/json");
+                 headers.put("Client-Service", Constants.clientService);
+                 headers.put("Auth-Key", Constants.authKey);
+                 headers.put("Content-Type", Constants.contentType);
+                 headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
+                 headers.put("Cookie","ci_session=a7a60f4bf0964cdac1bc4b7a987dd76f70ed2df0");
                  return headers;
+
              }
 
              @Override
@@ -475,16 +488,20 @@ public class Login extends Activity {
          requestQueue.add(stringRequest);
      }
 
+
+
     private void getCurrencyDataFromApi (String bodyParams) {
         Log.e("RESULT PARAMS", bodyParams);
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getStudentCurrencyUrl;
+        Log.d(TAG, requestBody+"getCurrencyDataFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     try {
-                        Log.e("Result", result);
+                      //  Log.e("Result", result);
+                        Log.d(TAG, "onResponsghje: "+result);
                         JSONObject object = new JSONObject(result);
 
                         //TODO success
@@ -493,6 +510,10 @@ public class Login extends Activity {
                         Utility.setSharedPreference(getApplicationContext(), Constants.currency_price, data.getString("base_price"));
                         Utility.setSharedPreference(getApplicationContext(), Constants.currency_short_name, data.getString("name"));
                         Utility.setSharedPreference(getApplicationContext(), Constants.currency, data.getString("symbol"));
+
+                        Intent asd = new Intent(getApplicationContext(), NewDashboard.class);
+                        startActivity(asd);
+                        finish();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -548,6 +569,7 @@ public class Login extends Activity {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.lock_student_panelUrl;
+        Log.d(TAG, "isProfileLock: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -589,7 +611,7 @@ public class Login extends Activity {
                 headers.put("Content-Type", Constants.contentType);
                 headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
                 headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
-                Log.e("Headers", headers.toString());
+                Log.d(TAG, "getHeaders: "+headers);
                 return headers;
             }
 

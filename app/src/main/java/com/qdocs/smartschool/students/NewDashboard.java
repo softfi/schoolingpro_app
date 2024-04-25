@@ -128,6 +128,8 @@ public class NewDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_dashboard);
+
+        Log.d("TAG", "onCreategfh: ");
         Utility.setLocale(getApplicationContext(), Utility.getSharedPreferences(getApplicationContext(), Constants.langCode));
         drawerIndicator = findViewById(R.id.drawer_indicator);
         drawer = findViewById(R.id.drawer_layout);
@@ -162,7 +164,7 @@ public class NewDashboard extends AppCompatActivity {
             JSONObject obj = new JSONObject(params);
             Log.e("params", obj.toString());
             System.out.println("params==" + obj.toString());
-            getDatasFromApi(obj.toString());
+            //getDatasFromApi(obj.toString());
         } else {
             makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
@@ -347,6 +349,7 @@ public class NewDashboard extends AppCompatActivity {
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getELearningUrl;
         Log.e("URL", url);
+        Log.d("TAG", requestBody+"getRequestandb url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -447,6 +450,7 @@ public class NewDashboard extends AppCompatActivity {
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getAcademicsUrl;
         Log.e("URL", url);
+        Log.d("TAG", requestBody+"getRequestanda url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -542,6 +546,8 @@ public class NewDashboard extends AppCompatActivity {
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getCommunicateUrl;
         Log.e("URL", url);
+
+        Log.d("TAG", requestBody+"getRequestandgh url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -638,6 +644,7 @@ public class NewDashboard extends AppCompatActivity {
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getOthersUrl;
         Log.e("URL", url);
+        Log.d("TAG", requestBody+"getRequestandsg url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -946,6 +953,8 @@ public class NewDashboard extends AppCompatActivity {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.parent_getStudentList;
+        Log.d("TAG", requestBody+"getRequestandsh url: "+url);
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -1019,6 +1028,8 @@ public class NewDashboard extends AppCompatActivity {
 
     private void getDatasFromApi(String bodyParams) {
 
+        Log.d("TAG", "getDatasFromApi: "+bodyParams);
+
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
@@ -1027,6 +1038,8 @@ public class NewDashboard extends AppCompatActivity {
         final String requestBody = bodyParams;
 
             String url = "https://sstrace.qdocs.in/postlic/verifyappjsonv2";
+
+        Log.d("TAG", requestBody+"getDatasFromApi: "+url);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String result) {
@@ -1136,6 +1149,7 @@ public class NewDashboard extends AppCompatActivity {
     private void prepareNavList() {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("user", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
+            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getElearningFromApi(obj.toString());
@@ -1318,6 +1332,8 @@ public class NewDashboard extends AppCompatActivity {
         Log.e("RESULT PARAMS", bodyParams);
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getDashboardUrl;
+
+        Log.d("TAG", requestBody+"getRequestand url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -1385,6 +1401,7 @@ public class NewDashboard extends AppCompatActivity {
         Log.e("RESULT PARAMS", bodyParams);
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getStudentCurrencyUrl;
+        Log.d("TAG", requestBody+"getRequestands url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -1452,6 +1469,7 @@ public class NewDashboard extends AppCompatActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.checkStudentStatusUrl;
         System.out.println("url=="+url);
+        Log.d("TAG", requestBody+"getRequestandh url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
