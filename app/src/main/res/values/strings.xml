@@ -447,6 +447,7 @@
     <string name="noData"> No Data Found! </string>
     <string name="noQuestionFound">No Question Found, Please contact to Administrator!!! </string>
     <string name="toDo">Calendar To Do List </string>
+    <string name="createTask" translatable="false">Create Task </string>
     <string name="edittask">Edit Task</string>
     <string name="saveLang">Are you sure you want to Save Language?</string>
     <string name="applyLang">You need to login again to apply Language</string>

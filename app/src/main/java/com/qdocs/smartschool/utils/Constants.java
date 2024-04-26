@@ -110,7 +110,7 @@ public class Constants {
     public static final String getincidentcommentsUrl = "webservice/getincidentcomments";
     public static final String deleteincidentcommentsUrl = "webservice/deleteincidentcomments";
     public static final String getOnlineExamResultUrl = "webservice/getOnlineExamResult";
-    public static final String getApplyLeaveUrl = "webservice/getApplyLeave";
+    public static final String getApplyLeaveUrl = "webservice/getApplyLeave";            //
     public static final String getVisitorsUrl = "webservice/getVisitors";
     public static final String addofflinepaymentUrl = "webservice/addofflinepayment";
     public static final String addleaveUrl = "webservice/addleave";

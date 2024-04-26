@@ -166,15 +166,15 @@ public class OtherModuleAdapter extends RecyclerView.Adapter<OtherModuleAdapter.
                 public void onClick(View view) {
                     if(position==0){
                         if(album.getName().equals("fees")){
-                            Intent feeslistintent = new Intent(context, StudentFees.class);
+                            Intent feeslistintent = new Intent(context, StudentFees.class);  //
                             context.startActivity(feeslistintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("apply_leave")){
-                            Intent leaveintent = new Intent(context, StudentAppyLeave.class);
+                            Intent leaveintent = new Intent(context, StudentAppyLeave.class);//
                             context.startActivity(leaveintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("visitor_book")){
-                            Intent visitorintent = new Intent(context, StudentVisitorBook.class);
+                            Intent visitorintent = new Intent(context, StudentVisitorBook.class);//
                             context.startActivity(visitorintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("transport_routes")){
@@ -182,19 +182,19 @@ public class OtherModuleAdapter extends RecyclerView.Adapter<OtherModuleAdapter.
                             context.startActivity(transportintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("hostel_rooms")){
-                            Intent hostelintent = new Intent(context, StudentHostel.class);
+                            Intent hostelintent = new Intent(context, StudentHostel.class);  //
                             context.startActivity(hostelintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("calendar_to_do_list")){
-                            Intent taskintent = new Intent(context, StudentTasks.class);
+                            Intent taskintent = new Intent(context, StudentTasks.class);  //
                             context.startActivity(taskintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("library")){
-                            Intent libraryintent = new Intent(context, StudentLibraryBookIssued.class);
+                            Intent libraryintent = new Intent(context, StudentLibraryBookIssued.class);  //
                             context.startActivity(libraryintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }else if(album.getName().equals("teachers_rating")){
-                            Intent teacherlistintent = new Intent(context, StudentTeachersList.class);
+                            Intent teacherlistintent = new Intent(context, StudentTeachersList.class);  //
                             context.startActivity(teacherlistintent);
                             context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                         }

@@ -85,6 +85,7 @@ public class CbseExaminationActivity extends BaseActivity {
 
 
         if(Utility.isConnectingToInternet(getApplicationContext())){
+            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("student_session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.student_session_id));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
@@ -104,6 +105,8 @@ public class CbseExaminationActivity extends BaseActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.cbseexamresultUrl;
         Log.e("URL", url);
+
+        Log.d("TAG", requestBody+"getcbscFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

@@ -98,7 +98,7 @@
 48-->[androidx.core:core:1.9.0] C:\Users\lenovo\.gradle\caches\transforms-3\2e6153425324545fcd287a2f319ce459\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 49
 50    <application
-50-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-290:19
+50-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-293:19
 51        android:name="com.qdocs.smartschool.utils.MyApp"
 51-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:37:9-36
 52        android:allowBackup="false"
@@ -130,626 +130,631 @@
 66-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:48:9-44
 67        <activity
 67-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:50:9-52:40
-68            android:name="com.qdocs.smartschool.students.CbseExaminationActivity"
-68-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:51:13-61
+68            android:name="com.qdocs.smartschool.students.CreateTaskActivity"
+68-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:51:13-56
 69            android:exported="false" />
 69-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:52:13-37
-70        `
-71        <activity
-71-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:54:9-56:40
-72            android:name="com.qdocs.smartschool.students.CbseTimeTableActivity"
-72-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:55:13-59
-73            android:exported="false" />
-73-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:56:13-37
-74        <activity
-74-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:57:9-59:40
-75            android:name="com.qdocs.smartschool.students.StudentOfflinePayment"
-75-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:58:13-59
-76            android:exported="false" />
-76-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:59:13-37
-77        <activity
-77-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:60:9-62:39
-78            android:name="com.qdocs.smartschool.students.BehaviourComment"
-78-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:61:13-54
-79            android:exported="true" />
-79-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:62:13-36
-80        <activity
-80-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:63:9-65:39
-81            android:name="com.qdocs.smartschool.students.StudentVideoTutorialPlay"
-81-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:64:13-62
-82            android:exported="true" />
-82-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:65:13-36
-83        <activity
-83-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:66:9-68:39
-84            android:name="com.qdocs.smartschool.students.StudentHomeworkNew"
-84-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:67:13-56
-85            android:exported="true" />
-85-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:68:13-36
-86        <activity
-86-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:69:9-71:39
-87            android:name="com.qdocs.smartschool.students.NewDashboard"
-87-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:70:13-50
-88            android:exported="true" />
-88-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:71:13-36
-89        <activity
-89-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:72:9-74:39
-90            android:name="com.qdocs.smartschool.students.StudentCoursePerformance"
-90-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:73:13-62
-91            android:exported="true" />
-91-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:74:13-36
-92        <activity
-92-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:75:9-77:39
-93            android:name="com.qdocs.smartschool.students.StudentUploadDocument"
-93-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:76:13-59
-94            android:exported="true" />
-94-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:77:13-36
-95        <activity
-95-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:78:9-80:39
-96            android:name="com.qdocs.smartschool.students.StudentDailyAssignment"
-96-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:79:13-60
-97            android:exported="true" />
-97-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:80:13-36
-98        <activity
-98-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:81:9-83:39
-99            android:name="com.qdocs.smartschool.students.StudentProcessingFees"
-99-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:82:13-59
-100            android:exported="true" />
-100-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:83:13-36
-101        <activity
-101-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:84:9-87:39
-102            android:name="com.qdocs.smartschool.students.StudentCourseDetail"
-102-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:85:13-57
-103            android:configChanges="orientation|keyboardHidden|screenSize|layoutDirection"
-103-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:86:13-90
-104            android:exported="true" />
-104-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:87:13-36
-105        <activity
-105-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:88:9-90:39
-106            android:name="com.qdocs.smartschool.students.StudentOnlineCourse"
-106-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:89:13-57
-107            android:exported="true" />
-107-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:90:13-36
-108        <activity
-108-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:91:9-94:39
-109            android:name="com.qdocs.smartschool.students.StudentStartLessonActivity"
-109-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:92:13-64
-110            android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection|uiMode"
-110-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:93:13-97
-111            android:exported="true" />
-111-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:94:13-36
-112        <activity
-112-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:95:9-97:39
-113            android:name="com.qdocs.smartschool.students.StudentLiveClasses"
-113-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:96:13-56
-114            android:exported="true" />
-114-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:97:13-36
-115        <activity
-115-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:98:9-100:39
-116            android:name="com.qdocs.smartschool.students.StudentOfflinePaymentList"
-116-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:99:13-63
-117            android:exported="true" />
-117-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:100:13-36
-118        <activity
-118-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:101:9-103:39
-119            android:name="com.qdocs.smartschool.students.StudentGmeetLiveClasses"
-119-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:102:13-61
-120            android:exported="true" />
-120-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:103:13-36
-121        <activity
-121-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:104:9-106:39
-122            android:name="com.qdocs.smartschool.students.StudentBehaviourReport"
-122-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:105:13-60
-123            android:exported="true" />
-123-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:106:13-36
-124        <activity
-124-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:107:9-109:39
-125            android:name="com.qdocs.smartschool.students.NotificationList"
-125-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:108:13-54
-126            android:exported="true" />
-126-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:109:13-36
-127        <activity
-127-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:110:9-113:39
-128            android:name="com.qdocs.smartschool.students.StudentOnlineExamQuestionsNew"
-128-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:111:13-67
-129            android:configChanges="orientation|screenSize"
-129-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:112:13-59
-130            android:exported="true" />
-130-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:113:13-36
-131        <activity
-131-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:114:9-116:39
-132            android:name="com.qdocs.smartschool.students.StudentOnlineExamResult"
-132-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:115:13-61
-133            android:exported="true" />
-133-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:116:13-36
-134        <activity
-134-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:117:9-119:39
-135            android:name="com.qdocs.smartschool.students.StudentOnlineExam"
-135-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:118:13-55
-136            android:exported="true" />
-136-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:119:13-36
-137        <activity
-137-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:120:9-122:39
-138            android:name="com.qdocs.smartschool.AboutSchool"
-138-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:121:13-40
-139            android:exported="true" />
-139-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:122:13-36
-140        <activity
-140-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:123:9-125:39
-141            android:name="com.qdocs.smartschool.students.StudentTimeline"
-141-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:124:13-53
-142            android:exported="true" />
-142-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:125:13-36
-143        <activity
-143-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:126:9-128:39
-144            android:name="com.qdocs.smartschool.students.StudentAddTimeLine"
-144-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:127:13-56
-145            android:exported="true" />
-145-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:128:13-36
-146        <activity
-146-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:129:9-131:39
-147            android:name="com.qdocs.smartschool.students.StudentEditTimeLine"
-147-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:130:13-57
-148            android:exported="true" />
-148-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:131:13-36
-149        <activity
-149-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:132:9-134:39
-150            android:name="com.qdocs.smartschool.students.StudentDocuments"
-150-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:133:13-54
-151            android:exported="true" />
-151-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:134:13-36
-152        <activity
-152-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:135:9-142:20
-153            android:name="com.qdocs.smartschool.SplashActivity"
-153-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:136:13-43
-154            android:exported="true" >
-154-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:137:13-36
-155            <intent-filter>
-155-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:138:13-141:29
-156                <action android:name="android.intent.action.MAIN" />
-156-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:139:17-69
-156-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:139:25-66
-157
-158                <category android:name="android.intent.category.LAUNCHER" />
-158-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:140:17-77
-158-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:140:27-74
-159            </intent-filter>
-160        </activity>
-161        <activity
-161-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:143:9-145:39
-162            android:name="com.qdocs.smartschool.Login"
-162-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:144:13-34
-163            android:exported="true" />
-163-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:145:13-36
-164        <activity
-164-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:146:9-148:39
-165            android:name="com.qdocs.smartschool.students.StudentProfileDetailsNew"
-165-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:147:13-62
-166            android:exported="true" />
-166-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:148:13-36
-167        <activity
-167-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:149:9-151:39
-168            android:name="com.qdocs.smartschool.students.StudentAddAssignment"
-168-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:150:13-58
-169            android:exported="true" />
-169-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:151:13-36
-170        <activity
-170-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:152:9-154:39
-171            android:name="com.qdocs.smartschool.students.StudentEditAssignment"
-171-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:153:13-59
-172            android:exported="true" />
-172-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:154:13-36
-173        <activity
-173-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:155:9-157:39
-174            android:name="com.qdocs.smartschool.students.StudentUploadHomework"
-174-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:156:13-59
-175            android:exported="true" />
-175-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:157:13-36
-176        <activity
-176-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:158:9-160:39
-177            android:name="com.qdocs.smartschool.ForgotPassword"
-177-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:159:13-43
-178            android:exported="true" />
-178-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:160:13-36
-179        <activity
-179-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:161:9-163:39
-180            android:name="com.qdocs.smartschool.BaseActivity"
-180-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:162:13-41
-181            android:exported="true" />
-181-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:163:13-36
-182        <activity
-182-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:164:9-166:39
-183            android:name="com.qdocs.smartschool.students.StudentFees"
-183-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:165:13-49
-184            android:exported="true" />
-184-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:166:13-36
-185        <activity
-185-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:167:9-169:39
-186            android:name="com.qdocs.smartschool.students.StudentNoticeBoard"
-186-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:168:13-56
-187            android:exported="true" />
-187-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:169:13-36
-188        <activity
-188-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:170:9-172:39
-189            android:name="com.qdocs.smartschool.students.StudentExaminationList"
-189-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:171:13-60
-190            android:exported="true" />
-190-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:172:13-36
-191        <activity
-191-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:173:9-175:39
-192            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamListResult"
-192-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:174:13-70
-193            android:exported="true" />
-193-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:175:13-36
-194        <activity
-194-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:176:9-178:39
-195            android:name="com.qdocs.smartschool.students.StudentSubjectList"
-195-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:177:13-56
-196            android:exported="true" />
-196-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:178:13-36
-197        <activity
-197-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:179:9-181:39
-198            android:name="com.qdocs.smartschool.students.StudentTeachersList"
-198-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:180:13-57
-199            android:exported="true" />
-199-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:181:13-36
-200        <activity
-200-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:182:9-184:39
-201            android:name="com.qdocs.smartschool.students.StudentTransportRoutes"
-201-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:183:13-60
-202            android:exported="true" />
-202-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:184:13-36
-203        <activity
-203-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:185:9-187:39
-204            android:name="com.qdocs.smartschool.students.StudentDownloads"
-204-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:186:13-54
-205            android:exported="true" />
-205-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:187:13-36
-206        <activity
-206-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:188:9-190:39
-207            android:name="com.qdocs.smartschool.students.StudentAttendance"
-207-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:189:13-55
-208            android:exported="true" />
-208-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:190:13-36
-209        <activity
-209-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:191:9-193:39
-210            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamList"
-210-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:192:13-64
-211            android:exported="true" />
-211-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:193:13-36
-212        <activity
-212-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:194:9-196:39
-213            android:name="com.qdocs.smartschool.students.StudentExamSchedule_ExamList"
-213-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:195:13-66
-214            android:exported="true" />
-214-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:196:13-36
-215        <activity
-215-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:197:9-199:39
-216            android:name="com.qdocs.smartschool.students.StudentExamSchedule"
-216-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:198:13-57
-217            android:exported="true" />
-217-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:199:13-36
-218        <activity
-218-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:200:9-202:39
-219            android:name="com.qdocs.smartschool.students.StudentVisitorBook"
-219-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:201:13-56
-220            android:exported="true" />
-220-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:202:13-36
-221        <activity
-221-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:203:9-205:39
-222            android:name="com.qdocs.smartschool.students.StudentHostel"
-222-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:204:13-51
-223            android:exported="true" />
-223-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:205:13-36
-224        <activity
-224-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:206:9-208:39
-225            android:name="com.qdocs.smartschool.students.StudentLibraryBook"
-225-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:207:13-56
-226            android:exported="true" />
-226-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:208:13-36
-227        <activity
-227-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:209:9-211:39
-228            android:name="com.qdocs.smartschool.students.StudentClassTimetable"
-228-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:210:13-59
-229            android:exported="true" />
-229-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:211:13-36
-230        <activity
-230-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:212:9-214:39
-231            android:name="com.qdocs.smartschool.students.StudentSyllabusTimetable"
-231-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:213:13-62
-232            android:exported="true" />
-232-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:214:13-36
-233        <activity
-233-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:215:9-217:39
-234            android:name="com.qdocs.smartschool.students.StudentSyllabusStatus"
-234-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:216:13-59
-235            android:exported="true" />
-235-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:217:13-36
-236        <activity
-236-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:218:9-220:39
-237            android:name="com.qdocs.smartschool.students.StudentLibraryBookIssued"
-237-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:219:13-62
-238            android:exported="true" />
-238-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:220:13-36
-239        <activity
-239-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:221:9-223:39
-240            android:name="com.qdocs.smartschool.students.StudentAppyLeave"
-240-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:222:13-54
-241            android:exported="true" />
-241-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:223:13-36
-242        <activity
-242-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:224:9-226:39
-243            android:name="com.qdocs.smartschool.students.StudentAddLeave"
-243-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:225:13-53
-244            android:exported="true" />
-244-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:226:13-36
-245        <activity
-245-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:227:9-229:39
-246            android:name="com.qdocs.smartschool.students.StudentEditLeave"
-246-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:228:13-54
-247            android:exported="true" />
-247-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:229:13-36
-248        <activity
-248-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:230:9-232:39
-249            android:name="com.qdocs.smartschool.students.StudentSyllabus"
-249-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:231:13-53
-250            android:exported="true" />
-250-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:232:13-36
-251        <activity
-251-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:233:9-235:39
-252            android:name="com.qdocs.smartschool.students.StudentOnlineQuizResult"
-252-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:234:13-61
-253            android:exported="true" />
-253-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:235:13-36
-254        <activity
-254-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:236:9-238:39
-255            android:name="com.qdocs.smartschool.students.StudentSyllabuslesson"
-255-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:237:13-59
-256            android:exported="true" />
-256-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:238:13-36
-257        <activity
-257-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:239:9-241:39
-258            android:name="com.qdocs.smartschool.students.StudentOnlineCourseQuiz"
-258-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:240:13-61
-259            android:exported="true" />
-259-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:241:13-36
-260        <activity
-260-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:242:9-244:39
-261            android:name="com.qdocs.smartschool.SettingActivity"
-261-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:243:13-44
-262            android:exported="true" />
-262-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:244:13-36
-263        <activity
-263-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:245:9-248:40
-264            android:name="com.qdocs.smartschool.TakeUrl"
-264-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:246:13-36
-265            android:configChanges="orientation|screenSize"
-265-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:247:13-59
-266            android:exported="false" />
-266-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:248:13-37
-267        <activity
-267-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:249:9-251:39
-268            android:name="com.qdocs.smartschool.OpenPdf"
-268-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:250:13-36
-269            android:exported="true" />
-269-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:251:13-36
-270        <activity
-270-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:252:9-254:39
-271            android:name="com.qdocs.smartschool.students.StudentTasks"
-271-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:253:13-50
-272            android:exported="true" />
-272-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:254:13-36
-273        <activity
-273-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:255:9-257:39
-274            android:name="com.qdocs.smartschool.students.StudentTasksEdit"
-274-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:256:13-54
-275            android:exported="true" />
-275-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:257:13-36
-276        <activity
-276-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:258:9-260:39
-277            android:name="com.qdocs.smartschool.students.Payment"
-277-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:259:13-45
-278            android:exported="true" />
-278-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:260:13-36
-279        <activity
-279-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:261:9-263:39
-280            android:name="com.qdocs.smartschool.students.CoursePayment"
-280-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:262:13-51
-281            android:exported="true" />
-281-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:263:13-36
-282        <activity
-282-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:264:9-268:53
-283            android:name="com.qdocs.smartschool.students.CourseVideoPlay"
-283-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:265:13-53
-284            android:configChanges="orientation|screenSize"
-284-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:266:13-59
-285            android:exported="false"
-285-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:267:13-37
-286            android:screenOrientation="landscape" />
-286-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:268:13-50
-287        <activity
-287-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:269:9-271:40
-288            android:name="com.qdocs.smartschool.students.LiveClasses"
-288-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:270:13-49
-289            android:exported="false" />
-289-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:271:13-37
-290
-291        <service
-291-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:273:9-279:19
-292            android:name="com.qdocs.smartschool.utils.MyFirebaseMessagingService"
-292-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:274:13-61
-293            android:exported="true" >
-293-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:275:13-36
-294            <intent-filter>
-294-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:276:13-278:29
-295                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-295-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:17-78
-295-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:25-75
-296            </intent-filter>
-297        </service>
-298
-299        <provider
-300            android:name="androidx.core.content.FileProvider"
-300-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:282:13-62
-301            android:authorities="com.qdocs.smartschool.provider"
-301-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:283:13-60
-302            android:exported="false"
-302-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:284:13-37
-303            android:grantUriPermissions="true" >
-303-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:285:13-47
-304            <meta-data
-304-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:286:13-288:58
-305                android:name="android.support.FILE_PROVIDER_PATHS"
-305-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:287:17-67
-306                android:resource="@xml/provider_paths" />
-306-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:288:17-55
-307        </provider>
-308        <provider
-308-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:8:9-11:40
-309            android:name="com.squareup.picasso.PicassoProvider"
-309-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:9:13-64
-310            android:authorities="com.qdocs.smartschool.com.squareup.picasso"
-310-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:10:13-72
-311            android:exported="false" />
-311-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:11:13-37
-312        <!--
-313             FirebaseMessagingService performs security checks at runtime,
-314             but set to not exported to explicitly avoid allowing another app to call it.
-315        -->
-316        <service
-316-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:28:9-34:19
-317            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-317-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:29:13-82
-318            android:exported="false" >
-318-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:30:13-37
-319            <intent-filter android:priority="-500" >
-319-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:276:13-278:29
-320                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-320-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:17-78
-320-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:25-75
-321            </intent-filter>
-322        </service>
-323        <service
-323-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:29:9-35:19
-324            android:name="com.google.firebase.components.ComponentDiscoveryService"
-324-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:30:13-84
-325            android:exported="false" >
-325-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:31:13-37
-326            <meta-data
-326-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:32:13-34:85
-327                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-327-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:33:17-96
-328                android:value="com.google.firebase.components.ComponentRegistrar" />
-328-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:34:17-82
-329        </service>
-330
-331        <receiver
-331-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:37:9-44:20
-332            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-332-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:38:13-78
-333            android:exported="true"
-333-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:39:13-36
-334            android:permission="com.google.android.c2dm.permission.SEND" >
-334-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:40:13-73
-335            <intent-filter>
-335-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:41:13-43:29
-336                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-336-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:17-81
-336-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:25-78
-337            </intent-filter>
-338        </receiver>
-339
-340        <provider
-340-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
-341            android:name="com.google.firebase.provider.FirebaseInitProvider"
-341-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:13:13-77
-342            android:authorities="com.qdocs.smartschool.firebaseinitprovider"
-342-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:14:13-72
-343            android:exported="false"
-343-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:15:13-37
-344            android:initOrder="100" />
-344-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:16:13-36
-345
-346        <activity
-346-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-347            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-347-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-348            android:exported="false"
-348-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-349            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-349-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-350
-351        <meta-data
-351-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-352            android:name="com.google.android.gms.version"
-352-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-353            android:value="@integer/google_play_services_version" />
-353-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-354
-355        <provider
-355-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-356            android:name="androidx.startup.InitializationProvider"
-356-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-357            android:authorities="com.qdocs.smartschool.androidx-startup"
-357-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-358            android:exported="false" >
-358-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-359            <meta-data
-359-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-360                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-360-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-361                android:value="androidx.startup" />
-361-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-362            <meta-data
-362-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-363                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-363-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
-364                android:value="androidx.startup" />
-364-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
-365            <meta-data
-365-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-366                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-366-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-367                android:value="androidx.startup" />
-367-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-368        </provider>
-369
-370        <receiver
-370-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-371            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-371-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-372            android:directBootAware="false"
-372-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-373            android:enabled="true"
-373-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-374            android:exported="true"
-374-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-375            android:permission="android.permission.DUMP" >
-375-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-376            <intent-filter>
-376-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-377                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-377-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-377-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-378            </intent-filter>
-379            <intent-filter>
-379-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-380                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-380-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-380-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-381            </intent-filter>
-382            <intent-filter>
-382-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-383                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-383-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-383-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-384            </intent-filter>
-385            <intent-filter>
-385-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-386                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-386-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-386-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-387            </intent-filter>
-388        </receiver>
-389    </application>
-390
-391</manifest>
+70        <activity
+70-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:53:9-55:40
+71            android:name="com.qdocs.smartschool.students.CbseExaminationActivity"
+71-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:54:13-61
+72            android:exported="false" />
+72-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:55:13-37
+73        <activity
+73-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:56:9-58:40
+74            android:name="com.qdocs.smartschool.students.CbseTimeTableActivity"
+74-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:57:13-59
+75            android:exported="false" />
+75-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:58:13-37
+76        <activity
+76-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:59:9-61:40
+77            android:name="com.qdocs.smartschool.students.StudentOfflinePayment"
+77-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:60:13-59
+78            android:exported="false" />
+78-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:61:13-37
+79        <activity
+79-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:62:9-64:39
+80            android:name="com.qdocs.smartschool.students.BehaviourComment"
+80-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:63:13-54
+81            android:exported="true" />
+81-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:64:13-36
+82        <activity
+82-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:65:9-67:39
+83            android:name="com.qdocs.smartschool.students.StudentVideoTutorialPlay"
+83-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:66:13-62
+84            android:exported="true" />
+84-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:67:13-36
+85        <activity
+85-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:68:9-70:39
+86            android:name="com.qdocs.smartschool.students.StudentHomeworkNew"
+86-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:69:13-56
+87            android:exported="true" />
+87-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:70:13-36
+88        <activity
+88-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:71:9-73:39
+89            android:name="com.qdocs.smartschool.students.NewDashboard"
+89-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:72:13-50
+90            android:exported="true" />
+90-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:73:13-36
+91        <activity
+91-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:74:9-76:39
+92            android:name="com.qdocs.smartschool.students.StudentCoursePerformance"
+92-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:75:13-62
+93            android:exported="true" />
+93-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:76:13-36
+94        <activity
+94-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:77:9-79:39
+95            android:name="com.qdocs.smartschool.students.StudentUploadDocument"
+95-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:78:13-59
+96            android:exported="true" />
+96-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:79:13-36
+97        <activity
+97-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:80:9-82:39
+98            android:name="com.qdocs.smartschool.students.StudentDailyAssignment"
+98-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:81:13-60
+99            android:exported="true" />
+99-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:82:13-36
+100        <activity
+100-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:83:9-85:39
+101            android:name="com.qdocs.smartschool.students.StudentProcessingFees"
+101-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:84:13-59
+102            android:exported="true" />
+102-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:85:13-36
+103        <activity
+103-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:86:9-89:39
+104            android:name="com.qdocs.smartschool.students.StudentCourseDetail"
+104-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:87:13-57
+105            android:configChanges="orientation|keyboardHidden|screenSize|layoutDirection"
+105-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:88:13-90
+106            android:exported="true" />
+106-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:89:13-36
+107        <activity
+107-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:90:9-92:39
+108            android:name="com.qdocs.smartschool.students.StudentOnlineCourse"
+108-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:91:13-57
+109            android:exported="true" />
+109-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:92:13-36
+110        <activity
+110-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:93:9-96:39
+111            android:name="com.qdocs.smartschool.students.StudentStartLessonActivity"
+111-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:94:13-64
+112            android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection|uiMode"
+112-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:95:13-97
+113            android:exported="true" />
+113-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:96:13-36
+114        <activity
+114-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:97:9-99:39
+115            android:name="com.qdocs.smartschool.students.StudentLiveClasses"
+115-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:98:13-56
+116            android:exported="true" />
+116-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:99:13-36
+117        <activity
+117-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:100:9-102:39
+118            android:name="com.qdocs.smartschool.students.StudentOfflinePaymentList"
+118-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:101:13-63
+119            android:exported="true" />
+119-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:102:13-36
+120        <activity
+120-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:103:9-105:39
+121            android:name="com.qdocs.smartschool.students.StudentGmeetLiveClasses"
+121-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:104:13-61
+122            android:exported="true" />
+122-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:105:13-36
+123        <activity
+123-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:106:9-108:39
+124            android:name="com.qdocs.smartschool.students.StudentBehaviourReport"
+124-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:107:13-60
+125            android:exported="true" />
+125-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:108:13-36
+126        <activity
+126-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:109:9-111:39
+127            android:name="com.qdocs.smartschool.students.NotificationList"
+127-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:110:13-54
+128            android:exported="true" />
+128-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:111:13-36
+129        <activity
+129-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:112:9-115:39
+130            android:name="com.qdocs.smartschool.students.StudentOnlineExamQuestionsNew"
+130-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:113:13-67
+131            android:configChanges="orientation|screenSize"
+131-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:114:13-59
+132            android:exported="true" />
+132-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:115:13-36
+133        <activity
+133-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:116:9-118:39
+134            android:name="com.qdocs.smartschool.students.StudentOnlineExamResult"
+134-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:117:13-61
+135            android:exported="true" />
+135-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:118:13-36
+136        <activity
+136-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:119:9-121:39
+137            android:name="com.qdocs.smartschool.students.StudentOnlineExam"
+137-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:120:13-55
+138            android:exported="true" />
+138-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:121:13-36
+139        <activity
+139-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:122:9-124:39
+140            android:name="com.qdocs.smartschool.AboutSchool"
+140-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:123:13-40
+141            android:exported="true" />
+141-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:124:13-36
+142        <activity
+142-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:125:9-127:39
+143            android:name="com.qdocs.smartschool.students.StudentTimeline"
+143-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:126:13-53
+144            android:exported="true" />
+144-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:127:13-36
+145        <activity
+145-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:128:9-130:39
+146            android:name="com.qdocs.smartschool.students.StudentAddTimeLine"
+146-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:129:13-56
+147            android:exported="true" />
+147-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:130:13-36
+148        <activity
+148-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:131:9-133:39
+149            android:name="com.qdocs.smartschool.students.StudentEditTimeLine"
+149-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:132:13-57
+150            android:exported="true" />
+150-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:133:13-36
+151        <activity
+151-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:134:9-136:39
+152            android:name="com.qdocs.smartschool.students.StudentDocuments"
+152-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:135:13-54
+153            android:exported="true" />
+153-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:136:13-36
+154        <activity
+154-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:137:9-145:20
+155            android:name="com.qdocs.smartschool.SplashActivity"
+155-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:138:13-43
+156            android:exported="true" >
+156-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:139:13-36
+157            <intent-filter>
+157-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:140:13-144:29
+158                <action android:name="android.intent.action.MAIN" />
+158-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:141:17-69
+158-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:141:25-66
+159
+160                <category android:name="android.intent.category.LAUNCHER" />
+160-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:143:17-77
+160-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:143:27-74
+161            </intent-filter>
+162        </activity>
+163        <activity
+163-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:146:9-148:39
+164            android:name="com.qdocs.smartschool.Login"
+164-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:147:13-34
+165            android:exported="true" />
+165-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:148:13-36
+166        <activity
+166-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:149:9-151:39
+167            android:name="com.qdocs.smartschool.students.StudentProfileDetailsNew"
+167-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:150:13-62
+168            android:exported="true" />
+168-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:151:13-36
+169        <activity
+169-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:152:9-154:39
+170            android:name="com.qdocs.smartschool.students.StudentAddAssignment"
+170-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:153:13-58
+171            android:exported="true" />
+171-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:154:13-36
+172        <activity
+172-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:155:9-157:39
+173            android:name="com.qdocs.smartschool.students.StudentEditAssignment"
+173-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:156:13-59
+174            android:exported="true" />
+174-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:157:13-36
+175        <activity
+175-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:158:9-160:39
+176            android:name="com.qdocs.smartschool.students.StudentUploadHomework"
+176-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:159:13-59
+177            android:exported="true" />
+177-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:160:13-36
+178        <activity
+178-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:161:9-163:39
+179            android:name="com.qdocs.smartschool.ForgotPassword"
+179-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:162:13-43
+180            android:exported="true" />
+180-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:163:13-36
+181        <activity
+181-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:164:9-166:39
+182            android:name="com.qdocs.smartschool.BaseActivity"
+182-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:165:13-41
+183            android:exported="true" />
+183-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:166:13-36
+184        <activity
+184-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:167:9-169:39
+185            android:name="com.qdocs.smartschool.students.StudentFees"
+185-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:168:13-49
+186            android:exported="true" />
+186-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:169:13-36
+187        <activity
+187-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:170:9-172:39
+188            android:name="com.qdocs.smartschool.students.StudentNoticeBoard"
+188-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:171:13-56
+189            android:exported="true" />
+189-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:172:13-36
+190        <activity
+190-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:173:9-175:39
+191            android:name="com.qdocs.smartschool.students.StudentExaminationList"
+191-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:174:13-60
+192            android:exported="true" />
+192-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:175:13-36
+193        <activity
+193-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:176:9-178:39
+194            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamListResult"
+194-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:177:13-70
+195            android:exported="true" />
+195-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:178:13-36
+196        <activity
+196-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:179:9-181:39
+197            android:name="com.qdocs.smartschool.students.StudentSubjectList"
+197-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:180:13-56
+198            android:exported="true" />
+198-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:181:13-36
+199        <activity
+199-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:182:9-184:39
+200            android:name="com.qdocs.smartschool.students.StudentTeachersList"
+200-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:183:13-57
+201            android:exported="true" />
+201-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:184:13-36
+202        <activity
+202-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:185:9-187:39
+203            android:name="com.qdocs.smartschool.students.StudentTransportRoutes"
+203-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:186:13-60
+204            android:exported="true" />
+204-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:187:13-36
+205        <activity
+205-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:188:9-190:39
+206            android:name="com.qdocs.smartschool.students.StudentDownloads"
+206-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:189:13-54
+207            android:exported="true" />
+207-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:190:13-36
+208        <activity
+208-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:191:9-193:39
+209            android:name="com.qdocs.smartschool.students.StudentAttendance"
+209-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:192:13-55
+210            android:exported="true" />
+210-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:193:13-36
+211        <activity
+211-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:194:9-196:39
+212            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamList"
+212-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:195:13-64
+213            android:exported="true" />
+213-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:196:13-36
+214        <activity
+214-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:197:9-199:39
+215            android:name="com.qdocs.smartschool.students.StudentExamSchedule_ExamList"
+215-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:198:13-66
+216            android:exported="true" />
+216-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:199:13-36
+217        <activity
+217-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:200:9-202:39
+218            android:name="com.qdocs.smartschool.students.StudentExamSchedule"
+218-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:201:13-57
+219            android:exported="true" />
+219-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:202:13-36
+220        <activity
+220-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:203:9-205:39
+221            android:name="com.qdocs.smartschool.students.StudentVisitorBook"
+221-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:204:13-56
+222            android:exported="true" />
+222-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:205:13-36
+223        <activity
+223-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:206:9-208:39
+224            android:name="com.qdocs.smartschool.students.StudentHostel"
+224-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:207:13-51
+225            android:exported="true" />
+225-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:208:13-36
+226        <activity
+226-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:209:9-211:39
+227            android:name="com.qdocs.smartschool.students.StudentLibraryBook"
+227-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:210:13-56
+228            android:exported="true" />
+228-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:211:13-36
+229        <activity
+229-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:212:9-214:39
+230            android:name="com.qdocs.smartschool.students.StudentClassTimetable"
+230-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:213:13-59
+231            android:exported="true" />
+231-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:214:13-36
+232        <activity
+232-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:215:9-217:39
+233            android:name="com.qdocs.smartschool.students.StudentSyllabusTimetable"
+233-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:216:13-62
+234            android:exported="true" />
+234-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:217:13-36
+235        <activity
+235-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:218:9-220:39
+236            android:name="com.qdocs.smartschool.students.StudentSyllabusStatus"
+236-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:219:13-59
+237            android:exported="true" />
+237-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:220:13-36
+238        <activity
+238-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:221:9-223:39
+239            android:name="com.qdocs.smartschool.students.StudentLibraryBookIssued"
+239-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:222:13-62
+240            android:exported="true" />
+240-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:223:13-36
+241        <activity
+241-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:224:9-226:39
+242            android:name="com.qdocs.smartschool.students.StudentAppyLeave"
+242-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:225:13-54
+243            android:exported="true" />
+243-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:226:13-36
+244        <activity
+244-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:227:9-229:39
+245            android:name="com.qdocs.smartschool.students.StudentAddLeave"
+245-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:228:13-53
+246            android:exported="true" />
+246-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:229:13-36
+247        <activity
+247-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:230:9-232:39
+248            android:name="com.qdocs.smartschool.students.StudentEditLeave"
+248-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:231:13-54
+249            android:exported="true" />
+249-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:232:13-36
+250        <activity
+250-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:233:9-235:39
+251            android:name="com.qdocs.smartschool.students.StudentSyllabus"
+251-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:234:13-53
+252            android:exported="true" />
+252-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:235:13-36
+253        <activity
+253-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:236:9-238:39
+254            android:name="com.qdocs.smartschool.students.StudentOnlineQuizResult"
+254-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:237:13-61
+255            android:exported="true" />
+255-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:238:13-36
+256        <activity
+256-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:239:9-241:39
+257            android:name="com.qdocs.smartschool.students.StudentSyllabuslesson"
+257-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:240:13-59
+258            android:exported="true" />
+258-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:241:13-36
+259        <activity
+259-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:242:9-244:39
+260            android:name="com.qdocs.smartschool.students.StudentOnlineCourseQuiz"
+260-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:243:13-61
+261            android:exported="true" />
+261-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:244:13-36
+262        <activity
+262-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:245:9-247:39
+263            android:name="com.qdocs.smartschool.SettingActivity"
+263-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:246:13-44
+264            android:exported="true" />
+264-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:247:13-36
+265        <activity
+265-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:248:9-251:40
+266            android:name="com.qdocs.smartschool.TakeUrl"
+266-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:249:13-36
+267            android:configChanges="orientation|screenSize"
+267-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:250:13-59
+268            android:exported="false" />
+268-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:251:13-37
+269        <activity
+269-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:252:9-254:39
+270            android:name="com.qdocs.smartschool.OpenPdf"
+270-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:253:13-36
+271            android:exported="true" />
+271-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:254:13-36
+272        <activity
+272-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:255:9-257:39
+273            android:name="com.qdocs.smartschool.students.StudentTasks"
+273-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:256:13-50
+274            android:exported="true" />
+274-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:257:13-36
+275        <activity
+275-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:258:9-260:39
+276            android:name="com.qdocs.smartschool.students.StudentTasksEdit"
+276-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:259:13-54
+277            android:exported="true" />
+277-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:260:13-36
+278        <activity
+278-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:261:9-263:39
+279            android:name="com.qdocs.smartschool.students.Payment"
+279-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:262:13-45
+280            android:exported="true" />
+280-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:263:13-36
+281        <activity
+281-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:264:9-266:39
+282            android:name="com.qdocs.smartschool.students.CoursePayment"
+282-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:265:13-51
+283            android:exported="true" />
+283-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:266:13-36
+284        <activity
+284-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:267:9-271:53
+285            android:name="com.qdocs.smartschool.students.CourseVideoPlay"
+285-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:268:13-53
+286            android:configChanges="orientation|screenSize"
+286-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:269:13-59
+287            android:exported="false"
+287-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:270:13-37
+288            android:screenOrientation="landscape" />
+288-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:271:13-50
+289        <activity
+289-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:272:9-274:40
+290            android:name="com.qdocs.smartschool.students.LiveClasses"
+290-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:273:13-49
+291            android:exported="false" />
+291-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:274:13-37
+292
+293        <service
+293-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:276:9-282:19
+294            android:name="com.qdocs.smartschool.utils.MyFirebaseMessagingService"
+294-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:13-61
+295            android:exported="true" >
+295-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:278:13-36
+296            <intent-filter>
+296-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:279:13-281:29
+297                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+297-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:17-78
+297-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:25-75
+298            </intent-filter>
+299        </service>
+300
+301        <provider
+302            android:name="androidx.core.content.FileProvider"
+302-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:285:13-62
+303            android:authorities="com.qdocs.smartschool.provider"
+303-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:286:13-60
+304            android:exported="false"
+304-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:287:13-37
+305            android:grantUriPermissions="true" >
+305-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:288:13-47
+306            <meta-data
+306-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:289:13-291:58
+307                android:name="android.support.FILE_PROVIDER_PATHS"
+307-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:290:17-67
+308                android:resource="@xml/provider_paths" />
+308-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:291:17-55
+309        </provider>
+310        <!--
+311             FirebaseMessagingService performs security checks at runtime,
+312             but set to not exported to explicitly avoid allowing another app to call it.
+313        -->
+314        <service
+314-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:28:9-34:19
+315            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+315-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:29:13-82
+316            android:exported="false" >
+316-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:30:13-37
+317            <intent-filter android:priority="-500" >
+317-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:279:13-281:29
+318                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+318-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:17-78
+318-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:25-75
+319            </intent-filter>
+320        </service>
+321        <service
+321-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:29:9-35:19
+322            android:name="com.google.firebase.components.ComponentDiscoveryService"
+322-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:30:13-84
+323            android:exported="false" >
+323-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:31:13-37
+324            <meta-data
+324-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:32:13-34:85
+325                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+325-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:33:17-96
+326                android:value="com.google.firebase.components.ComponentRegistrar" />
+326-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:34:17-82
+327        </service>
+328
+329        <receiver
+329-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:37:9-44:20
+330            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+330-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:38:13-78
+331            android:exported="true"
+331-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:39:13-36
+332            android:permission="com.google.android.c2dm.permission.SEND" >
+332-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:40:13-73
+333            <intent-filter>
+333-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:41:13-43:29
+334                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+334-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:17-81
+334-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:25-78
+335            </intent-filter>
+336        </receiver>
+337
+338        <provider
+338-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
+339            android:name="com.google.firebase.provider.FirebaseInitProvider"
+339-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:13:13-77
+340            android:authorities="com.qdocs.smartschool.firebaseinitprovider"
+340-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:14:13-72
+341            android:exported="false"
+341-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:15:13-37
+342            android:initOrder="100" />
+342-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:16:13-36
+343
+344        <activity
+344-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+345            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+345-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+346            android:exported="false"
+346-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+347            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+347-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+348
+349        <meta-data
+349-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+350            android:name="com.google.android.gms.version"
+350-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+351            android:value="@integer/google_play_services_version" />
+351-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+352
+353        <provider
+353-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:8:9-11:40
+354            android:name="com.squareup.picasso.PicassoProvider"
+354-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:9:13-64
+355            android:authorities="com.qdocs.smartschool.com.squareup.picasso"
+355-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:10:13-72
+356            android:exported="false" />
+356-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:11:13-37
+357        <provider
+357-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+358            android:name="androidx.startup.InitializationProvider"
+358-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+359            android:authorities="com.qdocs.smartschool.androidx-startup"
+359-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+360            android:exported="false" >
+360-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+361            <meta-data
+361-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+362                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+362-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+363                android:value="androidx.startup" />
+363-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+364            <meta-data
+364-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+365                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+365-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+366                android:value="androidx.startup" />
+366-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+367            <meta-data
+367-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+368                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+368-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+369                android:value="androidx.startup" />
+369-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+370        </provider>
+371
+372        <receiver
+372-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+373            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+373-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+374            android:directBootAware="false"
+374-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+375            android:enabled="true"
+375-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+376            android:exported="true"
+376-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+377            android:permission="android.permission.DUMP" >
+377-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+378            <intent-filter>
+378-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+379                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+379-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+379-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+380            </intent-filter>
+381            <intent-filter>
+381-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+382                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+382-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+382-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+383            </intent-filter>
+384            <intent-filter>
+384-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+385                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+385-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+385-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+386            </intent-filter>
+387            <intent-filter>
+387-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+388                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+388-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+388-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+389            </intent-filter>
+390        </receiver>
+391    </application>
+392
+393</manifest>

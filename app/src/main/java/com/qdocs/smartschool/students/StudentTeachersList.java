@@ -66,7 +66,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
         nodata = (LinearLayout) findViewById(R.id.nodata);
         data_layout = (LinearLayout) findViewById(R.id.data_layout);
         recyclerview = findViewById(R.id.recyclerview);
-        loaddata();
+        loadData();
         pullToRefresh =findViewById(R.id.pullToRefresh);
         pullToRefresh.setOnRefreshListener(this);
 
@@ -78,6 +78,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
                    if(Utility.isConnectingToInternet(getApplicationContext())){
                        params.put("class_id",  Utility.getSharedPreferences(getApplicationContext(), Constants.classId));
                        params.put("section_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sectionId));
+                       params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                        params.put("user_id", Utility.getSharedPreferences(getApplicationContext(), Constants.userId));
                        JSONObject obj=new JSONObject(params);
                        Log.e("params ", obj.toString());
@@ -96,7 +97,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
         recyclerview.setAdapter(adapter);
     }
 
-    public void  loaddata(){
+    public void loadData(){
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("class_id",  Utility.getSharedPreferences(getApplicationContext(), Constants.classId));
             params.put("section_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sectionId));
@@ -111,7 +112,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
     @Override
     public void onRestart() {
         super.onRestart();
-        loaddata();
+        loadData();
     }
 
     public void getDataFromApi (String bodyParams) {
@@ -120,6 +121,8 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getTeacherListUrl;
         System.out.println("url=="+url);
+
+        Log.d("TAG", requestBody+"getTlistFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

@@ -85,7 +85,7 @@ public class StudentHostel extends BaseActivity {
         pd.show();
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getHostelListUrl;
-        Log.e("URL", url);
+        Log.e("URL", url); //
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

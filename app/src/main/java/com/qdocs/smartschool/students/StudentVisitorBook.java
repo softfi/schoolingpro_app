@@ -139,6 +139,7 @@ public class StudentVisitorBook extends BaseActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getVisitorsUrl;
         Log.e("URL", url);
+        Log.d("TAG", requestBody+"getVisitFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

@@ -78,26 +78,33 @@ public class SplashActivity extends AppCompatActivity {
                 Log.e("loggeg", isLoggegIn.toString());
                 Log.e("isUrlTaken", isUrlTaken.toString());
                 if (Constants.askUrlFromUser) {
-                    if (isLoggegIn) {
-                        Intent i = new Intent(getApplicationContext(), NewDashboard.class);
-                        startActivity(i);
-                        finish();
+
+                    if(isUrlTaken) {
+                        if(isLoggegIn){
+                            Intent i = new Intent(getApplicationContext(), NewDashboard.class);
+                            startActivity(i);
+                            finish();
+                        }else {
+                            Intent i = new Intent(getApplicationContext(), Login.class);
+                            startActivity(i);
+                            finish();
+                        }
                     } else {
-                        Intent i = new Intent(getApplicationContext(), Login.class);
-                        startActivity(i);
-                        finish();
-                    }
-                } else {
-                    if (isLoggegIn) {
-                        Intent i = new Intent(getApplicationContext(), NewDashboard.class);
-                        startActivity(i);
-                        finish();
-                    } else {
-                        Intent i = new Intent(getApplicationContext(), Login.class);
-                        startActivity(i);
+                        Intent asd = new Intent(getApplicationContext(), TakeUrl.class);
+                        startActivity(asd);
                         finish();
                     }
 
+ /* if (isLoggegIn) {
+                        Intent i = new Intent(getApplicationContext(), NewDashboard.class);
+                        startActivity(i);
+                        finish();
+                    } else {
+                        Intent i = new Intent(getApplicationContext(), Login.class);
+                        startActivity(i);
+                        finish();
+                    }
+                } else {*/
                /* if (Constants.askUrlFromUser) {
                     if (isLoggegIn) {
                         Intent i = new Intent(getApplicationContext(), NewDashboard.class);
@@ -108,21 +115,7 @@ public class SplashActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-//                    if(isUrlTaken) {
-//                        if(isLoggegIn){
-//                            Intent i = new Intent(getApplicationContext(), StudentDashboard.class);
-//                            startActivity(i);
-//                            finish();
-//                        }else {
-//                            Intent i = new Intent(getApplicationContext(), Login.class);
-//                            startActivity(i);
-//                            finish();
-//                        }
-//                    } else {
-//                        Intent asd = new Intent(getApplicationContext(), TakeUrl.class);
-//                        startActivity(asd);
-//                        finish();
-//                    }
+
                 } else {
                     if (isLoggegIn) {
                         Intent i = new Intent(getApplicationContext(), TakeUrl.class);

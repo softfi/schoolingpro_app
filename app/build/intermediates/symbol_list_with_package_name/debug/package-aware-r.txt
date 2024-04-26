@@ -3707,6 +3707,7 @@ id addLeave_dialog_submitBtn
 id addLeave_dialog_todateTV
 id addTask_dialog_calenderIcon
 id addTask_dialog_crossIcon
+id addTask_dialog_dateBtn
 id addTask_dialog_dateTV
 id addTask_dialog_header
 id addTask_dialog_submitBtn
@@ -4244,6 +4245,7 @@ id login_privacyTV
 id logout
 id m3_side_sheet
 id made
+id main
 id main_content
 id main_layout
 id marks
@@ -5103,6 +5105,7 @@ layout about_school_activity
 layout activity_behaviour_comment
 layout activity_cbse_examination
 layout activity_cbsetimetable
+layout activity_create_task
 layout activity_file_save
 layout activity_listview
 layout activity_new_dashboard
@@ -5568,6 +5571,7 @@ string courseperformaneheading
 string courserating
 string createNewLeave
 string createNewTask
+string createTask
 string createdBy
 string createdOn
 string currency

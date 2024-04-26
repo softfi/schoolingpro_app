@@ -169,6 +169,8 @@ public class StudentAppyLeave extends BaseActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getApplyLeaveUrl;
         Log.e("URL", url);
+
+        Log.d("TAG", requestBody+"getLeaveFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

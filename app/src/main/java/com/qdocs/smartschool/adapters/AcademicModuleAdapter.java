@@ -202,7 +202,7 @@ public class AcademicModuleAdapter extends RecyclerView.Adapter<AcademicModuleAd
                         context.startActivity(attendanceintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("examinations")) {
-                        Intent examintent = new Intent(context, StudentExaminationList.class);
+                        Intent examintent = new Intent(context, StudentExaminationList.class);         //
                         context.startActivity(examintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("student_timeline")) {
@@ -237,15 +237,15 @@ public class AcademicModuleAdapter extends RecyclerView.Adapter<AcademicModuleAd
                         context.startActivity(attendanceintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("examinations")) {
-                        Intent examintent = new Intent(context, StudentExaminationList.class);
+                        Intent examintent = new Intent(context, StudentExaminationList.class);//
                         context.startActivity(examintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("student_timeline")) {
-                        Intent timelineintent = new Intent(context, StudentTimeline.class);
+                        Intent timelineintent = new Intent(context, StudentTimeline.class);//
                         context.startActivity(timelineintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("mydocuments")) {
-                        Intent documentintent = new Intent(context, StudentDocuments.class);
+                        Intent documentintent = new Intent(context, StudentDocuments.class); //
                         context.startActivity(documentintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("behaviour_records")) {

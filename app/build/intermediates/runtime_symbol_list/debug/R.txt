@@ -3706,6 +3706,7 @@ int id addLeave_dialog_submitBtn 0x7f090108
 int id addLeave_dialog_todateTV 0x7f090109
 int id addTask_dialog_calenderIcon 0x7f09010a
 int id addTask_dialog_crossIcon 0x7f09010b
+int id addTask_dialog_dateBtn 0x7f09060c
 int id addTask_dialog_dateTV 0x7f09010c
 int id addTask_dialog_header 0x7f09010d
 int id addTask_dialog_submitBtn 0x7f09010e
@@ -4243,6 +4244,7 @@ int id login_privacyTV 0x7f090321
 int id logout 0x7f090322
 int id m3_side_sheet 0x7f090323
 int id made 0x7f090324
+int id main 0x7f09060b
 int id main_content 0x7f090325
 int id main_layout 0x7f090326
 int id marks 0x7f090327
@@ -5102,6 +5104,7 @@ int layout about_school_activity 0x7f0c001c
 int layout activity_behaviour_comment 0x7f0c001d
 int layout activity_cbse_examination 0x7f0c001e
 int layout activity_cbsetimetable 0x7f0c001f
+int layout activity_create_task 0x7f0c0141
 int layout activity_file_save 0x7f0c0020
 int layout activity_listview 0x7f0c0021
 int layout activity_new_dashboard 0x7f0c0022
@@ -5567,6 +5570,7 @@ int string courseperformaneheading 0x7f1000a8
 int string courserating 0x7f1000a9
 int string createNewLeave 0x7f1000aa
 int string createNewTask 0x7f1000ab
+int string createTask 0x7f1002be
 int string createdBy 0x7f1000ac
 int string createdOn 0x7f1000ad
 int string currency 0x7f1000ae

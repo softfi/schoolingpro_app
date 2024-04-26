@@ -149,7 +149,9 @@ public class StudentFees extends BaseActivity {
         }
 
         if(Utility.isConnectingToInternet(StudentFees.this)){
-            StudentOfflineStatus();
+            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+            JSONObject obj=new JSONObject(params);
+            StudentOfflineStatus(obj.toString());
         }else{
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
@@ -220,6 +222,8 @@ public class StudentFees extends BaseActivity {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getFeesUrl;
+
+        Log.d("TAG", requestBody+"getfeesFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -528,14 +532,17 @@ public class StudentFees extends BaseActivity {
         //Adding request to the queue
         requestQueue.add(stringRequest);
     }
-    private void StudentOfflineStatus() {
+    private void StudentOfflineStatus(String bodyParams) {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
-
+        final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getOfflineBankPaymentStatusUrl;
         System.out.println("url=="+url);
+
+        Log.d("TAG", requestBody+"StudentOfflineStatus: "+url);
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -577,6 +584,16 @@ public class StudentFees extends BaseActivity {
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
             }
 
         };

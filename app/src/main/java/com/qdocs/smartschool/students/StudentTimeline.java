@@ -135,7 +135,7 @@ public class StudentTimeline extends BaseActivity {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getTimelineUrl;
-        Log.e("URL", url);
+        Log.e("URL", url); //
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
