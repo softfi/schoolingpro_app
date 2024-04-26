@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:281:9-289:20
+INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:284:9-292:20
 	android:grantUriPermissions
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:285:13-47
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:288:13-47
 	android:authorities
 		INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:283:13-60
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:286:13-60
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:284:13-37
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:287:13-37
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:282:13-62
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:285:13-62
 manifest
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-292:12
-INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-292:12
-INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-292:12
-INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-292:12
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-295:12
+INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-295:12
+INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-295:12
+INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:2:1-295:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\lenovo\.gradle\caches\transforms-3\bd441e5b48a1dc2ca10b9dbdfe7878c6\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\lenovo\.gradle\caches\transforms-3\d3fd7daf1d8796e5b1ef531309cda3ef\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c67bbbe7ccdb4f9b411f3078b1185fdb\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -22,16 +22,9 @@ MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\lenovo\.gradle\caches\
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\f1deb2830b18183fdb62fca485dd7d42\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-3\6259cd82be5057150a540ae29f1fe06d\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-3\4635b1293fcd038a821f23d7e5e152be\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:2:1-9:12
-MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b5951bc762939d9ff4c9ca7c3fec7356\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.volley:volley:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\efc2c90d8496fdd8567a23ee88f0f0f8\transformed\jetified-volley-1.2.1\AndroidManifest.xml:2:1-7:12
-MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:2:1-14:12
-MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:17:1-37:12
-MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\adc41575a59de5c1fe40b9ff3588586c\transformed\jetified-library-1.2.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\d1b048dc25493139be3b003fe36556ce\transformed\jetified-glide-4.8.0\AndroidManifest.xml:2:1-12:12
-MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:2:1-15:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\128e70a8a96b089f01854ef5904abe4f\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:17:1-37:12
 MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:17:1-47:12
 MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:2:1-19:12
 MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3af34c5620435f6e4b07b68d88af60d8\transformed\jetified-firebase-iid-interop-17.0.0\AndroidManifest.xml:2:1-10:12
@@ -42,6 +35,13 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\lenovo\
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\lenovo\.gradle\caches\transforms-3\9886dca957be154f03ef4e21bfd81a26\transformed\fragment-1.3.6\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\84a747efac734cbef5f170b09a36250a\transformed\jetified-activity-1.8.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:2:1-9:12
+MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b5951bc762939d9ff4c9ca7c3fec7356\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.volley:volley:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\efc2c90d8496fdd8567a23ee88f0f0f8\transformed\jetified-volley-1.2.1\AndroidManifest.xml:2:1-7:12
+MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:2:1-14:12
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\adc41575a59de5c1fe40b9ff3588586c\transformed\jetified-library-1.2.0\AndroidManifest.xml:2:1-10:12
+MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:2:1-15:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\a78338e5ea8c3ea9dae992156367056e\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\732824bd4fb8520640bc3a04c36a717a\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -53,9 +53,9 @@ MERGED from [androidx.media:media:1.0.0] C:\Users\lenovo\.gradle\caches\transfor
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\cc01fb6a1439d7e0ea95a3b78339838f\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e614cae2b84717ef0591b216e8b8279b\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\7ced315f7a738da7945843ca559252ee\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\4ce64c10e4b807537770ff625a2d7104\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\9fd106297460508f14b17f5301970052\transformed\lifecycle-livedata-core-2.6.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\4ce64c10e4b807537770ff625a2d7104\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\2e13623b317dbc6533ffc68a6dfe2de8\transformed\lifecycle-viewmodel-2.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\0f7f651b4094a9323b5703dfc74d0749\transformed\lifecycle-runtime-2.6.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\40acc6df33159f94387d57903b199904\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.1\AndroidManifest.xml:17:1-22:12
@@ -69,11 +69,11 @@ MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\le
 MERGED from [androidx.core:core:1.9.0] C:\Users\lenovo\.gradle\caches\transforms-3\2e6153425324545fcd287a2f319ce459\transformed\core-1.9.0\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22da08feca67bb7dd917f53d845de943\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\6fec49f0f053ee7c2af9be5ebff05621\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3f9d927baed1d6e6bb9e46dad36ab0e6\transformed\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\8f910939e308c4659af0db79d071496a\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\7c02ccc131cf75a3329e0adf02d5fbe3\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3f9d927baed1d6e6bb9e46dad36ab0e6\transformed\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\a317eae34468cc98eb8e2f73c2d65dd4\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b765751846c5de494f25b74491b64049\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3d58b592eaee7810b6ae642dad35bb31\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -178,24 +178,16 @@ ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_a
 	android:name
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:33:9-47
 application
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-290:19
-INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-290:19
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-293:19
+INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-293:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\lenovo\.gradle\caches\transforms-3\bd441e5b48a1dc2ca10b9dbdfe7878c6\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\lenovo\.gradle\caches\transforms-3\bd441e5b48a1dc2ca10b9dbdfe7878c6\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\lenovo\.gradle\caches\transforms-3\d3fd7daf1d8796e5b1ef531309cda3ef\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\lenovo\.gradle\caches\transforms-3\d3fd7daf1d8796e5b1ef531309cda3ef\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
-MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:7:5-20
-MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:7:5-20
-MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:9:5-20
-MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:9:5-20
-MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:7:5-12:19
-MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:7:5-12:19
-MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:22:5-35:19
-MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:22:5-35:19
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\d1b048dc25493139be3b003fe36556ce\transformed\jetified-glide-4.8.0\AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\d1b048dc25493139be3b003fe36556ce\transformed\jetified-glide-4.8.0\AndroidManifest.xml:10:5-20
-MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:12:5-13:19
-MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:12:5-13:19
+MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:22:5-35:19
 MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:28:5-45:19
 MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:28:5-45:19
 MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:11:5-17:19
@@ -212,6 +204,14 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\lenovo\
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\cc7a4f2a5aed36c16f7e5fa43c07d525\transformed\jetified-play-services-stats-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:7:5-20
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:7:5-20
+MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:9:5-20
+MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:7:5-12:19
+MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:12:5-13:19
+MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:12:5-13:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:23:5-33:19
@@ -220,12 +220,12 @@ MERGED from [androidx.core:core:1.9.0] C:\Users\lenovo\.gradle\caches\transforms
 MERGED from [androidx.core:core:1.9.0] C:\Users\lenovo\.gradle\caches\transforms-3\2e6153425324545fcd287a2f319ce459\transformed\core-1.9.0\AndroidManifest.xml:28:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\6fec49f0f053ee7c2af9be5ebff05621\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\6fec49f0f053ee7c2af9be5ebff05621\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:9:5-20
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\8f910939e308c4659af0db79d071496a\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\8f910939e308c4659af0db79d071496a\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:9:5-20
 	android:extractNativeLibs
 		INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml
 	android:requestLegacyExternalStorage
@@ -256,466 +256,472 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\lenovo\.gradle\cac
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:48:9-44
 	android:name
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:37:9-36
-activity#com.qdocs.smartschool.students.CbseExaminationActivity
+activity#com.qdocs.smartschool.students.CreateTaskActivity
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:50:9-52:40
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:52:13-37
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:51:13-61
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:51:13-56
+activity#com.qdocs.smartschool.students.CbseExaminationActivity
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:53:9-55:40
+	android:exported
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:55:13-37
+	android:name
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:54:13-61
 activity#com.qdocs.smartschool.students.CbseTimeTableActivity
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:54:9-56:40
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:56:9-58:40
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:56:13-37
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:58:13-37
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:55:13-59
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:57:13-59
 activity#com.qdocs.smartschool.students.StudentOfflinePayment
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:57:9-59:40
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:59:9-61:40
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:59:13-37
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:61:13-37
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:58:13-59
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:60:13-59
 activity#com.qdocs.smartschool.students.BehaviourComment
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:60:9-62:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:62:9-64:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:62:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:64:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:61:13-54
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:63:13-54
 activity#com.qdocs.smartschool.students.StudentVideoTutorialPlay
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:63:9-65:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:65:9-67:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:65:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:67:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:64:13-62
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:66:13-62
 activity#com.qdocs.smartschool.students.StudentHomeworkNew
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:66:9-68:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:68:9-70:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:68:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:70:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:67:13-56
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:69:13-56
 activity#com.qdocs.smartschool.students.NewDashboard
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:69:9-71:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:71:9-73:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:71:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:73:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:70:13-50
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:72:13-50
 activity#com.qdocs.smartschool.students.StudentCoursePerformance
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:72:9-74:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:74:9-76:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:74:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:76:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:73:13-62
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:75:13-62
 activity#com.qdocs.smartschool.students.StudentUploadDocument
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:75:9-77:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:77:9-79:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:77:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:79:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:76:13-59
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:78:13-59
 activity#com.qdocs.smartschool.students.StudentDailyAssignment
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:78:9-80:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:80:9-82:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:80:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:82:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:79:13-60
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:81:13-60
 activity#com.qdocs.smartschool.students.StudentProcessingFees
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:81:9-83:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:83:9-85:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:83:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:85:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:82:13-59
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:84:13-59
 activity#com.qdocs.smartschool.students.StudentCourseDetail
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:84:9-87:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:86:9-89:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:87:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:89:13-36
 	android:configChanges
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:86:13-90
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:88:13-90
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:85:13-57
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:87:13-57
 activity#com.qdocs.smartschool.students.StudentOnlineCourse
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:88:9-90:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:90:9-92:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:90:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:92:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:89:13-57
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:91:13-57
 activity#com.qdocs.smartschool.students.StudentStartLessonActivity
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:91:9-94:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:93:9-96:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:94:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:96:13-36
 	android:configChanges
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:93:13-97
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:95:13-97
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:92:13-64
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:94:13-64
 activity#com.qdocs.smartschool.students.StudentLiveClasses
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:95:9-97:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:97:9-99:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:97:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:99:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:96:13-56
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:98:13-56
 activity#com.qdocs.smartschool.students.StudentOfflinePaymentList
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:98:9-100:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:100:9-102:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:100:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:102:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:99:13-63
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:101:13-63
 activity#com.qdocs.smartschool.students.StudentGmeetLiveClasses
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:101:9-103:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:103:9-105:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:103:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:105:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:102:13-61
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:104:13-61
 activity#com.qdocs.smartschool.students.StudentBehaviourReport
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:104:9-106:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:106:9-108:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:106:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:108:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:105:13-60
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:107:13-60
 activity#com.qdocs.smartschool.students.NotificationList
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:107:9-109:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:109:9-111:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:109:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:111:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:108:13-54
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:110:13-54
 activity#com.qdocs.smartschool.students.StudentOnlineExamQuestionsNew
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:110:9-113:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:112:9-115:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:113:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:115:13-36
 	android:configChanges
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:112:13-59
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:114:13-59
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:111:13-67
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:113:13-67
 activity#com.qdocs.smartschool.students.StudentOnlineExamResult
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:114:9-116:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:116:9-118:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:116:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:118:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:115:13-61
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:117:13-61
 activity#com.qdocs.smartschool.students.StudentOnlineExam
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:117:9-119:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:119:9-121:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:119:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:121:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:118:13-55
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:120:13-55
 activity#com.qdocs.smartschool.AboutSchool
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:120:9-122:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:122:9-124:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:122:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:124:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:121:13-40
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:123:13-40
 activity#com.qdocs.smartschool.students.StudentTimeline
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:123:9-125:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:125:9-127:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:125:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:127:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:124:13-53
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:126:13-53
 activity#com.qdocs.smartschool.students.StudentAddTimeLine
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:126:9-128:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:128:9-130:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:128:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:130:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:127:13-56
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:129:13-56
 activity#com.qdocs.smartschool.students.StudentEditTimeLine
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:129:9-131:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:131:9-133:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:131:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:133:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:130:13-57
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:132:13-57
 activity#com.qdocs.smartschool.students.StudentDocuments
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:132:9-134:39
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:134:9-136:39
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:134:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:136:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:133:13-54
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:135:13-54
 activity#com.qdocs.smartschool.SplashActivity
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:135:9-142:20
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:137:9-145:20
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:137:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:139:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:136:13-43
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:138:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:138:13-141:29
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:140:13-144:29
 action#android.intent.action.MAIN
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:139:17-69
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:141:17-69
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:139:25-66
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:141:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:140:17-77
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:143:17-77
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:140:27-74
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:143:27-74
 activity#com.qdocs.smartschool.Login
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:143:9-145:39
-	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:145:13-36
-	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:144:13-34
-activity#com.qdocs.smartschool.students.StudentProfileDetailsNew
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:146:9-148:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:148:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:147:13-62
-activity#com.qdocs.smartschool.students.StudentAddAssignment
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:147:13-34
+activity#com.qdocs.smartschool.students.StudentProfileDetailsNew
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:149:9-151:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:151:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:150:13-58
-activity#com.qdocs.smartschool.students.StudentEditAssignment
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:150:13-62
+activity#com.qdocs.smartschool.students.StudentAddAssignment
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:152:9-154:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:154:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:153:13-59
-activity#com.qdocs.smartschool.students.StudentUploadHomework
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:153:13-58
+activity#com.qdocs.smartschool.students.StudentEditAssignment
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:155:9-157:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:157:13-36
 	android:name
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:156:13-59
-activity#com.qdocs.smartschool.ForgotPassword
+activity#com.qdocs.smartschool.students.StudentUploadHomework
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:158:9-160:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:160:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:159:13-43
-activity#com.qdocs.smartschool.BaseActivity
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:159:13-59
+activity#com.qdocs.smartschool.ForgotPassword
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:161:9-163:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:163:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:162:13-41
-activity#com.qdocs.smartschool.students.StudentFees
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:162:13-43
+activity#com.qdocs.smartschool.BaseActivity
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:164:9-166:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:166:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:165:13-49
-activity#com.qdocs.smartschool.students.StudentNoticeBoard
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:165:13-41
+activity#com.qdocs.smartschool.students.StudentFees
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:167:9-169:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:169:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:168:13-56
-activity#com.qdocs.smartschool.students.StudentExaminationList
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:168:13-49
+activity#com.qdocs.smartschool.students.StudentNoticeBoard
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:170:9-172:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:172:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:171:13-60
-activity#com.qdocs.smartschool.students.StudentReportCard_ExamListResult
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:171:13-56
+activity#com.qdocs.smartschool.students.StudentExaminationList
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:173:9-175:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:175:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:174:13-70
-activity#com.qdocs.smartschool.students.StudentSubjectList
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:174:13-60
+activity#com.qdocs.smartschool.students.StudentReportCard_ExamListResult
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:176:9-178:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:178:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:177:13-56
-activity#com.qdocs.smartschool.students.StudentTeachersList
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:177:13-70
+activity#com.qdocs.smartschool.students.StudentSubjectList
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:179:9-181:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:181:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:180:13-57
-activity#com.qdocs.smartschool.students.StudentTransportRoutes
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:180:13-56
+activity#com.qdocs.smartschool.students.StudentTeachersList
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:182:9-184:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:184:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:183:13-60
-activity#com.qdocs.smartschool.students.StudentDownloads
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:183:13-57
+activity#com.qdocs.smartschool.students.StudentTransportRoutes
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:185:9-187:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:187:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:186:13-54
-activity#com.qdocs.smartschool.students.StudentAttendance
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:186:13-60
+activity#com.qdocs.smartschool.students.StudentDownloads
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:188:9-190:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:190:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:189:13-55
-activity#com.qdocs.smartschool.students.StudentReportCard_ExamList
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:189:13-54
+activity#com.qdocs.smartschool.students.StudentAttendance
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:191:9-193:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:193:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:192:13-64
-activity#com.qdocs.smartschool.students.StudentExamSchedule_ExamList
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:192:13-55
+activity#com.qdocs.smartschool.students.StudentReportCard_ExamList
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:194:9-196:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:196:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:195:13-66
-activity#com.qdocs.smartschool.students.StudentExamSchedule
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:195:13-64
+activity#com.qdocs.smartschool.students.StudentExamSchedule_ExamList
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:197:9-199:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:199:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:198:13-57
-activity#com.qdocs.smartschool.students.StudentVisitorBook
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:198:13-66
+activity#com.qdocs.smartschool.students.StudentExamSchedule
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:200:9-202:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:202:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:201:13-56
-activity#com.qdocs.smartschool.students.StudentHostel
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:201:13-57
+activity#com.qdocs.smartschool.students.StudentVisitorBook
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:203:9-205:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:205:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:204:13-51
-activity#com.qdocs.smartschool.students.StudentLibraryBook
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:204:13-56
+activity#com.qdocs.smartschool.students.StudentHostel
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:206:9-208:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:208:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:207:13-56
-activity#com.qdocs.smartschool.students.StudentClassTimetable
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:207:13-51
+activity#com.qdocs.smartschool.students.StudentLibraryBook
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:209:9-211:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:211:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:210:13-59
-activity#com.qdocs.smartschool.students.StudentSyllabusTimetable
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:210:13-56
+activity#com.qdocs.smartschool.students.StudentClassTimetable
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:212:9-214:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:214:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:213:13-62
-activity#com.qdocs.smartschool.students.StudentSyllabusStatus
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:213:13-59
+activity#com.qdocs.smartschool.students.StudentSyllabusTimetable
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:215:9-217:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:217:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:216:13-59
-activity#com.qdocs.smartschool.students.StudentLibraryBookIssued
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:216:13-62
+activity#com.qdocs.smartschool.students.StudentSyllabusStatus
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:218:9-220:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:220:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:219:13-62
-activity#com.qdocs.smartschool.students.StudentAppyLeave
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:219:13-59
+activity#com.qdocs.smartschool.students.StudentLibraryBookIssued
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:221:9-223:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:223:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:222:13-54
-activity#com.qdocs.smartschool.students.StudentAddLeave
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:222:13-62
+activity#com.qdocs.smartschool.students.StudentAppyLeave
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:224:9-226:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:226:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:225:13-53
-activity#com.qdocs.smartschool.students.StudentEditLeave
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:225:13-54
+activity#com.qdocs.smartschool.students.StudentAddLeave
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:227:9-229:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:229:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:228:13-54
-activity#com.qdocs.smartschool.students.StudentSyllabus
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:228:13-53
+activity#com.qdocs.smartschool.students.StudentEditLeave
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:230:9-232:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:232:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:231:13-53
-activity#com.qdocs.smartschool.students.StudentOnlineQuizResult
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:231:13-54
+activity#com.qdocs.smartschool.students.StudentSyllabus
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:233:9-235:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:235:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:234:13-61
-activity#com.qdocs.smartschool.students.StudentSyllabuslesson
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:234:13-53
+activity#com.qdocs.smartschool.students.StudentOnlineQuizResult
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:236:9-238:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:238:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:237:13-59
-activity#com.qdocs.smartschool.students.StudentOnlineCourseQuiz
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:237:13-61
+activity#com.qdocs.smartschool.students.StudentSyllabuslesson
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:239:9-241:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:241:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:240:13-61
-activity#com.qdocs.smartschool.SettingActivity
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:240:13-59
+activity#com.qdocs.smartschool.students.StudentOnlineCourseQuiz
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:242:9-244:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:244:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:243:13-44
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:243:13-61
+activity#com.qdocs.smartschool.SettingActivity
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:245:9-247:39
+	android:exported
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:247:13-36
+	android:name
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:246:13-44
 activity#com.qdocs.smartschool.TakeUrl
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:245:9-248:40
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:248:9-251:40
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:248:13-37
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:251:13-37
 	android:configChanges
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:247:13-59
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:250:13-59
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:246:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:249:13-36
 activity#com.qdocs.smartschool.OpenPdf
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:249:9-251:39
-	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:251:13-36
-	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:250:13-36
-activity#com.qdocs.smartschool.students.StudentTasks
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:252:9-254:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:254:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:253:13-50
-activity#com.qdocs.smartschool.students.StudentTasksEdit
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:253:13-36
+activity#com.qdocs.smartschool.students.StudentTasks
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:255:9-257:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:257:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:256:13-54
-activity#com.qdocs.smartschool.students.Payment
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:256:13-50
+activity#com.qdocs.smartschool.students.StudentTasksEdit
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:258:9-260:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:260:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:259:13-45
-activity#com.qdocs.smartschool.students.CoursePayment
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:259:13-54
+activity#com.qdocs.smartschool.students.Payment
 ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:261:9-263:39
 	android:exported
 		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:263:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:262:13-51
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:262:13-45
+activity#com.qdocs.smartschool.students.CoursePayment
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:264:9-266:39
+	android:exported
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:266:13-36
+	android:name
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:265:13-51
 activity#com.qdocs.smartschool.students.CourseVideoPlay
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:264:9-268:53
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:267:9-271:53
 	android:screenOrientation
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:268:13-50
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:271:13-50
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:267:13-37
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:270:13-37
 	android:configChanges
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:266:13-59
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:269:13-59
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:265:13-53
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:268:13-53
 activity#com.qdocs.smartschool.students.LiveClasses
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:269:9-271:40
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:272:9-274:40
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:271:13-37
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:274:13-37
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:270:13-49
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:273:13-49
 service#com.qdocs.smartschool.utils.MyFirebaseMessagingService
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:273:9-279:19
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:276:9-282:19
 	android:exported
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:275:13-36
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:278:13-36
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:274:13-61
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:13-61
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:276:13-278:29
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:279:13-281:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:17-78
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:17-78
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:25-75
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:25-75
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:286:13-288:58
+ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:289:13-291:58
 	android:resource
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:288:17-55
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:291:17-55
 	android:name
-		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:287:17-67
+		ADDED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:290:17-67
 uses-sdk
 INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml
@@ -734,26 +740,12 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\len
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-3\6259cd82be5057150a540ae29f1fe06d\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-3\4635b1293fcd038a821f23d7e5e152be\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\lenovo\.gradle\caches\transforms-3\4635b1293fcd038a821f23d7e5e152be\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:5:5-44
-MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:5:5-44
-MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b5951bc762939d9ff4c9ca7c3fec7356\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b5951bc762939d9ff4c9ca7c3fec7356\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.volley:volley:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\efc2c90d8496fdd8567a23ee88f0f0f8\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
-MERGED from [com.android.volley:volley:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\efc2c90d8496fdd8567a23ee88f0f0f8\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
-MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\adc41575a59de5c1fe40b9ff3588586c\transformed\jetified-library-1.2.0\AndroidManifest.xml:6:5-8:41
-MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\adc41575a59de5c1fe40b9ff3588586c\transformed\jetified-library-1.2.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\d1b048dc25493139be3b003fe36556ce\transformed\jetified-glide-4.8.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\d1b048dc25493139be3b003fe36556ce\transformed\jetified-glide-4.8.0\AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:8:5-10:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\128e70a8a96b089f01854ef5904abe4f\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\128e70a8a96b089f01854ef5904abe4f\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:6:5-8:41
@@ -774,6 +766,20 @@ MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\lenovo\.gradle\caches\tr
 MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\lenovo\.gradle\caches\transforms-3\9886dca957be154f03ef4e21bfd81a26\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\84a747efac734cbef5f170b09a36250a\transformed\jetified-activity-1.8.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\84a747efac734cbef5f170b09a36250a\transformed\jetified-activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\688935edc2804bca14650ce6f8730185\transformed\jetified-threetenabp-1.2.1\AndroidManifest.xml:5:5-44
+MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:2.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\3962d549bf33776fa9b1f3e2181d50bc\transformed\jetified-circleimageview-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b5951bc762939d9ff4c9ca7c3fec7356\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b5951bc762939d9ff4c9ca7c3fec7356\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.volley:volley:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\efc2c90d8496fdd8567a23ee88f0f0f8\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.android.volley:volley:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\efc2c90d8496fdd8567a23ee88f0f0f8\transformed\jetified-volley-1.2.1\AndroidManifest.xml:5:5-43
+MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:5:5-44
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\adc41575a59de5c1fe40b9ff3588586c\transformed\jetified-library-1.2.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\adc41575a59de5c1fe40b9ff3588586c\transformed\jetified-library-1.2.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.blackfizz:eazegraph:1.2.5l] C:\Users\lenovo\.gradle\caches\transforms-3\57b31483f120058749aea4265e0c1482\transformed\jetified-eazegraph-1.2.5l\AndroidManifest.xml:8:5-10:41
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\a78338e5ea8c3ea9dae992156367056e\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\a78338e5ea8c3ea9dae992156367056e\transformed\jetified-emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:21:5-44
@@ -796,12 +802,12 @@ MERGED from [androidx.loader:loader:1.0.0] C:\Users\lenovo\.gradle\caches\transf
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e614cae2b84717ef0591b216e8b8279b\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\7ced315f7a738da7945843ca559252ee\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\lenovo\.gradle\caches\transforms-3\7ced315f7a738da7945843ca559252ee\transformed\jetified-savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\4ce64c10e4b807537770ff625a2d7104\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\4ce64c10e4b807537770ff625a2d7104\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\9fd106297460508f14b17f5301970052\transformed\lifecycle-livedata-core-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\9fd106297460508f14b17f5301970052\transformed\lifecycle-livedata-core-2.6.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\4ce64c10e4b807537770ff625a2d7104\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\4ce64c10e4b807537770ff625a2d7104\transformed\lifecycle-livedata-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\2e13623b317dbc6533ffc68a6dfe2de8\transformed\lifecycle-viewmodel-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\2e13623b317dbc6533ffc68a6dfe2de8\transformed\lifecycle-viewmodel-2.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\0f7f651b4094a9323b5703dfc74d0749\transformed\lifecycle-runtime-2.6.1\AndroidManifest.xml:5:5-44
@@ -828,16 +834,16 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\lenovo\.gradle
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22da08feca67bb7dd917f53d845de943\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\6fec49f0f053ee7c2af9be5ebff05621\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\6fec49f0f053ee7c2af9be5ebff05621\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3f9d927baed1d6e6bb9e46dad36ab0e6\transformed\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3f9d927baed1d6e6bb9e46dad36ab0e6\transformed\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\8f910939e308c4659af0db79d071496a\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\lenovo\.gradle\caches\transforms-3\8f910939e308c4659af0db79d071496a\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\7c02ccc131cf75a3329e0adf02d5fbe3\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\7c02ccc131cf75a3329e0adf02d5fbe3\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3f9d927baed1d6e6bb9e46dad36ab0e6\transformed\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\3f9d927baed1d6e6bb9e46dad36ab0e6\transformed\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\lenovo\.gradle\caches\transforms-3\f62f03c05502b61e85f9d1da65e35a9b\transformed\jetified-gifdecoder-4.8.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\a317eae34468cc98eb8e2f73c2d65dd4\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\a317eae34468cc98eb8e2f73c2d65dd4\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\b765751846c5de494f25b74491b64049\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
@@ -854,14 +860,6 @@ MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\lenovo\
 		INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml
-provider#com.squareup.picasso.PicassoProvider
-ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:8:9-11:40
-	android:authorities
-		ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:10:13-72
-	android:exported
-		ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:11:13-37
-	android:name
-		ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:9:13-64
 service#com.google.firebase.messaging.FirebaseMessagingService
 ADDED from [com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:28:9-34:19
 	android:exported
@@ -926,6 +924,14 @@ ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenov
 		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:9:13-64
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:24:9-32:20
