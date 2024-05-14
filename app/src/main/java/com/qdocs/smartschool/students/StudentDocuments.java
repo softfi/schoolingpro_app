@@ -1,20 +1,25 @@
 package com.qdocs.smartschool.students;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.cardview.widget.CardView;
+
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.os.IBinder;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,37 +34,37 @@ import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.adapters.StudentDocumentsAdapter;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+
 import static android.widget.Toast.makeText;
 
 public class StudentDocuments extends BaseActivity {
     RecyclerView documentListView;
+
+
     StudentDocumentsAdapter adapter;
     SwipeRefreshLayout pullToRefresh;
     ArrayList<String> docTitleList = new ArrayList<>();
     ArrayList<String> docUrlList = new ArrayList<>();
     FloatingActionButton addDocumentBtn;
     public Map<String, String> params = new Hashtable<String, String>();
-    public Map<String, String>  headers = new HashMap<String, String>();
-    CardView card_view_outer;
-    LinearLayout nodata_layout,data_layout;
+    public Map<String, String> headers = new HashMap<String, String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         View contentView = inflater.inflate(R.layout.student_documents_activity, null, false);
         mDrawerLayout.addView(contentView, 0);
-        card_view_outer = findViewById(R.id.card_view_outer);
-        nodata_layout = findViewById(R.id.nodata_layout);
-        data_layout = findViewById(R.id.data_layout);
-        card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
 
         titleTV.setText(getApplicationContext().getString(R.string.documents));
         addDocumentBtn = findViewById(R.id.studentTasks_fab);
@@ -71,26 +76,25 @@ public class StudentDocuments extends BaseActivity {
                 startActivity(intent);
             }
         });
-        documentListView = findViewById(R.id.studentDocument_listview);
 
-        adapter = new StudentDocumentsAdapter(StudentDocuments.this, docTitleList, docUrlList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        documentListView.setLayoutManager(mLayoutManager);
+        documentListView = findViewById(R.id.studentDocument_listview);
+        documentListView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         documentListView.setItemAnimator(new DefaultItemAnimator());
+        adapter = new StudentDocumentsAdapter(StudentDocuments.this, docTitleList, docUrlList);
         documentListView.setAdapter(adapter);
-        loaddata();
+        loadData();
 
         pullToRefresh = findViewById(R.id.pullToRefresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
-                loaddata();
+                loadData();
             }
         });
     }
 
-    public  void  loaddata(){
+    public  void loadData(){
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             JSONObject obj=new JSONObject(params);
@@ -99,13 +103,12 @@ public class StudentDocuments extends BaseActivity {
         } else {
             makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
     public void onRestart() {
         super.onRestart();
-        loaddata();
+        loadData();
     }
 
     private void getDataFromApi (String bodyParams) {
@@ -118,7 +121,7 @@ public class StudentDocuments extends BaseActivity {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getDocumentUrl;
-        Log.e("URL", url);    //
+        Log.e("URL", url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -130,20 +133,20 @@ public class StudentDocuments extends BaseActivity {
                         JSONArray dataArray = new JSONArray(result);
                         docTitleList.clear();
                         docUrlList.clear();
+                        Log.d("TAG", "onResponseg: "+docTitleList + docUrlList);
                         if (dataArray.length() != 0) {
-                            nodata_layout.setVisibility(View.GONE);
-                            data_layout.setVisibility(View.VISIBLE);
                             for(int i = 0; i < dataArray.length(); i++) {
+
                                 docTitleList.add(dataArray.getJSONObject(i).getString("title"));
                                 docUrlList.add(dataArray.getJSONObject(i).getString("doc"));
+                                Log.d("TAG", "onResponseg: "+docTitleList + docUrlList);
+
                             }
                             adapter.notifyDataSetChanged();
 
                         } else {
                             pullToRefresh.setVisibility(View.GONE);
-                            nodata_layout.setVisibility(View.VISIBLE);
-                            data_layout.setVisibility(View.GONE);
-                           // Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.noData), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.noData), Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -151,17 +154,17 @@ public class StudentDocuments extends BaseActivity {
                 } else {
                     pd.dismiss();
                     pullToRefresh.setVisibility(View.GONE);
-
                 }
             }
+
         }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        pd.dismiss();
-                        Log.e("Volley Error", volleyError.toString());
-                        Toast.makeText(StudentDocuments.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
-                    }
-                }) {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                pd.dismiss();
+                Log.e("Volley Error", volleyError.toString());
+                Toast.makeText(StudentDocuments.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
+            }
+        }) {
 
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {

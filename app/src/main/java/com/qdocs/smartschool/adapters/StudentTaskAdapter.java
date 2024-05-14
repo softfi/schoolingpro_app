@@ -116,12 +116,13 @@ public class StudentTaskAdapter extends RecyclerView.Adapter<StudentTaskAdapter.
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.d("TAG", "onjhkClick: ");
                 Intent intent=new Intent(context, StudentTasksEdit.class);
                 intent.putExtra("title",taskTitleList.get(position));
                 intent.putExtra("date",taskDateList.get(position));
                 intent.putExtra("id",taskIdList.get(position));
                 context.startActivity(intent);
+                Log.d("TAG", "onjhkClick: "+intent);
             }
         });
 

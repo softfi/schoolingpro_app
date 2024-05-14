@@ -68,7 +68,6 @@ public class BaseActivity extends AppCompatActivity {
         reset_quiz = findViewById(R.id.reset_quiz);
         logout = findViewById(R.id.logout);
 
-
             defaultDateFormat = Utility.getSharedPreferences(getApplicationContext(), "dateFormat");
             currency = Utility.getSharedPreferences(getApplicationContext(), Constants.currency);
           currency_price =  Utility.getSharedPreferences(getApplicationContext(), Constants.currency_price);
@@ -162,7 +161,7 @@ public class BaseActivity extends AppCompatActivity {
             }
 
             @Override
-            public byte[] getBody() throws AuthFailureError {
+            public byte[] getBody() {
                 try {
                     return requestBody == null ? null : requestBody.getBytes("utf-8");
                 } catch (UnsupportedEncodingException uee) {

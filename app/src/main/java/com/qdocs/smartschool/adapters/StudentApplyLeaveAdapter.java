@@ -59,12 +59,6 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
     private ArrayList<String> approve_datestatuslist;
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String> headers = new HashMap<String, String>();
-    private boolean isapplyDateSelected = false;
-    private boolean isfromDateSelected = false;
-    private boolean istoDateSelected = false;
-    String apply_date="";
-    String from_date="";
-    String to_date="";
     public String defaultDateFormat;
     long downloadID;
 
@@ -140,7 +134,7 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
            holder.Approve.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.green_border));
        }
 
-        if(docslist.get(position).equals("")){
+        if(docslist.get(position).isEmpty()){
             holder.downloadBtn.setVisibility(View.GONE);
         }else{
             holder.downloadBtn.setVisibility(View.VISIBLE);
@@ -157,8 +151,6 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
                 }
             });
         }
-
-
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -174,18 +166,16 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
                             JSONObject obj=new JSONObject(params);
                             Log.e("params ", obj.toString());
                             deleteDataFromApi(obj.toString());//Api Call
-                            ((Activity)context).finish();
+                            context.finish();
                         } else {
                             makeText(context.getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                         }
-
 
                         Intent intent = new Intent(context, StudentAppyLeave.class);
                         context.startActivity(intent);
                     }
                 });
                 builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }

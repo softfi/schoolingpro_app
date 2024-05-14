@@ -89,7 +89,7 @@ public class TakeUrl extends Activity {
                 } else {
                     if (Utility.isConnectingToInternet(TakeUrl.this)) {
 
-                        getDataFhromApi ();
+                      //  getDataFhromApi ();
                     } else {
                         makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                     }
@@ -126,7 +126,7 @@ public class TakeUrl extends Activity {
         pd.show();
 
         final String url = "https://schoolingpro.in/admin/app";
-        Log.d("url", "getDataFromApi: "+url.toString());
+        Log.d("url", "getDataFromApi: "+ url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -190,7 +190,7 @@ public class TakeUrl extends Activity {
                 try {
                     int  statusCode = error.networkResponse.statusCode;
                     NetworkResponse response = error.networkResponse;
-                    Log.e("Volley Error",""+statusCode+" "+response.data.toString());
+                    Log.e("Volley Error", statusCode+" "+response.data.toString());
                     if(error instanceof ClientError) {
                         Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
                     } else {
@@ -202,7 +202,7 @@ public class TakeUrl extends Activity {
             }
         });
         RequestQueue requestQueue = Volley.newRequestQueue(TakeUrl.this); //Creating a Request Queue
-        requestQueue.add(stringRequest);//Adding request to the queue
+        requestQueue.add(stringRequest);          //Adding request to the queue
     }
 
     private void isMaintenanceMode() {
@@ -275,6 +275,7 @@ public class TakeUrl extends Activity {
         requestQueue.add(stringRequest); //Adding request to the queue
 
     }
+
    /* private void getDataFromApi(String domain) {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");

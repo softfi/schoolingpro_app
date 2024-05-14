@@ -1,6 +1,7 @@
 package com.qdocs.smartschool.students;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -114,7 +115,8 @@ public class StudentEditLeave extends AppCompatActivity {
                     "application/pdf",
                     "application/zip","image/*"};
     CardView card_view_outer;
-    TextInputEditText apply_dateTV,todateTV,fromdateTV,reason;
+    TextView apply_dateTV,todateTV,fromdateTV,reason;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,8 +132,8 @@ public class StudentEditLeave extends AppCompatActivity {
 
         decorate();
         Utility.setLocale(getApplicationContext(), Utility.getSharedPreferences(getApplicationContext(), Constants.langCode));
-        card_view_outer = findViewById(R.id.card_view_outer);
-        card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
+       // card_view_outer = findViewById(R.id.card_view_outer);
+       // card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         Bundle bundle = getIntent().getExtras();
          fromlist = bundle.getString("fromlist");
          tolist = bundle.getString("tolist");
@@ -146,9 +148,9 @@ public class StudentEditLeave extends AppCompatActivity {
             }
         });
         titleTV.setText(getApplicationContext().getString(R.string.editleave));
-        apply_dateTV = findViewById(R.id.add_dialog_apply_dateTV);
-        fromdateTV = findViewById(R.id.add_dialog_fromdateTV);
-        todateTV = findViewById(R.id.add_dialog_todateTV);
+        apply_dateTV = findViewById(R.id.addLeave_dialog_apply_dateTV);
+        fromdateTV = findViewById(R.id.addLeave_dialog_fromdateTV);
+        todateTV = findViewById(R.id.addLeave_dialog_todateTV);
         reason = findViewById(R.id.reason);
         imageView =  findViewById(R.id.imageView);
         textView =  findViewById(R.id.textview);
@@ -156,7 +158,7 @@ public class StudentEditLeave extends AppCompatActivity {
        // buttonUploadImage =  findViewById(R.id.buttonUploadImage);
         buttonSelectImage = findViewById(R.id.buttonSelectImage);
 
-        submit = findViewById(R.id.add_dialog_submitBtn);
+        submit = findViewById(R.id.addLeave_dialog_submitBtn);
         submit.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
 
         fromdateTV.setText(Utility.parseDate("yyyy-MM-dd", defaultDateFormat,fromlist));

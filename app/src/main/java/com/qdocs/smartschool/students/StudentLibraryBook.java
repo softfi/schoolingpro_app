@@ -98,14 +98,16 @@ public class StudentLibraryBook extends BaseActivity {
         pd.show();
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getLibraryBookListUrl;
+        Log.d("TAG", "getDataFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String result) {
                 pullToRefresh.setRefreshing(false);
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getDataFromApi: "+result);
                         JSONObject object = new JSONObject(result);
                         System.out.println("Result==="+result);
 

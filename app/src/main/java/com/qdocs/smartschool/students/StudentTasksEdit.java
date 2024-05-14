@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -48,7 +50,8 @@ public class StudentTasksEdit extends BaseActivity   {
     public Map<String, String>  headers = new HashMap<String, String>();
     SwipeRefreshLayout pullToRefresh;
     CardView card_view_outer;
-    TextInputEditText titleET,dateTV;
+    EditText titleET;
+    TextView dateTV;
     String title,date,id;
     Button submitBtn;
     String dates;
@@ -71,7 +74,8 @@ public class StudentTasksEdit extends BaseActivity   {
         date = bundle.getString("date");
         id = bundle.getString("id");
         titleET.setText(title);
-        dateTV.setText(Utility.parseDate("yyyy-MM-dd hh:mm:ss", defaultDateFormat,date));
+        Log.d("TAG", "onCrgheate: "+date);
+        dateTV.setText(date);
 
         dateTV.setOnClickListener(new View.OnClickListener() {
             @Override

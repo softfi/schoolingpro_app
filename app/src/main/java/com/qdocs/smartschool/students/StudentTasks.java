@@ -1,20 +1,15 @@
 package com.qdocs.smartschool.students;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.cardview.widget.CardView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,12 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +34,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.textfield.TextInputEditText;
 import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
@@ -103,18 +95,18 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
         taskListView.setLayoutManager(mLayoutManager);
         taskListView.setItemAnimator(new DefaultItemAnimator());
         taskListView.setAdapter(adapter);
-        loaddata();
+        loadData();
         pullToRefresh = findViewById(R.id.pullToRefresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
-                loaddata();
+                loadData();
             }
         });
     }
 
-    public void loaddata() {
+    public void loadData() {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("user_id", Utility.getSharedPreferences(getApplicationContext(), Constants.userId));
             params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
@@ -165,7 +157,6 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
         dateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 datePickerDialog.show();
             }
         });
@@ -381,8 +372,8 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
         isDateSelected = true;
 
     }
-}
 
+}
 
 /*
 public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDateSetListener {
@@ -427,7 +418,8 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
 
               */
 /*  Intent i = new Intent(getApplicationContext(), CreateTaskActivity.class);  //
-                startActivity(i);*//*
+                startActivity(i);*/
+/*
 
 
                 showAddDialog();

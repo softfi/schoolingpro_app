@@ -53,6 +53,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Locale;
@@ -67,6 +68,7 @@ public class Login extends Activity {
     ImageView logoIV;
     TextView tv_forgotPass, privacyTV;
     LinearLayout btn_login;
+    String langCode = "";
     EditText et_userName, et_password;
     LinearLayout changeUrlBtn;
     ImageView btn_showPassword, usernameIcon, passwordIcon;
@@ -128,6 +130,8 @@ public class Login extends Activity {
         Picasso.get().load(appLogo).memoryPolicy(MemoryPolicy.NO_CACHE)
                 .networkPolicy(NetworkPolicy.NO_CACHE).into(logoIV);
         childListAdapter = new ArrayAdapter<String>(Login.this, android.R.layout.select_dialog_singlechoice);
+
+        getUrl ("https://schoolingpro.in/admin/");
 
         if(!Constants.askUrlFromUser) {
             changeUrlBtn.setVisibility(View.GONE);
@@ -197,7 +201,7 @@ public class Login extends Activity {
             }
         });
 
-        changeUrlBtn.setOnClickListener(new View.OnClickListener() {
+       /* changeUrlBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", false);
@@ -206,7 +210,7 @@ public class Login extends Activity {
                 startActivity(url);
                 finish();
             }
-        });
+        });*/
 
         //DECORATE//
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -488,8 +492,6 @@ public class Login extends Activity {
          requestQueue.add(stringRequest);
      }
 
-
-
     private void getCurrencyDataFromApi (String bodyParams) {
         Log.e("RESULT PARAMS", bodyParams);
         final String requestBody = bodyParams;
@@ -695,6 +697,84 @@ public class Login extends Activity {
         Resources resources = getResources();
         resources.updateConfiguration(config, resources.getDisplayMetrics());
         recreate();
+    }
+
+    private void getUrl(String domain) {
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Loading");
+        pd.setCancelable(false);
+        pd.show();
+
+        if (!domain.endsWith("/")) {
+            domain += "/";
+        }
+
+        final String url = domain + "app";
+        Log.e("Verification Url", url);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String result) {
+                Log.e("Result", result);
+                Log.d(TAG, "onResponse: ");
+                if (result != null) {
+                    pd.dismiss();
+                    try {
+                        JSONObject object = new JSONObject(result);
+                        String success = "200"; //object.getString("status");
+                        if (success.equals("200")) {
+                            Utility.setSharedPreferenceBoolean(getApplicationContext(), "isUrlTaken", true);
+                            Utility.setSharedPreference(MyApp.getContext(), Constants.apiUrl, object.getString("url"));
+                            Utility.setSharedPreference(MyApp.getContext(), Constants.imagesUrl, object.getString("site_url"));
+                            String app_ver = object.getString("app_ver");
+                            Utility.setSharedPreference(getApplicationContext(), Constants.app_ver, app_ver);
+                            String appLogo = object.getString("site_url") + "uploads/school_content/logo/app_logo/" + object.getString("app_logo");
+                            Utility.setSharedPreference(MyApp.getContext(), Constants.appLogo, appLogo);
+                            //Picasso.with(getApplicationContext()).load(appLogo).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(logoIV);
+                            String secColour = object.getString("app_secondary_color_code");
+                            String primaryColour = object.getString("app_primary_color_code");
+
+                            if (secColour.length() == 7 && primaryColour.length() == 7) {
+                                Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, secColour);
+                                Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, primaryColour);
+                            } else {
+                                Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, Constants.defaultSecondaryColour);
+                                Utility.setSharedPreference(getApplicationContext(), Constants.primaryColour, Constants.defaultPrimaryColour);
+                            }
+                            Log.e("apiUrl Utility", Utility.getSharedPreferences(getApplicationContext(), "apiUrl"));
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Invalid Domain.", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    pd.dismiss();
+                    Toast.makeText(getApplicationContext(), "Invalid Domain.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                pd.dismiss();
+                try {
+                    int statusCode = error.networkResponse.statusCode;
+                    NetworkResponse response = error.networkResponse;
+
+                    Log.e("Volley Error", statusCode + " " + Arrays.toString(response.data));
+                    if (error instanceof ClientError) {
+                        Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (NullPointerException npe) {
+                    Toast.makeText(getApplicationContext(), R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(Login.this);//Creating a Request Queue
+        requestQueue.add(stringRequest);//Adding request to the queue
+        // queue.add(request);
     }
 
 }

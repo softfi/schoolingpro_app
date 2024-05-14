@@ -45,7 +45,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
     JSONArray listArray = new JSONArray();
     ArrayList <String> teacherNameList = new ArrayList<String>();
     ArrayList <String> teacherContactList = new ArrayList<String>();
-    ArrayList <String> teacheremailList = new ArrayList<String>();
+    ArrayList <String> teacherEmailList = new ArrayList<String>();
     ArrayList<String> class_teacher_idList = new ArrayList<>();
     ArrayList<String> commentList = new ArrayList<>();
     ArrayList<String> staff_idList = new ArrayList<>();
@@ -90,7 +90,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
            }
         );
         adapter = new StudentTeacherNewAdapter(StudentTeachersList.this, teacherNameList,class_teacher_idList,
-                 teacherContactList,staff_idList,ratingList,teacheremailList,commentList);
+                 teacherContactList,staff_idList,ratingList, teacherEmailList,commentList);
         RecyclerView.LayoutManager mondayLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerview.setLayoutManager(mondayLayoutManager);
         recyclerview.setItemAnimator(new DefaultItemAnimator());
@@ -150,7 +150,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
                             JSONObject object1 = dataObject.getJSONObject(key);
                             teacherNameList.add(object1.getString("staff_name") + " " + object1.getString("staff_surname")+ " (" + object1.getString("employee_id")+")" );
                             teacherContactList.add(object1.getString("contact_no"));
-                            teacheremailList.add(object1.getString("email"));
+                            teacherEmailList.add(object1.getString("email"));
                             class_teacher_idList.add(object1.getString("class_teacher_id"));
                             staff_idList.add(object1.getString("staff_id"));
                             ratingList.add(object1.getString("rate"));
@@ -173,7 +173,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
             }
         }) {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 headers.put("Client-Service", Constants.clientService);
                 headers.put("Auth-Key", Constants.authKey);
                 headers.put("Content-Type", Constants.contentType);

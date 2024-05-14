@@ -79,7 +79,7 @@ public class SplashActivity extends AppCompatActivity {
                 Log.e("isUrlTaken", isUrlTaken.toString());
                 if (Constants.askUrlFromUser) {
 
-                    if(isUrlTaken) {
+                    //if(isUrlTaken) {
                         if(isLoggegIn){
                             Intent i = new Intent(getApplicationContext(), NewDashboard.class);
                             startActivity(i);
@@ -89,11 +89,12 @@ public class SplashActivity extends AppCompatActivity {
                             startActivity(i);
                             finish();
                         }
-                    } else {
+                    }
+                /*else {
                         Intent asd = new Intent(getApplicationContext(), TakeUrl.class);
                         startActivity(asd);
                         finish();
-                    }
+                    }*/
 
  /* if (isLoggegIn) {
                         Intent i = new Intent(getApplicationContext(), NewDashboard.class);
@@ -128,7 +129,7 @@ public class SplashActivity extends AppCompatActivity {
                     }*/
 
                 }
-            }
+
         }, SPLASH_TIME_OUT);
     }
 

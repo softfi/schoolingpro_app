@@ -201,7 +201,7 @@ public class StudentAppyLeave extends BaseActivity {
                             data_layout.setVisibility(View.VISIBLE);
 
                             for (int i = 0; i < dataArray.length(); i++) {
-                                nameList.add(dataArray.getJSONObject(i).getString("firstname") + "" + dataArray.getJSONObject(i).getString("lastname"));
+                                nameList.add(dataArray.getJSONObject(i).getString("firstname") + dataArray.getJSONObject(i).getString("lastname"));
                                 fromList.add(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, dataArray.getJSONObject(i).getString("from_date")));
                                 toList.add(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, dataArray.getJSONObject(i).getString("to_date")));
                                 statuslist.add(dataArray.getJSONObject(i).getString("status"));

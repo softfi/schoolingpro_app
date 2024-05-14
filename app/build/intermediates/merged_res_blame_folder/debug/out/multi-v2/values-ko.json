@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.qdocs.smartschool.app-mergeDebugResources-38:/values-ko/values-ko.xml",
+            "outputFile": "com.qdocs.smartschool.app-mergeDebugResources-39:/values-ko/values-ko.xml",
             "map": [
                 {
                     "source": "C:\\Users\\lenovo\\.gradle\\caches\\transforms-3\\606f15818b3c72e09b853f05657cd24a\\transformed\\jetified-play-services-base-17.0.0\\res\\values-ko\\values.xml",

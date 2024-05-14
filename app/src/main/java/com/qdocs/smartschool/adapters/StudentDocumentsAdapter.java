@@ -1,5 +1,6 @@
 package com.qdocs.smartschool.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
@@ -7,8 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
-import androidx.core.app.NotificationCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +15,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+
 import com.qdocs.smartschool.OpenPdf;
+import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.students.StudentDocuments;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
 
 import java.util.ArrayList;
 
@@ -38,7 +41,6 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
         this.docTitleList = docTitleList;
         this.docUrlList = docUrlList;
     }
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView titleTV, fileNameTV;
@@ -63,7 +65,7 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         //DECORATE
         holder.header.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(context.getApplicationContext(), Constants.secondaryColour)));
@@ -72,7 +74,6 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
         holder.fileNameTV.setText(docUrlList.get(position));
 
         context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-
 
         holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,10 +101,9 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
 
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.notification_logo)
+                                .setSmallIcon(R.drawable.notification_logo_trans)
                                 .setContentTitle(context.getApplicationContext().getString(R.string.app_name))
                                 .setContentText("All Download completed");
-
 
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 notificationManager.notify(455, mBuilder.build());
