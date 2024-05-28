@@ -12,10 +12,6 @@
         "source": "com.qdocs.smartschool.app-main-43:/layout/quiz_layout.xml"
     },
     {
-        "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_logo_small.png.flat",
-        "source": "com.qdocs.smartschool.app-main-43:/drawable/logo_small.png"
-    },
-    {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_ic_nav_switch.png.flat",
         "source": "com.qdocs.smartschool.app-main-43:/drawable/ic_nav_switch.png"
     },
@@ -460,10 +456,6 @@
         "source": "com.qdocs.smartschool.app-main-43:/layout/quiz_questions.xml"
     },
     {
-        "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_app_icon.png.flat",
-        "source": "com.qdocs.smartschool.app-main-43:/drawable/app_icon.png"
-    },
-    {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_examinationpage.jpg.flat",
         "source": "com.qdocs.smartschool.app-main-43:/drawable/examinationpage.jpg"
     },
@@ -490,10 +482,6 @@
     {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_coursepage.jpg.flat",
         "source": "com.qdocs.smartschool.app-main-43:/drawable/coursepage.jpg"
-    },
-    {
-        "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_notification_logo.png.flat",
-        "source": "com.qdocs.smartschool.app-main-43:/drawable/notification_logo.png"
     },
     {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/layout_student_dashboard_activity_new.xml.flat",
@@ -718,14 +706,6 @@
     {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/layout_adapter_report_card_exam_result.xml.flat",
         "source": "com.qdocs.smartschool.app-main-43:/layout/adapter_report_card_exam_result.xml"
-    },
-    {
-        "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_online_logo.png.flat",
-        "source": "com.qdocs.smartschool.app-main-43:/drawable/online_logo.png"
-    },
-    {
-        "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_notification_logo_trans.png.flat",
-        "source": "com.qdocs.smartschool.app-main-43:/drawable/notification_logo_trans.png"
     },
     {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/layout_forgot_password_activity.xml.flat",
@@ -1670,10 +1650,6 @@
     {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/layout_student_hostel_activity.xml.flat",
         "source": "com.qdocs.smartschool.app-main-43:/layout/student_hostel_activity.xml"
-    },
-    {
-        "merged": "com.qdocs.smartschool.app-merged_res-41:/drawable_splash_logo.png.flat",
-        "source": "com.qdocs.smartschool.app-main-43:/drawable/splash_logo.png"
     },
     {
         "merged": "com.qdocs.smartschool.app-merged_res-41:/layout_adapter_daily_assignment.xml.flat",

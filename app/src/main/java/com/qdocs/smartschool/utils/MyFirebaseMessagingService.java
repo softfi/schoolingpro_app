@@ -52,13 +52,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(false);
 
+
         if(Build.MANUFACTURER.equalsIgnoreCase("xiaomi")) {
-            mBuilder.setSmallIcon(R.drawable.notification_logo_trans);
+            mBuilder.setSmallIcon(R.drawable.smart_icon);
             mBuilder.setColorized(true);
             mBuilder.setColor(Color.parseColor("#f38000"));
-            Log.e("MANUFACTURER", Build.MANUFACTURER);
+            Log.d(TAG, "MANUFACTURER: "+Build.MANUFACTURER);
         } else {
-            mBuilder.setSmallIcon(R.drawable.notification_logo);
+            mBuilder.setSmallIcon(R.drawable.smart_icon);
         }
 
         if (mNotificationManager != null) {
@@ -81,12 +82,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
+        Log.d(TAG, "hgjkjk"+remoteMessage.getData());
         Log.e(TAG, "Status: Message Received");
         if (remoteMessage != null)
         {
-            Log.e(TAG, "Data: "+remoteMessage.getData().toString());
+            Log.d(TAG, "Data==: "+remoteMessage.getData());
             Map<String,String> data = remoteMessage.getData();
-            Log.e("MY NOTIFICATION== ", data.toString());
+            Log.d(TAG, "MY NOTIFICATION==: "+data);
             String mTitle = data.get("title");
             String mMessage = data.get("body");
             String action = data.get("action");

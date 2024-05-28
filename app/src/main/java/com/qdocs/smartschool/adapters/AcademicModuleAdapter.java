@@ -31,7 +31,6 @@ import com.qdocs.smartschool.students.StudentBehaviourReport;
 import com.qdocs.smartschool.students.StudentClassTimetable;
 import com.qdocs.smartschool.students.StudentDocuments;
 import com.qdocs.smartschool.students.StudentExaminationList;
-import com.qdocs.smartschool.students.StudentOnlineCourse;
 import com.qdocs.smartschool.students.StudentSyllabusStatus;
 import com.qdocs.smartschool.students.StudentTimeline;
 import com.qdocs.smartschool.utils.Constants;
@@ -212,6 +211,7 @@ public class AcademicModuleAdapter extends RecyclerView.Adapter<AcademicModuleAd
                     } else if (album.getName().equals("mydocuments")) {
                         Intent documentintent = new Intent(context, StudentDocuments.class);
                         context.startActivity(documentintent);
+                        Log.d("TAG", "onClick: "+documentintent);
                         context.overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
                     } else if (album.getName().equals("behaviour_records")) {
                         aparams.put("site_url", Utility.getSharedPreferences(context.getApplicationContext(), Constants.imagesUrl));

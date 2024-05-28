@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -33,6 +34,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -62,9 +64,11 @@ import com.qdocs.smartschool.utils.DatabaseHelper;
 import com.qdocs.smartschool.utils.DrawerArrowDrawable;
 import com.qdocs.smartschool.utils.Utility;
 import com.squareup.picasso.Picasso;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -75,7 +79,10 @@ import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
+
 import static android.widget.Toast.makeText;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NewDashboard extends AppCompatActivity {
     private static final int PERMISSION_CALLBACK_CONSTANT = 100;
@@ -83,15 +90,15 @@ public class NewDashboard extends AppCompatActivity {
     public DrawerArrowDrawable drawerArrowDrawable;
     ImageView drawerIndicator;
     public DrawerLayout drawer;
-    String[] permissionsRequired = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CALL_PHONE,Manifest.permission.CAMERA,Manifest.permission.POST_NOTIFICATIONS};
-    protected FrameLayout mDrawerLayout, actionBar;
+    String[] permissionsRequired = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CALL_PHONE, Manifest.permission.CAMERA, Manifest.permission.POST_NOTIFICATIONS};
+    protected FrameLayout actionBar;
     CardView card_view_outer;
     private NavigationView navigationView;
     public boolean flipped;
     LoginChildListAdapter studentListAdapter;
     public float offset;
-    ImageView actionBarLogo;
-    TextView unread_count,version_name;
+    CircleImageView actionBarLogo;
+    TextView unread_count, version_name;
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String> aparams = new Hashtable<String, String>();
     FrameLayout notification_alert;
@@ -107,23 +114,24 @@ public class NewDashboard extends AppCompatActivity {
     ArrayList<String> childClassList = new ArrayList<String>();
     ArrayList<String> childImageList = new ArrayList<String>();
     JSONArray modulesJson;
-    TextView name,admissionno,classdata;
+    TextView name, admissionno, classdata,schoolName;
     ImageView profileImageview;
     ArrayList<String> moduleCodeList = new ArrayList<String>();
     ArrayList<String> moduleStatusList = new ArrayList<String>();
     LinearLayout profileLinear;
     CollapsingToolbarLayout collapsing_toolbar;
-    RecyclerView elearning_recyclerView,academic_recyclerView,communicate_recyclerView,other_recyclerView;
+    RecyclerView elearning_recyclerView, academic_recyclerView, communicate_recyclerView, other_recyclerView;
     ElearningModuleAdapter elearningModuleAdapter;
     AcademicModuleAdapter academicModuleAdapter;
     CommunicateModuleAdapter communicateModuleAdapter;
     OtherModuleAdapter otherModuleAdapter;
-    ArrayList<Album1> communicatealbumList,elearningalbumList,academicalbumList,otheralbumList;
-    TextView textview1,textview2,textview3,textview4;
+    ArrayList<Album1> communicatealbumList, elearningalbumList, academicalbumList, otheralbumList;
+    TextView textview1, textview2, textview3, textview4;
     Handler handler = new Handler();
     Runnable runnable;
     int delay = 5000;
-    CardView elearning_card,academic_card,communicate_card,other_card;
+    CardView elearning_card, academic_card, communicate_card, other_card;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,6 +149,7 @@ public class NewDashboard extends AppCompatActivity {
         profileLinear = findViewById(R.id.profilelinear);
         collapsing_toolbar = findViewById(R.id.collapsing_toolbar);
         name = findViewById(R.id.name);
+        schoolName = findViewById(R.id.schoolName);
         admissionno = findViewById(R.id.admissionno);
         textview1 = findViewById(R.id.textview1);
         textview1.setText(getApplicationContext().getString(R.string.elearning));
@@ -159,16 +168,17 @@ public class NewDashboard extends AppCompatActivity {
         card_view_outer = findViewById(R.id.card_view_outer);
         Locale current = getResources().getConfiguration().locale;
 
-        if (Utility.isConnectingToInternet(getApplicationContext())) {
+       /* if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("site_url", Utility.getSharedPreferences(getApplicationContext(), Constants.imagesUrl));
             JSONObject obj = new JSONObject(params);
             Log.e("params", obj.toString());
             System.out.println("params==" + obj.toString());
             //getDatasFromApi(obj.toString());
         } else {
-            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
-        }
-       // makeText(this, Utility.getSharedPreferences(getApplicationContext(),Constants.currentLocale), Toast.LENGTH_SHORT).show();
+            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+        }*/
+        // makeText(this, Utility.getSharedPreferences(getApplicationContext(),Constants.currentLocale), Toast.LENGTH_SHORT).show();
+
         elearningalbumList = new ArrayList<>();
         academicalbumList = new ArrayList<>();
         communicatealbumList = new ArrayList<>();
@@ -184,14 +194,14 @@ public class NewDashboard extends AppCompatActivity {
         DatabaseHelper db = new DatabaseHelper(NewDashboard.this);
         int profile_counts = db.getProfilesCount();
         db.close();
-        if(String.valueOf(profile_counts).equals("0")){
+        if (String.valueOf(profile_counts).equals("0")) {
             unread_count.setVisibility(View.GONE);
-        }else{
+        } else {
             unread_count.setText(String.valueOf(profile_counts));
         }
 
-        if(Utility.getSharedPreferences(getApplicationContext(), "role").equals("parent")) {
-            if(Utility.getSharedPreferencesBoolean(getApplicationContext(), "hasMultipleChild")) {
+        if (Utility.getSharedPreferences(getApplicationContext(), "role").equals("parent")) {
+            if (Utility.getSharedPreferencesBoolean(getApplicationContext(), "hasMultipleChild")) {
                 switchChildBtn.setVisibility(View.VISIBLE);
             } else {
                 switchChildBtn.setVisibility(View.GONE);
@@ -209,43 +219,43 @@ public class NewDashboard extends AppCompatActivity {
         });
 
         elearning_recyclerView = findViewById(R.id.elearning_recyclerView);
-        elearningModuleAdapter = new ElearningModuleAdapter(NewDashboard.this,elearningalbumList);
-        GridLayoutManager learningLayoutManager=new GridLayoutManager(this,4);
+        elearningModuleAdapter = new ElearningModuleAdapter(NewDashboard.this, elearningalbumList);
+        GridLayoutManager learningLayoutManager = new GridLayoutManager(this, 4);
         elearning_recyclerView.setLayoutManager(learningLayoutManager);
         elearning_recyclerView.setAdapter(elearningModuleAdapter);
 
         // elearning();
 
         academic_recyclerView = findViewById(R.id.academic_recyclerView);
-        academicModuleAdapter = new AcademicModuleAdapter(NewDashboard.this,academicalbumList);
-        GridLayoutManager academicLayoutManager=new GridLayoutManager(this,4);
+        academicModuleAdapter = new AcademicModuleAdapter(NewDashboard.this, academicalbumList);
+        GridLayoutManager academicLayoutManager = new GridLayoutManager(this, 4);
         academic_recyclerView.setLayoutManager(academicLayoutManager);
         academic_recyclerView.setAdapter(academicModuleAdapter);
         //academic();
 
         communicate_recyclerView = findViewById(R.id.communicate_recyclerView);
-        communicateModuleAdapter = new CommunicateModuleAdapter(NewDashboard.this,communicatealbumList);
-        GridLayoutManager communicateLayoutManager=new GridLayoutManager(this,4);
+        communicateModuleAdapter = new CommunicateModuleAdapter(NewDashboard.this, communicatealbumList);
+        GridLayoutManager communicateLayoutManager = new GridLayoutManager(this, 4);
         communicate_recyclerView.setLayoutManager(communicateLayoutManager);
         communicate_recyclerView.setAdapter(communicateModuleAdapter);
         //communicate();
 
         other_recyclerView = findViewById(R.id.other_recyclerView);
-        otherModuleAdapter = new OtherModuleAdapter(NewDashboard.this,otheralbumList);
-        GridLayoutManager otherLayoutManager=new GridLayoutManager(this,4);
+        otherModuleAdapter = new OtherModuleAdapter(NewDashboard.this, otheralbumList);
+        GridLayoutManager otherLayoutManager = new GridLayoutManager(this, 4);
         other_recyclerView.setLayoutManager(otherLayoutManager);
         other_recyclerView.setAdapter(otherModuleAdapter);
-       // other();
+        // other();
 
 
         notification_alert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                    DatabaseHelper db = new DatabaseHelper(NewDashboard.this);
-                    db.updateStatus("0", "1");
-                    Intent intent = new Intent(NewDashboard.this, NotificationList.class);
-                    startActivity(intent);
+                DatabaseHelper db = new DatabaseHelper(NewDashboard.this);
+                db.updateStatus("0", "1");
+                Intent intent = new Intent(NewDashboard.this, NotificationList.class);
+                startActivity(intent);
 
             }
         });
@@ -267,11 +277,10 @@ public class NewDashboard extends AppCompatActivity {
                 offset = slideOffset;
                 // Sometimes slideOffset ends up so close to but not quite 1 or 0.
                 if (slideOffset >= .995) {
-                    flipped = true;
-                    drawerArrowDrawable.setFlip(flipped);
+
+                    drawerArrowDrawable.setFlip(true);
                 } else if (slideOffset <= .005) {
-                    flipped = false;
-                    drawerArrowDrawable.setFlip(flipped);
+                    drawerArrowDrawable.setFlip(false);
                 }
                 drawerArrowDrawable.setParameter(offset);
             }
@@ -288,49 +297,51 @@ public class NewDashboard extends AppCompatActivity {
             }
         });
 
-        if(Utility.getSharedPreferences(getApplicationContext(), Constants.loginType).equals("parent")){
+        if (Utility.getSharedPreferences(getApplicationContext(), Constants.loginType).equals("parent")) {
             if (Utility.isConnectingToInternet(getApplicationContext())) {
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                 params.put("date_from", getDateOfMonth(new Date(), "first"));
                 params.put("date_to", getDateOfMonth(new Date(), "last"));
                 params.put("role", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
                 params.put("user_id", Utility.getSharedPreferences(getApplicationContext(), Constants.userId));
-                JSONObject object=new JSONObject(params);
+                params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
+                JSONObject object = new JSONObject(params);
                 Log.e("params ", object.toString());
                 getDataFromApi(object.toString());
             } else {
-                makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
             }
 
-        }else{
+        } else {
             if (Utility.isConnectingToInternet(getApplicationContext())) {
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                 params.put("date_from", getDateOfMonth(new Date(), "first"));
                 params.put("date_to", getDateOfMonth(new Date(), "last"));
                 params.put("role", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
-                JSONObject object=new JSONObject(params);
+                params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
+                JSONObject object = new JSONObject(params);
                 Log.e("params ", object.toString());
                 getDataFromApi(object.toString());
             } else {
-                makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
             }
 
             if (Utility.isConnectingToInternet(getApplicationContext())) {
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-                JSONObject object=new JSONObject(params);
+                JSONObject object = new JSONObject(params);
                 Log.e("params ", object.toString());
                 getCurrencyDataFromApi(object.toString());
             } else {
-                makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
             }
 
         }
     }
 
-    public static String getDateOfMonth(Date date, String index){
+    public static String getDateOfMonth(Date date, String index) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        if(index.equals("first")) {
+        if (index.equals("first")) {
             cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
         } else {
             cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -338,7 +349,8 @@ public class NewDashboard extends AppCompatActivity {
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormatter.format(cal.getTime());
     }
-    private void getElearningFromApi (String bodyParams) {
+
+    private void getLearningFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
@@ -347,21 +359,21 @@ public class NewDashboard extends AppCompatActivity {
 
         final String requestBody = bodyParams;
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getELearningUrl;
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getELearningUrl;
         Log.e("URL", url);
-        Log.d("TAG", requestBody+"getRequestandb url: "+url);
+        Log.d("TAG", requestBody + "getRequestandb url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Modules Result", result);
+                        Log.d("TAG", "onResponslearning: " + result);
                         JSONObject object = new JSONObject(result);
-                        System.out.println("Modules Result"+result);
+                        System.out.println("Modules Result" + result);
 
                         modulesJson = object.getJSONArray("module_list");
-                        System.out.println("Modules length"+modulesJson.length());
+                        System.out.println("Modules length" + modulesJson.length());
 
                         int[] covers = new int[]{
                                 R.drawable.ic_dashboard_homework,
@@ -376,16 +388,16 @@ public class NewDashboard extends AppCompatActivity {
 
                         Utility.setSharedPreference(getApplicationContext(), Constants.modulesArray, modulesJson.toString());
                         if (modulesJson.length() != 0) {
-                            for(int i = 0; i < modulesJson.length(); i++) {
-                                if(modulesJson.getJSONObject(i).getString("status").equals("1")){
+                            for (int i = 0; i < modulesJson.length(); i++) {
+                                if (modulesJson.getJSONObject(i).getString("status").equals("1")) {
 
-                                    Album1 album1=new Album1();
+                                    Album1 album1 = new Album1();
                                     album1.setName(modulesJson.getJSONObject(i).getString("short_code"));
                                     album1.setValue(modulesJson.getJSONObject(i).getString("status"));
                                     album1.setThumbnail(covers[i]);
                                     elearningalbumList.add(album1);
 
-                                }else{
+                                } else {
 
                                 }
                             }
@@ -439,7 +451,7 @@ public class NewDashboard extends AppCompatActivity {
         requestQueue.add(stringRequest); //Adding request to the queue
     }
 
-    private void getAcademicsFromApi (String bodyParams) {
+    private void getAcademicsFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
@@ -448,21 +460,21 @@ public class NewDashboard extends AppCompatActivity {
 
         final String requestBody = bodyParams;
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getAcademicsUrl;
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getAcademicsUrl;
         Log.e("URL", url);
-        Log.d("TAG", requestBody+"getRequestanda url: "+url);
+        Log.d("TAG", requestBody + "getRequestanda url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Modules Result", result);
+                        Log.d("TAG", "onResponsacedmi: " + result);
                         JSONObject object = new JSONObject(result);
-                        System.out.println("Modules Result"+result);
+                        System.out.println("Modules Result" + result);
 
                         modulesJson = object.getJSONArray("module_list");
-                        System.out.println("Modules length"+modulesJson.length());
+                        System.out.println("Modules length" + modulesJson.length());
 
                         int[] covers = new int[]{
                                 R.drawable.ic_calender_cross,
@@ -476,14 +488,15 @@ public class NewDashboard extends AppCompatActivity {
                         };
                         Utility.setSharedPreference(getApplicationContext(), Constants.modulesArray, modulesJson.toString());
                         if (modulesJson.length() != 0) {
-                            for(int i = 0; i < modulesJson.length(); i++) {
-                                if(modulesJson.getJSONObject(i).getString("status").equals("1")){
-                                    Album1 album1=new Album1();
+                            for (int i = 0; i < modulesJson.length(); i++) {
+                                if (modulesJson.getJSONObject(i).getString("status").equals("1")) {
+                                    Album1 album1 = new Album1();
                                     album1.setName(modulesJson.getJSONObject(i).getString("short_code"));
                                     album1.setValue(modulesJson.getJSONObject(i).getString("status"));
                                     album1.setThumbnail(covers[i]);
                                     academicalbumList.add(album1);
-                                }else{}
+                                } else {
+                                }
                             }
                             academicModuleAdapter.notifyDataSetChanged();
                             //setMenu(navigationView.getMenu());
@@ -535,7 +548,7 @@ public class NewDashboard extends AppCompatActivity {
         requestQueue.add(stringRequest); //Adding request to the queue
     }
 
-    private void getCommunicateFromApi (String bodyParams) {
+    private void getCommunicateFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
@@ -544,22 +557,22 @@ public class NewDashboard extends AppCompatActivity {
 
         final String requestBody = bodyParams;
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getCommunicateUrl;
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getCommunicateUrl;
         Log.e("URL", url);
 
-        Log.d("TAG", requestBody+"getRequestandgh url: "+url);
+        Log.d("TAG", requestBody + "getRequestandgh url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Modules Result", result);
+                        Log.d("TAG", "onResponsecoounity: " + result);
                         JSONObject object = new JSONObject(result);
-                        System.out.println("Modules Result"+result);
+                        System.out.println("Modules Result" + result);
 
                         modulesJson = object.getJSONArray("module_list");
-                        System.out.println("Modules length"+modulesJson.length());
+                        System.out.println("Modules length" + modulesJson.length());
 
                         int[] covers = new int[]{
                                 R.drawable.ic_notice,
@@ -569,16 +582,16 @@ public class NewDashboard extends AppCompatActivity {
                         Utility.setSharedPreference(getApplicationContext(), Constants.modulesArray, modulesJson.toString());
                         if (modulesJson.length() != 0) {
 
-                            for(int i = 0; i < modulesJson.length(); i++) {
-                                if(modulesJson.getJSONObject(i).getString("status").equals("1")){
+                            for (int i = 0; i < modulesJson.length(); i++) {
+                                if (modulesJson.getJSONObject(i).getString("status").equals("1")) {
 
-                                    Album1 album1=new Album1();
+                                    Album1 album1 = new Album1();
                                     album1.setName(modulesJson.getJSONObject(i).getString("short_code"));
                                     album1.setValue(modulesJson.getJSONObject(i).getString("status"));
                                     album1.setThumbnail(covers[i]);
                                     communicatealbumList.add(album1);
 
-                                }else{
+                                } else {
 
                                 }
                             }
@@ -600,7 +613,7 @@ public class NewDashboard extends AppCompatActivity {
             public void onErrorResponse(VolleyError volleyError) {
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
-                Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
+               Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
             }
         }) {
             @Override
@@ -633,7 +646,7 @@ public class NewDashboard extends AppCompatActivity {
         requestQueue.add(stringRequest); //Adding request to the queue
     }
 
-    private void getOthersFromApi (String bodyParams) {
+    private void getOthersFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
@@ -642,21 +655,21 @@ public class NewDashboard extends AppCompatActivity {
 
         final String requestBody = bodyParams;
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getOthersUrl;
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getOthersUrl;
         Log.e("URL", url);
-        Log.d("TAG", requestBody+"getRequestandsg url: "+url);
+        Log.d("TAG", requestBody + "getRequestandsg url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Modules Result", result);
+                        Log.d("TAG", "onResponseOther: " + result);
                         JSONObject object = new JSONObject(result);
-                        System.out.println("Modules Result"+result);
+                        System.out.println("Modules Result" + result);
 
                         modulesJson = object.getJSONArray("module_list");
-                        System.out.println("Modules length"+modulesJson.length());
+                        System.out.println("Modules length" + modulesJson.length());
 
                         int[] covers = new int[]{
                                 R.drawable.ic_nav_fees,
@@ -671,14 +684,14 @@ public class NewDashboard extends AppCompatActivity {
 
                         Utility.setSharedPreference(getApplicationContext(), Constants.modulesArray, modulesJson.toString());
                         if (modulesJson.length() != 0) {
-                            for(int i = 0; i < modulesJson.length(); i++) {
-                                if(modulesJson.getJSONObject(i).getString("status").equals("1")){
-                                    Album1 album1=new Album1();
+                            for (int i = 0; i < modulesJson.length(); i++) {
+                                if (modulesJson.getJSONObject(i).getString("status").equals("1")) {
+                                    Album1 album1 = new Album1();
                                     album1.setName(modulesJson.getJSONObject(i).getString("short_code"));
                                     album1.setValue(modulesJson.getJSONObject(i).getString("status"));
                                     album1.setThumbnail(covers[i]);
                                     otheralbumList.add(album1);
-                                }else{
+                                } else {
 
                                 }
                             }
@@ -698,7 +711,7 @@ public class NewDashboard extends AppCompatActivity {
             public void onErrorResponse(VolleyError volleyError) {
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
-                Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
+             Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
             }
         }) {
             @Override
@@ -738,7 +751,7 @@ public class NewDashboard extends AppCompatActivity {
         Menu menu = navigationView.getMenu();
         RelativeLayout tracks = (RelativeLayout) menu.findItem(R.id.nav_log_version).getActionView();
         TextView version_name = (TextView) tracks.findViewById(R.id.version_name);
-        version_name.setText(getApplicationContext().getString(R.string.version)+" on "+Utility.getSharedPreferences(getApplicationContext(), Constants.app_ver));
+        version_name.setText(getApplicationContext().getString(R.string.version) + " on " + Utility.getSharedPreferences(getApplicationContext(), Constants.app_ver));
 
         classTV = headerLayout.findViewById(R.id.drawer_userClass);
         nameTV = headerLayout.findViewById(R.id.drawer_userName);
@@ -816,29 +829,29 @@ public class NewDashboard extends AppCompatActivity {
         });
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("parent_id", Utility.getSharedPreferences(getApplicationContext(), "userId"));
-            JSONObject obj=new JSONObject(params);
+            JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
             getStudentsListFromApi(obj.toString());
         } else {
-            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
         Log.e("Child Name", childNameList.toString());
     }
 
     private void setUpPermission() {
-        if(ActivityCompat.checkSelfPermission(NewDashboard.this, permissionsRequired[0]) != PackageManager.PERMISSION_GRANTED
+        if (ActivityCompat.checkSelfPermission(NewDashboard.this, permissionsRequired[0]) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(NewDashboard.this, permissionsRequired[1]) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(NewDashboard.this, permissionsRequired[2]) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(NewDashboard.this, permissionsRequired[3]) != PackageManager.PERMISSION_GRANTED
-                || ActivityCompat.checkSelfPermission(NewDashboard.this, permissionsRequired[4]) != PackageManager.PERMISSION_GRANTED){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[0])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[1])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[2])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[3])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[4])){
-                ActivityCompat.requestPermissions(NewDashboard.this,permissionsRequired,PERMISSION_CALLBACK_CONSTANT);
+                || ActivityCompat.checkSelfPermission(NewDashboard.this, permissionsRequired[4]) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[0])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[1])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[2])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[3])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[4])) {
+                ActivityCompat.requestPermissions(NewDashboard.this, permissionsRequired, PERMISSION_CALLBACK_CONSTANT);
             } else {
-                ActivityCompat.requestPermissions(NewDashboard.this,permissionsRequired,PERMISSION_CALLBACK_CONSTANT);
+                ActivityCompat.requestPermissions(NewDashboard.this, permissionsRequired, PERMISSION_CALLBACK_CONSTANT);
             }
             Utility.setSharedPreferenceBoolean(getApplicationContext(), Constants.permissionStatus, true);
         }
@@ -848,28 +861,32 @@ public class NewDashboard extends AppCompatActivity {
     private void decorate() {
 
         Utility.setLocale(getApplicationContext(), Utility.getSharedPreferences(getApplicationContext(), Constants.langCode));
-        String appLogo = Utility.getSharedPreferences(this, Constants.appLogo)+"?"+new Random().nextInt(11);
-
+        String logo = Utility.getSharedPreferences(getApplicationContext(), Constants.imagesUrl);
+        logo += "uploads/school_content/admin_logo/";
+        logo += Utility.getSharedPreferences(getApplicationContext(), Constants.app_image);
+        Picasso.get().load(logo).fit().centerInside().placeholder(null).into(actionBarLogo);
+        Log.d("TAG", "decorate: "+Utility.getSharedPreferences(this, "userImage"));
         Picasso.get().load(Utility.getSharedPreferences(this, "userImage")).placeholder(R.drawable.placeholder_user).into(profileImageIV);
         Picasso.get().load(Utility.getSharedPreferences(this, "userImage")).placeholder(R.drawable.placeholder_user).into(profileImageview);
-        Picasso.get().load(appLogo).fit().centerInside().placeholder(null).into(actionBarLogo);
 
         nameTV.setText(Utility.getSharedPreferences(this, Constants.userName));
-        admissionno.setText("Admission No. "+Utility.getSharedPreferences(this, Constants.admission_no));
+        admissionno.setText("Admission No. " + Utility.getSharedPreferences(this, Constants.admission_no));
         classdata.setText(Utility.getSharedPreferences(this, Constants.classSection));
         name.setText(Utility.getSharedPreferences(this, Constants.userName));
+        schoolName.setText(Utility.getSharedPreferences(this, Constants.schoolName));
+        Log.d("TAG", "decorate: "+Utility.getSharedPreferences(this, Constants.userName));
         classTV.setText(Utility.getSharedPreferences(this, Constants.classSection));
         childDetailsTV.setText("Child - " + Utility.getSharedPreferences(getApplicationContext(), "studentName")
                 + "\n" + Utility.getSharedPreferences(this, Constants.classSection));
 
-        if(Utility.getSharedPreferences(getApplicationContext(), Constants.loginType).equals("parent")) {
+        if (Utility.getSharedPreferences(getApplicationContext(), Constants.loginType).equals("parent")) {
             classTV.setVisibility(View.GONE);
             childDetailsTV.setVisibility(View.VISIBLE);
         } else {
             classTV.setVisibility(View.VISIBLE);
             childDetailsTV.setVisibility(View.GONE);
         }
-        System.out.println("Colour=="+Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour));
+        System.out.println("Colour==" + Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour));
         actionBar.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour)));
         profileLinear.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour)));
         card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour)));
@@ -888,13 +905,13 @@ public class NewDashboard extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults
         );
-        if(requestCode == PERMISSION_CALLBACK_CONSTANT){
+        if (requestCode == PERMISSION_CALLBACK_CONSTANT) {
 
-            if(ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[0])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[1])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[2])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[3])
-                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this,permissionsRequired[4])){
+            if (ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[0])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[1])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[2])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[3])
+                    || ActivityCompat.shouldShowRequestPermissionRationale(NewDashboard.this, permissionsRequired[4])) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NewDashboard.this);
                 builder.setTitle("Need Multiple Permissions");
@@ -903,7 +920,7 @@ public class NewDashboard extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        ActivityCompat.requestPermissions(NewDashboard.this,permissionsRequired,PERMISSION_CALLBACK_CONSTANT);
+                        ActivityCompat.requestPermissions(NewDashboard.this, permissionsRequired, PERMISSION_CALLBACK_CONSTANT);
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -915,7 +932,7 @@ public class NewDashboard extends AppCompatActivity {
                 builder.show();
             } else {
 
-                if(Build.MANUFACTURER.equalsIgnoreCase("xiaomi")) {
+                if (Build.MANUFACTURER.equalsIgnoreCase("xiaomi")) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(NewDashboard.this);
                     builder.setTitle("Allow Notifications");
@@ -941,9 +958,12 @@ public class NewDashboard extends AppCompatActivity {
         }
     }
 
-    private void getStudentsListFromApi (String bodyParams) {
+    private void getStudentsListFromApi(String bodyParams) {
 
-        childIdList.clear(); childNameList.clear(); childClassList.clear(); childImageList.clear();
+        childIdList.clear();
+        childNameList.clear();
+        childClassList.clear();
+        childImageList.clear();
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
@@ -952,8 +972,8 @@ public class NewDashboard extends AppCompatActivity {
 
         final String requestBody = bodyParams;
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.parent_getStudentList;
-        Log.d("TAG", requestBody+"getRequestandsh url: "+url);
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.parent_getStudentList;
+        Log.d("TAG", requestBody + "getRequestandsh url: " + url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -961,16 +981,16 @@ public class NewDashboard extends AppCompatActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG",   "onresponseurl: " + result);
                         JSONObject object = new JSONObject(result);
 
                         JSONArray dataArray = object.getJSONArray("childs");
                         if (dataArray.length() != 0) {
 
-                            for(int i = 0; i < dataArray.length(); i++) {
+                            for (int i = 0; i < dataArray.length(); i++) {
                                 childIdList.add(dataArray.getJSONObject(i).getString("id"));
-                                childNameList.add(dataArray.getJSONObject(i).getString("firstname") + " " +  dataArray.getJSONObject(i).getString("lastname") );
-                                childClassList.add(dataArray.getJSONObject(i).getString("class") + "-" +  dataArray.getJSONObject(i).getString("section"));
+                                childNameList.add(dataArray.getJSONObject(i).getString("firstname") + " " + dataArray.getJSONObject(i).getString("lastname"));
+                                childClassList.add(dataArray.getJSONObject(i).getString("class") + "-" + dataArray.getJSONObject(i).getString("section"));
                                 childImageList.add(dataArray.getJSONObject(i).getString("image"));
                             }
                             studentListAdapter.notifyDataSetChanged();
@@ -1026,138 +1046,21 @@ public class NewDashboard extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void getDatasFromApi(String bodyParams) {
 
-        Log.d("TAG", "getDatasFromApi: "+bodyParams);
-
-        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("Loading");
-        pd.setCancelable(false);
-        pd.show();
-
-        final String requestBody = bodyParams;
-
-            String url = "https://sstrace.qdocs.in/postlic/verifyappjsonv2";
-
-        Log.d("TAG", requestBody+"getDatasFromApi: "+url);
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String result) {
-                    System.out.println("result=="+result);
-                    if (result != null) {
-                        pd.dismiss();
-
-                       // JSONObject jsonObject = new JSONObject();
-
-                        try {
-
-                            JSONObject object = new JSONObject(result);
-
-                            if(object.getString("status").equals("0")) {
-                                Utility.setSharedPreferenceBoolean(getApplicationContext(), Constants.isLoggegIn, false);
-
-                                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(NewDashboard.this);
-                                builder.setCancelable(false);
-                                //builder.setMessage(R.string.verificationMessage);
-                                builder.setMessage(object.getString("msg"));
-                                builder.setTitle("");
-                                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        if (Utility.isConnectingToInternet(getApplicationContext())) {
-                                            logoutparams.put("deviceToken", device_token);
-                                            JSONObject obj=new JSONObject(logoutparams);
-                                            Log.e("params ", obj.toString());
-                                            System.out.println("Logout Details=="+obj.toString());
-                                            loginOutApi(obj.toString());
-                                        } else {
-                                            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-
-                                android.app.AlertDialog alert = builder.create();
-                                alert.show();
-                            }else {
-
-                                if (Utility.getSharedPreferences(getApplicationContext(), Constants.loginType).equals("student")) {
-                                    aparams.put("id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
-                                    aparams.put("user_type", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
-                                    JSONObject obj = new JSONObject(aparams);
-                                    Log.e("params ", obj.toString());
-                                    System.out.println("Status Details==" + obj.toString());
-                                    checkStudentStatus(obj.toString());
-                                } else {
-                                    aparams.put("id", Utility.getSharedPreferences(getApplicationContext(), Constants.parentsId));
-                                    aparams.put("user_type", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
-                                    JSONObject obj = new JSONObject(aparams);
-                                    Log.e("params ", obj.toString());
-                                    System.out.println("Status Details==" + obj.toString());
-                                    checkStudentStatus(obj.toString());
-                                }
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        pd.dismiss();
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
-                    pd.dismiss();
-                    Log.e("Volley Error", volleyError.toString());
-                    Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
-                }
-            }) {
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    headers.put("Client-Service", Constants.clientService);
-                    headers.put("Auth-Key", Constants.authKey);
-                    headers.put("Content-Type", Constants.contentType);
-                    headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
-                    headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
-                    return headers;
-                }
-
-                @Override
-                 public String getBodyContentType() {
-                    return "application/json; charset=utf-8";
-                   }
-
-                @Override
-                public byte[] getBody() throws AuthFailureError {
-                    try {
-                        return requestBody == null ? null : requestBody.getBytes("utf-8");
-                    } catch (UnsupportedEncodingException uee) {
-                        VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
-                        return null;
-                    }
-                }
-            };
-            //Creating a Request Queue
-            RequestQueue requestQueue = Volley.newRequestQueue(NewDashboard.this);
-            //Adding request to the queue
-            requestQueue.add(stringRequest);
-
-
-    }
 
 
     private void prepareNavList() {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("user", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-            JSONObject obj=new JSONObject(params);
+            JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
-            getElearningFromApi(obj.toString());
+            getLearningFromApi(obj.toString());
             getCommunicateFromApi(obj.toString());
             getAcademicsFromApi(obj.toString());
             getOthersFromApi(obj.toString());
         } else {
-            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -1171,37 +1074,37 @@ public class NewDashboard extends AppCompatActivity {
 
                     case R.id.nav_home:
 
-                            Intent dashboard = new Intent(NewDashboard.this, NewDashboard.class);
-                            startActivity(dashboard);
-                            overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
-                            drawer.closeDrawer(GravityCompat.START);
+                        Intent dashboard = new Intent(NewDashboard.this, NewDashboard.class);
+                        startActivity(dashboard);
+                        overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
+                        drawer.closeDrawer(GravityCompat.START);
 
                         break;
 
                     case R.id.nav_profile:
 
-                            Intent profile = new Intent(NewDashboard.this, StudentProfileDetailsNew.class);
-                            startActivity(profile);
-                            overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
-                            drawer.closeDrawer(GravityCompat.START);
+                        Intent profile = new Intent(NewDashboard.this, StudentProfileDetailsNew.class);
+                        startActivity(profile);
+                        overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
+                        drawer.closeDrawer(GravityCompat.START);
 
                         break;
 
                     case R.id.nav_about:
 
-                            Intent about = new Intent(NewDashboard.this, AboutSchool.class);
-                            startActivity(about);
-                            overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
-                            drawer.closeDrawer(GravityCompat.START);
+                        Intent about = new Intent(NewDashboard.this, AboutSchool.class);
+                        startActivity(about);
+                        overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
+                        drawer.closeDrawer(GravityCompat.START);
 
                         break;
 
                     case R.id.nav_setting:
 
-                            Intent setting = new Intent(NewDashboard.this, SettingActivity.class);
-                            startActivity(setting);
-                            overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
-                            drawer.closeDrawer(GravityCompat.START);
+                        Intent setting = new Intent(NewDashboard.this, SettingActivity.class);
+                        startActivity(setting);
+                        overridePendingTransition(R.anim.slide_leftright, R.anim.no_animation);
+                        drawer.closeDrawer(GravityCompat.START);
 
                         break;
 
@@ -1215,12 +1118,12 @@ public class NewDashboard extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 if (Utility.isConnectingToInternet(getApplicationContext())) {
                                     logoutparams.put("deviceToken", device_token);
-                                    JSONObject obj=new JSONObject(logoutparams);
+                                    JSONObject obj = new JSONObject(logoutparams);
                                     Log.e("params ", obj.toString());
-                                    System.out.println("Logout Details=="+obj.toString());
+                                    System.out.println("Logout Details==" + obj.toString());
                                     loginOutApi(obj.toString());
                                 } else {
-                                    makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                                    makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -1238,9 +1141,10 @@ public class NewDashboard extends AppCompatActivity {
         });
 
     }
-    private void loginOutApi (String bodyParams) {
+
+    private void loginOutApi(String bodyParams) {
         DatabaseHelper dataBaseHelpers = new DatabaseHelper(NewDashboard.this);
-        dataBaseHelpers.deleteAll() ;
+        dataBaseHelpers.deleteAll();
 
         final ProgressDialog pd = new ProgressDialog(NewDashboard.this);
         pd.setMessage("Loading");
@@ -1248,14 +1152,14 @@ public class NewDashboard extends AppCompatActivity {
         pd.show();
 
         final String requestBody = bodyParams;
-        String url = Utility.getSharedPreferences(NewDashboard.this, "apiUrl")+ Constants.logoutUrl;
+        String url = Utility.getSharedPreferences(NewDashboard.this, "apiUrl") + Constants.logoutUrl;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponse: " + result);
                         JSONObject object = new JSONObject(result);
 
                         String success = object.getString("status");
@@ -1267,7 +1171,7 @@ public class NewDashboard extends AppCompatActivity {
                             startActivity(logout);
                             finish();
                         } else {
-                            Intent intent=new Intent(NewDashboard.this, TakeUrl.class);
+                            Intent intent = new Intent(NewDashboard.this, Login.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {
@@ -1278,13 +1182,13 @@ public class NewDashboard extends AppCompatActivity {
                     Toast.makeText(NewDashboard.this, R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
             }
-        },new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
-                // Toast.makeText(StudentDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(NewDashboard.this,TakeUrl.class);
+               //  Toast.makeText(StudentDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(NewDashboard.this, TakeUrl.class);
                 startActivity(intent);
                 finish();
 
@@ -1327,19 +1231,19 @@ public class NewDashboard extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void getDataFromApi (String bodyParams) {
+    private void getDataFromApi(String bodyParams) {
 
         Log.e("RESULT PARAMS", bodyParams);
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getDashboardUrl;
 
-        Log.d("TAG", requestBody+"getRequestand url: "+url);
+        Log.d("TAG", requestBody + ",m.// url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponsejhjhk: " + result);
                         JSONObject object = new JSONObject(result);
                         //TODO success
                         String success = "1"; //object.getString("success");
@@ -1356,7 +1260,7 @@ public class NewDashboard extends AppCompatActivity {
                     }
                 } else {
 
-                    Toast.makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -1397,22 +1301,22 @@ public class NewDashboard extends AppCompatActivity {
         requestQueue.add(stringRequest);//Adding request to the queue
     }
 
-    private void getCurrencyDataFromApi (String bodyParams) {
+    private void getCurrencyDataFromApi(String bodyParams) {
         Log.e("RESULT PARAMS", bodyParams);
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getStudentCurrencyUrl;
-        Log.d("TAG", requestBody+"getRequestands url: "+url);
+        Log.d("TAG", requestBody + "getRequestands url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponse: " + result);
                         JSONObject object = new JSONObject(result);
 
                         //TODO success
                         JSONObject data = object.getJSONObject("result");
-                        System.out.println("Currency data=="+data.toString());
+                        System.out.println("Currency data==" + data.toString());
                         Utility.setSharedPreference(getApplicationContext(), Constants.currency_price, data.getString("base_price"));
                         Utility.setSharedPreference(getApplicationContext(), Constants.currency_short_name, data.getString("name"));
                         Utility.setSharedPreference(getApplicationContext(), Constants.currency, data.getString("symbol"));
@@ -1467,19 +1371,20 @@ public class NewDashboard extends AppCompatActivity {
 
 
         final String requestBody = bodyParams;
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.checkStudentStatusUrl;
-        System.out.println("url=="+url);
-        Log.d("TAG", requestBody+"getRequestandh url: "+url);
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.checkStudentStatusUrl;
+        System.out.println("url==" + url);
+        Log.d("TAG", requestBody + "getRequestandh url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
 
                 try {
+                    Log.d("TAG", "onResponse: " + result);
                     JSONObject object = new JSONObject(result);
                     String response = object.getString("response");
-                    System.out.println("response="+response.toString());
-                    Utility.setSharedPreference(getApplicationContext(),"response",response);
-                    if(Utility.getSharedPreferences(getApplicationContext(),"response").equals("no")){
+                    System.out.println("response=" + response.toString());
+                    Utility.setSharedPreference(getApplicationContext(), "response", response);
+                    if (Utility.getSharedPreferences(getApplicationContext(), "response").equals("no")) {
                         Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", false);
                         Intent logout = new Intent(getApplicationContext(), Login.class);
                         logout.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -1487,7 +1392,7 @@ public class NewDashboard extends AppCompatActivity {
                         startActivity(logout);
                         finish();
                         handler.removeCallbacks(runnable);
-                    }else{
+                    } else {
 
                     }
                 } catch (JSONException e) {
@@ -1563,5 +1468,122 @@ public class NewDashboard extends AppCompatActivity {
         }, delay);
         super.onResume();
     }
+  /*  private void getDatasFromApi(String bodyParams) {
 
+        Log.d("TAG", "getDatasFromApi: " + bodyParams);
+
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Loading");
+        pd.setCancelable(false);
+        pd.show();
+
+        final String requestBody = bodyParams;
+
+        String url = "https://sstrace.qdocs.in/postlic/verifyappjsonv2";
+
+        Log.d("TAG", requestBody + "getDatasFromApi: " + url);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String result) {
+                System.out.println("result==" + result);
+                if (result != null) {
+                    pd.dismiss();
+
+                    // JSONObject jsonObject = new JSONObject();
+
+                    try {
+
+                        JSONObject object = new JSONObject(result);
+
+                        if (object.getString("status").equals("0")) {
+                            Utility.setSharedPreferenceBoolean(getApplicationContext(), Constants.isLoggegIn, false);
+
+                            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(NewDashboard.this);
+                            builder.setCancelable(false);
+                            //builder.setMessage(R.string.verificationMessage);
+                            builder.setMessage(object.getString("msg"));
+                            builder.setTitle("");
+                            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if (Utility.isConnectingToInternet(getApplicationContext())) {
+                                        logoutparams.put("deviceToken", device_token);
+                                        JSONObject obj = new JSONObject(logoutparams);
+                                        Log.e("params ", obj.toString());
+                                        System.out.println("Logout Details==" + obj.toString());
+                                        loginOutApi(obj.toString());
+                                    } else {
+                                        makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+                            android.app.AlertDialog alert = builder.create();
+                            alert.show();
+                        } else {
+
+                            if (Utility.getSharedPreferences(getApplicationContext(), Constants.loginType).equals("student")) {
+                                aparams.put("id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+                                aparams.put("user_type", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
+                                JSONObject obj = new JSONObject(aparams);
+                                Log.e("params ", obj.toString());
+                                System.out.println("Status Details==" + obj.toString());
+                                checkStudentStatus(obj.toString());
+                            } else {
+                                aparams.put("id", Utility.getSharedPreferences(getApplicationContext(), Constants.parentsId));
+                                aparams.put("user_type", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
+                                JSONObject obj = new JSONObject(aparams);
+                                Log.e("params ", obj.toString());
+                                System.out.println("Status Details==" + obj.toString());
+                                checkStudentStatus(obj.toString());
+                            }
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    pd.dismiss();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                pd.dismiss();
+                Log.e("Volley Error", volleyError.toString());
+                Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                headers.put("Client-Service", Constants.clientService);
+                headers.put("Auth-Key", Constants.authKey);
+                headers.put("Content-Type", Constants.contentType);
+                headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
+                headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
+                return headers;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+        };
+        //Creating a Request Queue
+        RequestQueue requestQueue = Volley.newRequestQueue(NewDashboard.this);
+        //Adding request to the queue
+        requestQueue.add(stringRequest);
+
+
+    }*/
 }

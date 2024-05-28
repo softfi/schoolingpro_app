@@ -55,7 +55,7 @@
                         android:textColor="@color/textHeading"
                         android:textStyle="bold"
                         android:layout_marginStart="10dp"
-                        android:textSize="22dp"/>
+                        android:textSize="22sp"/>
 
                 </LinearLayout>
                 <LinearLayout

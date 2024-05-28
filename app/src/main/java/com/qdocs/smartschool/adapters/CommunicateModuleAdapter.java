@@ -47,7 +47,6 @@ public class CommunicateModuleAdapter extends RecyclerView.Adapter<CommunicateMo
             modulename = (TextView) itemView.findViewById(R.id.modulename);
             moduleiamge = (ImageView) itemView.findViewById(R.id.moduleiamge);
             layout = (LinearLayout) itemView.findViewById(R.id.layout);
-
         }
     }
 
@@ -61,6 +60,7 @@ public class CommunicateModuleAdapter extends RecyclerView.Adapter<CommunicateMo
                 holder.modulename.setText(context.getApplicationContext().getString(R.string.noticeBoard));
             }
         }
+
          if(album1.getValue().equals("0")){
              holder.itemView.setVisibility(View.GONE);
              holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));

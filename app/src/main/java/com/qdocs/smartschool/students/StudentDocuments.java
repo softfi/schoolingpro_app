@@ -1,10 +1,8 @@
 package com.qdocs.smartschool.students;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.IBinder;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +48,6 @@ import static android.widget.Toast.makeText;
 public class StudentDocuments extends BaseActivity {
     RecyclerView documentListView;
 
-
     StudentDocumentsAdapter adapter;
     SwipeRefreshLayout pullToRefresh;
     ArrayList<String> docTitleList = new ArrayList<>();
@@ -72,13 +69,13 @@ public class StudentDocuments extends BaseActivity {
         addDocumentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(), StudentUploadDocument.class);
+                Intent intent = new Intent(getApplicationContext(), StudentUploadDocument.class);
                 startActivity(intent);
             }
         });
 
         documentListView = findViewById(R.id.studentDocument_listview);
-        documentListView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
+        documentListView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         documentListView.setItemAnimator(new DefaultItemAnimator());
         adapter = new StudentDocumentsAdapter(StudentDocuments.this, docTitleList, docUrlList);
         documentListView.setAdapter(adapter);
@@ -94,14 +91,15 @@ public class StudentDocuments extends BaseActivity {
         });
     }
 
-    public  void loadData(){
+    public void loadData() {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-            JSONObject obj=new JSONObject(params);
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
+            JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
         } else {
-            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -111,7 +109,7 @@ public class StudentDocuments extends BaseActivity {
         loadData();
     }
 
-    private void getDataFromApi (String bodyParams) {
+    private void getDataFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
@@ -120,29 +118,37 @@ public class StudentDocuments extends BaseActivity {
 
         final String requestBody = bodyParams;
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getDocumentUrl;
-        Log.e("URL", url);
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getDocumentUrl;
+        Log.d("TAG", requestBody+"getDataFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+           // @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(String result) {
                 pullToRefresh.setRefreshing(false);
+              //  Log.d("TAG", "onResponseg: " + result);
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponseg: " + result);
                         JSONArray dataArray = new JSONArray(result);
                         docTitleList.clear();
                         docUrlList.clear();
-                        Log.d("TAG", "onResponseg: "+docTitleList + docUrlList);
+                        //  Log.d("TAG", "onResponseg: " + docTitleList + docUrlList);
                         if (dataArray.length() != 0) {
-                            for(int i = 0; i < dataArray.length(); i++) {
+                            for (int i = 0; i < dataArray.length(); i++) {
 
                                 docTitleList.add(dataArray.getJSONObject(i).getString("title"));
                                 docUrlList.add(dataArray.getJSONObject(i).getString("doc"));
-                                Log.d("TAG", "onResponseg: "+docTitleList + docUrlList);
-
+                              //  Log.d("TAG", "onResponseg: " + docTitleList + docUrlList);
                             }
-                            adapter.notifyDataSetChanged();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }, 100);
+
+
 
                         } else {
                             pullToRefresh.setVisibility(View.GONE);
@@ -151,6 +157,7 @@ public class StudentDocuments extends BaseActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
                 } else {
                     pd.dismiss();
                     pullToRefresh.setVisibility(View.GONE);
@@ -199,6 +206,5 @@ public class StudentDocuments extends BaseActivity {
         //Adding request to the queue
         requestQueue.add(stringRequest);
     }
-
 
 }

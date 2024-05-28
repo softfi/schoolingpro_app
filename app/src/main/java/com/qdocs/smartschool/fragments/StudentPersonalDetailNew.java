@@ -1,6 +1,7 @@
 package com.qdocs.smartschool.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -78,6 +79,7 @@ public class StudentPersonalDetailNew extends Fragment implements SwipeRefreshLa
         if(Utility.isConnectingToInternet(getActivity())){
             params.put("student_id", Utility.getSharedPreferences(getActivity(), "studentId"));
             params.put("user_type", Utility.getSharedPreferences(getActivity(), Constants.loginType));
+            params.put("session_id", Utility.getSharedPreferences(getActivity(), Constants.sessionId));
             JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -159,6 +161,8 @@ public class StudentPersonalDetailNew extends Fragment implements SwipeRefreshLa
     }
 
     private void getDataFromApi(String bodyParams) {
+
+
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getActivity().getApplicationContext(), "apiUrl") + Constants.getStudentProfileUrl;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -166,6 +170,7 @@ public class StudentPersonalDetailNew extends Fragment implements SwipeRefreshLa
             public void onResponse(String result) {
                 pullToRefresh.setRefreshing(false);
                 if (result != null) {
+
                     try {
                         Log.e("Result", result);
                         JSONObject obj = new JSONObject(result);

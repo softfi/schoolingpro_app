@@ -123,6 +123,7 @@ public class StudentClassTimetable extends BaseActivity {
         decorate();
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -314,7 +315,7 @@ public class StudentClassTimetable extends BaseActivity {
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getClassScheduleUrl;
 
-       // Log.d("TAG", requestBody+"getclassTApi: "+url);
+        Log.d("TAG", requestBody+"getclassTApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

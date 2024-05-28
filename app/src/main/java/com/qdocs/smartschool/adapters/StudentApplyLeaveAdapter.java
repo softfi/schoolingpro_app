@@ -208,7 +208,7 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
             if (downloadID == id) {
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.notification_logo)
+                                .setSmallIcon(R.drawable.smart_icon)
                                 .setContentTitle(context.getApplicationContext().getString(R.string.app_name))
                                 .setContentText("All Download completed");
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

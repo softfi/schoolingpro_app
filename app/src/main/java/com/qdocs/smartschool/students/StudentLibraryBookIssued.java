@@ -126,7 +126,15 @@ public class StudentLibraryBookIssued extends BaseActivity {
                         Log.e("Result", result);
                         JSONArray dataArray = new JSONArray(result);
                         System.out.println("Result==="+result);
+                        Log.d("TAG", "getDataFromApi: "+result);
+                        JSONObject object = new JSONObject(result);
 
+                        Log.d("TAG", "getDataFromApis: "+object);
+                        String status = object.getString("success");
+                        Log.d("TAG", "getDataFromApisr: "+status);
+                        if (status.equals("0") ){
+                            nodata.setVisibility(View.VISIBLE);
+                        }
                         bookNameList.clear();
                         authorNameList.clear();
                         bookNoList.clear();

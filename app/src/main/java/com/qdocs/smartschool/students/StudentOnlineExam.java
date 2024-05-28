@@ -113,6 +113,7 @@ public class StudentOnlineExam extends BaseActivity {
                 if (Utility.isConnectingToInternet(getApplicationContext())) {
                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                     params.put("exam_type", status);
+                    params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                     JSONObject obj=new JSONObject(params);
                     Log.e("params ", obj.toString());
                     getDataFromApi(obj.toString());
@@ -134,6 +135,7 @@ public class StudentOnlineExam extends BaseActivity {
                 if (Utility.isConnectingToInternet(getApplicationContext())) {
                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                     params.put("exam_type", status);
+                    params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                     JSONObject obj=new JSONObject(params);
                     Log.e("params ", obj.toString());
                     getDataFromApi(obj.toString());
@@ -161,6 +163,7 @@ public class StudentOnlineExam extends BaseActivity {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("exam_type", status);
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -196,10 +199,11 @@ public class StudentOnlineExam extends BaseActivity {
             @Override
             public void onResponse(String result) {
                 pullToRefresh.setRefreshing(false);
+                Log.d("TAG", "Resultfhgh"+result);
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "Resultfhgh"+result);
                         JSONObject obj = new JSONObject(result);
                         JSONArray dataArray = obj.getJSONArray("onlineexam");
                         examList.clear();

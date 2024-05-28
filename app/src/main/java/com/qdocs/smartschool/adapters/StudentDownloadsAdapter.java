@@ -22,8 +22,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +34,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.qdocs.smartschool.OpenPdf;
 import com.qdocs.smartschool.R;
-import com.qdocs.smartschool.students.CbseExaminationActivity;
-import com.qdocs.smartschool.students.StudentVideoTutorialPlay;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import org.json.JSONArray;
@@ -57,35 +52,33 @@ import java.util.Map;
 
 public class StudentDownloadsAdapter extends BaseAdapter {
     long downloadID;
-    private FragmentActivity context;
-    private ArrayList<String> idList;
-    private ArrayList<String> nameList;
-    private ArrayList<String> sharedateList;
-    private ArrayList<String> valid_uptoList;
-    private ArrayList<String> sharebyList;
-    private ArrayList<String> descriptionList;
-    private ArrayList<String> uploaddateList;
-    private ArrayList<String> checkdate;
-    private ArrayList<String> created_bylist;
-    String urlStr,videoUrl,title,thumbpath;
-    RecyclerView recyclerView;
-    StudentContentUploadAdapter adapter;
-    public String defaultDateFormat,superadmin_restriction;
+    private final FragmentActivity context;
+    private final ArrayList<String> idList;
+    private final ArrayList<String> nameList;
+    private final ArrayList<String> shareDateList;
+    private final ArrayList<String> validUpToList;
+    private final ArrayList<String> shareByList;
+    private final ArrayList<String> descriptionList;
+    private final ArrayList<String> uploadDateList;
+    private final ArrayList<String> checkDate;
+    private final ArrayList<String> createdByList;
+
+    public String defaultDateFormat, superAdmin_restriction;
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String>  headers = new HashMap<String, String>();
     public StudentDownloadsAdapter(FragmentActivity activity, ArrayList<String> idList, ArrayList<String> nameList,
-                                   ArrayList<String> sharedateList, ArrayList<String> sharebyList, ArrayList<String> valid_uptoList, ArrayList<String> descriptionList, ArrayList<String> uploaddateList, ArrayList<String> checkdate, ArrayList<String> created_bylist) {
+                                   ArrayList<String> shareDateList, ArrayList<String> shareByList, ArrayList<String> validUpToList, ArrayList<String> descriptionList, ArrayList<String> uploadDateList, ArrayList<String> checkDate, ArrayList<String> createdByList) {
 
         this.context = activity;
         this.idList = idList;
         this.nameList = nameList;
-        this.sharedateList = sharedateList;
-        this.sharebyList = sharebyList;
-        this.valid_uptoList = valid_uptoList;
+        this.shareDateList = shareDateList;
+        this.shareByList = shareByList;
+        this.validUpToList = validUpToList;
         this.descriptionList = descriptionList;
-        this.uploaddateList = uploaddateList;
-        this.checkdate = checkdate;
-        this.created_bylist = created_bylist;
+        this.uploadDateList = uploadDateList;
+        this.checkDate = checkDate;
+        this.createdByList = createdByList;
 
     }
     @Override
@@ -116,7 +109,7 @@ public class StudentDownloadsAdapter extends BaseAdapter {
     public View getView(final int position, View view, ViewGroup viewGroup) {
 
         defaultDateFormat = Utility.getSharedPreferences(context.getApplicationContext(), "dateFormat");
-        superadmin_restriction = Utility.getSharedPreferences(context.getApplicationContext(), Constants.superadmin_restriction);
+        superAdmin_restriction = Utility.getSharedPreferences(context.getApplicationContext(), Constants.superadmin_restriction);
 
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.adapter_fragment_studentdownload, viewGroup, false);
@@ -125,39 +118,38 @@ public class StudentDownloadsAdapter extends BaseAdapter {
         LinearLayout nameHeader = view.findViewById(R.id.headLayout);
         LinearLayout attachmentdetail = view.findViewById(R.id.attachmentdetail);
 
-
-        TextView sharedate = (TextView) view.findViewById(R.id.sharedate);
-        TextView valid_upto = (TextView) view.findViewById(R.id.valid_upto);
-        TextView shareby = (TextView) view.findViewById(R.id.shareby);
+        TextView shareDate = (TextView) view.findViewById(R.id.sharedate);
+        TextView validUpTo = (TextView) view.findViewById(R.id.valid_upto);
+        TextView shareBy = (TextView) view.findViewById(R.id.shareby);
         TextView description = (TextView) view.findViewById(R.id.description);
-        TextView uploaddate = (TextView) view.findViewById(R.id.uploaddate);
-        TextView titlename = (TextView) view.findViewById(R.id.title);
+        TextView uploadDate = (TextView) view.findViewById(R.id.uploaddate);
+        TextView titleName = (TextView) view.findViewById(R.id.title);
 
-        sharedate.setTag(position);
+        shareDate.setTag(position);
 
-        sharedate.setText(sharedateList.get(position));
+        shareDate.setText(shareDateList.get(position));
 
 
         description.setText(descriptionList.get(position));
-        uploaddate.setText(uploaddateList.get(position));
-        titlename.setText(nameList.get(position));
+        uploadDate.setText(uploadDateList.get(position));
+        titleName.setText(nameList.get(position));
 
-        if(superadmin_restriction.equals("enabled")){
-            shareby.setText(sharebyList.get(position));
+        if(superAdmin_restriction.equals("enabled")){
+            shareBy.setText(shareByList.get(position));
         }else{
-            if(created_bylist.get(position).equals("1")){
-                shareby.setText("");
+            if(createdByList.get(position).equals("1")){
+                shareBy.setText("");
             }else{
-                shareby.setText(sharebyList.get(position));
+                shareBy.setText(shareByList.get(position));
             }
         }
 
         try {
-            if (new SimpleDateFormat("yyyy-MM-dd").parse(checkdate.get(position)).before(new Date())) {
-                valid_upto.setText(valid_uptoList.get(position)+" Expires");
+            if (new SimpleDateFormat("yyyy-MM-dd").parse(checkDate.get(position)).before(new Date())) {
+                validUpTo.setText(validUpToList.get(position)+" Expires");
 
             }else{
-                valid_upto.setText(valid_uptoList.get(position));
+                validUpTo.setText(validUpToList.get(position));
 
             }
 
@@ -312,7 +304,7 @@ public class StudentDownloadsAdapter extends BaseAdapter {
 
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.notification_logo)
+                                .setSmallIcon(R.drawable.smart_icon)
                                 .setContentTitle(context.getApplicationContext().getString(R.string.app_name))
                                 .setContentText("All Download completed");
 

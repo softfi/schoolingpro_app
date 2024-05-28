@@ -41,16 +41,16 @@ public class ContentDocumentListAdapter extends RecyclerView.Adapter<ContentDocu
     public String defaultDateFormat;
     long downloadID;
 
-    public ContentDocumentListAdapter(FragmentActivity fragmentActivity, ArrayList<String> idlist, ArrayList<String> real_namelist, ArrayList<String> file_typelist,
-                                      ArrayList<String> vid_urllist, ArrayList<String> img_namelist, ArrayList<String> dir_pathlist) {
+    public ContentDocumentListAdapter(FragmentActivity fragmentActivity, ArrayList<String> idList, ArrayList<String> realNameList, ArrayList<String> fileTypeList,
+                                      ArrayList<String> vidUrlList, ArrayList<String> imgNameList, ArrayList<String> dirPathList) {
 
         this.context = fragmentActivity;
-        this.idlist = idlist;
-        this.real_namelist = real_namelist;
-        this.file_typelist = file_typelist;
-        this.vid_urllist = vid_urllist;
-        this.img_namelist = img_namelist;
-        this.dir_pathlist = dir_pathlist;
+        this.idlist = idList;
+        this.real_namelist = realNameList;
+        this.file_typelist = fileTypeList;
+        this.vid_urllist = vidUrlList;
+        this.img_namelist = imgNameList;
+        this.dir_pathlist = dirPathList;
 
 
     }
@@ -120,7 +120,7 @@ public class ContentDocumentListAdapter extends RecyclerView.Adapter<ContentDocu
             if (downloadID == id) {
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.notification_logo)
+                                .setSmallIcon(R.drawable.smart_icon)
                                 .setContentTitle(context.getApplicationContext().getString(R.string.app_name))
                                 .setContentText("All Download completed");
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

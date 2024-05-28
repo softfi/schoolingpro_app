@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Smart School</string>
+    <string name="app_name">Schooling Pro</string>
     <string name="empty"></string>
     <string name="submit_success">Submit Successfully</string>
     <string name="upload">Upload File</string>
@@ -583,12 +583,13 @@
     <string name="noofperson">No of Person</string>
     <string name="intime">In Time</string>
     <string name="outtime">Out Time</string>
-    <string name="_2021_05_18_06_09_36">2021-05-18 06:09:36</string>
-    <string name="last_updated">Last Updated:</string>
-    <string name="hhh_hhhh_hhhhh_hhh_sds_sfsa_c_fdssvsddsfsdd_ddss_dc_dcdxc_hhhh_hbb_hhhh_hhhhh_hhhh_hhh_hhhbh_hh_hhhhhh_hhbfbbb">hhh hhhh hhhhh hhh sds sfsa c fdssvsddsfsdd ddss dc dcdxc hhhh hbb hhhh hhhhh hhhh hhh hhhbh hh hhhhhh hhbfbbb</string>
-    <string name="karan_sharma">Karan Sharma</string>
-    <string name="admission_no_1800">Admission No. 1800</string>
-    <string name="class_1_a">Class 1-A</string>
+    <string name="_2021_05_18_06_09_36" translatable="false">2021-05-18 06:09:36</string>
+    <string name="last_updated" translatable="false">Last Updated:</string>
+    <string name="hhh_hhhh_hhhhh_hhh_sds_sfsa_c_fdssvsddsfsdd_ddss_dc_dcdxc_hhhh_hbb_hhhh_hhhhh_hhhh_hhh_hhhbh_hh_hhhhhh_hhbfbbb" translatable="false">hhh hhhh hhhhh hhh sds sfsa c fdssvsddsfsdd ddss dc dcdxc hhhh hbb hhhh hhhhh hhhh hhh hhhbh hh hhhhhh hhbfbbb</string>
+    <string name="karan_sharma" translatable="false">Karan Sharma</string>
+    <string name="admission_no_1800" translatable="false">Admission No. 1800</string>
+    <string name="class_1_a" translatable="false">Class 1-A</string>
+    <string name="sunrise_academy" translatable="false">Sunrise Academy</string>
     <!--VISITOR-->
 
 

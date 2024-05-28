@@ -135,6 +135,10 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
 
                         JSONObject object = new JSONObject(result);
                         JSONObject dataObject = object.getJSONObject("result_list");
+                        if (dataObject.equals("")) {
+
+                            nodata.setVisibility(View.VISIBLE);
+                        }
                         System.out.println("DATAOBJECT length- "+dataObject.length());
                         teacherNameList.clear();
                         teacherContactList.clear();

@@ -93,7 +93,7 @@ public class Login extends Activity {
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 device_token = FirebaseInstanceId.getInstance().getToken();
                 assert device_token != null;
-                Log.e("DEVICE TOKEN",device_token);
+                Log.d(TAG, "onSuccess: "+device_token);
                 System.out.println("DEVICE TOKEN="+device_token);
             }
         });
@@ -110,16 +110,20 @@ public class Login extends Activity {
         privacyTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String domain = Utility.getSharedPreferences(getApplicationContext(), Constants.appDomain);
-                System.out.println(" BEFORE PRIVACY URL"+domain);
+//                System.out.println(" BEFORE PRIVACY URL"+domain);
+                Log.d(TAG, "BEFORE PRIVACY URL: "+domain);
+
                 if(!domain.endsWith("/")) {
 
                     domain += "/";
 
                 }
+                Log.d(TAG, "PRIVACY URL: "+domain);
                 System.out.println("PRIVACY URL"+domain);
                 domain += Constants.privacyPolicyUrl;
-                System.out.println("PRIVACY URL"+domain);
+                Log.d(TAG, "onSuccess: "+domain);
                 Log.e("PRIVACY URL", domain);
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(domain));
                 startActivity(browserIntent);
@@ -233,13 +237,13 @@ public class Login extends Activity {
         }
 
         final String url = domain+"app";
-        Log.e("Verification Url", url);
+        Log.d(TAG, "getSettingsFromApi: ");
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
 
-
+                Log.d("TAG", "onResponse: "+result);
                 Log.e("Result", result);
                 if (result != null) {
                     pd.dismiss();
@@ -314,16 +318,15 @@ public class Login extends Activity {
 
         final String requestBody = bodyParams;
          String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.loginUrl;
-         Log.d("URL", "sddfhk"+url);
+         Log.d("URL", requestBody+ "sddfhk" +url);
          StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
              @Override
              public void onResponse(String result) {
-                 Log.d("TAG", "LoginReponse: "+result);
+
                  if (result != null) {
                      Log.d("TAG", "LoginReponjk "+result);
                      pd.dismiss();
                      try {
-                         Log.d("TAG", "LoginReponj ");
                          JSONObject object = new JSONObject(result);
                          Log.d("TAG", "LoginReponj "+object);
                          String success = object.getString("status");
@@ -350,7 +353,6 @@ public class Login extends Activity {
                              dateFormat = dateFormat.replace("d", "dd");
                              dateFormat = dateFormat.replace("Y", "yyyy");
                              System.out.println("dateFormat===" + dateFormat);
-                             Log.d("TAG", "LoginReponjert "+dateFormat);
                              Utility.setSharedPreference(getApplicationContext(), "dateFormat", dateFormat);
 
                              String datesFormat = data.getString("date_format");
@@ -367,14 +369,17 @@ public class Login extends Activity {
 
                              String imgUrl = Utility.getSharedPreferences(getApplicationContext(), "imagesUrl") + data.getString("image");
                              Utility.setSharedPreference(getApplicationContext(), Constants.userImage, imgUrl);
+
+                             String appUrl = Utility.getSharedPreferences(getApplicationContext(), "appsUrl") + data.getString("school_logo");
+                             Utility.setSharedPreference(getApplicationContext(), Constants.app_image, appUrl);
+                             Log.d("TAG", "Applogo: "+appUrl);
                              Utility.setSharedPreference(getApplicationContext(), Constants.userName, data.getString("username"));
-                             Utility.setSharedPreference(getApplicationContext(), "schoolName", data.getString("sch_name"));
-                             Log.d("TAG", "onResponse: ");
+                             Utility.setSharedPreference(getApplicationContext(), Constants.schoolName, data.getString("sch_name"));
+                             Log.d(TAG, "userNa: "+data.getString("sch_name"));
                              if(data.getString("role").equals("parent")) {
-                                 Log.d("TAG", "onResponsef: ");
+
                                  Utility.setSharedPreference(getApplicationContext(), Constants.parentsId, data.getString("id"));
                                  JSONArray childArray = data.getJSONArray("parent_childs");
-                                 Log.d("TAG", "LoginReponjd "+childArray);
                                 /* if(childArray.length() == 1) {
                                      Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", true);
                                      Utility.setSharedPreferenceBoolean(getApplicationContext(), "hasMultipleChild", false);
@@ -413,8 +418,10 @@ public class Login extends Activity {
                                  Log.e("CHILD ARRAY LENGTH", childArray.length()+"..");
                              } else if (data.getString("role").equals("student")) {
                                  Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", true);
+                                 Log.d(TAG, "onRespjhkonse: "+data.getString("session_id"));
                                  Utility.setSharedPreference(getApplicationContext(), Constants.classSection, data.getString("class") + " (" + data.getString("section")+")");
                                  Utility.setSharedPreference(getApplicationContext(), Constants.studentId, data.getString("student_id"));
+                                 Utility.setSharedPreference(getApplicationContext(), Constants.sessionId, data.getString("session_id"));
                                  Utility.setSharedPreference(getApplicationContext(), Constants.admission_no, data.getString("admission_no"));
                                   setLocale(data.getJSONObject("language").getString("short_code"));
                                  if (Utility.isConnectingToInternet(getApplicationContext())) {
@@ -461,6 +468,7 @@ public class Login extends Activity {
                  headers.put("Content-Type", Constants.contentType);
                  headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
                  headers.put("Cookie","ci_session=a7a60f4bf0964cdac1bc4b7a987dd76f70ed2df0");
+                 Log.d(TAG, "getHeaders: "+headers);
                  return headers;
 
              }
@@ -710,12 +718,12 @@ public class Login extends Activity {
         }
 
         final String url = domain + "app";
-        Log.e("Verification Url", url);
+        Log.d(TAG, "onResponsed: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 Log.e("Result", result);
-                Log.d(TAG, "onResponse: ");
+                Log.d(TAG, "onResponse: "+result);
                 if (result != null) {
                     pd.dismiss();
                     try {
@@ -729,9 +737,12 @@ public class Login extends Activity {
                             Utility.setSharedPreference(getApplicationContext(), Constants.app_ver, app_ver);
                             String appLogo = object.getString("site_url") + "uploads/school_content/logo/app_logo/" + object.getString("app_logo");
                             Utility.setSharedPreference(MyApp.getContext(), Constants.appLogo, appLogo);
+                            Log.d(TAG, "onResponsedf: "+appLogo);
+
                             //Picasso.with(getApplicationContext()).load(appLogo).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(logoIV);
                             String secColour = object.getString("app_secondary_color_code");
                             String primaryColour = object.getString("app_primary_color_code");
+                            Utility.setSharedPreference(getApplicationContext(), Constants.appDomain, url);
 
                             if (secColour.length() == 7 && primaryColour.length() == 7) {
                                 Utility.setSharedPreference(getApplicationContext(), Constants.secondaryColour, secColour);

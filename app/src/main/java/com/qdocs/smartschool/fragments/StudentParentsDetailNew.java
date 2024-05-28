@@ -63,6 +63,7 @@ public class StudentParentsDetailNew extends Fragment implements SwipeRefreshLay
         if(Utility.isConnectingToInternet(getActivity())){
             params.put("student_id", Utility.getSharedPreferences(getActivity(), "studentId"));
             params.put("user_type", Utility.getSharedPreferences(getActivity(), Constants.loginType));
+            params.put("session_id", Utility.getSharedPreferences(getActivity(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());

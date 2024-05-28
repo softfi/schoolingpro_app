@@ -93,6 +93,7 @@ public class StudentProfileDetailsNew extends BaseActivity {
         if(Utility.isConnectingToInternet(StudentProfileDetailsNew.this)){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
             params.put("user_type", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -131,8 +132,9 @@ public class StudentProfileDetailsNew extends BaseActivity {
                         JSONObject object = new JSONObject(result);
 
                             JSONObject dataArray = object.getJSONObject("student_result");
+                        Log.d("TAG", "onResponsexgh: "+dataArray);
 
-                            nameTV.setText(dataArray.getString("firstname")+" "+dataArray.getString("lastname"));
+                            nameTV.setText(dataArray.getString("firstname")+" "+dataArray.getString("middlename"));
                             admissionNoTV.setText(dataArray.getString("admission_no"));
                             rollNoTV.setText(dataArray.getString("roll_no"));
                             if(!dataArray.getString("behaviou_score").equals("")){
@@ -193,6 +195,7 @@ public class StudentProfileDetailsNew extends BaseActivity {
                 headers.put("Content-Type", Constants.contentType);
                 headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
                 headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
+                Log.d("TAG", "getHeaders: "+headers);
                 return headers;
             }
             @Override

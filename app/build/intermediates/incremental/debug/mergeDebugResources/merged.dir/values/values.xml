@@ -2027,7 +2027,7 @@
     <string name="QualityPoints">Quality Points</string>
     <string name="Reason"> Reason </string>
     <string name="RollNo">Roll Number</string>
-    <string name="_2021_05_18_06_09_36">2021-05-18 06:09:36</string>
+    <string name="_2021_05_18_06_09_36" translatable="false">2021-05-18 06:09:36</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="abc_action_menu_overflow_description">More options</string>
@@ -2067,7 +2067,7 @@
     <string name="admDate">Admission Date</string>
     <string name="admin">Admin</string>
     <string name="admissionNo">Adm. No.</string>
-    <string name="admission_no_1800">Admission No. 1800</string>
+    <string name="admission_no_1800" translatable="false">Admission No. 1800</string>
     <string name="all">All</string>
     <string name="amount"> Amount Paid</string>
     <string name="amt">Amount</string>
@@ -2075,7 +2075,7 @@
     <string name="answer">Answer</string>
     <string name="answerwordcount">Answer Word Limit</string>
     <string name="apiErrorMsg">Unable to get response from API</string>
-    <string name="app_name">Smart School</string>
+    <string name="app_name">Schooling Pro</string>
     <string name="app_rej">Approved/Rejected</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="applied"> Applied </string>
@@ -2140,7 +2140,7 @@
     <string name="choosefile">Choose File</string>
     <string name="choosepaymode">Choose Payment Mode</string>
     <string name="classTeacher">Class Teacher</string>
-    <string name="class_1_a">Class 1-A</string>
+    <string name="class_1_a" translatable="false">Class 1-A</string>
     <string name="classduration">Class Duration</string>
     <string name="classes">Class</string>
     <string name="classhost">Class Host</string>
@@ -2305,7 +2305,7 @@
     <string name="halfDay">Half Day</string>
     <string name="half_f">F</string>
     <string name="height">Height</string>
-    <string name="hhh_hhhh_hhhhh_hhh_sds_sfsa_c_fdssvsddsfsdd_ddss_dc_dcdxc_hhhh_hbb_hhhh_hhhhh_hhhh_hhh_hhhbh_hh_hhhhhh_hhbfbbb">hhh hhhh hhhhh hhh sds sfsa c fdssvsddsfsdd ddss dc dcdxc hhhh hbb hhhh hhhhh hhhh hhh hhhbh hh hhhhhh hhbfbbb</string>
+    <string name="hhh_hhhh_hhhhh_hhh_sds_sfsa_c_fdssvsddsfsdd_ddss_dc_dcdxc_hhhh_hbb_hhhh_hhhhh_hhhh_hhh_hhhbh_hh_hhhhhh_hhbfbbb" translatable="false">hhh hhhh hhhhh hhh sds sfsa c fdssvsddsfsdd ddss dc dcdxc hhhh hbb hhhh hhhhh hhhh hhh hhhbh hh hhhhhh hhbfbbb</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="hindi">Hindi</string>
     <string name="holiday">Holiday</string>
@@ -2335,9 +2335,9 @@
     <string name="issuedbookheading">Your Issued Books is here!</string>
     <string name="item_view_role_description">Tab</string>
     <string name="join">Join</string>
-    <string name="karan_sharma">Karan Sharma</string>
+    <string name="karan_sharma" translatable="false">Karan Sharma</string>
     <string name="language"> Language </string>
-    <string name="last_updated">Last Updated:</string>
+    <string name="last_updated" translatable="false">Last Updated:</string>
     <string name="lastupdated">Last Updated</string>
     <string name="late">Late</string>
     <string name="late_l">L</string>
@@ -2651,6 +2651,7 @@
     <string name="subtopics">Sub Topic</string>
     <string name="successdelete">Successfully Deleted</string>
     <string name="sunday">Sunday</string>
+    <string name="sunrise_academy" translatable="false">Sunrise Academy</string>
     <string name="switchStudent">Switch Child</string>
     <string name="syllabus">Syllabus</string>
     <string name="syllabus_status">Syllabus Status</string>

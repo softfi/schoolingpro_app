@@ -25,9 +25,9 @@
 
             <ImageView
                 android:id="@+id/drawer_indicator"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:scaleType="centerInside"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
                 android:background="@drawable/drawer_selector"
                 android:layout_gravity="start"
                 app:tint="@color/textHeading" />
@@ -37,18 +37,21 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/actionBar_logo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                  android:src="@drawable/smart_icon"/>
+
+                <TextView
+                    android:id="@+id/schoolName"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxWidth="200dp"
-                    android:maxHeight="45dp"
-                    android:minWidth="150dp"
-                    android:padding="5dp"
-                    android:minHeight="30dp"
-                    android:src="@drawable/splash_logo"
-                    android:scaleType="fitStart"
-                    android:adjustViewBounds="true" />
+                    android:layout_height="match_parent"
+                    android:text="@string/sunrise_academy"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/textHeading"
+                    android:textSize="@dimen/largeheading"
+                    android:textStyle="bold" />
 
             </LinearLayout>
             <FrameLayout
@@ -175,7 +178,6 @@
                                     android:textSize="@dimen/secondaryText" />
                             </LinearLayout>
 
-
                         </LinearLayout>
 
                     </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -246,7 +248,7 @@
 
                                             <TextView
                                                 android:id="@+id/textview1"
-                                                android:layout_width="wrap_content"
+                                                android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:padding="10dp"
                                                 android:textColor="@color/hintDark"
@@ -290,7 +292,7 @@
 
                                                     <TextView
                                                         android:id="@+id/textview2"
-                                                        android:layout_width="wrap_content"
+                                                        android:layout_width="match_parent"
                                                         android:layout_height="wrap_content"
                                                         android:padding="10dp"
                                                         android:textColor="@color/hintDark"
@@ -336,7 +338,7 @@
 
                                             <TextView
                                                 android:id="@+id/textview3"
-                                                android:layout_width="wrap_content"
+                                                android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:padding="10dp"
                                                 android:textColor="@color/hintDark"
@@ -383,7 +385,7 @@
 
                                             <TextView
                                                 android:id="@+id/textview4"
-                                                android:layout_width="wrap_content"
+                                                android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:padding="10dp"
                                                 android:textColor="@color/hintDark"

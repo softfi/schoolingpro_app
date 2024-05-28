@@ -18,7 +18,6 @@ import android.widget.TextView;
 import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.qdocs.smartschool.OpenPdf;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.students.StudentDocuments;
@@ -26,7 +25,6 @@ import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 
 import java.util.ArrayList;
-
 public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumentsAdapter.MyViewHolder> {
 
     private Context context;
@@ -35,14 +33,12 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
 
     long downloadID;
 
-
     public StudentDocumentsAdapter(StudentDocuments studentDocuments, ArrayList<String> docTitleList, ArrayList<String> docUrlList) {
         this.context = studentDocuments;
         this.docTitleList = docTitleList;
         this.docUrlList = docUrlList;
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
         TextView titleTV, fileNameTV;
         LinearLayout downloadBtn;
         RelativeLayout header;
@@ -101,7 +97,7 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
 
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.notification_logo_trans)
+                                .setSmallIcon(R.drawable.smart_icon)
                                 .setContentTitle(context.getApplicationContext().getString(R.string.app_name))
                                 .setContentText("All Download completed");
 

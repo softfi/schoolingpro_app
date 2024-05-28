@@ -89,6 +89,7 @@ public class StudentSyllabus extends BaseActivity {
         dates=findViewById(R.id.dates);
         textimage=findViewById(R.id.textimage);
         presentation=findViewById(R.id.presentation);
+
        /* bottomSheet_webview = findViewById(R.id.bottomSheet_webview);
         bottomSheet_webview.getSettings().setJavaScriptEnabled(true);
         bottomSheet_webview.getSettings().setBuiltInZoomControls(true);
@@ -181,7 +182,7 @@ public class StudentSyllabus extends BaseActivity {
 
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.notification_logo)
+                                .setSmallIcon(R.drawable.smart_icon)
                                 .setContentTitle(context.getApplicationContext().getString(R.string.app_name))
                                 .setContentText("All Download completed");
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

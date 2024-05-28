@@ -109,7 +109,13 @@ public class StudentLibraryBook extends BaseActivity {
                     try {
                         Log.d("TAG", "getDataFromApi: "+result);
                         JSONObject object = new JSONObject(result);
-                        System.out.println("Result==="+result);
+
+                        Log.d("TAG", "getDataFromApis: "+object);
+                        String status = object.getString("success");
+                        Log.d("TAG", "getDataFromApisr: "+status);
+                        if (status.equals("0") ){
+                            nodata.setVisibility(View.VISIBLE);
+                        }
 
                         bookidList.clear();
                         bookNameList.clear();
