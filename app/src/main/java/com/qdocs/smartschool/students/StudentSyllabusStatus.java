@@ -78,6 +78,7 @@ public class StudentSyllabusStatus extends BaseActivity {
     public  void  loaddata(){
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -109,7 +110,7 @@ public class StudentSyllabusStatus extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getclassSSApi: "+result);
                         JSONObject obj = new JSONObject(result);
                         JSONArray dataArray = obj.getJSONArray("subjects");
 
@@ -142,7 +143,6 @@ public class StudentSyllabusStatus extends BaseActivity {
                     }
                 } else {
                     pd.dismiss();
-
                 }
             }
         }, new Response.ErrorListener() {
@@ -154,7 +154,7 @@ public class StudentSyllabusStatus extends BaseActivity {
             }
         }) {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 headers.put("Client-Service", Constants.clientService);
                 headers.put("Auth-Key", Constants.authKey);
                 headers.put("Content-Type", Constants.contentType);

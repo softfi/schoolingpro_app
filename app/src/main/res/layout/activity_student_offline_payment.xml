@@ -53,7 +53,7 @@
                                 android:textColor="@color/textHeading"
                                 android:layout_marginStart="8dp"
                                 android:textStyle="bold"
-                                android:textSize="22dp"/>
+                                android:textSize="22sp"/>
 
                         </LinearLayout>
 
@@ -82,123 +82,76 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Instructions"
+                            android:text="@string/instructions"
                             android:textStyle="bold"
                             android:textSize="@dimen/primaryText"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
                             android:textColor="@color/textHeading"/>
 
                         <WebView
                             android:id="@+id/instruction"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Offline mode of payment are Cash, DD, Online and Cheques"
-                            android:layout_marginLeft="10dp"
+                            android:text="@string/offline_mode_of_payment_are_cash_dd_online_and_cheques"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="5dp"
                             android:textSize="@dimen/secondaryText"
                             android:textColor="@color/textHeading"/>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        <EditText
+                            android:id="@+id/dateofPayment"
                             android:layout_width="match_parent"
-                            app:boxStrokeColor="@color/textHeading"
-                            android:layout_height="50dp"
-                            android:textColorHint="@color/seperator"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:hint="@string/dateofPayment">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/dateofPayment"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:editable="false"
-                                android:textSize="@dimen/secondaryText"
-                                android:focusable="false"
-                                android:textColor="@color/textHeading" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                            android:layout_width="match_parent"
-                            app:boxStrokeColor="@color/textHeading"
                             android:layout_height="wrap_content"
-                            android:textColorHint="@color/seperator"
+                            android:background="@drawable/grey_outline"
+                            android:gravity="start"
+                            android:padding="14dp"
                             android:layout_margin="10dp"
-                            android:hint="@string/paymentMode">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/paymentMode"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/secondaryText"
-                                android:textColor="@color/textHeading" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:textColorHint="#000000"
+                            android:textSize="@dimen/primaryText"
+                            android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/paymentMode"
                             android:layout_width="match_parent"
-                            app:boxStrokeColor="@color/textHeading"
                             android:layout_height="wrap_content"
-                            android:textColorHint="@color/seperator"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:hint="@string/paymentFrom">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/paymentFrom"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/secondaryText"
-                                android:textColor="@color/textHeading" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:background="@drawable/grey_outline"
+                            android:gravity="start"
+                            android:padding="14dp"
+                            android:layout_margin="10dp"
+                            android:textColorHint="#000000"
+                            android:textSize="@dimen/primaryText"
+                            android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/paymentFrom"
                             android:layout_width="match_parent"
-                            app:boxStrokeColor="@color/textHeading"
                             android:layout_height="wrap_content"
-                            android:textColorHint="@color/seperator"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:hint="@string/reference">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/reference"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/secondaryText"
-                                android:textColor="@color/textHeading" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/amountTextInputLayout"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:background="@drawable/grey_outline"
+                            android:gravity="start"
+                            android:padding="14dp"
+                            android:layout_margin="10dp"
+                            android:textColorHint="#000000"
+                            android:textSize="@dimen/primaryText"
+                            android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/reference"
                             android:layout_width="match_parent"
-                            app:boxStrokeColor="@color/textHeading"
                             android:layout_height="wrap_content"
-                            android:textColorHint="@color/seperator"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:hint="@string/amount">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/amount"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="number"
-                                android:textSize="@dimen/secondaryText"
-                                android:textColor="@color/textHeading" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
+                            android:background="@drawable/grey_outline"
+                            android:gravity="start"
+                            android:padding="14dp"
+                            android:layout_margin="10dp"
+                            android:textColorHint="#000000"
+                            android:textSize="@dimen/primaryText"
+                            android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/grey_outline"
+                            android:gravity="start"
+                            android:padding="14dp"
+                            android:layout_margin="10dp"
+                            android:textColorHint="#000000"
+                            android:textSize="@dimen/primaryText"
+                            android:textStyle="bold" />
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"

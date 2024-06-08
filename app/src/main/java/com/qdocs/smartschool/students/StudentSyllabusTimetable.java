@@ -229,6 +229,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
         if(Constants.currentLocale.equals("en")){
             if(Utility.isConnectingToInternet(getApplicationContext())){
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+                params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                 params.put("date_from", mstartdate);
                 params.put("date_to", menddate);
                 JSONObject obj=new JSONObject(params);
@@ -252,6 +253,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
 
             if(Utility.isConnectingToInternet(getApplicationContext())){
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+                params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                 params.put("date_from", finalmsDate);
                 params.put("date_to", finalmeDate);
                 JSONObject obj=new JSONObject(params);
@@ -262,7 +264,6 @@ public class StudentSyllabusTimetable extends BaseActivity {
                 makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
             }
         }
-
         if(startweek.equals("Sunday")){
             day1.setText(getApplicationContext().getString(R.string.sunday));
             day2.setText(getApplicationContext().getString(R.string.monday));
@@ -525,6 +526,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
         if(Constants.currentLocale.equals("en")){
             if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             params.put("date_from", pstartdate);
             params.put("date_to", penddate);
             JSONObject obj=new JSONObject(params);
@@ -547,6 +549,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
             }
             if(Utility.isConnectingToInternet(getApplicationContext())){
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+                params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                 params.put("date_from", finalpsDate);
                 params.put("date_to", finalpeDate);
                 JSONObject obj=new JSONObject(params);
@@ -642,6 +645,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
         if(Constants.currentLocale.equals("en")){
             if(Utility.isConnectingToInternet(getApplicationContext())){
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+                params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                 params.put("date_from", nstartdate);
                 params.put("date_to", nenddate);
                 JSONObject obj=new JSONObject(params);
@@ -665,6 +669,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
             }
             if(Utility.isConnectingToInternet(getApplicationContext())){
                 params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+                params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                 params.put("date_from", finalnsDate);
                 params.put("date_to", finalneDate);
                 JSONObject obj=new JSONObject(params);
@@ -707,7 +712,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getsyllabsWork url: "+result);
                         JSONObject object = new JSONObject(result);
 
                         mondaySubject.clear();
@@ -762,7 +767,6 @@ public class StudentSyllabusTimetable extends BaseActivity {
                              saturdayArray = dataObject.getJSONArray("Saturday");
                              sundayArray = dataObject.getJSONArray("Sunday");
 
-
                             if (mondayArray.length() > 0) {
                                 mondayNoData.setVisibility(View.GONE);
                                 mondayList.setVisibility(View.VISIBLE);
@@ -781,9 +785,7 @@ public class StudentSyllabusTimetable extends BaseActivity {
                                 }
                             }else{
                                 mondayNoData.setVisibility(View.VISIBLE);
-                                mondayList.setVisibility(View.GONE);
-                            }
-
+                                mondayList.setVisibility(View.GONE);}
 
                             if (tuesdayArray.length() > 0) {
                                 tuesdayNoData.setVisibility(View.GONE);
@@ -801,11 +803,11 @@ public class StudentSyllabusTimetable extends BaseActivity {
                                     }
                                     tuesdaySubjectid.add(tuesdayArray.getJSONObject(i).getString("subject_syllabus_id"));
                                 }
+
                             }else{
                                 tuesdayNoData.setVisibility(View.VISIBLE);
                                 tuesdayList.setVisibility(View.GONE);
                             }
-
 
                             if (wednesdayArray.length() > 0) {
                                 wednesdayNoData.setVisibility(View.GONE);
@@ -827,8 +829,6 @@ public class StudentSyllabusTimetable extends BaseActivity {
                                 wednesdayNoData.setVisibility(View.VISIBLE);
                                 wednesdayList.setVisibility(View.GONE);
                             }
-
-
 
                             if (thursdayArray.length() > 0) {
                                 thursdayNoData.setVisibility(View.GONE);
@@ -874,8 +874,6 @@ public class StudentSyllabusTimetable extends BaseActivity {
                                 fridayList.setVisibility(View.GONE);
                             }
 
-
-
                             if (saturdayArray.length() > 0) {
                                 saturdayNoData.setVisibility(View.GONE);
                                 saturdayList.setVisibility(View.VISIBLE);
@@ -897,7 +895,6 @@ public class StudentSyllabusTimetable extends BaseActivity {
                                 saturdayNoData.setVisibility(View.VISIBLE);
                                 saturdayList.setVisibility(View.GONE);
                             }
-
 
                             if (sundayArray.length() > 0) {
                                 sundayNoData.setVisibility(View.GONE);
@@ -970,5 +967,4 @@ public class StudentSyllabusTimetable extends BaseActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(StudentSyllabusTimetable.this);//Creating a Request Queue
         requestQueue.add(stringRequest);//Adding request to the queue
     }
-
 }

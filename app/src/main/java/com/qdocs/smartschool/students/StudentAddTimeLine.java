@@ -105,7 +105,7 @@ public class StudentAddTimeLine extends AppCompatActivity {
     public TextView titleTV,buttonSelectImage;
     Button buttonUploadImage;
     private static final String TAG = "StudentAddLeave";
-    TextInputEditText titleET, dateET, descriptionET;
+    EditText titleET, dateET, descriptionET;
     public static Boolean camera = false;
     public static Boolean gallery = false;
     boolean isKitKat = false;
@@ -327,6 +327,27 @@ public class StudentAddTimeLine extends AppCompatActivity {
         }
 
     }
+    public static String saveBitmap(Bitmap bitmap) {
+        String filePath = null;
+        File file = null;
+        try {
+            File directory = new File(Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_PICTURES), "MyApp");
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+            file = new File(directory, "image_" + System.currentTimeMillis() + ".jpg");
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+
+            filePath = file.getAbsolutePath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -387,34 +408,35 @@ public class StudentAddTimeLine extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
-            System.out.println("uri=="+uri);
+            System.out.println("uri==" + uri);
 
             String path = new File(uri.getPath()).getAbsolutePath();
-            System.out.println("path=="+path);
+            System.out.println("path==" + path);
 
-            if(path != null){
+            if (path != null) {
                 uri = data.getData();
 
                 String filenames;
-                Cursor cursor = getContentResolver().query(uri,null,null,null,null);
+                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
 
-                if(cursor == null) filenames=uri.getPath();
-                else{
+                if (cursor == null) filenames = uri.getPath();
+                else {
                     cursor.moveToFirst();
                     int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
                     filenames = cursor.getString(idx);
                     cursor.close();
                 }
 
-                name = filenames.substring(0,filenames.lastIndexOf("."));
-                System.out.println("name=="+name);
-                extension = filenames.substring(filenames.lastIndexOf(".")+1);
-                System.out.println("extension=="+extension);
-            }else{
+                name = filenames.substring(0, filenames.lastIndexOf("."));
+                System.out.println("name==" + name);
+                extension = filenames.substring(filenames.lastIndexOf(".") + 1);
+                System.out.println("extension==" + extension);
+            } else {
                 makeText(this, "Please select file", Toast.LENGTH_SHORT).show();
-             }
+            }
 
             try {
                 selectedImageString = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
@@ -424,19 +446,19 @@ public class StudentAddTimeLine extends AppCompatActivity {
             textView.setText(getApplicationContext().getString(R.string.fileselected));
 
             filePath = getgalleryRealPathFromURI(StudentAddTimeLine.this, uri);
-            if(extension.equals("jpg")||extension.equals("png")||extension.equals("jpeg")){
+            if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
                 imageView.setVisibility(View.VISIBLE);
                 imageView.setImageBitmap(selectedImageString);
-            }else if(extension.equals("PDF")||extension.equals("pdf")||extension.equals("doc")||extension.equals("docx")||extension.equals("txt")){
+            } else if (extension.equals("PDF") || extension.equals("pdf") || extension.equals("doc") || extension.equals("docx") || extension.equals("txt")) {
                 imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
             }
             f = new File(filePath);
-            System.out.println("file=="+filePath);
+            System.out.println("file==" + filePath);
             String mimeType = URLConnection.guessContentTypeFromName(f.getName());
             file_body = RequestBody.create(MediaType.parse(mimeType), f);
             System.out.println("file_bodypathasd" + file_body);
             System.out.println("bitmap image==" + selectedImageString);
-        }else if(resultCode != RESULT_CANCELED) {
+        } else if (resultCode != RESULT_CANCELED) {
             if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
                 Bitmap bitmap = (Bitmap) data.getExtras().get("data");
                 if (bitmap != null) {
@@ -447,8 +469,8 @@ public class StudentAddTimeLine extends AppCompatActivity {
                     imageView.setVisibility(View.VISIBLE);
                     textView.setText(getApplicationContext().getString(R.string.fileselected));
                     imageView.setImageBitmap(bitmap);
-                    Uri tempUri = getImageUri(getApplicationContext(), bitmap);
-                    filePath = getRealPathFromURI(tempUri);
+                  //  Uri tempUri = getImageUri(getApplicationContext(), bitmap);
+                    filePath = saveBitmap(bitmap);
                     System.out.println("pathasd" + filePath);
                     File f = new File(filePath);
                     String mimeType = URLConnection.guessContentTypeFromName(f.getName());

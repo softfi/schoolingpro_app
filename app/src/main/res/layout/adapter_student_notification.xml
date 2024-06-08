@@ -67,7 +67,7 @@
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
                                 android:src="@drawable/ic_file_download"
-                                android:tint="@color/hyperLink"/>
+                                app:tint="@color/hyperLink" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -89,7 +89,6 @@
                             android:visibility="gone"
                             android:background="@drawable/green_curve_border">
 
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -101,10 +100,14 @@
 
                     </LinearLayout>
                 </LinearLayout>
+
+
                 <LinearLayout
+                    android:id="@+id/adapter_studentdetail_headLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                  >
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/studentNotification_bottomSheet_descTV"
@@ -112,38 +115,9 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/secondaryText"
                         android:textStyle="bold"
-                        android:layout_margin="10dp"
-                        android:textColor="@color/textHeading"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp">
-                    <LinearLayout
-                        android:id="@+id/adapter_student_homework_dateLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingBottom="5dp"
-                        android:layout_marginStart="10dp"
-                        android:weightSum="2">
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/adapter_studentdetail_headLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
+                        android:text="testing"
+                        android:layout_margin="5dp"
+                        android:textColor="@color/textHeading" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -194,7 +168,6 @@
                                 android:src="@drawable/ic_calender" />
 
                             <TextView
-
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/noticeDate"
@@ -252,10 +225,8 @@
                         </LinearLayout>
                     </LinearLayout>
 
-
                 </LinearLayout>
 
-            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 

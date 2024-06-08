@@ -64,9 +64,7 @@ public class StudentVideoTutorialPlay extends BaseActivity {
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.setWebChromeClient(new ChromeClient());
 
-
         videoNameTV.setText(title);
-
 
         if (Utility.isConnectingToInternet(getApplicationContext())) {
            videourl = "http://www.youtube.com/embed/" + videolink.replace("https://www.youtube.com/watch?v=", "") + "?autoplay=1&vq=small";

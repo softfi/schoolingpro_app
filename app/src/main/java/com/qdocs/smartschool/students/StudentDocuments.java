@@ -96,6 +96,7 @@ public class StudentDocuments extends BaseActivity {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj = new JSONObject(params);
+            Log.d("TAG", "getDataFromApi: "+obj);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
         } else {
@@ -108,8 +109,99 @@ public class StudentDocuments extends BaseActivity {
         super.onRestart();
         loadData();
     }
+    private void getDataFromApi (String bodyParams) {
 
-    private void getDataFromApi(String bodyParams) {
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Loading");
+        pd.setCancelable(false);
+        pd.show();
+
+        final String requestBody = bodyParams;
+
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getDocumentUrl;
+        Log.d("TAG", url+"getDataFromApi: "+requestBody);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String result) {
+
+                pullToRefresh.setRefreshing(false);
+                if (result != null) {
+                    pd.dismiss();
+                    try {
+
+                        Log.d("TAG", "getDataFromApi: "+result);
+                        JSONArray dataArray = new JSONArray(result);
+                        docTitleList.clear();
+                        docUrlList.clear();
+                        if (dataArray.length() != 0) {
+                            for(int i = 0; i < dataArray.length(); i++) {
+
+                                docTitleList.add(dataArray.getJSONObject(i).getString("title"));
+                                docUrlList.add(dataArray.getJSONObject(i).getString("doc"));
+
+                                Log.d("TAG", "onResponseg: "+docTitleList + docUrlList);
+
+                            }
+                            adapter.notifyDataSetChanged();
+
+                        } else {
+                            pullToRefresh.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.noData), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    pd.dismiss();
+                    pullToRefresh.setVisibility(View.GONE);
+                }
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+                pd.dismiss();
+                Log.e("Volley Error", volleyError.toString());
+                Toast.makeText(StudentDocuments.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
+            }
+        }) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                headers.put("Client-Service", Constants.clientService);
+                headers.put("Auth-Key", Constants.authKey);
+                headers.put("Content-Type", Constants.contentType);
+                headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
+                headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
+                Log.e("Headers", headers.toString());
+                return headers;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+        };
+
+        //Creating a Request Queue
+        RequestQueue requestQueue = Volley.newRequestQueue(StudentDocuments.this);
+
+        //Adding request to the queue
+        requestQueue.add(stringRequest);
+    }
+  /*  private void getDataFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
@@ -139,7 +231,7 @@ public class StudentDocuments extends BaseActivity {
 
                                 docTitleList.add(dataArray.getJSONObject(i).getString("title"));
                                 docUrlList.add(dataArray.getJSONObject(i).getString("doc"));
-                              //  Log.d("TAG", "onResponseg: " + docTitleList + docUrlList);
+                                Log.d("TAG", "onResponsegh: " + docTitleList + docUrlList);
                             }
                             new Handler().postDelayed(new Runnable() {
                                 @Override
@@ -205,6 +297,6 @@ public class StudentDocuments extends BaseActivity {
 
         //Adding request to the queue
         requestQueue.add(stringRequest);
-    }
+    }*/
 
 }

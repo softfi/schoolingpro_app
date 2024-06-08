@@ -78,38 +78,16 @@ public class StudentEditAssignment extends AppCompatActivity {
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String> headers = new HashMap<String, String>();
     protected FrameLayout mDrawerLayout, actionBar;
-    String applydate = "";
-    String formdate = "";
-    String filePath;
     ProgressDialog progress;
-    String todate = "";
-    private boolean isfromDateSelected = false;
-    private boolean istoDateSelected = false;
     Bitmap bitmap;
     Button submit;
-    String extension="",name="";
-    private static final int CAMERA_REQUEST = 1888;
-    String url;
-    private static final int REQUEST_PERMISSIONS = 100;
-    private static final int PICK_IMAGE_REQUEST = 1;
-    String file_path="";
-    RequestBody file_body;
     ArrayList<String> subjectlist=new ArrayList<String>();
     ArrayList<String>subjectidlist=new ArrayList<String>();
-    EditText reason;
-    Uri uri;
-    ImageView imageView;
-    EditText title;
     File f;
-    TextView textView;
-    public TextView titleTV,buttonSelectImage;
-    Button buttonUploadImage;
-    Bitmap selectedImageString = null;
+
+    public TextView titleTV;
     private static final String TAG = "StudentEditLeave";
-    TextInputEditText titleET, dateET, descriptionET;
-    public static Boolean camera = false;
-    public static Boolean gallery = false;
-    boolean isKitKat = false;
+    EditText titleET, descriptionET;
     Spinner subjectlist_spinner;
     String[] mimeTypes =
             {"application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .doc & .docx
@@ -126,7 +104,6 @@ public class StudentEditAssignment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_assignment);
         backBtn = findViewById(R.id.actionBar_backBtn);
-        mDrawerLayout = findViewById(R.id.container);
         actionBar = findViewById(R.id.actionBarSecondary);
         titleTV = findViewById(R.id.actionBar_title);
         subjectlist_spinner = findViewById(R.id.subjectlist_spinner);
@@ -137,8 +114,9 @@ public class StudentEditAssignment extends AppCompatActivity {
         subject_id = bundle.getString("subjectid");
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
-            Log.e("params ", obj.toString());
+            Log.d(TAG, "onvjnhmCreate: "+obj);
             getScannerDataFromApi(obj.toString());
         }else{
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
@@ -163,22 +141,10 @@ public class StudentEditAssignment extends AppCompatActivity {
         titleET.setText(titlevalue);
         descriptionET = findViewById(R.id.descriptionET);
         descriptionET.setText(description);
-        imageView =  findViewById(R.id.imageView);
-        textView =  findViewById(R.id.textview);
         //title =  findViewById(R.id.title);
        // buttonUploadImage =  findViewById(R.id.buttonUploadImage);
-        buttonSelectImage = findViewById(R.id.buttonSelectImage);
         submit = findViewById(R.id.addLeave_dialog_submitBtn);
 
-        buttonSelectImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("Else", "Else");
-                ActivityCompat.requestPermissions(StudentEditAssignment.this, permissions(), 1);
-                showFileChooser();
-
-            }
-        });
         submit.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,18 +156,15 @@ public class StudentEditAssignment extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.descriptionfield), Toast.LENGTH_LONG).show();
                     } else {
                         if(Utility.isConnectingToInternet(getApplicationContext())){
-                            System.out.println("Edit Daily Assignment Data");
-                            System.out.println(id);
-                            System.out.println(titleET.getText().toString());
-                            System.out.println(descriptionET.getText().toString());
-                            System.out.println(subjectid);
-                            System.out.println(Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-
-                            try {
-                                uploadBitmap();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            params.put("title", titleET.getText().toString());
+                            params.put("subject", subjectid);
+                            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+                            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
+                            params.put("id",id.toString());
+                            params.put("description", descriptionET.getText().toString());
+                            JSONObject obj = new JSONObject(params);
+                            Log.d(TAG, "jhdggfgsfdgfgvg: "+obj);
+                            getDataFromApi(obj.toString());
                         }else{
                             makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                         }
@@ -209,8 +172,6 @@ public class StudentEditAssignment extends AppCompatActivity {
 
             }
         });
-
-
 
         subjectlist.add(getApplicationContext().getString(R.string.select));
         subjectidlist.add("");
@@ -252,14 +213,14 @@ public class StudentEditAssignment extends AppCompatActivity {
         pd.show();
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getstudentsubjectUrl;
-
+        Log.d(TAG, requestBody+"getScannerDataFromApi: "+url);
         StringRequest stringRequest = new StringRequest(com.android.volley.Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d(TAG, "getScannerDataFromApi: "+result);
                         JSONObject obj = new JSONObject(result);
                         JSONArray dataArray = obj.getJSONArray("subjectlist");
 
@@ -313,6 +274,76 @@ public class StudentEditAssignment extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    private void getDataFromApi(String bodyParams) {
+
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Loading");
+        pd.setCancelable(false);
+        pd.show();
+
+        final String requestBody = bodyParams;
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.addeditdailyassignmentUrl;
+        Log.d(TAG, requestBody+"getDataFromApi: "+url);
+
+        StringRequest stringRequest = new StringRequest(com.android.volley.Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
+            @Override
+            public void onResponse(String result) {
+                if (result != null) {
+                    pd.dismiss();
+                    try {
+                        Log.d(TAG, "getDataFromApi: "+result);
+
+                        JSONObject object = new JSONObject(result);
+                        String status = object.getString("status");
+                        Log.d(TAG, "getDataFromApifg: "+status);
+                        if (status.equals("1")){
+                            Toast.makeText(StudentEditAssignment.this, "success", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    pd.dismiss();
+
+                }
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                pd.dismiss();
+                Log.e("Volley Error", volleyError.toString());
+                Toast.makeText(StudentEditAssignment.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                headers.put("Client-Service", Constants.clientService);
+                headers.put("Auth-Key", Constants.authKey);
+                headers.put("Content-Type", Constants.contentType);
+                headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
+                headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
+                return headers;
+            }
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(StudentEditAssignment.this);
+        requestQueue.add(stringRequest);
+    }
+
+
     private void decorate() {
         actionBar.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -322,7 +353,7 @@ public class StudentEditAssignment extends AppCompatActivity {
         }
     }
 
-    private void showFileChooser() {
+   /* private void showFileChooser() {
         final Dialog dialog = new Dialog(StudentEditAssignment.this);
         dialog.setContentView(R.layout.choose_file);
         dialog.setCanceledOnTouchOutside(false);
@@ -358,13 +389,13 @@ public class StudentEditAssignment extends AppCompatActivity {
 
         headerLay.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         dialog.show();
-    }
+    }*/
 
-    void camerapic() {
+   /* void camerapic() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
-    }
-    public String getgalleryRealPathFromURI(Context context, Uri contentUri) {
+    }*/
+   /* public String getgalleryRealPathFromURI(Context context, Uri contentUri) {
         OutputStream out;
         File file = new File(getFilename(context));
 
@@ -381,7 +412,7 @@ public class StudentEditAssignment extends AppCompatActivity {
             e.printStackTrace();
         }
         return file.getAbsolutePath();
-    }
+    }*/
 
     private byte[] getBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
@@ -395,7 +426,7 @@ public class StudentEditAssignment extends AppCompatActivity {
         return byteBuffer.toByteArray();
     }
 
-    private String getFilename(Context context) {
+   /* private String getFilename(Context context) {
         File mediaStorageDir = new File(context.getExternalFilesDir(""), "Soers_Images");
         if (!mediaStorageDir.exists()) {
             mediaStorageDir.mkdirs();
@@ -404,48 +435,48 @@ public class StudentEditAssignment extends AppCompatActivity {
         System.out.println("mImageName=="+mImageName);
         System.out.println("Image=="+mediaStorageDir.getAbsolutePath() + "/" + mImageName);
         return mediaStorageDir.getAbsolutePath() + "/" + mImageName;
-    }
+    }*/
 
-    private void opengallery() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-
-            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
-                if (mimeTypes.length > 0) {
-                    intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
-                }
-            } else {
-                String mimeTypesStr = "";
-                for (String mimeType : mimeTypes) {
-                    mimeTypesStr += mimeType + "|";
-                }
-                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
-            }
-            isKitKat = true;
-            startActivityForResult(Intent.createChooser(intent, "Select file"), PICK_IMAGE_REQUEST);
-        } else {
-            isKitKat = false;
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
-                if (mimeTypes.length > 0) {
-                    intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
-                }
-            } else {
-                String mimeTypesStr = "";
-                for (String mimeType : mimeTypes) {
-                    mimeTypesStr += mimeType + "|";
-                }
-                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
-            }
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
-        }
-
-    }
+//    private void opengallery() {
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//
+//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//            intent.addCategory(Intent.CATEGORY_OPENABLE);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
+//                if (mimeTypes.length > 0) {
+//                    intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+//                }
+//            } else {
+//                String mimeTypesStr = "";
+//                for (String mimeType : mimeTypes) {
+//                    mimeTypesStr += mimeType + "|";
+//                }
+//                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+//            }
+//            isKitKat = true;
+//            startActivityForResult(Intent.createChooser(intent, "Select file"), PICK_IMAGE_REQUEST);
+//        } else {
+//            isKitKat = false;
+//            Intent intent = new Intent();
+//            intent.setAction(Intent.ACTION_GET_CONTENT);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
+//                if (mimeTypes.length > 0) {
+//                    intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+//                }
+//            } else {
+//                String mimeTypesStr = "";
+//                for (String mimeType : mimeTypes) {
+//                    mimeTypesStr += mimeType + "|";
+//                }
+//                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+//            }
+//            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+//        }
+//
+//    }
 
 
 
@@ -463,7 +494,7 @@ public class StudentEditAssignment extends AppCompatActivity {
         return cursor.getString(idx);
     }
 
-    @TargetApi(19)
+ /*   @TargetApi(19)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -536,7 +567,7 @@ public class StudentEditAssignment extends AppCompatActivity {
                 progress.dismiss();
             }
         }
-    }
+    }*/
 
     public static String[] storage_permissions = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -559,7 +590,7 @@ public class StudentEditAssignment extends AppCompatActivity {
         }
         return p;
     }
-    private void uploadBitmap() throws IOException{
+  /*  private void uploadBitmap() throws IOException{
         url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.addeditdailyassignmentUrl;
         OkHttpClient client=new OkHttpClient();
         Log.i("url=", url);
@@ -568,11 +599,9 @@ public class StudentEditAssignment extends AppCompatActivity {
 
             RequestBody requestBody=new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("id",id)
                     .addFormDataPart("title",titleET.getText().toString())
                     .addFormDataPart("description",descriptionET.getText().toString())
                     .addFormDataPart("subject",subjectid)
-                    .addFormDataPart("file","")
                     .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
                     .build();
 
@@ -698,7 +727,7 @@ public class StudentEditAssignment extends AppCompatActivity {
             });
         }
 
-    }
+    }*/
     private String getMimeType(String path) {
         String extension= MimeTypeMap.getFileExtensionFromUrl(path);
         return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);

@@ -80,8 +80,7 @@
                                 android:layout_height="30dp"
                                 android:src="@drawable/ic_open_book"
                                 android:padding="5dp"
-                                android:tint="@color/white"
-                                />
+                                app:tint="@color/white" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -138,8 +137,7 @@
                                 android:layout_height="30dp"
                                 android:src="@drawable/courseperformance"
                                 android:padding="5dp"
-                                android:tint="@color/white"
-                                />
+                                app:tint="@color/white" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -177,6 +175,7 @@
                                 android:textColor="@color/white"/>
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:id="@+id/cbesetimetable"
                             android:layout_width="wrap_content"
@@ -194,9 +193,8 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:src="@drawable/ic_calender"
-                                android:tint="@color/white"
                                 android:padding="5dp"
-                                />
+                                app:tint="@color/white" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -280,6 +278,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:id="@+id/pullToRefresh"
@@ -289,11 +288,12 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            tools:itemCount="1"
             android:nestedScrollingEnabled="false"
             tools:listitem="@layout/adapter_student_courselist" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     </LinearLayout>
 
             </LinearLayout>

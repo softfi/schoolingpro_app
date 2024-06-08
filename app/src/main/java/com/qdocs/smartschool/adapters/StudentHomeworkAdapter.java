@@ -131,7 +131,7 @@ public class StudentHomeworkAdapter extends RecyclerView.Adapter<StudentHomework
         holder.description.setText(plain);
         holder.note.setText(noteList.get(position));
         holder.evaluatedByTV.setText(homeworkEvaluationByList.get(position));
-        context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+      //  context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         if(superadmin_restriction.equals("enabled")){
             holder.createdByTV.setText(homeworkCreatedByList.get(position));

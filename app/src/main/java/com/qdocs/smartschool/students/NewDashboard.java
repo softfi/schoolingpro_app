@@ -52,7 +52,6 @@ import com.qdocs.smartschool.AboutSchool;
 import com.qdocs.smartschool.Login;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.SettingActivity;
-import com.qdocs.smartschool.TakeUrl;
 import com.qdocs.smartschool.adapters.AcademicModuleAdapter;
 import com.qdocs.smartschool.adapters.CommunicateModuleAdapter;
 import com.qdocs.smartschool.adapters.ElearningModuleAdapter;
@@ -97,7 +96,7 @@ public class NewDashboard extends AppCompatActivity {
     public boolean flipped;
     LoginChildListAdapter studentListAdapter;
     public float offset;
-    CircleImageView actionBarLogo;
+    ImageView actionBarLogo;
     TextView unread_count, version_name;
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String> aparams = new Hashtable<String, String>();
@@ -149,7 +148,7 @@ public class NewDashboard extends AppCompatActivity {
         profileLinear = findViewById(R.id.profilelinear);
         collapsing_toolbar = findViewById(R.id.collapsing_toolbar);
         name = findViewById(R.id.name);
-        schoolName = findViewById(R.id.schoolName);
+      //  schoolName = findViewById(R.id.schoolName);
         admissionno = findViewById(R.id.admissionno);
         textview1 = findViewById(R.id.textview1);
         textview1.setText(getApplicationContext().getString(R.string.elearning));
@@ -873,7 +872,7 @@ public class NewDashboard extends AppCompatActivity {
         admissionno.setText("Admission No. " + Utility.getSharedPreferences(this, Constants.admission_no));
         classdata.setText(Utility.getSharedPreferences(this, Constants.classSection));
         name.setText(Utility.getSharedPreferences(this, Constants.userName));
-        schoolName.setText(Utility.getSharedPreferences(this, Constants.schoolName));
+       // schoolName.setText(Utility.getSharedPreferences(this, Constants.schoolName));
         Log.d("TAG", "decorate: "+Utility.getSharedPreferences(this, Constants.userName));
         classTV.setText(Utility.getSharedPreferences(this, Constants.classSection));
         childDetailsTV.setText("Child - " + Utility.getSharedPreferences(getApplicationContext(), "studentName")
@@ -1053,6 +1052,7 @@ public class NewDashboard extends AppCompatActivity {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("user", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
             getLearningFromApi(obj.toString());
@@ -1188,7 +1188,7 @@ public class NewDashboard extends AppCompatActivity {
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
                //  Toast.makeText(StudentDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(NewDashboard.this, TakeUrl.class);
+                Intent intent = new Intent(NewDashboard.this, Login.class);
                 startActivity(intent);
                 finish();
 
@@ -1211,7 +1211,6 @@ public class NewDashboard extends AppCompatActivity {
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
             }
-
 
             @Override
             public byte[] getBody() throws AuthFailureError {
@@ -1237,7 +1236,7 @@ public class NewDashboard extends AppCompatActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getDashboardUrl;
 
-        Log.d("TAG", requestBody + ",m.// url: " + url);
+        Log.d("TAG", requestBody + "m.// url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -1260,7 +1259,8 @@ public class NewDashboard extends AppCompatActivity {
                     }
                 } else {
 
-                   // Toast.makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+
                 }
             }
         }, new Response.ErrorListener() {
@@ -1398,7 +1398,6 @@ public class NewDashboard extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
 
             }
         }, new Response.ErrorListener() {

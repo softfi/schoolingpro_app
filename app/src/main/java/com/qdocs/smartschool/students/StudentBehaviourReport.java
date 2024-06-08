@@ -87,6 +87,7 @@ public class StudentBehaviourReport extends BaseActivity {
     public  void  loaddata(){
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -94,6 +95,12 @@ public class StudentBehaviourReport extends BaseActivity {
             makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loaddata();
     }
 
     private void getDataFromApi (String bodyParams) {

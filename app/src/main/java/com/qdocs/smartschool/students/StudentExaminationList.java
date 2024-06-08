@@ -72,7 +72,7 @@ public class StudentExaminationList extends BaseActivity {
         adapter = new StudentExamListAdapter(StudentExaminationList.this, examList,exam_group_List,
                 publish_resultlist,idlist,descriptionlist);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setLayoutManager( mLayoutManager );
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
@@ -81,22 +81,23 @@ public class StudentExaminationList extends BaseActivity {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
-                loaddata();
+                loadData();
             }
         });
-        loaddata();
+        loadData();
     }
 
-    public  void  loaddata(){
+    public  void loadData(){
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
-        }else{
+        }
+        else{
             makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void getDataFromApi (String bodyParams) {
@@ -107,7 +108,7 @@ public class StudentExaminationList extends BaseActivity {
 
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getExamListUrl;
-        Log.e("URL", url);
+        Log.d("TAG", "getexamList: "+url +requestBody);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -115,7 +116,7 @@ public class StudentExaminationList extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getexamList: "+result);
                         JSONObject obj = new JSONObject(result);
                         JSONArray dataArray = obj.getJSONArray("examSchedule");
                         examList.clear();
@@ -143,6 +144,7 @@ public class StudentExaminationList extends BaseActivity {
                     pd.dismiss();
                 }
             }
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
@@ -151,8 +153,9 @@ public class StudentExaminationList extends BaseActivity {
                 Toast.makeText(StudentExaminationList.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
             }
         }) {
+
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 headers.put("Client-Service", Constants.clientService);
                 headers.put("Auth-Key", Constants.authKey);
                 headers.put("Content-Type", Constants.contentType);
@@ -161,10 +164,12 @@ public class StudentExaminationList extends BaseActivity {
                 Log.e("Headers", headers.toString());
                 return headers;
             }
+
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
             }
+
             @Override
             public byte[] getBody() throws AuthFailureError {
                 try {
@@ -175,6 +180,7 @@ public class StudentExaminationList extends BaseActivity {
                 }
             }
         };
+
         RequestQueue requestQueue = Volley.newRequestQueue(StudentExaminationList.this); //Creating a Request Queue
         requestQueue.add(stringRequest);  //Adding request to the queue
     }

@@ -8,13 +8,11 @@
     <FrameLayout
         android:id="@+id/actionBarSecondary"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        >
+        android:layout_height="56dp">
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="56dp"
-            >
+            android:layout_height="56dp">
 
             <ImageView
                 android:id="@+id/actionBar_backBtn"
@@ -36,8 +34,7 @@
                 android:adjustViewBounds="true"
                 android:textSize="@dimen/heading"
                 android:textColor="@color/white"
-                android:gravity="center_vertical"
-                />
+                android:gravity="center_vertical" />
 
             <LinearLayout
                 android:id="@+id/baseActivity_libraryBtn"
@@ -49,16 +46,14 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
                 android:background="@color/transparent"
-                android:visibility="gone"
-                >
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_open_book"
                     android:padding="5dp"
-                    android:tint="@color/white"
-                    />
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -79,8 +74,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
                 android:background="@color/transparent"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -115,8 +109,7 @@
                     android:layout_height="30dp"
                     android:src="@drawable/courseperformance"
                     android:padding="5dp"
-                    android:tint="@color/white"
-                    />
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,15 +129,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
                 android:background="@color/transparent"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_reset"
-                    android:padding="5dp"
-                    />
+                    android:padding="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -154,6 +145,7 @@
                     android:textColor="@color/white"/>
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/cbesetimetable"
                 android:layout_width="wrap_content"
@@ -164,16 +156,14 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
                 android:background="@color/transparent"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_calender"
-                    android:tint="@color/white"
                     android:padding="5dp"
-                    />
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -183,6 +173,7 @@
                     android:textColor="@color/white"/>
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/logout"
                 android:layout_width="wrap_content"
@@ -193,15 +184,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="15dp"
                 android:background="@color/transparent"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_reset"
-                    android:padding="5dp"
-                    />
+                    android:padding="5dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -222,12 +211,11 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-
     <!-- <WebView
          android:id="@+id/payment_webview"
          android:layout_width="match_parent"
          android:layout_height="match_parent">
 
-     </WebView>
- -->
+     </WebView>-->
+
 </RelativeLayout>

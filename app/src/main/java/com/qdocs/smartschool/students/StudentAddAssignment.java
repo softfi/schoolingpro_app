@@ -14,6 +14,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
@@ -34,6 +35,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -109,7 +111,7 @@ public class StudentAddAssignment extends AppCompatActivity {
     public TextView titleTV,buttonSelectImage;
     Button buttonUploadImage;
     private static final String TAG = "StudentAddLeave";
-    TextInputEditText titleET, dateET, descriptionET;
+    EditText titleET, descriptionET;
     public static Boolean camera = false;
     public static Boolean gallery = false;
     boolean isKitKat = false;
@@ -130,12 +132,13 @@ public class StudentAddAssignment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_assignment);
         backBtn = findViewById(R.id.actionBar_backBtn);
-       // mDrawerLayout = findViewById(R.id.container);
+        // mDrawerLayout = findViewById(R.id.container);
         actionBar = findViewById(R.id.actionBarSecondary);
         titleTV = findViewById(R.id.actionBar_title);
         subjectlist_spinner = findViewById(R.id.subjectlist_spinner);
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getScannerDataFromApi(obj.toString());
@@ -162,8 +165,8 @@ public class StudentAddAssignment extends AppCompatActivity {
         descriptionET = findViewById(R.id.descriptionET);
         imageView =  findViewById(R.id.imageView);
         textView =  findViewById(R.id.textview);
-      //  title =  findViewById(R.id.title);
-       // buttonUploadImage =  findViewById(R.id.buttonUploadImage);
+        //  title =  findViewById(R.id.title);
+        // buttonUploadImage =  findViewById(R.id.buttonUploadImage);
         buttonSelectImage = findViewById(R.id.buttonSelectImage);
         submit = findViewById(R.id.addLeave_dialog_submitBtn);
 
@@ -171,7 +174,7 @@ public class StudentAddAssignment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.e("Else", "Else");
-                ActivityCompat.requestPermissions(StudentAddAssignment.this, permissions(), 1);
+               // ActivityCompat.requestPermissions(StudentAddAssignment.this, permissions(), 1);
                 showFileChooser();
 
             }
@@ -182,7 +185,7 @@ public class StudentAddAssignment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                     if(titleET.getText().toString().equals("")){
+                    if(titleET.getText().toString().equals("")){
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.titlefield), Toast.LENGTH_LONG).show();
                     }else if(descriptionET.getText().toString().equals("")){
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.descriptionfield), Toast.LENGTH_LONG).show();
@@ -210,7 +213,7 @@ public class StudentAddAssignment extends AppCompatActivity {
         subjectlist_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                 subjectid = subjectidlist.get(i);
+                subjectid = subjectidlist.get(i);
 
             }
             @Override
@@ -307,8 +310,6 @@ public class StudentAddAssignment extends AppCompatActivity {
         }
     }
 
-
-
     private void showFileChooser() {
         final Dialog dialog = new Dialog(StudentAddAssignment.this);
         dialog.setContentView(R.layout.choose_file);
@@ -348,11 +349,9 @@ public class StudentAddAssignment extends AppCompatActivity {
     }
 
     void camerapic() {
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
-
-
     private void opengallery() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -379,6 +378,7 @@ public class StudentAddAssignment extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_GET_CONTENT);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
                 intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
                 if (mimeTypes.length > 0) {
                     intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
@@ -394,8 +394,104 @@ public class StudentAddAssignment extends AppCompatActivity {
         }
 
     }
+    @TargetApi(19)
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri uri = data.getData();
+            System.out.println("uri==" + uri);
 
+            String path = new File(uri.getPath()).getAbsolutePath();
+            System.out.println("path==" + path);
 
+            if (path != null) {
+                uri = data.getData();
+
+                String filenames;
+                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+
+                if (cursor == null) filenames = uri.getPath();
+                else {
+                    cursor.moveToFirst();
+                    int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
+                    filenames = cursor.getString(idx);
+                    cursor.close();
+                }
+
+                name = filenames.substring(0, filenames.lastIndexOf("."));
+                System.out.println("name==" + name);
+                extension = filenames.substring(filenames.lastIndexOf(".") + 1);
+                System.out.println("extension==" + extension);
+            } else {
+                makeText(this, "Please select file", Toast.LENGTH_SHORT).show();
+            }
+
+            try {
+                selectedImageString = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            textView.setText(getApplicationContext().getString(R.string.fileselected));
+
+            filePath = getgalleryRealPathFromURI(StudentAddAssignment.this, uri);
+            if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
+                imageView.setVisibility(View.VISIBLE);
+                imageView.setImageBitmap(selectedImageString);
+            } else if (extension.equals("PDF") || extension.equals("pdf") || extension.equals("doc") || extension.equals("docx") || extension.equals("txt")) {
+                imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
+            }
+            f = new File(filePath);
+            System.out.println("file==" + filePath);
+            String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+            file_body = RequestBody.create(MediaType.parse(mimeType), f);
+            System.out.println("file_bodypathasd" + file_body);
+            System.out.println("bitmap image==" + selectedImageString);
+        } else if (resultCode != RESULT_CANCELED) {
+            if (requestCode == CAMERA_REQUEST) {
+
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                if (bitmap != null) {
+                    progress = new ProgressDialog(StudentAddAssignment.this);
+                    progress.setTitle("uploading");
+                    progress.setMessage("Please Wait....");
+                    progress.show();
+                    imageView.setVisibility(View.VISIBLE);
+                    textView.setText(getApplicationContext().getString(R.string.fileselected));
+                    imageView.setImageBitmap(bitmap);
+                  //  Uri tempUri = getImageUri(getApplicationContext(), bitmap);
+                    filePath = saveBitmap(bitmap);
+                    System.out.println("pathasd" + filePath);
+                    File f = new File(filePath);
+                    String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                    file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                    System.out.println("file_bodypathasd" + file_body);
+                    progress.dismiss();
+                }
+            }
+        }
+    }
+    public static String saveBitmap(Bitmap bitmap) {
+        String filePath = null;
+        File file = null;
+        try {
+            File directory = new File(Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_PICTURES), "MyApp");
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+            file = new File(directory, "image_" + System.currentTimeMillis() + ".jpg");
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+
+            filePath = file.getAbsolutePath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
@@ -403,12 +499,23 @@ public class StudentAddAssignment extends AppCompatActivity {
         return Uri.parse(path);
     }
 
-    public String getRealPathFromURI(Uri uri) {
-        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-        return cursor.getString(idx);
+    public String getRealPathFromURI(Uri contentUri)
+    {
+        try
+        {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            Cursor cursor = managedQuery(contentUri, proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+
+            return cursor.getString(column_index);
+        }
+        catch (Exception e)
+        {
+            return contentUri.getPath();
+        }
     }
+
     public String getgalleryRealPathFromURI(Context context, Uri contentUri) {
         OutputStream out;
         File file = new File(getFilename(context));
@@ -427,7 +534,6 @@ public class StudentAddAssignment extends AppCompatActivity {
         }
         return file.getAbsolutePath();
     }
-
     private byte[] getBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
         int bufferSize = 1024;
@@ -439,7 +545,6 @@ public class StudentAddAssignment extends AppCompatActivity {
         }
         return byteBuffer.toByteArray();
     }
-
     private String getFilename(Context context) {
         File mediaStorageDir = new File(context.getExternalFilesDir(""), "Soers_Images");
         if (!mediaStorageDir.exists()) {
@@ -472,241 +577,97 @@ public class StudentAddAssignment extends AppCompatActivity {
         }
         return p;
     }
-
-
-
-    @TargetApi(19)
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            System.out.println("uri=="+uri);
-
-            String path = new File(uri.getPath()).getAbsolutePath();
-            System.out.println("path=="+path);
-
-            if(path != null){
-                uri = data.getData();
-
-                String filenames;
-                Cursor cursor = getContentResolver().query(uri,null,null,null,null);
-
-                if(cursor == null) filenames=uri.getPath();
-                else{
-                    cursor.moveToFirst();
-                    int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
-                    filenames = cursor.getString(idx);
-                    cursor.close();
-                }
-
-                name = filenames.substring(0,filenames.lastIndexOf("."));
-                System.out.println("name=="+name);
-                extension = filenames.substring(filenames.lastIndexOf(".")+1);
-                System.out.println("extension=="+extension);
-            }else{
-                makeText(this, "Please select file", Toast.LENGTH_SHORT).show();
-            }
-
-            try {
-                selectedImageString = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            textView.setText(getApplicationContext().getString(R.string.fileselected));
-
-            filePath = getgalleryRealPathFromURI(StudentAddAssignment.this, uri);
-            if(extension.equals("jpg")||extension.equals("png")||extension.equals("jpeg")){
-                imageView.setVisibility(View.VISIBLE);
-                imageView.setImageBitmap(selectedImageString);
-            }else if(extension.equals("PDF")||extension.equals("pdf")||extension.equals("doc")||extension.equals("docx")||extension.equals("txt")){
-                imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
-            }
-            f = new File(filePath);
-            System.out.println("file=="+filePath);
-            String mimeType = URLConnection.guessContentTypeFromName(f.getName());
-            file_body = RequestBody.create(MediaType.parse(mimeType), f);
-            System.out.println("file_bodypathasd" + file_body);
-            System.out.println("bitmap image==" + selectedImageString);
-        }else if (requestCode == CAMERA_REQUEST  && resultCode == RESULT_OK ) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            if (bitmap != null) {
-                progress = new ProgressDialog(StudentAddAssignment.this);
-                progress.setTitle("uploading");
-                progress.setMessage("Please Wait....");
-                progress.show();
-                textView.setText(getApplicationContext().getString(R.string.fileselected));
-                imageView.setVisibility(View.VISIBLE);
-                imageView.setImageBitmap(bitmap);
-                Uri tempUri = getImageUri(getApplicationContext(), bitmap);
-                filePath = getRealPathFromURI(tempUri);
-                System.out.println("pathasd" + filePath);
-                 f = new File(filePath);
-                String mimeType = URLConnection.guessContentTypeFromName(f.getName());
-                file_body = RequestBody.create(MediaType.parse(mimeType), f);
-                System.out.println("file_bodypathasd" + file_body);
-                progress.dismiss();
-            }
-        }
-    }
     private void uploadBitmap() throws IOException{
-        url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.addeditdailyassignmentUrl;
+        url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.adddailyassignment;
         OkHttpClient client=new OkHttpClient();
-        Log.i("url=", url);
+        Log.d(TAG, "uploadBitmap: "+url);
 
-        if(filePath==null || file_body==null){
 
-            RequestBody requestBody=new MultipartBody.Builder()
-                    .setType(MultipartBody.FORM)
-                    .addFormDataPart("id","")
-                    .addFormDataPart("title",titleET.getText().toString())
-                    .addFormDataPart("description",descriptionET.getText().toString())
-                    .addFormDataPart("subject",subjectid)
-                    .addFormDataPart("file","")
-                    .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
-                    .build();
+        if(filePath != null || file_body !=null){
+            {
+                String file_name=filePath.substring(filePath.lastIndexOf("/")+1);
+                Log.d(TAG, filePath+"uploadBitmap: "+file_body);
 
-            Request request=new Request.Builder()
-                    .url(url)
-                    .header("Client-Service", Constants.clientService)
-                    .header("Auth-Key", Constants.authKey)
-                    .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), "userId"))
-                    .header("Authorization",Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
-                    .post(requestBody)
-                    .build();
-
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                RequestBody requestBody=new MultipartBody.Builder()
+                        .setType(MultipartBody.FORM)
+                        .addFormDataPart("title",titleET.getText().toString())
+                        .addFormDataPart("description",descriptionET.getText().toString())
+                        .addFormDataPart("file",file_name,file_body)
+                        .addFormDataPart("subject_id",subjectid)
+                        .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
+                        .addFormDataPart("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId))
+                        .build();
+                Log.d(TAG, "uploadBitmap: "+titleET.getText().toString());
+                Log.d(TAG, "uploadBitmap: "+descriptionET.getText().toString());
+                Log.d(TAG, "uploadBitmap: "+descriptionET.getText().toString());
+                Request request=new Request.Builder()
+                        .url(url)
+                        .header("Cookie", "ci_session=a7a60f4bf0964cdac1bc4b7a987dd76f70ed2df0")
+                        .header("Client-Service", Constants.clientService)
+                        .header("Auth-Key", Constants.authKey)
+                        .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), Constants.userId))
+                        .post(requestBody)
+                        .build();
+                Log.d(TAG, "uploadBitmapr: "+requestBody);
+                Log.d(TAG, "uploadBitmapb: "+request);
+                client.newCall(request).enqueue(new Callback() {
                     @Override
-                    public void run() {
-                        makeText(mContext, R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                    public void onFailure(Call call, IOException e) {
+                        new Handler(Looper.getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                makeText(mContext, R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
-                });}
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    ResponseBody body = response.body();
-                    if(body != null) {
-                        try {
-                            String jsonData = response.body().string();
+                    @Override
+                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                        ResponseBody body = response.body();
+                        if(body != null) {
                             try {
-                                final JSONObject Jobject = new JSONObject(jsonData);
-                                String Jarray = Jobject.getString("status");
-                                if(Jarray.equals("1")){
-                                    runOnUiThread(new Runnable(){
-                                        public void run() {
-                                            Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        }
-                                    });
-                                }else{
-                                    runOnUiThread(new Runnable(){
-                                        public void run() {
-                                            try {
-                                                JSONObject error = Jobject.getJSONObject("error");
-                                                Toast.makeText(mContext, error.getString("reason"), Toast.LENGTH_SHORT).show();
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
+                                assert response.body() != null;
+                                String jsonData = response.body().string();
+                                try {
+                                    final JSONObject Jobject = new JSONObject(jsonData);
+                                    String Jarray = Jobject.getString("status");
+                                    Log.d(TAG, "onResponsef: "+jsonData);
+                                    if(Jarray.equals("1")){
+                                        runOnUiThread(new Runnable(){
+                                            public void run() {
+                                                Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
+                                                finish();
                                             }
-                                        }
-                                    });
+                                        });
+
+                                    }else{
+                                        runOnUiThread(new Runnable(){
+                                            public void run() {
+                                                try {
+                                                    final JSONObject Jobject = new JSONObject(jsonData);
+                                                    String error = Jobject.getString("error");
+                                                    Toast.makeText(mContext, error, Toast.LENGTH_SHORT).show();
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+
+                                            }
+                                        });
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (JSONException e) {
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                        } catch (IOException e) {
-                            e.printStackTrace();
                         }
                     }
-                }
 
-            });
-
-        }else{
-            String file_name=filePath.substring(filePath.lastIndexOf("/")+1);
-            System.out.println("file_name== "+file_name);
-            System.out.println("file_body== "+file_body);
-
-            RequestBody requestBody=new MultipartBody.Builder()
-                    .setType(MultipartBody.FORM)
-                    .addFormDataPart("id","")
-                    .addFormDataPart("title",titleET.getText().toString())
-                    .addFormDataPart("description",descriptionET.getText().toString())
-                    .addFormDataPart("file",file_name,file_body)
-                    .addFormDataPart("subject",subjectid)
-                    .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
-                    .build();
-
-            Request request=new Request.Builder()
-                    .url(url)
-                    .header("Client-Service", Constants.clientService)
-                    .header("Auth-Key", Constants.authKey)
-                    .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), "userId"))
-                    .header("Authorization",Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
-                    .post(requestBody)
-                    .build();
-
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            makeText(mContext, R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    ResponseBody body = response.body();
-                    if(body != null) {
-                        try {
-                            String jsonData = response.body().string();
-                            try {
-                                final JSONObject Jobject = new JSONObject(jsonData);
-                                String Jarray = Jobject.getString("status");
-
-
-                                if(Jarray.equals("1")){
-                                    runOnUiThread(new Runnable(){
-                                        public void run() {
-                                            Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        }
-                                    });
-
-                                }else{
-                                    runOnUiThread(new Runnable(){
-                                        public void run() {
-                                            try {
-                                                String error = Jobject.getString("msg");
-                                                Toast.makeText(mContext, error, Toast.LENGTH_SHORT).show();
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-
-                                        }
-                                    });
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-            });
+                });
+            }
         }
 
-    }
-    private String getMimeType(String path) {
-        String extension= MimeTypeMap.getFileExtensionFromUrl(path);
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+
     }
 }
 

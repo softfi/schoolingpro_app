@@ -110,7 +110,7 @@ public class StudentOnlineCourse extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
-                loaddata();
+                loadData();
             }
         });
 
@@ -121,12 +121,13 @@ public class StudentOnlineCourse extends AppCompatActivity {
                 overridePendingTransition(R.anim.no_animation,  R.anim.slide_rightleft);
             }
         });
-        loaddata();
+        loadData();
     }
 
-    public  void  loaddata(){
+    public  void loadData(){
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -142,7 +143,7 @@ public class StudentOnlineCourse extends AppCompatActivity {
         pd.show();
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.courselistUrl;
-        Log.e("URL", url);
+        Log.d("TAG", "getDataFromApi: "+requestBody+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -150,7 +151,7 @@ public class StudentOnlineCourse extends AppCompatActivity {
                 if (result != null) {
                  pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getDataFromApi: "+result);
                         JSONObject obj = new JSONObject(result);
                         String pay_method = obj.getString("pay_method");
                         if(pay_method.equals("0")) {
@@ -160,6 +161,7 @@ public class StudentOnlineCourse extends AppCompatActivity {
                             Utility.setSharedPreferenceBoolean(getApplicationContext(), Constants.showCoursePaymentBtn, true);
                         }
                         JSONArray dataArray = obj.getJSONArray("course_list");
+
                         courseidList.clear();
                         coursetitleList.clear();
                         coursedescriptionList.clear();
@@ -179,7 +181,6 @@ public class StudentOnlineCourse extends AppCompatActivity {
                         courseratinglist.clear();
                         classsectionList.clear();
                         lessoncountList.clear();
-
 
                         if(dataArray.length() != 0) {
                             for(int i = 0; i < dataArray.length(); i++) {
@@ -258,7 +259,7 @@ public class StudentOnlineCourse extends AppCompatActivity {
     public void onRestart() {
         Utility.setLocale(getApplicationContext(), Utility.getSharedPreferences(getApplicationContext(), Constants.langCode));
         super.onRestart();
-        loaddata();
+        loadData();
         // do some stuff here
     }
     public void setLocale(Context context, String localeName){
@@ -276,7 +277,6 @@ public class StudentOnlineCourse extends AppCompatActivity {
         context.getResources().updateConfiguration(configuration,
                 resources.getDisplayMetrics());
     }
-
     @Override
     protected void onResume() {
         updateResources(getApplicationContext(),Utility.getSharedPreferences(getApplicationContext(), Constants.langCode));

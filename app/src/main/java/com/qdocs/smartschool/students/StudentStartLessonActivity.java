@@ -90,7 +90,7 @@ public class StudentStartLessonActivity extends BaseActivity {
         adapter = new StartLessonAdapter(StudentStartLessonActivity.this,
                 section_titleList,section_idList,resultArray,lesson_countList);
         lessonList.setAdapter(adapter);
-        loaddata();
+        loadData();
 
         course_performance.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +103,7 @@ public class StudentStartLessonActivity extends BaseActivity {
         });
     }
 
-    public  void  loaddata(){
+    public  void loadData(){
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("course_id", course_id);
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
@@ -127,7 +127,7 @@ public class StudentStartLessonActivity extends BaseActivity {
     @Override
     public void onRestart() {
         super.onRestart();
-        loaddata();
+        loadData();
     }
 
     private void getDataFromApi (String bodyParams) {
@@ -140,6 +140,7 @@ public class StudentStartLessonActivity extends BaseActivity {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.coursecurriculumUrl;
+        Log.d("TAG", "getDataFromApicdfb: "+requestBody);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

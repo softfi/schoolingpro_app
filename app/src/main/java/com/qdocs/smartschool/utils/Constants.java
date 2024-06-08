@@ -81,6 +81,7 @@ public class Constants {
     public static final String getStudentCurrencyUrl = "webservice/getStudentCurrency";
     public static final String getDocumentUrl = "webservice/getDocument";
     public static final String getdailyassignmentUrl = "webservice/getdailyassignment";
+    public static final String adddailyassignment = "webservice/adddailyassignment";
     public static final String addeditdailyassignmentUrl = "webservice/addeditdailyassignment";
     public static final String deletedailyassignmentUrl = "webservice/deletedailyassignment";
     public static final String getTimelineUrl = "webservice/getTimeline";
@@ -113,7 +114,7 @@ public class Constants {
     public static final String getApplyLeaveUrl = "webservice/getApplyLeave";            //
     public static final String getVisitorsUrl = "webservice/getVisitors";
     public static final String addofflinepaymentUrl = "webservice/addofflinepayment";
-    public static final String addleaveUrl = "webservice/addleave";
+    public static final String addLeave = "webservice/addleave";
     public static final String updateLeaveUrl = "webservice/updateLeave";
     public static final String deleteLeaveUrl = "webservice/deleteLeave";
     public static final String deletetimelineUrl = "webservice/deletetimeline";

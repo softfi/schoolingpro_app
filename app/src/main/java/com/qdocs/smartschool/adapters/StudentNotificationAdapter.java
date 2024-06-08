@@ -9,6 +9,7 @@ import android.graphics.Color;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,7 @@ public class StudentNotificationAdapter extends BaseAdapter {
         View rowView = view;
         ViewHolder viewHolder = null;
         String superadmin_restriction = Utility.getSharedPreferences(context.getApplicationContext(), Constants.superadmin_restriction);
+        Log.d("TAG", "getListSuper: "+superadmin_restriction);
         if (rowView == null) {
 
             LayoutInflater inflater = LayoutInflater.from(context);
@@ -88,11 +90,11 @@ public class StudentNotificationAdapter extends BaseAdapter {
         }else{
             viewHolder  = (ViewHolder) rowView.getTag();
         }
-        if(superadmin_restriction.equals("enabled")){
+       /* if(superadmin_restriction.equals("enabled")){
             viewHolder.createdBy_layout.setVisibility(View.VISIBLE);
         }else{
             viewHolder.createdBy_layout.setVisibility(View.GONE);
-        }
+        }*/
 
         viewHolder.notifTitle.setText(noticeTitleList.get(position));
         viewHolder.notifDate.setText(noticeDateList.get(position));

@@ -1643,32 +1643,33 @@ public class StudentOnlineExamQuestionsNew extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
-            System.out.println("uri=="+uri);
+            System.out.println("uri==" + uri);
 
             String path = new File(uri.getPath()).getAbsolutePath();
-            System.out.println("path=="+path);
+            System.out.println("path==" + path);
 
-            if(path != null){
+            if (path != null) {
                 uri = data.getData();
 
                 String filenames;
-                Cursor cursor = getContentResolver().query(uri,null,null,null,null);
+                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
 
-                if(cursor == null) filenames=uri.getPath();
-                else{
+                if (cursor == null) filenames = uri.getPath();
+                else {
                     cursor.moveToFirst();
                     int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
                     filenames = cursor.getString(idx);
                     cursor.close();
                 }
 
-                filename = filenames.substring(0,filenames.lastIndexOf("."));
-                System.out.println("filename=="+filename);
-                extension = filenames.substring(filenames.lastIndexOf(".")+1);
-                System.out.println("extension=="+extension);
-            }else{
+                filename = filenames.substring(0, filenames.lastIndexOf("."));
+                System.out.println("filename==" + filename);
+                extension = filenames.substring(filenames.lastIndexOf(".") + 1);
+                System.out.println("extension==" + extension);
+            } else {
                 makeText(this, "Please select file", Toast.LENGTH_SHORT).show();
             }
 
@@ -1680,19 +1681,19 @@ public class StudentOnlineExamQuestionsNew extends AppCompatActivity {
             textView.setText(getApplicationContext().getString(R.string.fileselected));
 
             filePath = getgalleryRealPathFromURI(StudentOnlineExamQuestionsNew.this, uri);
-            if(extension.equals("jpg")||extension.equals("png")||extension.equals("jpeg")){
+            if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
                 imageView.setVisibility(View.VISIBLE);
                 imageView.setImageBitmap(selectedImageString);
-            }else if(extension.equals("PDF")||extension.equals("pdf")||extension.equals("doc")||extension.equals("docx")||extension.equals("txt")){
+            } else if (extension.equals("PDF") || extension.equals("pdf") || extension.equals("doc") || extension.equals("docx") || extension.equals("txt")) {
                 imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
             }
             f = new File(filePath);
-            System.out.println("file=="+filePath);
+            System.out.println("file==" + filePath);
             String mimeType = URLConnection.guessContentTypeFromName(f.getName());
             file_body = RequestBody.create(MediaType.parse(mimeType), f);
             System.out.println("file_bodypathasd" + file_body);
             System.out.println("bitmap image==" + selectedImageString);
-        }else if (requestCode == CAMERA_REQUEST  && resultCode == RESULT_OK) {
+        } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             if (bitmap != null) {
                 progress = new ProgressDialog(StudentOnlineExamQuestionsNew.this);
@@ -1702,8 +1703,8 @@ public class StudentOnlineExamQuestionsNew extends AppCompatActivity {
                 imageView.setVisibility(View.VISIBLE);
                 textView.setText(getApplicationContext().getString(R.string.fileselected));
                 imageView.setImageBitmap(bitmap);
-                Uri tempUri = getImageUri(getApplicationContext(), bitmap);
-                filePath = getRealPathFromURI(tempUri);
+                //  Uri tempUri = getImageUri(getApplicationContext(), bitmap);
+                filePath = saveBitmap(bitmap);
                 System.out.println("pathasd" + filePath);
                 File f = new File(filePath);
                 String mimeType = URLConnection.guessContentTypeFromName(f.getName());
@@ -1714,7 +1715,27 @@ public class StudentOnlineExamQuestionsNew extends AppCompatActivity {
         }
 
     }
+    public static String saveBitmap(Bitmap bitmap) {
+        String filePath = null;
+        File file = null;
+        try {
+            File directory = new File(Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_PICTURES), "MyApp");
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+            file = new File(directory, "image_" + System.currentTimeMillis() + ".jpg");
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
 
+            filePath = file.getAbsolutePath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
@@ -1806,6 +1827,7 @@ public class StudentOnlineExamQuestionsNew extends AppCompatActivity {
     public  void  loaddata(){
         if(Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             params.put("online_exam_id", Online_exam_id);
             JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
@@ -1916,7 +1938,7 @@ public class StudentOnlineExamQuestionsNew extends AppCompatActivity {
 
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getOnlineExamQuestionUrl;
-        Log.e("URL", url);
+        Log.d(TAG, "getDataFromApi: "+url + requestBody);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -1924,7 +1946,7 @@ public class StudentOnlineExamQuestionsNew extends AppCompatActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Exam Questions", result);
+                        Log.d(TAG, "getDataFromApi: "+result);
                         JSONObject obj = new JSONObject(result);
                         dataObject = obj.getJSONObject("exam");
                         question_idList.clear();

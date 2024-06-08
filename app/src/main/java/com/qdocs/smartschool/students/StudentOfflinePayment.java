@@ -26,6 +26,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -64,7 +65,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 public class StudentOfflinePayment extends BaseActivity implements DatePickerDialog.OnDateSetListener  {
-    TextInputEditText dateofPayment,paymentMode,paymentFrom,reference,amount;
+    EditText dateofPayment,paymentMode,paymentFrom,reference,amount;
     CardView card_view_outer;
     String defaultDateFormat,startweek,feesTypeId,feesId,feesSessionId,paymenttype,transfeesIdList;
     String paymentdate = "";
@@ -83,7 +84,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
     TextView textView;
     ProgressDialog progress;
     String extension="",name="";
-    TextInputLayout amountTextInputLayout;
+    EditText amountTextInputLayout;
     String[] mimeTypes =
             {"application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .doc & .docx
                     "application/vnd.ms-powerpoint","application/vnd.openxmlformats-officedocument.presentationml.presentation", // .ppt & .pptx
@@ -112,8 +113,8 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         feesSessionId = getIntent().getStringExtra("feesSessionId");
         paymenttype = getIntent().getStringExtra("paymenttype");
         transfeesIdList = getIntent().getStringExtra("transfeesIdList");
-        amountTextInputLayout = findViewById(R.id.amountTextInputLayout);
-        amountTextInputLayout.setHint(getApplicationContext().getString(R.string.amount)+" ("+Utility.getSharedPreferences(getApplicationContext(), Constants.currency)+")");
+       // amountTextInputLayout = findViewById(R.id.amountTextInputLayout);
+      //  amountTextInputLayout.setHint(getApplicationContext().getString(R.string.amount)+" ("+Utility.getSharedPreferences(getApplicationContext(), Constants.currency)+")");
         card_view_outer = findViewById(R.id.card_view_outer);
         card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         buttonUploadImage =  findViewById(R.id.buttonUploadImage);
@@ -305,38 +306,38 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
             }
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
         }
-
     }
     @TargetApi(19)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
-            System.out.println("uri=="+uri);
+            System.out.println("uri==" + uri);
 
             String path = new File(uri.getPath()).getAbsolutePath();
-            System.out.println("path=="+path);
+            System.out.println("path==" + path);
 
-            if(path != null){
+            if (path != null) {
                 uri = data.getData();
 
                 String filenames;
-                Cursor cursor = getContentResolver().query(uri,null,null,null,null);
+                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
 
-                if(cursor == null) filenames=uri.getPath();
-                else{
+                if (cursor == null) filenames = uri.getPath();
+                else {
                     cursor.moveToFirst();
                     int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
                     filenames = cursor.getString(idx);
                     cursor.close();
                 }
 
-                name = filenames.substring(0,filenames.lastIndexOf("."));
-                System.out.println("name=="+name);
-                extension = filenames.substring(filenames.lastIndexOf(".")+1);
-                System.out.println("extension=="+extension);
-            }else{
+                name = filenames.substring(0, filenames.lastIndexOf("."));
+                System.out.println("name==" + name);
+                extension = filenames.substring(filenames.lastIndexOf(".") + 1);
+                System.out.println("extension==" + extension);
+            } else {
                 makeText(this, "Please select file", Toast.LENGTH_SHORT).show();
             }
 
@@ -348,19 +349,19 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
             textView.setText(getApplicationContext().getString(R.string.fileselected));
 
             filePath = getgalleryRealPathFromURI(StudentOfflinePayment.this, uri);
-            if(extension.equals("jpg")||extension.equals("png")||extension.equals("jpeg")){
+            if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
                 imageView.setVisibility(View.VISIBLE);
                 imageView.setImageBitmap(selectedImageString);
-            }else if(extension.equals("PDF")||extension.equals("pdf")||extension.equals("doc")||extension.equals("docx")||extension.equals("txt")){
+            } else if (extension.equals("PDF") || extension.equals("pdf") || extension.equals("doc") || extension.equals("docx") || extension.equals("txt")) {
                 imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
             }
             f = new File(filePath);
-            System.out.println("file=="+filePath);
+            System.out.println("file==" + filePath);
             String mimeType = URLConnection.guessContentTypeFromName(f.getName());
             file_body = RequestBody.create(MediaType.parse(mimeType), f);
             System.out.println("file_bodypathasd" + file_body);
             System.out.println("bitmap image==" + selectedImageString);
-        }else if (requestCode == CAMERA_REQUEST  && resultCode == RESULT_OK ) {
+        } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             if (bitmap != null) {
                 progress = new ProgressDialog(StudentOfflinePayment.this);

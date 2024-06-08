@@ -170,8 +170,8 @@ public class StudentDailyAssignmentAdapter extends RecyclerView.Adapter<StudentD
         }
 
 
-        context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-        if(attachmentList.get(position).equals("")){
+       // context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        if(!attachmentList.get(position).equals("")){
             holder.downloadBtn.setVisibility(View.GONE);
         }else{
             holder.downloadBtn.setVisibility(View.VISIBLE);

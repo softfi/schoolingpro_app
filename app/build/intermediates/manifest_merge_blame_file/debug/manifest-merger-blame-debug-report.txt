@@ -98,7 +98,7 @@
 48-->[androidx.core:core:1.9.0] C:\Users\lenovo\.gradle\caches\transforms-3\2e6153425324545fcd287a2f319ce459\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 49
 50    <application
-50-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-294:19
+50-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:36:5-291:19
 51        android:name="com.qdocs.smartschool.utils.MyApp"
 51-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:37:9-36
 52        android:allowBackup="false"
@@ -524,237 +524,229 @@
 264            android:exported="true" />
 264-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:248:13-36
 265        <activity
-265-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:249:9-252:40
-266            android:name="com.qdocs.smartschool.TakeUrl"
-266-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:250:13-36
-267            android:configChanges="orientation|screenSize"
-267-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:251:13-59
-268            android:exported="false" />
-268-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:252:13-37
-269        <activity
-269-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:253:9-255:39
-270            android:name="com.qdocs.smartschool.OpenPdf"
-270-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:254:13-36
-271            android:exported="true" />
-271-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:255:13-36
-272        <activity
-272-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:256:9-258:39
-273            android:name="com.qdocs.smartschool.students.StudentTasks"
-273-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:257:13-50
-274            android:exported="true" />
-274-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:258:13-36
-275        <activity
-275-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:259:9-261:39
-276            android:name="com.qdocs.smartschool.students.StudentTasksEdit"
-276-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:260:13-54
-277            android:exported="true" />
-277-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:261:13-36
-278        <activity
-278-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:262:9-264:39
-279            android:name="com.qdocs.smartschool.students.Payment"
-279-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:263:13-45
-280            android:exported="true" />
-280-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:264:13-36
-281        <activity
-281-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:265:9-267:39
-282            android:name="com.qdocs.smartschool.students.CoursePayment"
-282-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:266:13-51
-283            android:exported="true" />
-283-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:267:13-36
-284        <activity
-284-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:268:9-272:53
-285            android:name="com.qdocs.smartschool.students.CourseVideoPlay"
-285-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:269:13-53
-286            android:configChanges="orientation|screenSize"
-286-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:270:13-59
-287            android:exported="false"
-287-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:271:13-37
-288            android:screenOrientation="landscape" />
-288-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:272:13-50
-289        <activity
-289-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:273:9-275:40
-290            android:name="com.qdocs.smartschool.students.LiveClasses"
-290-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:274:13-49
-291            android:exported="false" />
-291-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:275:13-37
-292
-293        <service
-293-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:9-283:19
-294            android:name="com.qdocs.smartschool.utils.MyFirebaseMessagingService"
-294-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:278:13-61
-295            android:exported="true" >
-295-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:279:13-36
-296            <intent-filter>
-296-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:13-282:29
-297                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-297-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:281:17-78
-297-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:281:25-75
-298            </intent-filter>
-299        </service>
-300
-301        <provider
-302            android:name="androidx.core.content.FileProvider"
-302-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:286:13-62
-303            android:authorities="com.qdocs.smartschool.provider"
-303-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:287:13-60
-304            android:exported="false"
-304-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:288:13-37
-305            android:grantUriPermissions="true" >
-305-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:289:13-47
-306            <meta-data
-306-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:290:13-292:58
-307                android:name="android.support.FILE_PROVIDER_PATHS"
-307-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:291:17-67
-308                android:resource="@xml/provider_paths" />
-308-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:292:17-55
-309        </provider>
-310        <!--
-311             FirebaseMessagingService performs security checks at runtime,
-312             but set to not exported to explicitly avoid allowing another app to call it.
-313        -->
-314        <service
-314-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:28:9-34:19
-315            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-315-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:29:13-82
-316            android:exported="false" >
-316-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:30:13-37
-317            <intent-filter android:priority="-500" >
-317-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:280:13-282:29
-318                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-318-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:281:17-78
-318-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:281:25-75
-319            </intent-filter>
-320        </service>
-321        <service
-321-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:29:9-35:19
-322            android:name="com.google.firebase.components.ComponentDiscoveryService"
-322-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:30:13-84
-323            android:exported="false" >
-323-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:31:13-37
-324            <meta-data
-324-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:32:13-34:85
-325                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-325-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:33:17-96
-326                android:value="com.google.firebase.components.ComponentRegistrar" />
-326-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:34:17-82
-327        </service>
-328
-329        <receiver
-329-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:37:9-44:20
-330            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-330-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:38:13-78
-331            android:exported="true"
-331-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:39:13-36
-332            android:permission="com.google.android.c2dm.permission.SEND" >
-332-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:40:13-73
-333            <intent-filter>
-333-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:41:13-43:29
-334                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-334-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:17-81
-334-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:25-78
-335            </intent-filter>
-336        </receiver>
-337
-338        <provider
-338-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
-339            android:name="com.google.firebase.provider.FirebaseInitProvider"
-339-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:13:13-77
-340            android:authorities="com.qdocs.smartschool.firebaseinitprovider"
-340-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:14:13-72
-341            android:exported="false"
-341-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:15:13-37
-342            android:initOrder="100" />
-342-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:16:13-36
-343
-344        <activity
-344-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-345            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-345-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-346            android:exported="false"
-346-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-347            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-347-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+265-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:250:9-252:39
+266            android:name="com.qdocs.smartschool.OpenPdf"
+266-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:251:13-36
+267            android:exported="true" />
+267-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:252:13-36
+268        <activity
+268-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:253:9-255:39
+269            android:name="com.qdocs.smartschool.students.StudentTasks"
+269-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:254:13-50
+270            android:exported="true" />
+270-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:255:13-36
+271        <activity
+271-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:256:9-258:39
+272            android:name="com.qdocs.smartschool.students.StudentTasksEdit"
+272-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:257:13-54
+273            android:exported="true" />
+273-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:258:13-36
+274        <activity
+274-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:259:9-261:39
+275            android:name="com.qdocs.smartschool.students.Payment"
+275-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:260:13-45
+276            android:exported="true" />
+276-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:261:13-36
+277        <activity
+277-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:262:9-264:39
+278            android:name="com.qdocs.smartschool.students.CoursePayment"
+278-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:263:13-51
+279            android:exported="true" />
+279-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:264:13-36
+280        <activity
+280-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:265:9-269:53
+281            android:name="com.qdocs.smartschool.students.CourseVideoPlay"
+281-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:266:13-53
+282            android:configChanges="orientation|screenSize"
+282-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:267:13-59
+283            android:exported="false"
+283-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:268:13-37
+284            android:screenOrientation="landscape" />
+284-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:269:13-50
+285        <activity
+285-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:270:9-272:40
+286            android:name="com.qdocs.smartschool.students.LiveClasses"
+286-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:271:13-49
+287            android:exported="false" />
+287-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:272:13-37
+288
+289        <service
+289-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:274:9-280:19
+290            android:name="com.qdocs.smartschool.utils.MyFirebaseMessagingService"
+290-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:275:13-61
+291            android:exported="true" >
+291-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:276:13-36
+292            <intent-filter>
+292-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:13-279:29
+293                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+293-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:278:17-78
+293-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:278:25-75
+294            </intent-filter>
+295        </service>
+296
+297        <provider
+298            android:name="androidx.core.content.FileProvider"
+298-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:283:13-62
+299            android:authorities="com.qdocs.smartschool.provider"
+299-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:284:13-60
+300            android:exported="false"
+300-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:285:13-37
+301            android:grantUriPermissions="true" >
+301-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:286:13-47
+302            <meta-data
+302-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:287:13-289:58
+303                android:name="android.support.FILE_PROVIDER_PATHS"
+303-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:288:17-67
+304                android:resource="@xml/provider_paths" />
+304-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:289:17-55
+305        </provider>
+306        <!--
+307             FirebaseMessagingService performs security checks at runtime,
+308             but set to not exported to explicitly avoid allowing another app to call it.
+309        -->
+310        <service
+310-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:28:9-34:19
+311            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+311-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:29:13-82
+312            android:exported="false" >
+312-->[com.google.firebase:firebase-messaging:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\1ef4ec9a0b5e9c4f3d7aa1d928ff3626\transformed\jetified-firebase-messaging-20.0.0\AndroidManifest.xml:30:13-37
+313            <intent-filter android:priority="-500" >
+313-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:277:13-279:29
+314                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+314-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:278:17-78
+314-->D:\AndroidProject\smart_school_android_app_src\smart_school_android_app_src\app\src\main\AndroidManifest.xml:278:25-75
+315            </intent-filter>
+316        </service>
+317        <service
+317-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:29:9-35:19
+318            android:name="com.google.firebase.components.ComponentDiscoveryService"
+318-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:30:13-84
+319            android:exported="false" >
+319-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:31:13-37
+320            <meta-data
+320-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:32:13-34:85
+321                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+321-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:33:17-96
+322                android:value="com.google.firebase.components.ComponentRegistrar" />
+322-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:34:17-82
+323        </service>
+324
+325        <receiver
+325-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:37:9-44:20
+326            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+326-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:38:13-78
+327            android:exported="true"
+327-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:39:13-36
+328            android:permission="com.google.android.c2dm.permission.SEND" >
+328-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:40:13-73
+329            <intent-filter>
+329-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:41:13-43:29
+330                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+330-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:17-81
+330-->[com.google.firebase:firebase-iid:20.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\e346872624acf6b7a582aa5510dc978b\transformed\jetified-firebase-iid-20.0.0\AndroidManifest.xml:42:25-78
+331            </intent-filter>
+332        </receiver>
+333
+334        <provider
+334-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:12:9-16:39
+335            android:name="com.google.firebase.provider.FirebaseInitProvider"
+335-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:13:13-77
+336            android:authorities="com.qdocs.smartschool.firebaseinitprovider"
+336-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:14:13-72
+337            android:exported="false"
+337-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:15:13-37
+338            android:initOrder="100" />
+338-->[com.google.firebase:firebase-common:19.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\22eb54344a02b945622b7085177017f1\transformed\jetified-firebase-common-19.0.0\AndroidManifest.xml:16:13-36
+339
+340        <activity
+340-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+341            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+341-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+342            android:exported="false"
+342-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+343            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+343-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\606f15818b3c72e09b853f05657cd24a\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+344
+345        <meta-data
+345-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+346            android:name="com.google.android.gms.version"
+346-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+347            android:value="@integer/google_play_services_version" />
+347-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 348
-349        <meta-data
-349-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-350            android:name="com.google.android.gms.version"
-350-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-351            android:value="@integer/google_play_services_version" />
-351-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\lenovo\.gradle\caches\transforms-3\ad4264cdb41315b7bda407fec3d497c3\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-352
+349        <provider
+349-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:8:9-11:40
+350            android:name="com.squareup.picasso.PicassoProvider"
+350-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:9:13-64
+351            android:authorities="com.qdocs.smartschool.com.squareup.picasso"
+351-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:10:13-72
+352            android:exported="false" />
+352-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:11:13-37
 353        <provider
-353-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:8:9-11:40
-354            android:name="com.squareup.picasso.PicassoProvider"
-354-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:9:13-64
-355            android:authorities="com.qdocs.smartschool.com.squareup.picasso"
-355-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:10:13-72
-356            android:exported="false" />
-356-->[com.squareup.picasso:picasso:2.8] C:\Users\lenovo\.gradle\caches\transforms-3\5e43704ad6a07f076947227a6710efd5\transformed\jetified-picasso-2.8\AndroidManifest.xml:11:13-37
-357        <provider
-357-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-358            android:name="androidx.startup.InitializationProvider"
-358-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-359            android:authorities="com.qdocs.smartschool.androidx-startup"
-359-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-360            android:exported="false" >
-360-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-361            <meta-data
-361-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-362                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-362-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-363                android:value="androidx.startup" />
-363-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-364            <meta-data
-364-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-365                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-365-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
-366                android:value="androidx.startup" />
-366-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
-367            <meta-data
-367-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-368                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-368-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-369                android:value="androidx.startup" />
-369-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-370        </provider>
-371
-372        <receiver
-372-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-373            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-373-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-374            android:directBootAware="false"
-374-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-375            android:enabled="true"
-375-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-376            android:exported="true"
-376-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-377            android:permission="android.permission.DUMP" >
-377-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-378            <intent-filter>
-378-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-379                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-379-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-379-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-380            </intent-filter>
-381            <intent-filter>
-381-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-382                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-382-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-382-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-383            </intent-filter>
-384            <intent-filter>
-384-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-385                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-385-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-385-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-386            </intent-filter>
-387            <intent-filter>
-387-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-388                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-388-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-388-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-389            </intent-filter>
-390        </receiver>
-391    </application>
-392
-393</manifest>
+353-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+354            android:name="androidx.startup.InitializationProvider"
+354-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+355            android:authorities="com.qdocs.smartschool.androidx-startup"
+355-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+356            android:exported="false" >
+356-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+357            <meta-data
+357-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+358                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+358-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+359                android:value="androidx.startup" />
+359-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lenovo\.gradle\caches\transforms-3\6ea8a986cfedfc5b51e34fad0b49b568\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+360            <meta-data
+360-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+361                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+361-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+362                android:value="androidx.startup" />
+362-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lenovo\.gradle\caches\transforms-3\c8a5f504d4efe4186c885637da348656\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+363            <meta-data
+363-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+364                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+364-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+365                android:value="androidx.startup" />
+365-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+366        </provider>
+367
+368        <receiver
+368-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+369            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+369-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+370            android:directBootAware="false"
+370-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+371            android:enabled="true"
+371-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+372            android:exported="true"
+372-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+373            android:permission="android.permission.DUMP" >
+373-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+374            <intent-filter>
+374-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+375                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+375-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+375-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+376            </intent-filter>
+377            <intent-filter>
+377-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+378                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+378-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+378-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+379            </intent-filter>
+380            <intent-filter>
+380-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+381                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+381-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+381-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+382            </intent-filter>
+383            <intent-filter>
+383-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+384                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+384-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+384-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lenovo\.gradle\caches\transforms-3\0f66b5457beedd8b70bacc68b9174090\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+385            </intent-filter>
+386        </receiver>
+387    </application>
+388
+389</manifest>

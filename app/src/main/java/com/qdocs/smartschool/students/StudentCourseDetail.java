@@ -26,6 +26,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -402,7 +403,7 @@ public class StudentCourseDetail  extends BaseActivity {
                 ImageView closeBtn = (ImageView) dialog.findViewById(R.id.addTask_dialog_crossIcon);
 
                 final RatingBar ratingbar = (RatingBar) dialog.findViewById(R.id.rating);
-                final TextInputEditText review = dialog.findViewById(R.id.review);
+                final EditText review = dialog.findViewById(R.id.review);
                 Button submitBtn = dialog.findViewById(R.id.addTask_dialog_submitBtn);
                 submitBtn.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
                 review.setText(ereview);
@@ -761,7 +762,7 @@ public class StudentCourseDetail  extends BaseActivity {
 
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.coursedetailUrl;
-        Log.e("URL", url);
+        Log.d("TAG", "getDataFromApi: "+requestBody+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -769,7 +770,7 @@ public class StudentCourseDetail  extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getDataFromApiC: "+result);
                         System.out.println("Result=="+ result);
                         JSONObject obj = new JSONObject(result);
                         final JSONObject dataArray = obj.getJSONObject("course_detail");
@@ -843,7 +844,7 @@ public class StudentCourseDetail  extends BaseActivity {
                             courseplaybutton.setVisibility(View.GONE);
                         }else {
                             image_layout.setVisibility(View.GONE);
-                            youtube_layout.setVisibility(View.VISIBLE);
+                            youtube_layout.setVisibility(View.GONE);
                             courseplaybutton.setVisibility(View.VISIBLE);
                             if (course_provider.equals("html5")) {
                                         final ProgressDialog pd = ProgressDialog.show(StudentCourseDetail.this, "", "Loading..", true);
@@ -991,6 +992,4 @@ public class StudentCourseDetail  extends BaseActivity {
             getWindow().getDecorView().setSystemUiVisibility(3846 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
     }
-
-
 }

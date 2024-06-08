@@ -133,20 +133,19 @@ public class StudentAppyLeave extends BaseActivity {
     public void loaddata() {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj = new JSONObject(params);
-            Log.e("params ", obj.toString());
+            Log.d("TAG", "loaddata: "+obj);
             getDataFromApi(obj.toString());
         } else {
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
     public void onRestart() {
         super.onRestart();
         loaddata();
-
     }
 
     private void decorate() {
@@ -179,7 +178,7 @@ public class StudentAppyLeave extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getLeaveFromApi: "+result);
 
                         JSONObject obj = new JSONObject(result);
                         JSONArray dataArray = obj.getJSONArray("result_array");

@@ -123,7 +123,7 @@ public class BaseActivity extends AppCompatActivity {
                             startActivity(logout);
                             finish();
                         } else {
-                            Intent intent=new Intent(BaseActivity.this,TakeUrl.class);
+                            Intent intent=new Intent(BaseActivity.this,Login.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {

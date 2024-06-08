@@ -1,13 +1,17 @@
 package com.qdocs.smartschool.students;
 
 import static android.widget.Toast.makeText;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,6 +22,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -36,6 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -49,6 +56,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
@@ -59,6 +67,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -71,10 +80,11 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+
 @SuppressLint("SimpleDateFormat")
 public class StudentAddLeave extends AppCompatActivity {
     public ImageView backBtn;
-    public String defaultDateFormat, currency,startweek;
+    public String defaultDateFormat, currency, startweek;
     Context mContext = this;
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String> headers = new HashMap<String, String>();
@@ -88,27 +98,32 @@ public class StudentAddLeave extends AppCompatActivity {
     private boolean istoDateSelected = false;
     Bitmap bitmap;
     Button submit;
-    private static final int CAMERA_REQUEST = 1888;
+    private static final int CAMERA_REQUEST = 100;
+
+    private static final int IMAGEPICK_GALLERY_REQUEST = 300;
+    private static final int IMAGE_PICKCAMERA_REQUEST = 400;
     String url;
     private static final int PICK_IMAGE_REQUEST = 1;
     RequestBody file_body;
     EditText reason;
     ImageView imageView;
     TextView textView;
+    Uri imageuri;
 
     TextView titleTV;
     private static final String TAG = "StudentAddLeave";
-    TextView toDateTV, apply_dateTV, fromDateTV,buttonSelectImage;
+    TextView toDateTV, apply_dateTV, fromDateTV, buttonSelectImage;
     public static Boolean camera = false;
     public static Boolean gallery = false;
     boolean isKitKat = false;
     String[] mimeTypes =
-            {"application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .doc & .docx
-                    "application/vnd.ms-powerpoint","application/vnd.openxmlformats-officedocument.presentationml.presentation", // .ppt & .pptx
-                    "application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // .xls & .xlsx
+            {"application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .doc & .docx
+                    "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.presentationml.presentation", // .ppt & .pptx
+                    "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // .xls & .xlsx
                     "text/plain",
                     "application/pdf",
-                    "application/zip","image/*"};
+                    "application/zip", "image/*"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,8 +150,8 @@ public class StudentAddLeave extends AppCompatActivity {
         fromDateTV = findViewById(R.id.addLeave_dialog_fromdateTV);
         toDateTV = findViewById(R.id.addLeave_dialog_todateTV);
         reason = findViewById(R.id.reason);
-        imageView =  findViewById(R.id.imageView);
-        textView =  findViewById(R.id.textview);
+        imageView = findViewById(R.id.imageView);
+        textView = findViewById(R.id.textview);
         buttonSelectImage = findViewById(R.id.buttonSelectImage);
         submit = findViewById(R.id.addLeave_dialog_submitBtn);
 
@@ -166,14 +181,13 @@ public class StudentAddLeave extends AppCompatActivity {
             }
         });
 
-
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         String currentDateAndTime = sdf.format(new Date());
         apply_dateTV.setText(currentDateAndTime);
 
         String mStringDate = apply_dateTV.getText().toString();
-        String oldFormat= "MM/dd/yyyy";
-        String newFormat= "yyyy-MM-dd";
+        String oldFormat = "MM/dd/yyyy";
+        String newFormat = "yyyy-MM-dd";
         SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat);
         Date myDate = null;
         try {
@@ -190,17 +204,17 @@ public class StudentAddLeave extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    if(apply_dateTV.getText().equals("")) {
+                    if (apply_dateTV.getText().equals("")) {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.applyDateError), Toast.LENGTH_LONG).show();
-                    }else if(!isFromDateSelected) {
+                    } else if (!isFromDateSelected) {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.fromDateError), Toast.LENGTH_LONG).show();
-                    }else if(!istoDateSelected) {
+                    } else if (!istoDateSelected) {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.toDateError), Toast.LENGTH_LONG).show();
                     } else {
-                        if(Utility.isConnectingToInternet(getApplicationContext())){
+                        if (Utility.isConnectingToInternet(getApplicationContext())) {
                             uploadBitmap();
-                        }else{
-                            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                        } else {
+                            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                         }
                     }
                 } catch (IOException e) {
@@ -213,9 +227,9 @@ public class StudentAddLeave extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Calendar mCurrentDate = Calendar.getInstance();
-                int mDay   = mCurrentDate.get(Calendar.DAY_OF_MONTH);
+                int mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 int mMonth = mCurrentDate.get(Calendar.MONTH);
-                int mYear  = mCurrentDate.get(Calendar.YEAR);
+                int mYear = mCurrentDate.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(StudentAddLeave.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
@@ -223,10 +237,10 @@ public class StudentAddLeave extends AppCompatActivity {
                         Calendar newDate = Calendar.getInstance();
                         newDate.set(selectedyear, selectedmonth, selectedday);
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        fromdate=sdf.format(newDate.getTime());
+                        fromdate = sdf.format(newDate.getTime());
                         SimpleDateFormat sdfdate = new SimpleDateFormat("dd-MM-yyyy");
                         fromDateTV.setText(sdfdate.format(newDate.getTime()));
-                        isFromDateSelected =true;
+                        isFromDateSelected = true;
                     }
                 }, mYear, mMonth, mDay);
                 switch (startweek) {
@@ -260,9 +274,9 @@ public class StudentAddLeave extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Calendar mCurrentDate = Calendar.getInstance();
-                int mDay   = mCurrentDate.get(Calendar.DAY_OF_MONTH);
+                int mDay = mCurrentDate.get(Calendar.DAY_OF_MONTH);
                 int mMonth = mCurrentDate.get(Calendar.MONTH);
-                int mYear  = mCurrentDate.get(Calendar.YEAR);
+                int mYear = mCurrentDate.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(StudentAddLeave.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
@@ -270,10 +284,10 @@ public class StudentAddLeave extends AppCompatActivity {
                         Calendar newDate = Calendar.getInstance();
                         newDate.set(selectedyear, selectedmonth, selectedday);
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        toDate =sdf.format(newDate.getTime());
+                        toDate = sdf.format(newDate.getTime());
                         SimpleDateFormat sdfdate = new SimpleDateFormat("dd-MM-yyyy");
                         toDateTV.setText(sdfdate.format(newDate.getTime()));
-                        istoDateSelected=true;
+                        istoDateSelected = true;
                     }
                 }, mYear, mMonth, mDay);
                 switch (startweek) {
@@ -314,6 +328,7 @@ public class StudentAddLeave extends AppCompatActivity {
             window.setStatusBarColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         }
     }
+
     private void showFileChooser() {
         Log.d(TAG, "showFileChooser: ");
         final Dialog dialog = new Dialog(StudentAddLeave.this);
@@ -357,6 +372,16 @@ public class StudentAddLeave extends AppCompatActivity {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
+
+    /* private void  {
+         ContentValues contentValues = new ContentValues();
+         contentValues.put(MediaStore.Images.Media.TITLE, "Temp_pic");
+         contentValues.put(MediaStore.Images.Media.DESCRIPTION, "Temp Description");
+         imageuri = this.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+         Intent camerIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+         camerIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageuri);
+         startActivityForResult(camerIntent, CAMERA_REQUEST);
+     }*/
     private void opengallery() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -373,7 +398,7 @@ public class StudentAddLeave extends AppCompatActivity {
                 for (String mimeType : mimeTypes) {
                     mimeTypesStr += mimeType + "|";
                 }
-                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+                intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
             }
             isKitKat = true;
             startActivityForResult(Intent.createChooser(intent, "Select file"), PICK_IMAGE_REQUEST);
@@ -392,7 +417,7 @@ public class StudentAddLeave extends AppCompatActivity {
                 for (String mimeType : mimeTypes) {
                     mimeTypesStr += mimeType + "|";
                 }
-                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+                intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
             }
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
         }
@@ -400,33 +425,84 @@ public class StudentAddLeave extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode==100 && (grantResults[0]==PackageManager.PERMISSION_GRANTED)){
-        }else{
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (requestCode == 100 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    public Uri getImageUri(Context inContext, Bitmap inImage) {
+  /*  public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
         return Uri.parse(path);
+    }*/
+
+    public static Uri getImageUri(Context context, Bitmap bitmap) {
+        // Save the bitmap to a file
+        File imageFile = saveBitmapToFile(context, bitmap);
+        if (imageFile != null) {
+            // Return the URI of the saved file
+            return Uri.fromFile(imageFile);
+        } else {
+            return null;
+        }
+    }
+    private static File saveBitmapToFile(Context context, Bitmap bitmap) {
+        // Create a directory for saving the image
+        File directory = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "MyAppImages");
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // Create the image file
+        File imageFile = new File(directory,  ".jpg");
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(imageFile);
+            // Compress the bitmap and write to the output stream
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return imageFile;
     }
 
+
     public String getRealPathFromURI(Uri uri) {
-        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-        return cursor.getString(idx);
+        String[] projection = { MediaStore.Images.Media.DATA };
+        ContentResolver contentResolver = getApplicationContext().getContentResolver();
+        Cursor cursor = contentResolver.query(uri, projection, null, null, null);
+        if (cursor != null) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            String filePath = cursor.getString(column_index);
+            cursor.close();
+            return filePath;
+        }
+        return null;
     }
+
 
     @TargetApi(19)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             boolean isImageFromGoogleDrive = false;
@@ -564,14 +640,14 @@ public class StudentAddLeave extends AppCompatActivity {
                 textView.setText("File Selected");
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 System.out.println("bitmap image==" + bitmap);
-                String file_name=filePath.substring(filePath.lastIndexOf("/")+1);
+                String file_name = filePath.substring(filePath.lastIndexOf("/") + 1);
                 String[] filenameArray = file_name.split("\\.");
-                String extension = filenameArray[filenameArray.length-1];
-                System.out.println("extension"+extension);
-                if(extension.equals("jpg")||extension.equals("png")||extension.equals("jpeg")){
+                String extension = filenameArray[filenameArray.length - 1];
+                System.out.println("extension" + extension);
+                if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
                     imageView.setVisibility(View.VISIBLE);
                     imageView.setImageBitmap(bitmap);
-                }else{
+                } else {
                     imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
                 }
                 File f = new File(filePath);
@@ -581,8 +657,8 @@ public class StudentAddLeave extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if (requestCode == CAMERA_REQUEST) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        } else if (requestCode == CAMERA_REQUEST) {
+            Bitmap bitmap = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
             if (bitmap != null) {
                 progress = new ProgressDialog(StudentAddLeave.this);
                 progress.setTitle("uploading");
@@ -590,9 +666,10 @@ public class StudentAddLeave extends AppCompatActivity {
                 progress.show();
                 imageView.setVisibility(View.VISIBLE);
                 imageView.setImageBitmap(bitmap);
-                Uri tempUri = getImageUri(getApplicationContext(), bitmap);
-                filePath = getRealPathFromURI(tempUri);
-                System.out.println("pathasd" + filePath);
+                // Uri imageuri = getImageUri(getApplicationContext(), bitmap);
+                Log.d(TAG, "onActivityResulvfbt: "+imageuri);
+                filePath = saveBitmap(bitmap);
+                Log.d(TAG, "onActivityResulvfbt: "+filePath);
                 File f = new File(filePath);
                 String mimeType = URLConnection.guessContentTypeFromName(f.getName());
                 file_body = RequestBody.create(MediaType.parse(mimeType), f);
@@ -601,76 +678,128 @@ public class StudentAddLeave extends AppCompatActivity {
             }
         }
     }
-    private void uploadBitmap() throws IOException{
-        url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.addleaveUrl;
-        OkHttpClient client=new OkHttpClient();
-        Log.i("url=", url);
 
-        if(filePath==null || file_body==null){
+    public static String saveBitmap(Bitmap bitmap) {
+        String filePath = null;
+        File file = null;
+        try {
+            File directory = new File(Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_PICTURES), "MyApp");
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+            file = new File(directory, "image_" + System.currentTimeMillis() + ".jpg");
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
 
-            RequestBody requestBody=new MultipartBody.Builder()
-                    .setType(MultipartBody.FORM)
-                    .addFormDataPart("file","")
-                    .addFormDataPart("to_date", toDate)
-                    .addFormDataPart("apply_date",applydate)
-                    .addFormDataPart("from_date",fromdate)
-                    .addFormDataPart("reason",reason.getText().toString())
-                    .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
-                    .build();
+            filePath = file.getAbsolutePath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
 
-            Request request=new Request.Builder()
-                    .url(url)
-                    .header("Client-Service", Constants.clientService)
-                    .header("Auth-Key", Constants.authKey)
-                    .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), "userId"))
-                    .header("Authorization",Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
-                    .post(requestBody)
-                    .build();
+    private void uploadBitmap() throws IOException {
+        url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.addLeave;
+        OkHttpClient client = new OkHttpClient();
+        Log.d(TAG, "uploadBitmap: " + url);
 
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) { }
+        if (filePath != null || file_body != null) {
+            {
+                String file_name = filePath.substring(filePath.lastIndexOf("/") + 1);
+                Log.d(TAG, filePath + "uploadBitmap: " + file_body);
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    ResponseBody body = response.body();
-                    if(body != null) {
-                        try {
-                            String jsonData = response.body().string();
+                RequestBody requestBody = new MultipartBody.Builder()
+                        .setType(MultipartBody.FORM)
+                        .addFormDataPart("file", file_name, file_body)
+                        .addFormDataPart("to_date", toDate)
+                        .addFormDataPart("apply_date", applydate)
+                        .addFormDataPart("from_date", fromdate)
+                        .addFormDataPart("reason", reason.getText().toString())
+                        .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
+                        .addFormDataPart("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId))
+                        .build();
+                Log.d(TAG, "uploadBitmap: " + toDate);
+                Log.d(TAG, "uploadBitmap: " + reason.getText().toString());
+                Log.d(TAG, "uploadBitmap: " + fromdate);
+                Request request = new Request.Builder()
+                        .url(url)
+                        .header("Client-Service", Constants.clientService)
+                        .header("Auth-Key", Constants.authKey)
+                        .header("User-ID", Utility.getSharedPreferences(getApplicationContext(), Constants.userId))
+                        .header("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
+                        .post(requestBody)
+                        .build();
+                Log.d(TAG, "uploadBitmapr: " + requestBody);
+                Log.d(TAG, "uploadBitmapb: " + request);
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        new Handler(Looper.getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                makeText(mContext, R.string.apiErrorMsg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                        ResponseBody body = response.body();
+                        if (body != null) {
                             try {
-                                final JSONObject Jobject = new JSONObject(jsonData);
-                                String Jarray = Jobject.getString("status");
-                                if(Jarray.equals("1")){
-                                    runOnUiThread(new Runnable(){
-                                        public void run() {
-                                            Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
-                                            finish();
-                                        }
-                                    });
-                                }else{
-                                    runOnUiThread(new Runnable(){
-                                        public void run() {
-                                            try {
-                                                JSONObject error = Jobject.getJSONObject("error");
-                                                Toast.makeText(mContext, error.getString("reason"), Toast.LENGTH_SHORT).show();
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
+                                assert response.body() != null;
+                                String jsonData = response.body().string();
+                                Log.d(TAG, "onResponsef: " + jsonData);
+                                try {
+                                    final JSONObject Jobject = new JSONObject(jsonData);
+                                    String Jarray = Jobject.getString("status");
+                                    Log.d(TAG, "onResponsef: " + jsonData);
+                                    if (Jarray.equals("1")) {
+                                        runOnUiThread(new Runnable() {
+                                            public void run() {
+                                                Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
+                                                finish();
                                             }
-                                        }
-                                    });
+                                        });
+
+                                    } else {
+                                        runOnUiThread(new Runnable() {
+                                            public void run() {
+                                                try {
+                                                    final JSONObject Jobject = new JSONObject(jsonData);
+                                                    String error = Jobject.getString("error");
+                                                    Toast.makeText(mContext, error, Toast.LENGTH_SHORT).show();
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+
+                                            }
+                                        });
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (JSONException e) {
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                        } catch (IOException e) {
-                            e.printStackTrace();
                         }
                     }
-                }
 
-            });
+                });
+            }
+        }
 
-        }else{
+
+    }
+  /*  private void uploadBitmap() throws IOException{
+        url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + ;
+        OkHttpClient client=new OkHttpClient();
+        Log.i("url=", url);
+        Log.d(TAG, "uploadBitmap: "+url);
+        if(filePath!=null || file_body!=null)  {
             String file_name=filePath.substring(filePath.lastIndexOf("/")+1);
             System.out.println("file_name== "+file_name);
 
@@ -682,17 +811,21 @@ public class StudentAddLeave extends AppCompatActivity {
                     .addFormDataPart("from_date",fromdate)
                     .addFormDataPart("reason",reason.getText().toString())
                     .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
+                    .addFormDataPart("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId))
                     .build();
+            Log.d(TAG, "uploadBitmap: "+toDate);
+            Log.d(TAG, "uploadBitmap: "+applydate);
+            Log.d(TAG, "uploadBitmap: "+reason.getText().toString());
 
             Request request=new Request.Builder()
                     .url(url)
                     .header("Client-Service", Constants.clientService)
                     .header("Auth-Key", Constants.authKey)
-                    .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), "userId"))
+                    .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), Constants.userId))
                     .header("Authorization",Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
                     .post(requestBody)
                     .build();
-
+            Log.d(TAG, url+"uploadBitmap: "+requestBody);
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) { }
@@ -703,6 +836,8 @@ public class StudentAddLeave extends AppCompatActivity {
                     if(body != null) {
                         try {
                             String jsonData = response.body().string();
+                            Log.d(TAG, filePath+"uploadBitmap: "+file_body);
+                            Log.d(TAG, "uploadBitmap: "+jsonData);
                             try {
                                 final JSONObject Jobject = new JSONObject(jsonData);
                                 String Jarray = Jobject.getString("status");
@@ -740,7 +875,8 @@ public class StudentAddLeave extends AppCompatActivity {
             });
         }
 
-    }
+
+    }*/
 
 }
 

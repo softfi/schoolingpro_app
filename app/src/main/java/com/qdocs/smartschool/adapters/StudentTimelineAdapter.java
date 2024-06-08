@@ -120,7 +120,7 @@ public class StudentTimelineAdapter extends RecyclerView.Adapter<StudentTimeline
         holder.titleTV.setText(timeLineTitleList.get(position));
         holder.descTV.setText(timeLineDescList.get(position));
 
-        context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+   //     context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
 
         if(timeLineDocumentList.get(position).equals("")){
@@ -274,8 +274,6 @@ public class StudentTimelineAdapter extends RecyclerView.Adapter<StudentTimeline
         RequestQueue requestQueue = Volley.newRequestQueue(context); //Creating a Request Queue
         requestQueue.add(stringRequest);  //Adding request to the queue
     }
-
-
 
     public BroadcastReceiver onDownloadComplete = new BroadcastReceiver() {
         @Override

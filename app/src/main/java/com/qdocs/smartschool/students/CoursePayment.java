@@ -105,7 +105,6 @@ public class CoursePayment extends AppCompatActivity {
                // Toast.makeText(activity, description, Toast.LENGTH_SHORT).show();
             }
 
-
             @TargetApi(Build.VERSION_CODES.M)
             @Override
             public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {

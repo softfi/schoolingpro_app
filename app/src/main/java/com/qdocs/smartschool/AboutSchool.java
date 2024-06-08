@@ -58,6 +58,7 @@ public class AboutSchool extends BaseActivity {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
 
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -74,14 +75,14 @@ public class AboutSchool extends BaseActivity {
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getSchoolDetailsUrl;
         Log.e("URL", url);
-        Log.d("TAG", "getapi url: "+url);
+        Log.d("TAG", requestBody+"getapi url: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponghgjse: "+result);
                         JSONObject data = new JSONObject(result);
 
                         nameTV.setText(data.getString("name"));
@@ -93,10 +94,9 @@ public class AboutSchool extends BaseActivity {
                         sessionStartMonthTV.setText(data.getString("start_month_name"));
 
                         String logo = Utility.getSharedPreferences(getApplicationContext(), Constants.imagesUrl);
-                        logo += "uploads/school_content/logo/app_logo/";
-                        logo += data.getString("app_logo");
-
-                        Picasso.get().load(logo).fit().centerInside().into(schoolLogoIV);
+                        logo += "uploads/school_content/admin_logo/";
+                        logo += Utility.getSharedPreferences(getApplicationContext(), Constants.app_image);
+                        Picasso.get().load(logo).fit().centerInside().placeholder(null).into(schoolLogoIV);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

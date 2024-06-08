@@ -126,7 +126,8 @@ public class StudentReportCard_ExamListResult extends BaseActivity {
             }
         });
         if(Utility.isConnectingToInternet(getApplicationContext())){
-            params.put("student_id",Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+            params.put("student_id",Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id",Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             params.put("exam_group_class_batch_exam_id",passedArg);
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());

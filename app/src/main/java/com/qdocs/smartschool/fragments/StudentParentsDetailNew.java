@@ -130,7 +130,7 @@ public class StudentParentsDetailNew extends Fragment implements SwipeRefreshLay
 
                 if (result != null) {
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponsexghParent: "+result);
                         JSONObject obj = new JSONObject(result);
                         final JSONObject dataArray = obj.getJSONObject("student_result");
                         String defaultDateFormat = Utility.getSharedPreferences(getActivity().getApplicationContext(), "dateFormat");

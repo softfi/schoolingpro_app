@@ -372,51 +372,11 @@ public class Login extends Activity {
 
                              String appUrl = Utility.getSharedPreferences(getApplicationContext(), "appsUrl") + data.getString("school_logo");
                              Utility.setSharedPreference(getApplicationContext(), Constants.app_image, appUrl);
-                             Log.d("TAG", "Applogo: "+appUrl);
+                             Log.d("TAG", "Applogo: "+data.getString("username"));
                              Utility.setSharedPreference(getApplicationContext(), Constants.userName, data.getString("username"));
                              Utility.setSharedPreference(getApplicationContext(), Constants.schoolName, data.getString("sch_name"));
                              Log.d(TAG, "userNa: "+data.getString("sch_name"));
-                             if(data.getString("role").equals("parent")) {
-
-                                 Utility.setSharedPreference(getApplicationContext(), Constants.parentsId, data.getString("id"));
-                                 JSONArray childArray = data.getJSONArray("parent_childs");
-                                /* if(childArray.length() == 1) {
-                                     Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", true);
-                                     Utility.setSharedPreferenceBoolean(getApplicationContext(), "hasMultipleChild", false);
-                                     Utility.setSharedPreference(getApplicationContext(), Constants.studentId, childArray.getJSONObject(0).getString("student_id"));
-                                     Utility.setSharedPreference(getApplicationContext(), Constants.classSection, childArray.getJSONObject(0).getString("class") + " - " + childArray.getJSONObject(0).getString("section"));
-                                     Utility.setSharedPreference(getApplicationContext(), "studentName", childArray.getJSONObject(0).getString("name"));
-                                     Intent asd = new Intent(getApplicationContext(), NewDashboard.class);
-                                     startActivity(asd);
-                                     finish();
-                                 } else {
-                                     Log.d("TAG", "onResponseh: ");
-                                     Utility.setSharedPreferenceBoolean(getApplicationContext(), "hasMultipleChild", true);
-                                     childNameList.clear(); childIdList.clear(); childImageList.clear();
-                                     childClassList.clear(); childListAdapter.clear();
-                                     for (int i = 0; i<childArray.length(); i++) {
-                                         childNameList.add(childArray.getJSONObject(i).getString("name"));
-                                         childIdList.add(childArray.getJSONObject(i).getString("student_id"));
-                                         childImageList.add(childArray.getJSONObject(i).getString("image"));
-                                         childClassList.add(childArray.getJSONObject(i).getString("class") + " - "
-                                                 + childArray.getJSONObject(i).getString("section") );
-                                         childListAdapter.add(childArray.getJSONObject(i).getString("name"));
-                                     }
-                                     childListAdapter.notifyDataSetChanged();
-                                     showChildList();
-                                 }*/
-
-                                 /*if (Utility.isConnectingToInternet(getApplicationContext())) {
-                                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-                                     JSONObject currobject=new JSONObject(params);
-                                     Log.e("params ", currobject.toString());
-                                     System.out.println("params== "+ currobject);
-                                    // getCurrencyDataFromApi(currobject.toString());
-                                 } else {
-                                     makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
-                                 }*/
-                                 Log.e("CHILD ARRAY LENGTH", childArray.length()+"..");
-                             } else if (data.getString("role").equals("student")) {
+                            if (data.getString("role").equals("student")) {
                                  Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", true);
                                  Log.d(TAG, "onRespjhkonse: "+data.getString("session_id"));
                                  Utility.setSharedPreference(getApplicationContext(), Constants.classSection, data.getString("class") + " (" + data.getString("section")+")");
@@ -441,6 +401,47 @@ public class Login extends Activity {
                                  }else{
                                      makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                                  }
+                             }
+                            else if(data.getString("role").equals("parent")) {
+                                Log.d(TAG, "ParentResponse: ");
+                                 Utility.setSharedPreference(getApplicationContext(), Constants.parentsId, data.getString("id"));
+                                 JSONArray childArray = data.getJSONArray("parent_childs");
+                                 if(childArray.length() == 1) {
+                                     Utility.setSharedPreferenceBoolean(getApplicationContext(), "isLoggegIn", true);
+                                     Utility.setSharedPreferenceBoolean(getApplicationContext(), "hasMultipleChild", false);
+                                     Utility.setSharedPreference(getApplicationContext(), Constants.studentId, childArray.getJSONObject(0).getString("student_id"));
+                                     Utility.setSharedPreference(getApplicationContext(), Constants.classSection, childArray.getJSONObject(0).getString("class") + " - " + childArray.getJSONObject(0).getString("section"));
+                                     Utility.setSharedPreference(getApplicationContext(), "studentName", childArray.getJSONObject(0).getString("name"));
+                                     Intent asd = new Intent(getApplicationContext(), NewDashboard.class);
+                                     startActivity(asd);
+                                     finish();
+                                 } else {
+                                     Log.d("TAG", "onResponseh: ");
+                                     Utility.setSharedPreferenceBoolean(getApplicationContext(), "hasMultipleChild", true);
+                                     childNameList.clear(); childIdList.clear(); childImageList.clear();
+                                     childClassList.clear(); childListAdapter.clear();
+                                     for (int i = 0; i<childArray.length(); i++) {
+                                         childNameList.add(childArray.getJSONObject(i).getString("name"));
+                                         childIdList.add(childArray.getJSONObject(i).getString("student_id"));
+                                         childImageList.add(childArray.getJSONObject(i).getString("image"));
+                                         childClassList.add(childArray.getJSONObject(i).getString("class") + " - "
+                                                 + childArray.getJSONObject(i).getString("section") );
+                                         childListAdapter.add(childArray.getJSONObject(i).getString("name"));
+                                     }
+                                     childListAdapter.notifyDataSetChanged();
+                                     showChildList();
+                                 }
+
+                                 if (Utility.isConnectingToInternet(getApplicationContext())) {
+                                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+                                     JSONObject currobject=new JSONObject(params);
+                                     Log.e("params ", currobject.toString());
+                                     System.out.println("params== "+ currobject);
+                                    // getCurrencyDataFromApi(currobject.toString());
+                                 } else {
+                                     makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                                 }
+                                 Log.e("CHILD ARRAY LENGTH", childArray.length()+"..");
                              }
                          } else {
                              Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
@@ -723,7 +724,7 @@ public class Login extends Activity {
             @Override
             public void onResponse(String result) {
                 Log.e("Result", result);
-                Log.d(TAG, "onResponse: "+result);
+                Log.d(TAG, "onResponsedhfh: "+result);
                 if (result != null) {
                     pd.dismiss();
                     try {

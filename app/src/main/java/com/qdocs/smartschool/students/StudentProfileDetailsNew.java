@@ -6,12 +6,15 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+
 import com.google.android.material.tabs.TabLayout;
+
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,8 +43,10 @@ import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import com.qdocs.smartschool.R;
 import com.squareup.picasso.Picasso;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,6 +55,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import static android.widget.Toast.makeText;
 
 public class StudentProfileDetailsNew extends BaseActivity {
@@ -56,7 +63,7 @@ public class StudentProfileDetailsNew extends BaseActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     TextView nameTV, admissionNoTV, classTV, rollNoTV;
-    ImageView profileIV,barcodeIV,qrcodeIV;
+    ImageView profileIV, barcodeIV, qrcodeIV;
     RelativeLayout headerLayout;
     public Map<String, String> headers = new HashMap<String, String>();
     public Map<String, String> params = new Hashtable<String, String>();
@@ -90,38 +97,38 @@ public class StudentProfileDetailsNew extends BaseActivity {
         card_view_outer = findViewById(R.id.card_view_outer);
         card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         tabLayout.setupWithViewPager(viewPager);
-        if(Utility.isConnectingToInternet(StudentProfileDetailsNew.this)){
+        if (Utility.isConnectingToInternet(StudentProfileDetailsNew.this)) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
             params.put("user_type", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
             params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
-            JSONObject obj=new JSONObject(params);
+            JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
             setupViewPager(viewPager);
-        }else{
-            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+        } else {
+            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
 
         decorate();
         Locale current = getResources().getConfiguration().locale;
-        Log.e("current locale", current.getDisplayName()+"..");
+        Log.e("current locale", current.getDisplayName() + "..");
     }
 
-    private void decorate () {
+    private void decorate() {
         tabLayout.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour)));
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
 
     }
 
-    private void getDataFromApi (String bodyParams) {
+    private void getDataFromApi(String bodyParams) {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
 
         final String requestBody = bodyParams;
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getStudentProfileUrl;
-        Log.d("TAG", requestBody+"djfjfhg url: "+url);
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getStudentProfileUrl;
+        Log.d("TAG", requestBody + "djfjfhg url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -131,45 +138,46 @@ public class StudentProfileDetailsNew extends BaseActivity {
                         Log.e("StudentProfileResult", result);
                         JSONObject object = new JSONObject(result);
 
-                            JSONObject dataArray = object.getJSONObject("student_result");
-                        Log.d("TAG", "onResponsexgh: "+dataArray);
+                        JSONObject dataArray = object.getJSONObject("student_result");
+                        Log.d("TAG", "onResponsexgh: " + dataArray);
 
-                            nameTV.setText(dataArray.getString("firstname")+" "+dataArray.getString("middlename"));
-                            admissionNoTV.setText(dataArray.getString("admission_no"));
-                            rollNoTV.setText(dataArray.getString("roll_no"));
-                            if(!dataArray.getString("behaviou_score").equals("")){
-                                behaviourscore.setVisibility(View.VISIBLE);
-                                behaviourscore.setText(getApplicationContext().getString(R.string.behaviourscore)+": "+dataArray.getString("behaviou_score"));
-                            }else{
-                                behaviourscore.setVisibility(View.GONE);
+                        nameTV.setText(dataArray.getString("firstname") + " " + dataArray.getString("middlename"));
+                        admissionNoTV.setText(dataArray.getString("admission_no"));
+                        rollNoTV.setText(dataArray.getString("roll_no"));
+                        if (!dataArray.getString("behaviou_score").equals("")) {
+                            behaviourscore.setVisibility(View.VISIBLE);
+                            behaviourscore.setText(getApplicationContext().getString(R.string.behaviourscore) + ": " + dataArray.getString("behaviou_score"));
+                        } else {
+                            behaviourscore.setVisibility(View.GONE);
+                        }
+                        String bimgUrl = Utility.getSharedPreferences(getApplicationContext(), "imagesUrl") + dataArray.getString("barcode");
+                        String qrimgUrl = Utility.getSharedPreferences(getApplicationContext(), "imagesUrl") + dataArray.getString("qrcode");
+                        Picasso.get().load(bimgUrl).into(barcodeIV);
+                        Picasso.get().load(qrimgUrl).into(qrcodeIV);
+                        qrcodeIV.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                showAddDialog(StudentProfileDetailsNew.this, qrimgUrl, "QR Code");
                             }
-                            String bimgUrl = Utility.getSharedPreferences(getApplicationContext(), "imagesUrl") + dataArray.getString("barcode");
-                            String qrimgUrl = Utility.getSharedPreferences(getApplicationContext(), "imagesUrl") + dataArray.getString("qrcode");
-                            Picasso.get().load(bimgUrl).into(barcodeIV);
-                            Picasso.get().load(qrimgUrl).into(qrcodeIV);
-                              qrcodeIV.setOnClickListener(new View.OnClickListener() {
-                                  @Override
-                                  public void onClick(View view) {
-                                      showAddDialog(StudentProfileDetailsNew.this,qrimgUrl,"QR Code");
-                                  }
-                              });
-                              barcodeIV.setOnClickListener(new View.OnClickListener() {
-                                  @Override
-                                  public void onClick(View view) {
-                                      showAddDialog(StudentProfileDetailsNew.this,bimgUrl,"Barcode");
-                                  }
-                              });
+                        });
+                        barcodeIV.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                showAddDialog(StudentProfileDetailsNew.this, bimgUrl, "Barcode");
+                            }
+                        });
 
-                            classTV.setText(dataArray.getString("class") + " - " + dataArray.getString("section")+" ("+dataArray.getString("session")+")");
+                        classTV.setText(dataArray.getString("class") + " - " + dataArray.getString("section") + " (" + dataArray.getString("session") + ")");
 
-                            String imgUrl = Utility.getSharedPreferences(getApplicationContext(), "imagesUrl") + dataArray.getString("image");
-                            Picasso.get().load(imgUrl).placeholder(R.drawable.placeholder_user).into(profileIV);
+                        String imgUrl = Utility.getSharedPreferences(getApplicationContext(), "imagesUrl") + dataArray.getString("image");
+                        Picasso.get().load(imgUrl).placeholder(R.drawable.placeholder_user).into(profileIV);
 
                         JSONObject fieldsArray = object.getJSONObject("student_fields");
 
-                        if(!fieldsArray.has("roll_no")){
+                        if (!fieldsArray.has("roll_no")) {
                             rollno_layout.setVisibility(View.GONE);
-                        }if(!fieldsArray.has("student_photo")){
+                        }
+                        if (!fieldsArray.has("student_photo")) {
                             profileIV.setVisibility(View.GONE);
                         }
 
@@ -195,13 +203,15 @@ public class StudentProfileDetailsNew extends BaseActivity {
                 headers.put("Content-Type", Constants.contentType);
                 headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
                 headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
-                Log.d("TAG", "getHeaders: "+headers);
+                Log.d("TAG", "getHeaders: " + headers);
                 return headers;
             }
+
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
             }
+
             @Override
             public byte[] getBody() throws AuthFailureError {
                 try {
@@ -217,20 +227,21 @@ public class StudentProfileDetailsNew extends BaseActivity {
     }
 
     private String checkData(String key) {
-        if(key.equals("null")) {
+        if (key.equals("null")) {
             return "";
         } else {
             return key;
         }
     }
+
     private void setupViewPager(ViewPager viewPager) {
-        viewPagerAdapter.addFragment(new StudentPersonalDetailNew(),getApplicationContext().getString(R.string.personalDetail));
+        viewPagerAdapter.addFragment(new StudentPersonalDetailNew(), getApplicationContext().getString(R.string.personalDetail));
         viewPagerAdapter.addFragment(new StudentParentsDetailNew(), getApplicationContext().getString(R.string.parentsDetails));
         viewPagerAdapter.addFragment(new StudentOtherDetailNew(), getApplicationContext().getString(R.string.otherDetails));
         viewPager.setAdapter(viewPagerAdapter);
     }
 
-    private void showAddDialog(Context context,String url,String name) {
+    private void showAddDialog(Context context, String url, String name) {
 
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.qrcode_layout);
@@ -248,7 +259,6 @@ public class StudentProfileDetailsNew extends BaseActivity {
         });
         dialog.show();
     }
-
 
 
     class ProfileViewPagerAdapter extends FragmentPagerAdapter {
@@ -271,7 +281,7 @@ public class StudentProfileDetailsNew extends BaseActivity {
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment,String title) {
+        public void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }

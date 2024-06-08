@@ -590,6 +590,8 @@
     <string name="admission_no_1800" translatable="false">Admission No. 1800</string>
     <string name="class_1_a" translatable="false">Class 1-A</string>
     <string name="sunrise_academy" translatable="false">Sunrise Academy</string>
+    <string name="offline_mode_of_payment_are_cash_dd_online_and_cheques">Offline mode of payment are Cash, DD, Online and Cheques</string>
+    <string name="instructions">Instructions</string>
     <!--VISITOR-->
 
 

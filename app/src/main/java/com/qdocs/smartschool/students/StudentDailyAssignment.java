@@ -97,6 +97,7 @@ public class StudentDailyAssignment extends BaseActivity {
     public  void  loaddata(){
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -130,7 +131,7 @@ public class StudentDailyAssignment extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getAssignWork url: "+result);
                         JSONObject obj = new JSONObject(result);
                         JSONArray dataArray = obj.getJSONArray("dailyassignment");
                         idList.clear();
@@ -186,6 +187,7 @@ public class StudentDailyAssignment extends BaseActivity {
                 headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
                 headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
                 Log.e("Headers", headers.toString());
+                Log.d("TAG", "getHeaders: "+headers);
                 return headers;
             }
 

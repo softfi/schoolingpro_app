@@ -435,16 +435,17 @@ public class ElearningModuleAdapter extends RecyclerView.Adapter<ElearningModule
 
         final String requestBody = bodyParams;
         String url = "https://sstrace.qdocs.in/postlic/verifyaddon";
+        Log.d("TAG", "CheckAddon: "+requestBody);
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String result) {
                     if (result != null) {
-
+                        Log.d("TAG", "CheckAddon: "+result);
                         try {
 
                             JSONObject object = new JSONObject(result);
-                            if(object.getString("status").equals("0")) {
+                            if(object.getString("status").equals("1")) {
                                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
                                 builder.setCancelable(false);
                                 builder.setMessage( R.string.verificationMessage);

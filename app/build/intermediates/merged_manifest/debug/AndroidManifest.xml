@@ -263,10 +263,6 @@
             android:name="com.qdocs.smartschool.SettingActivity"
             android:exported="true" />
         <activity
-            android:name="com.qdocs.smartschool.TakeUrl"
-            android:configChanges="orientation|screenSize"
-            android:exported="false" />
-        <activity
             android:name="com.qdocs.smartschool.OpenPdf"
             android:exported="true" />
         <activity

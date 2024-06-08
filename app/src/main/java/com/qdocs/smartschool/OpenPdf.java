@@ -11,6 +11,9 @@ import android.webkit.DownloadListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.qdocs.smartschool.utils.Constants;
+import com.qdocs.smartschool.utils.Utility;
+
 
 public class OpenPdf extends AppCompatActivity {
 
@@ -23,7 +26,7 @@ public class OpenPdf extends AppCompatActivity {
         imageUrl = getIntent().getStringExtra("imageUrl");
 
         final ProgressDialog pDialog = new ProgressDialog(OpenPdf.this);
-        pDialog.setTitle(getString(R.string.app_name));
+        pDialog.setTitle(Utility.getSharedPreferences(getApplicationContext(), Constants.schoolName));
         pDialog.setMessage("Loading...");
         pDialog.setIndeterminate(false);
         pDialog.setCancelable(false);

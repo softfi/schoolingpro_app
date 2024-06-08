@@ -98,7 +98,6 @@ public class StudentVisitorBook extends BaseActivity {
             }
         });
 
-
         loaddata();
     }
 
@@ -119,7 +118,6 @@ public class StudentVisitorBook extends BaseActivity {
     public void onRestart() {
         super.onRestart();
         loaddata();
-
     }
 
     private void decorate() {

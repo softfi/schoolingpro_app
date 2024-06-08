@@ -172,7 +172,7 @@ public class StudentPersonalDetailNew extends Fragment implements SwipeRefreshLa
                 if (result != null) {
 
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponsexgh: "+result);
                         JSONObject obj = new JSONObject(result);
                         JSONObject dataArray = obj.getJSONObject("student_result");
                         String defaultDateFormat = Utility.getSharedPreferences(getActivity().getApplicationContext(), "dateFormat");

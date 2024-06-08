@@ -25,8 +25,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.qdocs.smartschool.BaseActivity;
-import com.qdocs.smartschool.Login;
-import com.qdocs.smartschool.SplashActivity;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import com.qdocs.smartschool.R;
@@ -89,7 +87,7 @@ public class StudentTimeline extends BaseActivity {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
-                loaddata();
+                loadData();
             }
         });
 
@@ -101,12 +99,13 @@ public class StudentTimeline extends BaseActivity {
             }
         });
 
-        loaddata();
+        loadData();
     }
 
-    public void loaddata() {
+    public void loadData() {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
-            params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+            params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             System.out.println("params timeline "+obj.toString());
             Log.e("params timeline ", obj.toString());
@@ -121,7 +120,7 @@ public class StudentTimeline extends BaseActivity {
     @Override
     public void onRestart() {
         super.onRestart();
-        loaddata();
+        loadData();
 
     }
 
@@ -143,8 +142,9 @@ public class StudentTimeline extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "onResponse: "+result);
                         JSONArray dataArray = new JSONArray(result);
+                        Log.d("TAG", "onResponse: "+dataArray);
                         timeLineIdList.clear();
                         timeLineDocumentList.clear();
                         timeLineTitleList.clear();
@@ -243,8 +243,6 @@ public class StudentTimeline extends BaseActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
             }
         }, new Response.ErrorListener() {
             @Override

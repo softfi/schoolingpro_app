@@ -426,7 +426,7 @@ public class SettingActivity extends BaseActivity {
                             startActivity(logout);
 
                         } else {
-                            Intent intent=new Intent(SettingActivity.this, TakeUrl.class);
+                            Intent intent=new Intent(SettingActivity.this, Login.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {
@@ -442,7 +442,7 @@ public class SettingActivity extends BaseActivity {
             public void onErrorResponse(VolleyError volleyError) {
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
-                Intent intent=new Intent(SettingActivity.this,TakeUrl.class);
+                Intent intent=new Intent(SettingActivity.this,Login.class);
                 startActivity(intent);
                 finish();
             }

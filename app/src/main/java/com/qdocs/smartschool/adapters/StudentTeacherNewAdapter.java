@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -74,7 +75,6 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView name, contact,mail;
         LinearLayout viewdetail,rating_layout,add_rating,heading_layout,email_layout,contact_layout;
-        RecyclerView recyclerview;
         TextView classteacher,comments;
         RatingBar rating;
         public MyViewHolder(View view) {
@@ -98,7 +98,7 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
                     AddRating(getAdapterPosition());
                 }
             });
-            System.out.println("LOGIN TYPE== "+Utility.getSharedPreferences(context.getApplicationContext(), Constants.loginType));
+            System.out.println("LOGIN TYPE== "+ Utility.getSharedPreferences(context.getApplicationContext(), Constants.loginType));
 
         }
     }
@@ -216,7 +216,7 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
         dialog.setContentView(R.layout.add_rating_dialog);
         RelativeLayout headerLay = (RelativeLayout) dialog.findViewById(R.id.addTask_dialog_header);
         final RatingBar ratingbar = (RatingBar) dialog.findViewById(R.id.rating);
-        final TextInputEditText comment = (TextInputEditText) dialog.findViewById(R.id.comment);
+        final EditText comment = (EditText) dialog.findViewById(R.id.comment);
         TextView submit = (TextView) dialog.findViewById(R.id.submit);
         submit.setBackgroundColor(Color
                 .parseColor(Utility.getSharedPreferences(context.getApplicationContext(), Constants.primaryColour)));

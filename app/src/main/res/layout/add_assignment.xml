@@ -129,40 +129,58 @@
                 android:text="All"
                 android:textColor="@color/textHeading"
                 />
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            <TextView
                 android:layout_width="match_parent"
-                app:boxStrokeColor="@color/textHeading"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/seperator"
-                android:layout_margin="10dp"
-                android:hint="@string/title">
+                android:text="@string/title"
+                android:textSize="@dimen/primaryText"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/textHeading"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/titleET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/secondaryText"
-                    android:textColor="@color/textHeading" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <EditText
+                android:id="@+id/titleET"
                 android:layout_width="match_parent"
-                app:boxStrokeColor="@color/textHeading"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/seperator"
-                android:layout_margin="10dp"
-                android:hint="@string/description">
+                android:background="@drawable/grey_outline"
+                android:gravity="start"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:minHeight="40dp"
+                android:textColorHint="#000000"
+                android:textSize="@dimen/primaryText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="@dimen/primaryText"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/textHeading"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/descriptionET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/secondaryText"
-                    android:textColor="@color/textHeading"
-                    />
+            <EditText
+                android:id="@+id/descriptionET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/grey_outline"
+                android:gravity="start"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:minHeight="40dp"
+                android:textColorHint="#000000"
+                android:textSize="@dimen/primaryText"
+                android:textStyle="bold" />
 
-            </com.google.android.material.textfield.TextInputLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

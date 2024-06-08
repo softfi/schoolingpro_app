@@ -466,7 +466,7 @@ public class StartLessonAdapter extends BaseAdapter {
                         });
                     }
 
-                    context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+                  //  context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
                     vehicleTable.addView(tr);
                     context.registerForContextMenu(tr);
                 }

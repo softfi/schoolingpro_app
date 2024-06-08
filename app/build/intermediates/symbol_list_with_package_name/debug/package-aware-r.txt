@@ -3720,7 +3720,6 @@ id all
 id allStates
 id always
 id amount
-id amountTextInputLayout
 id animateToEnd
 id animateToStart
 id answer_limit
@@ -4561,7 +4560,6 @@ id savelanguage
 id savenext_TV
 id sawtooth
 id scale
-id schoolName
 id score
 id scored_marks
 id screen
@@ -5704,6 +5702,7 @@ string ifscCode
 string incomplete
 string incompleted
 string incorrect
+string instructions
 string intime
 string invalidPassword
 string invalidUsername
@@ -5866,6 +5865,7 @@ string noticeDate
 string noticeheading
 string notification
 string notschedule
+string offline_mode_of_payment_are_cash_dd_online_and_cheques
 string offline_payment
 string offlinebankpayment
 string offlineheading

@@ -69,7 +69,7 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
         holder.titleTV.setText(docTitleList.get(position));
         holder.fileNameTV.setText(docUrlList.get(position));
 
-        context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+//        context.registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +84,6 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
                 context.startActivity(intent);
             }
         });
-
     }
 
     public BroadcastReceiver onDownloadComplete = new BroadcastReceiver() {
@@ -93,14 +92,13 @@ public class StudentDocumentsAdapter extends RecyclerView.Adapter<StudentDocumen
             //Fetching the download id received with the broadcast
             long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
             //Checking if the received broadcast is for our enqueued download by matching download id
-            if (downloadID == id) {
 
+            if (downloadID == id) {
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
                                 .setSmallIcon(R.drawable.smart_icon)
                                 .setContentTitle(context.getApplicationContext().getString(R.string.app_name))
                                 .setContentText("All Download completed");
-
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 notificationManager.notify(455, mBuilder.build());
 

@@ -111,6 +111,7 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
         holder.fromdate.setText(fromList.get(position));
         holder.todate.setText(toList.get(position));
         holder.reason.setText(reasonlist.get(position));
+        holder.reason.setText(reasonlist.get(position));
         holder.Applied_date.setText(context.getApplicationContext().getString(R.string.AppliedDate)+" - "+apply_datelist.get(position));
 
        if(statuslist.get(position).equals("0")){

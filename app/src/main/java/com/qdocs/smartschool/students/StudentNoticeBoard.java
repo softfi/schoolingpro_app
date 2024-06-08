@@ -65,7 +65,8 @@ public class StudentNoticeBoard extends BaseActivity {
         notificationList.setAdapter(adapter);
 
         if(Utility.isConnectingToInternet(getApplicationContext())){
-            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+          //  params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+           // params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             params.put("type", Utility.getSharedPreferences(getApplicationContext(), Constants.loginType));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
@@ -93,6 +94,9 @@ public class StudentNoticeBoard extends BaseActivity {
                     try {
                         Log.e("Result", result);
                         JSONObject object = new JSONObject(result);
+                        Log.d("TAG", "onResponsefh: "+result);
+                        Log.d("TAG", "onResponsefh: "+object);
+
                         noticeDateList.clear();
                         noticeTitleList.clear();
                         noticeTitleId.clear();
@@ -106,15 +110,17 @@ public class StudentNoticeBoard extends BaseActivity {
                             nodata_layout.setVisibility(View.GONE);
                             JSONArray dataArray = object.getJSONArray("data");
                             Log.e("length", dataArray.length()+"..");
-
+                            Log.d("TAG", "onResponsefhhgh: "+dataArray);
                                 for (int i = 0; i < dataArray.length(); i++) {
+                                    Log.d("TAG", "onResponsefhhgh: "+dataArray.getJSONObject(i).getString("created_by"));
                                     noticeTitleId.add(dataArray.getJSONObject(i).getString("id"));
                                     noticeTitleList.add(dataArray.getJSONObject(i).getString("title"));
+                                    noticeCreatedByList.add(dataArray.getJSONObject(i).getString("created_by"));
                                     noticeDateList.add(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, dataArray.getJSONObject(i).getString("date")));
                                     noticepublishDateList.add(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, dataArray.getJSONObject(i).getString("publish_date")));
-                                    noticeCreatedByList.add(dataArray.getJSONObject(i).getString("created_by")+" ("+dataArray.getJSONObject(i).getString("employee_id")+")");
                                     noticeDescList.add(dataArray.getJSONObject(i).getString("message"));
                                     noticeAttachmentList.add(dataArray.getJSONObject(i).getString("attachment"));
+                                    Log.d("TAG", "onResponsefhcv: "+noticeTitleId +noticeTitleList  +noticeDateList  +noticepublishDateList+noticeCreatedByList);
                                 }
 
                                 adapter.notifyDataSetChanged();

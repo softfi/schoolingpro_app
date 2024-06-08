@@ -59,6 +59,7 @@ public class StudentDownloadAssignmentFragment extends Fragment {
             params.put("student_id",  Utility.getSharedPreferences(getActivity().getApplicationContext(), "studentId"));
             params.put("classId", Utility.getSharedPreferences(getActivity().getApplicationContext(), "classId"));
             params.put("sectionId", Utility.getSharedPreferences(getActivity().getApplicationContext(), "sectionId"));
+            params.put("session_id", Utility.getSharedPreferences(getActivity().getApplicationContext(), Constants.sessionId));
             params.put("user_parent_id", "");
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
@@ -67,8 +68,6 @@ public class StudentDownloadAssignmentFragment extends Fragment {
         }else{
             makeText(getActivity(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     @Override
@@ -76,7 +75,6 @@ public class StudentDownloadAssignmentFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View mainView = inflater.inflate(R.layout.fragment_student_download_assignment, container, false);
-
         listView = (ListView) mainView.findViewById(R.id.fragment_studentDownload_assignment_listview);
         adapter = new StudentDownloadsAdapter(getActivity(), idList, nameList, sharedateList, sharebyList,valid_uptoList,descriptionList,uploaddateList,checkdate,created_bylist);
         listView.setAdapter(adapter);
@@ -90,17 +88,16 @@ public class StudentDownloadAssignmentFragment extends Fragment {
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
-
         final String requestBody = bodyParams;
-
         String url = Utility.getSharedPreferences(getActivity().getApplicationContext(), "apiUrl")+ Constants.getDownloadsLinksUrl;
+        Log.d("TAG", requestBody+"getDataFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getDataFromApi: "+result);
                         System.out.println("Result=="+result);
                         JSONArray object = new JSONArray(result);
                         idList.clear();

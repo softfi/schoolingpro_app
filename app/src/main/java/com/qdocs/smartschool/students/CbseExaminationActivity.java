@@ -83,7 +83,6 @@ public class CbseExaminationActivity extends BaseActivity {
         recyclerview.setItemAnimator(new DefaultItemAnimator());
         recyclerview.setAdapter(cbseExaminationAdapter);
 
-
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("student_session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.student_session_id));
@@ -93,7 +92,6 @@ public class CbseExaminationActivity extends BaseActivity {
         }else{
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void getDataFromApi (String bodyParams) {

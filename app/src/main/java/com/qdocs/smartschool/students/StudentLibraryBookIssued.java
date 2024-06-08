@@ -96,6 +96,7 @@ public class StudentLibraryBookIssued extends BaseActivity {
     public  void  loaddata(){
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -127,14 +128,10 @@ public class StudentLibraryBookIssued extends BaseActivity {
                         JSONArray dataArray = new JSONArray(result);
                         System.out.println("Result==="+result);
                         Log.d("TAG", "getDataFromApi: "+result);
-                        JSONObject object = new JSONObject(result);
+                        JSONArray object = new JSONArray(result);
 
                         Log.d("TAG", "getDataFromApis: "+object);
-                        String status = object.getString("success");
-                        Log.d("TAG", "getDataFromApisr: "+status);
-                        if (status.equals("0") ){
-                            nodata.setVisibility(View.VISIBLE);
-                        }
+
                         bookNameList.clear();
                         authorNameList.clear();
                         bookNoList.clear();

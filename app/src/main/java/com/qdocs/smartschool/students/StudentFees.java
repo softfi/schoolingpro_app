@@ -26,7 +26,6 @@ import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.Login;
-import com.qdocs.smartschool.TakeUrl;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.DatabaseHelper;
 import com.qdocs.smartschool.utils.Utility;
@@ -475,7 +474,7 @@ public class StudentFees extends BaseActivity {
                             startActivity(logout);
                             finish();
                         } else {
-                            Intent intent=new Intent(StudentFees.this, TakeUrl.class);
+                            Intent intent=new Intent(StudentFees.this, Login.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {
@@ -492,7 +491,7 @@ public class StudentFees extends BaseActivity {
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
                 // Toast.makeText(StudentDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(StudentFees.this,TakeUrl.class);
+                Intent intent=new Intent(StudentFees.this,Login.class);
                 startActivity(intent);
                 finish();
 

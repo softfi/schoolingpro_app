@@ -69,6 +69,7 @@ public class CbseTimeTableActivity extends BaseActivity {
 
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.student_session_id));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
@@ -124,7 +125,6 @@ public class CbseTimeTableActivity extends BaseActivity {
                                     }
                                     time_tableList.add(cbseTimetableModel);
                                 }
-
                                 cbseExamTimeTableModel.setTime_table(time_tableList);
                                 cbseexamlist.add(cbseExamTimeTableModel);
                             }
@@ -149,7 +149,7 @@ public class CbseTimeTableActivity extends BaseActivity {
             }
         }) {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 headers.put("Client-Service", Constants.clientService);
                 headers.put("Auth-Key", Constants.authKey);
                 headers.put("Content-Type", Constants.contentType);
