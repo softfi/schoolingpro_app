@@ -27,7 +27,6 @@ public class CbseTimeTableAdapter extends RecyclerView.Adapter<CbseTimeTableAdap
         this.fragment = fragment;
     }
 
-
     @NonNull
     @Override
     public CbseTimeTableAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -59,6 +58,7 @@ public class CbseTimeTableAdapter extends RecyclerView.Adapter<CbseTimeTableAdap
         RecyclerView recyclerview,assrecyclerview;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
             name=itemView.findViewById(R.id.name);
             recyclerview=itemView.findViewById(R.id.recyclerview);
 

@@ -15,6 +15,7 @@ public class Constants {
     public static final String baseSUrl = "/app/api";
     public static final String baseUrl = "/api/";
     public static final String siteUrl = "admin";
+
     public static final String getStudentProfileUrl = "webservice/getStudentProfile";
     public static final String getHomeworkUrl = "webservice/getHomework";
     public static final String uploadHomeworkUrl = "webservice/addaa";

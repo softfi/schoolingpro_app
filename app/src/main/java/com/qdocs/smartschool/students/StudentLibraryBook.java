@@ -18,6 +18,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.BaseActivity;
@@ -28,6 +29,8 @@ import com.qdocs.smartschool.adapters.StudentLibraryBookAdapter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -65,7 +68,11 @@ public class StudentLibraryBook extends BaseActivity {
         data_layout = (LinearLayout) findViewById(R.id.data_layout);
         bookListView = (RecyclerView) findViewById(R.id.student_libraryBook_listview);
         if(Utility.isConnectingToInternet(getApplicationContext())){
-            getDataFromApi();
+            params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
+            JSONObject obj=new JSONObject(params);
+            Log.e("params ", obj.toString());
+            getDataFromApi(obj.toString());
         }else{
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
@@ -82,7 +89,11 @@ public class StudentLibraryBook extends BaseActivity {
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
                 if(Utility.isConnectingToInternet(getApplicationContext())){
-                    getDataFromApi();
+                    params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+                    params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
+                    JSONObject obj=new JSONObject(params);
+                    Log.e("params ", obj.toString());
+                    getDataFromApi(obj.toString());
                 }else{
                     makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
@@ -90,15 +101,16 @@ public class StudentLibraryBook extends BaseActivity {
         });
     }
 
-    private void getDataFromApi () {
+    private void getDataFromApi (String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
 
+        final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getLibraryBookListUrl;
-        Log.d("TAG", "getDataFromApi: "+url);
+        Log.d("TAG", "getDataFromApi: "+url + requestBody);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
             @Override
@@ -183,6 +195,22 @@ public class StudentLibraryBook extends BaseActivity {
                 Log.e("Headers", headers.toString());
                 return headers;
             }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+
         };
         //Creating a Request Queue
         RequestQueue requestQueue = Volley.newRequestQueue(StudentLibraryBook.this);

@@ -80,6 +80,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
                        params.put("section_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sectionId));
                        params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                        params.put("user_id", Utility.getSharedPreferences(getApplicationContext(), Constants.userId));
+                       params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                        JSONObject obj=new JSONObject(params);
                        Log.e("params ", obj.toString());
                        getDataFromApi(obj.toString());
@@ -101,10 +102,13 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("class_id",  Utility.getSharedPreferences(getApplicationContext(), Constants.classId));
             params.put("section_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sectionId));
+            params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("user_id", Utility.getSharedPreferences(getApplicationContext(), Constants.userId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             getDataFromApi(obj.toString());
-        }else{
+        }
+        else{
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
     }
@@ -124,22 +128,22 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
 
         Log.d("TAG", requestBody+"getTlistFromApi: "+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String result) {
+
                 pullToRefresh.setRefreshing(false);
+
                 if (result != null) {
                   data_layout.setVisibility(View.VISIBLE);
                   nodata.setVisibility(View.GONE);
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG", "getTlistFromApi: "+result);
 
                         JSONObject object = new JSONObject(result);
                         JSONObject dataObject = object.getJSONObject("result_list");
-                        if (dataObject.equals("")) {
-
-                            nodata.setVisibility(View.VISIBLE);
-                        }
                         System.out.println("DATAOBJECT length- "+dataObject.length());
+
                         teacherNameList.clear();
                         teacherContactList.clear();
                         staff_idList.clear();
@@ -149,6 +153,7 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
 
                        Iterator<String> iter = dataObject.keys();
                        while(iter.hasNext()){
+
                           key = iter.next();
 
                             JSONObject object1 = dataObject.getJSONObject(key);
@@ -165,8 +170,9 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
                         e.printStackTrace();
                     }
                 } else {
-                    data_layout.setVisibility(View.GONE);
                     nodata.setVisibility(View.VISIBLE);
+                    data_layout.setVisibility(View.GONE);
+
                 }
             }
         },new Response.ErrorListener() {
@@ -210,12 +216,16 @@ public class StudentTeachersList extends BaseActivity implements  SwipeRefreshLa
     public void onRefresh() {
 
         if(Utility.isConnectingToInternet(getApplicationContext())){
+
             params.put("class_id",  Utility.getSharedPreferences(getApplicationContext(), Constants.classId));
             params.put("section_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sectionId));
+            params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("user_id", Utility.getSharedPreferences(getApplicationContext(), Constants.userId));
+            params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
+
         }else{
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }

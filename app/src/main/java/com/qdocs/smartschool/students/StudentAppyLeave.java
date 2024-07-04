@@ -181,7 +181,9 @@ public class StudentAppyLeave extends BaseActivity {
                         Log.d("TAG", "getLeaveFromApi: "+result);
 
                         JSONObject obj = new JSONObject(result);
+
                         JSONArray dataArray = obj.getJSONArray("result_array");
+
                         fromList.clear();
                         toList.clear();
                         statuslist.clear();

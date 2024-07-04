@@ -204,9 +204,11 @@
                 android:layout_height="30dp"
                 android:layout_toRightOf="@+id/btn_login"
                 android:src="@drawable/ic_rightarrow"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
 
         </LinearLayout>
+
+
 
     </RelativeLayout>
 
@@ -235,9 +237,9 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/ic_web_yellow"
-            android:tint="@color/textHeading"
             android:layout_margin="5dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            app:tint="@color/textHeading" />
 
         <TextView
             android:layout_width="wrap_content"

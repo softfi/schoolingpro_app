@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name = "LoaderView" >
+        <attr name = "loaderStyle" format = "reference" />
+        <attr name = "showBack" format = "boolean" />
+
+    </declare-styleable >
+</resources>

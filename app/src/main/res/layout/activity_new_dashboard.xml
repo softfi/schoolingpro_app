@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-
+  <!--  <com.qdocs.smartschool.LoaderView
+        android:id="@+id/loader_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transSurface"
+        android:visibility="visible" />-->
     <FrameLayout
         android:id="@+id/actionBar"
         android:layout_width="match_parent"
@@ -448,5 +453,6 @@
         </com.google.android.material.navigation.NavigationView>
 
     </androidx.drawerlayout.widget.DrawerLayout>
+
 
 </LinearLayout>

@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -72,7 +73,7 @@ public class StudentSyllabus extends BaseActivity {
     ArrayList <String> typelist = new ArrayList<String>();
     ArrayList <String> idlist = new ArrayList<String>();
     TextView savecomment,textimage,presentation;
-    TextInputEditText commentET;
+    EditText commentET;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

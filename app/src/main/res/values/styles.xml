@@ -15,6 +15,11 @@
         <!--<item name="android:textColor">@color/myPrimaryColor</item>-->
     </style>
 
+    <style name="appLoader">
+        <item name="SpinKit_Color">@color/iconColours</item>
+        <item name="SpinKit_Style">Circle</item>
+    </style>
+
     <style name="RobotoCalendarMonthArrow">
         <item name="android:tint">#030303</item>
         <!--<item name="android:tint">@color/myPrimaryColor</item>-->

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.app.ProgressDialog;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -19,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,26 +29,30 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.qdocs.smartschool.BaseActivity ;
+import com.qdocs.smartschool.BaseActivity;
+import com.qdocs.smartschool.LoaderView;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.adapters.StudentHomeworkAdapter;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+
 import static android.widget.Toast.makeText;
 
 public class StudentHomeworkNew extends BaseActivity {
     ColorStateList def;
     CardView card_view_outer;
-    TextView pending,completed,select,evaluated;
-
+    TextView pending, completed, select, evaluated;
+    LoaderView loaderView;
     RecyclerView homeworkListView;
     ArrayList<String> homeworkIdList = new ArrayList<String>();
     ArrayList<String> homeworkTitleList = new ArrayList<String>();
@@ -66,15 +72,16 @@ public class StudentHomeworkNew extends BaseActivity {
     ArrayList<String> noteList = new ArrayList<String>();
     ArrayList<String> created_byList = new ArrayList<String>();
     StudentHomeworkAdapter adapter;
-    LinearLayout nodata_layout,data_layout;
+    LinearLayout nodata_layout, data_layout;
     Spinner subjectlist_spinner;
     String subjectid;
-    ArrayList<String>subjectlist=new ArrayList<String>();
-    ArrayList<String>subjectidlist=new ArrayList<String>();
+    ArrayList<String> subjectlist = new ArrayList<String>();
+    ArrayList<String> subjectidlist = new ArrayList<String>();
     SwipeRefreshLayout pullToRefresh;
     public Map<String, String> params = new Hashtable<String, String>();
-    public Map<String, String>  headers = new HashMap<String, String>();
-    String status="pending";
+    public Map<String, String> headers = new HashMap<String, String>();
+    String status = "pending";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,13 +89,13 @@ public class StudentHomeworkNew extends BaseActivity {
         View contentView = inflater.inflate(R.layout.activity_student_homework_new, null, false);
         mDrawerLayout.addView(contentView, 0);
 
-        if(Utility.isConnectingToInternet(getApplicationContext())){
+        if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
-            JSONObject obj=new JSONObject(params);
+            JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
             getScannerDataFromApi(obj.toString());
-        }else{
+        } else {
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
         titleTV.setText(getApplicationContext().getString(R.string.homework));
@@ -101,28 +108,28 @@ public class StudentHomeworkNew extends BaseActivity {
         evaluated = findViewById(R.id.evaluated);
         select = findViewById(R.id.select);
 
-        def=completed.getTextColors();
+        def = completed.getTextColors();
         pending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                status="pending";
+                status = "pending";
                 select.animate().x(0).setDuration(100);
                 select.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.back_select));
                 pending.setTextColor(Color.WHITE);
                 completed.setTextColor(def);
                 evaluated.setTextColor(def);
-                if(Utility.isConnectingToInternet(StudentHomeworkNew.this)){
+                if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-                    params.put("homework_status",status);
+                    params.put("homework_status", status);
                     params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
-                    params.put("subject_group_subject_id","");
+                    params.put("subject_group_subject_id", "");
 
-                    JSONObject obj=new JSONObject(params);
+                    JSONObject obj = new JSONObject(params);
                     Log.e("params ", obj.toString());
                     getDataFromApi(obj.toString());
 
-                }else{
-                    makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                } else {
+                    makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -130,25 +137,25 @@ public class StudentHomeworkNew extends BaseActivity {
         completed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                status="submitted";
-                int size=completed.getWidth();
+                status = "submitted";
+                int size = completed.getWidth();
                 select.animate().x(size).setDuration(100);
                 select.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.yellow_curve_border));
                 completed.setTextColor(getResources().getColor(R.color.yellow));
                 pending.setTextColor(def);
                 evaluated.setTextColor(def);
-                if(Utility.isConnectingToInternet(StudentHomeworkNew.this)){
+                if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                     params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
-                    params.put("homework_status",status);
-                    params.put("subject_group_subject_id",subjectid);
+                    params.put("homework_status", status);
+                    params.put("subject_group_subject_id", subjectid);
 
-                    JSONObject obj=new JSONObject(params);
+                    JSONObject obj = new JSONObject(params);
                     Log.e("params ", obj.toString());
                     getDataFromApi(obj.toString());
 
-                }else{
-                    makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                } else {
+                    makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -156,24 +163,24 @@ public class StudentHomeworkNew extends BaseActivity {
         evaluated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                status="evaluated";
-                int esize=evaluated.getWidth()*2;
+                status = "evaluated";
+                int esize = evaluated.getWidth() * 2;
                 select.animate().x(esize).setDuration(100);
                 select.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.green_curve_border));
                 evaluated.setTextColor(Color.WHITE);
                 pending.setTextColor(def);
                 completed.setTextColor(def);
-                if(Utility.isConnectingToInternet(StudentHomeworkNew.this)){
+                if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-                    params.put("homework_status",status);
-                    params.put("subject_group_subject_id",subjectid);
+                    params.put("homework_status", status);
+                    params.put("subject_group_subject_id", subjectid);
                     params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
-                    JSONObject obj=new JSONObject(params);
+                    JSONObject obj = new JSONObject(params);
                     Log.e("params ", obj.toString());
                     getDataFromApi(obj.toString());
 
-                }else{
-                    makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                } else {
+                    makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -183,7 +190,7 @@ public class StudentHomeworkNew extends BaseActivity {
         data_layout = (LinearLayout) findViewById(R.id.data_layout);
         adapter = new StudentHomeworkAdapter(StudentHomeworkNew.this, homeworkIdList, homeworkTitleList, homeworkSubjectNameList,
                 homeworkHomeworkDateList, homeworkSubmissionDateList, homeworkEvaluationDateList, homeworkEvaluationByList,
-                homeworkCreatedByList, homeworkDocumentList, homeworkClassList, homework_evaluation_idList,homeworkstatusList,homeworknameList,marksList,homeworkEvaluationMarksList,noteList,created_byList);
+                homeworkCreatedByList, homeworkDocumentList, homeworkClassList, homework_evaluation_idList, homeworkstatusList, homeworknameList, marksList, homeworkEvaluationMarksList, noteList, created_byList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         homeworkListView.setLayoutManager(mLayoutManager);
         homeworkListView.setItemAnimator(new DefaultItemAnimator());
@@ -194,16 +201,16 @@ public class StudentHomeworkNew extends BaseActivity {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
-                if(Utility.isConnectingToInternet(StudentHomeworkNew.this)){
+                if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
                     params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-                    params.put("homework_status",status);
-                    params.put("subject_group_subject_id",subjectid);
-                    JSONObject obj=new JSONObject(params);
+                    params.put("homework_status", status);
+                    params.put("subject_group_subject_id", subjectid);
+                    JSONObject obj = new JSONObject(params);
                     Log.e("params ", obj.toString());
                     getDataFromApi(obj.toString());
 
-                }else{
-                    makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                } else {
+                    makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -217,20 +224,21 @@ public class StudentHomeworkNew extends BaseActivity {
         subjectlist_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                 subjectid = subjectidlist.get(i);
+                subjectid = subjectidlist.get(i);
 
-                    if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
-                        params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-                        params.put("homework_status", status);
-                        params.put("subject_group_subject_id", subjectid);
-                        JSONObject obj = new JSONObject(params);
-                        Log.e("params ", obj.toString());
-                        getDataFromApi(obj.toString());
-                    }else {
-                        makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
-                    }
+                if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
+                    params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+                    params.put("homework_status", status);
+                    params.put("subject_group_subject_id", subjectid);
+                    JSONObject obj = new JSONObject(params);
+                    Log.e("params ", obj.toString());
+                    getDataFromApi(obj.toString());
+                } else {
+                    makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                }
 
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -240,38 +248,38 @@ public class StudentHomeworkNew extends BaseActivity {
         loaddata();
     }
 
-    public  void  loaddata(){
-        if(Utility.isConnectingToInternet(StudentHomeworkNew.this)){
+    public void loaddata() {
+        if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
-            params.put("homework_status","pending");
-            params.put("subject_group_subject_id","");
-            JSONObject obj=new JSONObject(params);
+            params.put("homework_status", "pending");
+            params.put("subject_group_subject_id", "");
+            JSONObject obj = new JSONObject(params);
             Log.e("params ", obj.toString());
             getDataFromApi(obj.toString());
 
-        }else{
-            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+        } else {
+            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void getDataFromApi (String bodyParams) {
+    private void getDataFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
-
+       // loaderView.setVisibility(View.VISIBLE);
         final String requestBody = bodyParams;
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.getHomeworkUrl;
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getHomeworkUrl;
         Log.e("URL", url);
-        Log.d("TAG", requestBody+"getHomeWork url: "+url);
+        Log.d("TAG", requestBody + "getHomeWork url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 pullToRefresh.setRefreshing(false);
                 if (result != null) {
-                    pd.dismiss();
+                   pd.dismiss();
                     try {
                         Log.d("TAG", "onResponse: ");
                         JSONObject obj = new JSONObject(result);
@@ -295,14 +303,14 @@ public class StudentHomeworkNew extends BaseActivity {
                         noteList.clear();
                         created_byList.clear();
 
-                        if(dataArray.length() != 0) {
+                        if (dataArray.length() != 0) {
                             nodata_layout.setVisibility(View.GONE);
                             data_layout.setVisibility(View.VISIBLE);
-                            for(int i = 0; i < dataArray.length(); i++) {
+                            for (int i = 0; i < dataArray.length(); i++) {
                                 homeworkIdList.add(dataArray.getJSONObject(i).getString("id"));
                                 homeworkTitleList.add(dataArray.getJSONObject(i).getString("description"));
-                                homeworkSubjectNameList.add(dataArray.getJSONObject(i).getString("subject_name")+" ("+dataArray.getJSONObject(i).getString("subject_code")+")");
-                                homeworkCreatedByList.add(dataArray.getJSONObject(i).getString("created_by_name")+" "+dataArray.getJSONObject(i).getString("created_by_surname")+" ("+dataArray.getJSONObject(i).getString("created_by_employee_id")+")");
+                                homeworkSubjectNameList.add(dataArray.getJSONObject(i).getString("subject_name") + " (" + dataArray.getJSONObject(i).getString("subject_code") + ")");
+                                homeworkCreatedByList.add(dataArray.getJSONObject(i).getString("created_by_name") + " " + dataArray.getJSONObject(i).getString("created_by_surname") + " (" + dataArray.getJSONObject(i).getString("created_by_employee_id") + ")");
                                 homeworkHomeworkDateList.add(dataArray.getJSONObject(i).getString("homework_date"));
                                 homeworkSubmissionDateList.add(dataArray.getJSONObject(i).getString("submit_date"));
                                 homeworkstatusList.add(dataArray.getJSONObject(i).getString("status"));
@@ -311,13 +319,13 @@ public class StudentHomeworkNew extends BaseActivity {
                                 noteList.add(dataArray.getJSONObject(i).getString("note"));
                                 created_byList.add(dataArray.getJSONObject(i).getString("created_by"));
                                 homeworkDocumentList.add(dataArray.getJSONObject(i).getString("document"));
-                                homeworkClassList.add(dataArray.getJSONObject(i).getString("class") + " " + dataArray.getJSONObject(i).getString("section") );
-                                homeworkEvaluationByList.add( dataArray.getJSONObject(i).getString("evaluated_by"));
-                                homeworkEvaluationMarksList.add( dataArray.getJSONObject(i).getString("evaluation_marks"));
-                                if(dataArray.getJSONObject(i).getString("evaluation_date").equals("0000-00-00")){
+                                homeworkClassList.add(dataArray.getJSONObject(i).getString("class") + " " + dataArray.getJSONObject(i).getString("section"));
+                                homeworkEvaluationByList.add(dataArray.getJSONObject(i).getString("evaluated_by"));
+                                homeworkEvaluationMarksList.add(dataArray.getJSONObject(i).getString("evaluation_marks"));
+                                if (dataArray.getJSONObject(i).getString("evaluation_date").equals("0000-00-00")) {
                                     homeworkEvaluationDateList.add("");
-                                }else{
-                                    homeworkEvaluationDateList.add( Utility.parseDate("yyyy-MM-dd", defaultDateFormat,dataArray.getJSONObject(i).getString("evaluation_date")));
+                                } else {
+                                    homeworkEvaluationDateList.add(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, dataArray.getJSONObject(i).getString("evaluation_date")));
                                 }
                                 homework_evaluation_idList.add(dataArray.getJSONObject(i).getString("homework_evaluation_id"));
                             }
@@ -353,10 +361,12 @@ public class StudentHomeworkNew extends BaseActivity {
                 Log.e("Headers", headers.toString());
                 return headers;
             }
+
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
             }
+
             @Override
             public byte[] getBody() throws AuthFailureError {
                 try {
@@ -371,28 +381,29 @@ public class StudentHomeworkNew extends BaseActivity {
         requestQueue.add(stringRequest);//Adding request to the queue
     }
 
-    private void getScannerDataFromApi (String bodyParams) {
+    private void getScannerDataFromApi(String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
+
         final String requestBody = bodyParams;
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getstudentsubjectUrl;
-        Log.d("TAG", requestBody+"getScanWork url: "+url);
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getstudentsubjectUrl;
+        Log.d("TAG", requestBody + "getScanWork url: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.d("TAG", "getScanWork url: "+result);
+                        Log.d("TAG", "getScanWork url: " + result);
                         JSONObject obj = new JSONObject(result);
                         JSONArray dataArray = obj.getJSONArray("subjectlist");
 
-                        if(dataArray.length() != 0) {
-                            for(int i = 0; i < dataArray.length(); i++) {
-                                subjectlist.add(dataArray.getJSONObject(i).getString("name")+" ("+dataArray.getJSONObject(i).getString("code")+")");
+                        if (dataArray.length() != 0) {
+                            for (int i = 0; i < dataArray.length(); i++) {
+                                subjectlist.add(dataArray.getJSONObject(i).getString("name") + " (" + dataArray.getJSONObject(i).getString("code") + ")");
                                 subjectidlist.add(dataArray.getJSONObject(i).getString("subject_group_subjects_id"));
                             }
 
@@ -400,15 +411,15 @@ public class StudentHomeworkNew extends BaseActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }else {
-                    pd.dismiss();
+                } else {
+                  //  pd.dismiss();
                     Toast.makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                pd.dismiss();
+             //   pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
                 Toast.makeText(StudentHomeworkNew.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
             }
@@ -422,13 +433,15 @@ public class StudentHomeworkNew extends BaseActivity {
                 headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
                 return headers;
             }
+
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
             }
+
             @Override
             public byte[] getBody() throws AuthFailureError {
-                try  {
+                try {
                     return requestBody == null ? null : requestBody.getBytes("utf-8");
                 } catch (UnsupportedEncodingException uee) {
                     VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");

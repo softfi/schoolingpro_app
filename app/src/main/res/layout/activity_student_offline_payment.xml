@@ -104,8 +104,9 @@
                             android:background="@drawable/grey_outline"
                             android:gravity="start"
                             android:padding="14dp"
+                            android:hint="date"
                             android:layout_margin="10dp"
-                            android:textColorHint="#000000"
+                            android:textColor="#000000"
                             android:textSize="@dimen/primaryText"
                             android:textStyle="bold" />
                         <EditText
@@ -115,8 +116,9 @@
                             android:background="@drawable/grey_outline"
                             android:gravity="start"
                             android:padding="14dp"
+                            android:hint="@string/mode"
                             android:layout_margin="10dp"
-                            android:textColorHint="#000000"
+                            android:textColor="#000000"
                             android:textSize="@dimen/primaryText"
                             android:textStyle="bold" />
                         <EditText
@@ -126,8 +128,9 @@
                             android:background="@drawable/grey_outline"
                             android:gravity="start"
                             android:padding="14dp"
+                            android:hint="Payment from"
                             android:layout_margin="10dp"
-                            android:textColorHint="#000000"
+                            android:textColor="#000000"
                             android:textSize="@dimen/primaryText"
                             android:textStyle="bold" />
                         <EditText
@@ -138,7 +141,8 @@
                             android:gravity="start"
                             android:padding="14dp"
                             android:layout_margin="10dp"
-                            android:textColorHint="#000000"
+                            android:hint="reference"
+                            android:textColor="#000000"
                             android:textSize="@dimen/primaryText"
                             android:textStyle="bold" />
                         <EditText
@@ -148,8 +152,9 @@
                             android:background="@drawable/grey_outline"
                             android:gravity="start"
                             android:padding="14dp"
+                            android:hint="@string/amount"
                             android:layout_margin="10dp"
-                            android:textColorHint="#000000"
+                            android:textColor="#000000"
                             android:textSize="@dimen/primaryText"
                             android:textStyle="bold" />
 

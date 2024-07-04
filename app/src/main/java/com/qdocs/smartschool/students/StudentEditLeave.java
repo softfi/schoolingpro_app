@@ -190,7 +190,6 @@ public class StudentEditLeave extends AppCompatActivity {
             }
         });
 
-
         fromdateTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -390,21 +389,6 @@ public class StudentEditLeave extends AppCompatActivity {
         return p;
     }
 
-
-
-    public Uri getImageUri(Context inContext, Bitmap inImage) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-        return Uri.parse(path);
-    }
-
-    public String getRealPathFromURI(Uri uri) {
-        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-        return cursor.getString(idx);
-    }
     public String getgalleryRealPathFromURI(Context context, Uri contentUri) {
         OutputStream out;
         File file = new File(getFilename(context));
@@ -618,10 +602,9 @@ public class StudentEditLeave extends AppCompatActivity {
 
             RequestBody requestBody=new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("file",file_name,file_body)
-                    .addFormDataPart("to_date",tolist)
-                    .addFormDataPart("apply_date",applylist)
-                    .addFormDataPart("from_date",fromlist)
+                    .addFormDataPart("userfile",file_name,file_body)
+                    .addFormDataPart("homework_date",tolist)
+                    .addFormDataPart("submit_date   ",fromlist)
                     .addFormDataPart("id",leaveid)
                     .addFormDataPart("reason",reason.getText().toString())
                     .build();

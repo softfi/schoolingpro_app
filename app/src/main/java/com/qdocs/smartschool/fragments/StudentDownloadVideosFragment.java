@@ -88,6 +88,7 @@ public class StudentDownloadVideosFragment extends Fragment {
                 pullToRefresh.setRefreshing(true);
                 if(Utility.isConnectingToInternet(getActivity())){
                     params.put("class_id", Utility.getSharedPreferences(getActivity().getApplicationContext(), "classId"));
+                    params.put("student_id", Utility.getSharedPreferences(getActivity().getApplicationContext(), Constants.studentId));
                     params.put("section_id", Utility.getSharedPreferences(getActivity().getApplicationContext(), "sectionId"));
                     JSONObject obj=new JSONObject(params);
                     Log.e("params ", obj.toString());
@@ -111,6 +112,7 @@ public class StudentDownloadVideosFragment extends Fragment {
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getActivity().getApplicationContext(), "apiUrl")+ Constants.getVideoTutorialUrl;
+        Log.d("TAG", "getDataFromApi: "+requestBody);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -166,7 +168,7 @@ public class StudentDownloadVideosFragment extends Fragment {
                     }
                 }) {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
 
                 headers.put("Client-Service", Constants.clientService);
                 headers.put("Auth-Key", Constants.authKey);

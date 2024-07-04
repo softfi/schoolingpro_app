@@ -116,6 +116,7 @@
                         android:textStyle="bold"/>
 
                 </LinearLayout>
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

@@ -183,8 +183,7 @@ public class StudentProcessingFees extends BaseActivity {
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
-                        System.out.println("Result=="+ result);
+
                         JSONObject object = new JSONObject(result);
 
                         feesIdList.clear();
@@ -211,7 +210,6 @@ public class StudentProcessingFees extends BaseActivity {
                             gtDiscountTV.setText(currency + Utility.changeAmount(grandTotalDetails.getString("fee_discount"),currency,currency_price));
                             gtFineTV.setText(currency + Utility.changeAmount(grandTotalDetails.getString("fee_fine"),currency,currency_price));
                             gtPaidTV.setText(currency + Utility.changeAmount(grandTotalDetails.getString("fee_paid"),currency,currency_price));
-
 
                                     JSONArray feesArray = object.getJSONArray("student_fee");
 
@@ -387,7 +385,6 @@ public class StudentProcessingFees extends BaseActivity {
         };
         //Creating a Request Queue
         RequestQueue requestQueue = Volley.newRequestQueue(StudentProcessingFees.this);
-
         //Adding request to the queue
         requestQueue.add(stringRequest);
     }

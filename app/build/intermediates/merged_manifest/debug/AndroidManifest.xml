@@ -65,6 +65,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.qdocs.smartschool.LoaderView"
+            android:exported="false" />
+        <activity
             android:name="com.qdocs.smartschool.students.CreateTaskActivity"
             android:exported="false" />
         <activity

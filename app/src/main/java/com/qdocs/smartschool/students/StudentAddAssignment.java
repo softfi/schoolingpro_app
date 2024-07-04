@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -22,7 +21,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -48,7 +46,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.textfield.TextInputEditText;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
@@ -203,7 +200,6 @@ public class StudentAddAssignment extends AppCompatActivity {
         });
 
 
-
         subjectlist.add(getApplicationContext().getString(R.string.select));
         subjectidlist.add("");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(StudentAddAssignment.this, android.R.layout.simple_spinner_item, subjectlist);
@@ -256,7 +252,6 @@ public class StudentAddAssignment extends AppCompatActivity {
                                 subjectlist.add(dataArray.getJSONObject(i).getString("name")+" ("+dataArray.getJSONObject(i).getString("code")+")");
                                 subjectidlist.add(dataArray.getJSONObject(i).getString("subject_group_subjects_id"));
                             }
-
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -315,8 +310,8 @@ public class StudentAddAssignment extends AppCompatActivity {
         dialog.setContentView(R.layout.choose_file);
         dialog.setCanceledOnTouchOutside(false);
         RelativeLayout headerLay = (RelativeLayout) dialog.findViewById(R.id.addTask_dialog_header);
-        final LinearLayout takephoto = (LinearLayout) dialog.findViewById(R.id.takephoto);
-        final LinearLayout choosegallery = (LinearLayout) dialog.findViewById(R.id.gallery);
+        final LinearLayout takePhoto = (LinearLayout) dialog.findViewById(R.id.takephoto);
+        final LinearLayout chooseGallery = (LinearLayout) dialog.findViewById(R.id.gallery);
         ImageView closeBtn = (ImageView) dialog.findViewById(R.id.addTask_dialog_crossIcon);
         closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -325,7 +320,7 @@ public class StudentAddAssignment extends AppCompatActivity {
             }
         });
 
-        takephoto.setOnClickListener(new View.OnClickListener() {
+        takePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 camerapic();
@@ -334,10 +329,10 @@ public class StudentAddAssignment extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        choosegallery.setOnClickListener(new View.OnClickListener() {
+        chooseGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                opengallery();
+                openGallery();
                 gallery = true;
                 camera = false;
                 dialog.dismiss();
@@ -352,7 +347,7 @@ public class StudentAddAssignment extends AppCompatActivity {
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
-    private void opengallery() {
+    private void openGallery() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 
@@ -666,8 +661,6 @@ public class StudentAddAssignment extends AppCompatActivity {
                 });
             }
         }
-
-
     }
 }
 

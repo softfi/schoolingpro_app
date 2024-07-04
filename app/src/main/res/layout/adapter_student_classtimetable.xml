@@ -12,8 +12,7 @@
         android:id="@+id/adapter_student_classTimetable_timeTV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.50"
-        />
+        android:layout_weight="0.60" />
 
     <TextView
         android:id="@+id/adapter_student_classTimetable_subjectTV"
@@ -26,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="0.85"
+        android:layout_weight="0.65"
         android:gravity="right"/>
 
 </LinearLayout>

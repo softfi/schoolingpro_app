@@ -218,7 +218,7 @@ public class StudentFeesAdapter extends RecyclerView.Adapter<StudentFeesAdapter.
             viewHolder.feesStatusTV.setText(context.getApplicationContext().getString(R.string.unpaid));
             viewHolder.feesStatusTV.setBackgroundResource(R.drawable.red_border); viewHolder.feesDueDateTV.setBackgroundResource(R.color.transparent);
 
-//            viewHolder.payBtn.setVisibility(View.VISIBLE);
+         //   viewHolder.payBtn.setVisibility(View.VISIBLE);
             viewHolder.viewBtn.setVisibility(View.GONE);
             if(dueDateList.get(position).equals("0000-00-00")){
                 viewHolder.feesDueDateTV.setText("No Due Date");

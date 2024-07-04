@@ -66,7 +66,6 @@ public class CbseTimeTableActivity extends BaseActivity {
         recyclerview.setItemAnimator(new DefaultItemAnimator());
         recyclerview.setAdapter(cbseTimeTableAdapter);
 
-
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.student_session_id));
             params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));

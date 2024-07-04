@@ -56,7 +56,7 @@ public class StudentDownloadAssignmentFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if(Utility.isConnectingToInternet(getActivity())){
             params.put("role",  Utility.getSharedPreferences(getActivity().getApplicationContext(), Constants.loginType));
-            params.put("student_id",  Utility.getSharedPreferences(getActivity().getApplicationContext(), "studentId"));
+            params.put("student_id",  Utility.getSharedPreferences(getActivity().getApplicationContext(), Constants.studentId));
             params.put("classId", Utility.getSharedPreferences(getActivity().getApplicationContext(), "classId"));
             params.put("sectionId", Utility.getSharedPreferences(getActivity().getApplicationContext(), "sectionId"));
             params.put("session_id", Utility.getSharedPreferences(getActivity().getApplicationContext(), Constants.sessionId));
@@ -149,6 +149,7 @@ public class StudentDownloadAssignmentFragment extends Fragment {
                 headers.put("Authorization", Utility.getSharedPreferences(getActivity().getApplicationContext(), "accessToken"));
                 Log.e("Headers", headers.toString());
                 return headers;
+
             }
 
             @Override

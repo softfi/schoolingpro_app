@@ -317,6 +317,7 @@ public class StudentAttendance extends BaseActivity implements CustomCalendar.Ro
 
                     pd.dismiss();
                     try {
+                        Log.d("TAG", "getAttendentApi: "+result);
                         Log.e("Result", result);
                         JSONObject object = new JSONObject(result);
 

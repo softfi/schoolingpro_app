@@ -171,6 +171,7 @@ public class Login extends Activity {
         tv_forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
                 startActivity(intent);
             }
@@ -643,8 +644,6 @@ public class Login extends Activity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(Login.this);//Creating a Request Queue
         requestQueue.add(stringRequest); //Adding request to the queue
-
-
     }
 
     private void showChildList() {
@@ -784,7 +783,7 @@ public class Login extends Activity {
                 }
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(Login.this);//Creating a Request Queue
+        RequestQueue requestQueue = Volley.newRequestQueue(Login.this);  //Creating a Request Queue
         requestQueue.add(stringRequest);//Adding request to the queue
         // queue.add(request);
     }

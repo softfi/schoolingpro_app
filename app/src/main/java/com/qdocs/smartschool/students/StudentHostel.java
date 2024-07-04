@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -48,6 +49,7 @@ public class StudentHostel extends BaseActivity {
     public Map<String, String>  headers = new HashMap<String, String>();
     public Map<String, String> params = new Hashtable<String, String>();
    CardView card_view_outer;
+    LinearLayout nodata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class StudentHostel extends BaseActivity {
         mDrawerLayout.addView(contentView, 0);
 
         titleTV.setText(getApplicationContext().getString(R.string.hostel));
-
+        nodata = (LinearLayout) findViewById(R.id.nodata);
         hostelListView = (RecyclerView) findViewById(R.id.studentHostel_listview);
         card_view_outer = findViewById(R.id.card_view_outer);
         card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
@@ -67,9 +69,8 @@ public class StudentHostel extends BaseActivity {
         hostelListView.setItemAnimator(new DefaultItemAnimator());
         hostelListView.setAdapter(adapter);
 
-
         if(Utility.isConnectingToInternet(getApplicationContext())){
-            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), "studentId"));
+            params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
             JSONObject obj=new JSONObject(params);
             Log.e("params ", obj.toString());
@@ -86,7 +87,8 @@ public class StudentHostel extends BaseActivity {
         pd.show();
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getHostelListUrl;
-        Log.e("URL", url); //
+
+        Log.d("TAG", "getDataFromApi: "+requestBody +url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -106,6 +108,7 @@ public class StudentHostel extends BaseActivity {
                         no_of_bedList.clear();
                         cost_per_bedList.clear();
                         assignList.clear();
+
                         if(dataArray.length() != 0) {
                             for (int i = 0; i < dataArray.length(); i++) {
                                 hostelIdList.add(dataArray.getJSONObject(i).getString("id"));
@@ -118,6 +121,7 @@ public class StudentHostel extends BaseActivity {
                             }
                             adapter.notifyDataSetChanged();
                         }
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

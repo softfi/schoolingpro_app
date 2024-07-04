@@ -135,7 +135,7 @@ public class CbseExaminationActivity extends BaseActivity {
                                 JSONArray exam_assessmentsArray = dataArray.getJSONObject(i).getJSONArray("exam_assessments");
                                 ArrayList<AssismentTypeModel> assismenttypeList = new ArrayList<>();
                                 for(int k = 0; k<exam_assessmentsArray.length(); k++) {
-                                    AssismentTypeModel assismentTypeModel=new AssismentTypeModel();
+                                    AssismentTypeModel assismentTypeModel = new AssismentTypeModel();
                                     assismentTypeModel.setName(exam_assessmentsArray.getJSONObject(k).getString("name"));
                                     assismentTypeModel.setCode(exam_assessmentsArray.getJSONObject(k).getString("code"));
                                     assismentTypeModel.setMaximum_marks(exam_assessmentsArray.getJSONObject(k).getString("maximum_marks"));
@@ -176,6 +176,7 @@ public class CbseExaminationActivity extends BaseActivity {
 
                                         //  examAssismentModel.setMarks(object1.getString("marks"));
                                         //total_payment.setText("Total: " +currency+  String.format("%.2f", sum));
+
                                         assissmentList.add(examAssismentModel);
                                     }
 

@@ -1,5 +1,6 @@
 package com.qdocs.smartschool.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,7 +28,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.textfield.TextInputEditText;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.students.StudentTeachersList;
 import com.qdocs.smartschool.utils.Constants;
@@ -43,11 +43,11 @@ import java.util.Map;
 import static android.widget.Toast.makeText;
 
 public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeacherNewAdapter.MyViewHolder> {
-    private StudentTeachersList context;
+    private final StudentTeachersList context;
     StudentTeacherDetailsAdapter adapter;
-    private ArrayList<String> teacherContactList;
-    private ArrayList<String> teacherNameList;
-    private ArrayList<String> staff_idList;
+    private final ArrayList<String> teacherContactList;
+    private final ArrayList<String> teacherNameList;
+    private final ArrayList<String> staff_idList;
     ArrayList<String> idList = new ArrayList<String>();
     ArrayList<String> dayList = new ArrayList<String>();
     ArrayList<String> time_List = new ArrayList<String>();
@@ -55,8 +55,8 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
     ArrayList<String> room_noList = new ArrayList<String>();
     ArrayList<String> teacheremailList = new ArrayList<String>();
     ArrayList<String> commentList = new ArrayList<String>();
-    private ArrayList<String> class_teacher_idList;
-    private ArrayList<String> ratingList;
+    private final ArrayList<String> class_teacher_idList;
+    private final ArrayList<String> ratingList;
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String>  headers = new HashMap<String, String>();
 
@@ -73,17 +73,19 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView name, contact,mail;
-        LinearLayout viewdetail,rating_layout,add_rating,heading_layout,email_layout,contact_layout;
-        TextView classteacher,comments;
+        private final TextView name;
+        private final TextView contact;
+        private final TextView mail;
+        LinearLayout viewDetail,rating_layout,add_rating,heading_layout,email_layout,contact_layout;
+        TextView classTeacher,comments;
         RatingBar rating;
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.studentTeacherAdapter_nameTV);
             contact = (TextView) view.findViewById(R.id.studentTeacherAdapter_contactTV);
-            viewdetail = (LinearLayout) view.findViewById(R.id.viewdetail);
+            viewDetail = (LinearLayout) view.findViewById(R.id.viewdetail);
             rating_layout = (LinearLayout) view.findViewById(R.id.rating_layout);
-            classteacher = (TextView) view.findViewById(R.id.classteacher);
+            classTeacher = (TextView) view.findViewById(R.id.classteacher);
             mail = (TextView) view.findViewById(R.id.studentTeacherAdapter_mailTV);
             add_rating = (LinearLayout) view.findViewById(R.id.add_rating);
             heading_layout = (LinearLayout) view.findViewById(R.id.heading_layout);
@@ -108,8 +110,9 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
                 .inflate(R.layout.adapter_student_teacher_new, parent, false);
         return new MyViewHolder(itemView);
     }
+    @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder,  final int position) {
         holder.heading_layout.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(context.getApplicationContext(), Constants.secondaryColour)));
 
         holder.name.setText(teacherNameList.get(position));
@@ -117,9 +120,9 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
         holder.contact.setText(teacherContactList.get(position));
         holder.mail.setText(teacheremailList.get(position));
         if(Integer.valueOf(class_teacher_idList.get(position))>0){
-            holder.classteacher.setVisibility(View.VISIBLE);
+            holder.classTeacher.setVisibility(View.VISIBLE);
         }else{
-            holder.classteacher.setVisibility(View.GONE);
+            holder.classTeacher.setVisibility(View.GONE);
         }
 
         if(Utility.getSharedPreferences(context.getApplicationContext(), Constants.loginType).equals("student")){
@@ -147,7 +150,7 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
             holder.email_layout.setVisibility(View.VISIBLE);
         }
 
-        holder.viewdetail.setOnClickListener(new View.OnClickListener() {
+        holder.viewDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showAddDialog(staff_idList.get(position));
@@ -183,6 +186,7 @@ public class StudentTeacherNewAdapter extends RecyclerView.Adapter<StudentTeache
         if(Utility.isConnectingToInternet(context.getApplicationContext())){
             params.put("class_id", Utility.getSharedPreferences(context.getApplicationContext(), Constants.classId));
             params.put("section_id", Utility.getSharedPreferences(context.getApplicationContext(), Constants.sectionId));
+            params.put("session_id", Utility.getSharedPreferences(context.getApplicationContext(), Constants.sessionId));
             params.put("staff_id", staff_id);
             JSONObject obj = new JSONObject(params);
             Log.e("params_teacher_subject ", obj.toString());

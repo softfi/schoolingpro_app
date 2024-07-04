@@ -82,19 +82,19 @@ public class StudentDailyAssignment extends BaseActivity {
         documentListView.setLayoutManager(mLayoutManager);
         documentListView.setItemAnimator(new DefaultItemAnimator());
         documentListView.setAdapter(adapter);
-        loaddata();
+        loadData();
 
         pullToRefresh = findViewById(R.id.pullToRefresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(true);
-                loaddata();
+                loadData();
             }
         });
     }
 
-    public  void  loaddata(){
+    public  void loadData(){
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
@@ -109,7 +109,7 @@ public class StudentDailyAssignment extends BaseActivity {
     @Override
     public void onRestart() {
         super.onRestart();
-        loaddata();
+        loadData();
     }
 
     private void getDataFromApi (String bodyParams) {
@@ -212,6 +212,4 @@ public class StudentDailyAssignment extends BaseActivity {
         //Adding request to the queue
         requestQueue.add(stringRequest);
     }
-
-
 }

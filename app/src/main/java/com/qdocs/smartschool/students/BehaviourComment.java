@@ -64,7 +64,7 @@ public class BehaviourComment extends BaseActivity {
         id = bundle.getString("id");
         permission = bundle.getString("permission");
 
-        loaddata(id);
+        loadData(id);
         commentET=findViewById(R.id.commentET);
         savecomment=findViewById(R.id.saveComment);
         comment_layout=findViewById(R.id.comment_layout);
@@ -107,8 +107,7 @@ public class BehaviourComment extends BaseActivity {
         });
 
     }
-
-    public  void  loaddata(String id) {
+    public  void loadData(String id) {
         if (Utility.isConnectingToInternet(getApplicationContext())) {
             params.put("student_incident_id", id);
             JSONObject object = new JSONObject(params);

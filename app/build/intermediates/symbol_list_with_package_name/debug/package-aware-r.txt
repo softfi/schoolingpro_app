@@ -86,6 +86,9 @@ animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 attr SharedValue
 attr SharedValueId
+attr SpinKitViewStyle
+attr SpinKit_Color
+attr SpinKit_Style
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -842,6 +845,7 @@ attr listPreferredItemPaddingEnd
 attr listPreferredItemPaddingLeft
 attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
+attr loaderStyle
 attr logo
 attr logoAdjustViewBounds
 attr logoDescription
@@ -1090,6 +1094,7 @@ attr shortcutMatchRequired
 attr shouldRemoveExpandedCorners
 attr showAnimationBehavior
 attr showAsAction
+attr showBack
 attr showDelay
 attr showDividers
 attr showMotionSpec
@@ -2194,6 +2199,7 @@ color themeCyan
 color themeGreen
 color tooltip_background_dark
 color tooltip_background_light
+color transSurface
 color transparent
 color white
 color wrong
@@ -3440,14 +3446,26 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id Caste_layout
+id ChasingDots
 id CheckBox
+id Circle
+id CubeGrid
+id DoubleBounce
 id Exam
 id FUNCTION
+id FadingCircle
+id FoldingCube
 id Lesson_listView
 id META
+id MultiplePulse
+id MultiplePulseRing
 id NO_DEBUG
 id Percentage
+id Pulse
+id PulseRing
 id Roomno
+id RotatingCircle
+id RotatingPlane
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -3455,7 +3473,10 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id ThreeBounce
 id Time
+id WanderingCubes
+id Wave
 id about_addressTV
 id about_currentSessionTV
 id about_emailTV
@@ -4222,6 +4243,7 @@ id listMode
 id list_item
 id liveclass_webview
 id ll_checkBox
+id loader_root
 id localIdNo
 id localIdNo_layout
 id location
@@ -4606,6 +4628,7 @@ id sno
 id south
 id spacer
 id special_effects_controller_view_tag
+id spinner
 id splash_logo
 id spline
 id split_action_bar
@@ -5099,6 +5122,7 @@ layout activity_cbsetimetable
 layout activity_create_task
 layout activity_file_save
 layout activity_listview
+layout activity_loader_view
 layout activity_new_dashboard
 layout activity_notification_list
 layout activity_offlinepayment
@@ -5774,6 +5798,7 @@ string messagefield
 string min
 string minutes
 string mobileNo
+string mode
 string monday
 string mother
 string motherName
@@ -6512,6 +6537,54 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
+style SpinKitView
+style SpinKitView_ChasingDots
+style SpinKitView_Circle
+style SpinKitView_CubeGrid
+style SpinKitView_DoubleBounce
+style SpinKitView_FadingCircle
+style SpinKitView_FoldingCube
+style SpinKitView_Large
+style SpinKitView_Large_ChasingDots
+style SpinKitView_Large_Circle
+style SpinKitView_Large_CubeGrid
+style SpinKitView_Large_DoubleBounce
+style SpinKitView_Large_FadingCircle
+style SpinKitView_Large_FoldingCube
+style SpinKitView_Large_MultiplePulse
+style SpinKitView_Large_MultiplePulseRing
+style SpinKitView_Large_Pulse
+style SpinKitView_Large_PulseRing
+style SpinKitView_Large_RotatingCircle
+style SpinKitView_Large_RotatingPlane
+style SpinKitView_Large_ThreeBounce
+style SpinKitView_Large_WanderingCubes
+style SpinKitView_Large_Wave
+style SpinKitView_MultiplePulse
+style SpinKitView_MultiplePulseRing
+style SpinKitView_Pulse
+style SpinKitView_PulseRing
+style SpinKitView_RotatingCircle
+style SpinKitView_RotatingPlane
+style SpinKitView_Small
+style SpinKitView_Small_ChasingDots
+style SpinKitView_Small_Circle
+style SpinKitView_Small_CubeGrid
+style SpinKitView_Small_DoubleBounce
+style SpinKitView_Small_FadingCircle
+style SpinKitView_Small_FoldingCube
+style SpinKitView_Small_MultiplePulse
+style SpinKitView_Small_MultiplePulseRing
+style SpinKitView_Small_Pulse
+style SpinKitView_Small_PulseRing
+style SpinKitView_Small_RotatingCircle
+style SpinKitView_Small_RotatingPlane
+style SpinKitView_Small_ThreeBounce
+style SpinKitView_Small_WanderingCubes
+style SpinKitView_Small_Wave
+style SpinKitView_ThreeBounce
+style SpinKitView_WanderingCubes
+style SpinKitView_Wave
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2
@@ -7230,6 +7303,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style appLoader
 style customRatingBar
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
@@ -7311,6 +7385,7 @@ styleable LinearLayoutCompat android_gravity android_orientation android_baselin
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
+styleable LoaderView loaderStyle showBack
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop backgroundTint
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogButtonSpacerVisibility materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
@@ -7366,6 +7441,7 @@ styleable SignInButton buttonSize colorScheme scopeUris
 styleable Slider android_enabled android_value android_stepSize android_valueFrom android_valueTo haloColor haloRadius labelBehavior labelStyle minTouchTargetSize thumbColor thumbElevation thumbRadius thumbStrokeColor thumbStrokeWidth tickColor tickColorActive tickColorInactive tickRadiusActive tickRadiusInactive tickVisible trackColor trackColorActive trackColorInactive trackHeight
 styleable Snackbar snackbarButtonStyle snackbarStyle snackbarTextViewStyle
 styleable SnackbarLayout android_maxWidth actionTextColorAlpha animationMode backgroundOverlayColorAlpha backgroundTint backgroundTintMode elevation maxActionInlineWidth shapeAppearance shapeAppearanceOverlay
+styleable SpinKitView SpinKit_Color SpinKit_Style
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme
 styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration

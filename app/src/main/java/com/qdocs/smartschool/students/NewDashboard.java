@@ -49,6 +49,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.qdocs.smartschool.AboutSchool;
+import com.qdocs.smartschool.LoaderView;
 import com.qdocs.smartschool.Login;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.SettingActivity;
@@ -128,7 +129,9 @@ public class NewDashboard extends AppCompatActivity {
     TextView textview1, textview2, textview3, textview4;
     Handler handler = new Handler();
     Runnable runnable;
+
     int delay = 5000;
+    LoaderView loaderView;
     CardView elearning_card, academic_card, communicate_card, other_card;
 
     @Override
@@ -148,6 +151,7 @@ public class NewDashboard extends AppCompatActivity {
         profileLinear = findViewById(R.id.profilelinear);
         collapsing_toolbar = findViewById(R.id.collapsing_toolbar);
         name = findViewById(R.id.name);
+
       //  schoolName = findViewById(R.id.schoolName);
         admissionno = findViewById(R.id.admissionno);
         textview1 = findViewById(R.id.textview1);
@@ -355,7 +359,7 @@ public class NewDashboard extends AppCompatActivity {
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
-
+       // loaderView.setVisibility(View.VISIBLE);
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getELearningUrl;
@@ -365,6 +369,7 @@ public class NewDashboard extends AppCompatActivity {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
+                   // loaderView.setVisibility(View.GONE);
                     pd.dismiss();
                     try {
                         Log.d("TAG", "onResponslearning: " + result);
@@ -409,12 +414,14 @@ public class NewDashboard extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } else {
+                    //loaderView.setVisibility(View.GONE);
                     pd.dismiss();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
+                loaderView.setVisibility(View.GONE);
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
                 Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
@@ -457,6 +464,8 @@ public class NewDashboard extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
+       // loaderView.setVisibility(View.GONE);
+
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getAcademicsUrl;
@@ -466,6 +475,7 @@ public class NewDashboard extends AppCompatActivity {
             @Override
             public void onResponse(String result) {
                 if (result != null) {
+                   // loaderView.setVisibility(View.GONE);
                     pd.dismiss();
                     try {
                         Log.d("TAG", "onResponsacedmi: " + result);
@@ -507,6 +517,7 @@ public class NewDashboard extends AppCompatActivity {
                     }
                 } else {
                     pd.dismiss();
+                    loaderView.setVisibility(View.GONE);
                 }
             }
         }, new Response.ErrorListener() {
@@ -553,7 +564,7 @@ public class NewDashboard extends AppCompatActivity {
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
-
+      //  loaderView.setVisibility(View.VISIBLE);
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getCommunicateUrl;
@@ -969,6 +980,7 @@ public class NewDashboard extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
+      //  loaderView.setVisibility(View.VISIBLE);
         final String requestBody = bodyParams;
 
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.parent_getStudentList;
@@ -1150,7 +1162,7 @@ public class NewDashboard extends AppCompatActivity {
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
-
+      //  loaderView.setVisibility(View.VISIBLE);
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(NewDashboard.this, "apiUrl") + Constants.logoutUrl;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

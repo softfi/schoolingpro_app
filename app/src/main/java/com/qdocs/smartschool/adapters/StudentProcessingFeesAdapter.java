@@ -178,9 +178,7 @@ public class StudentProcessingFeesAdapter extends RecyclerView.Adapter<StudentPr
             Log.e("Error Parseing Data", je.toString());
         }
 
-
         viewHolder.feesStatusTV.setText(statusList.get(position));
-
 
         if(Utility.getSharedPreferencesBoolean(context, Constants.showPaymentBtn))  {
             Log.e("testing", "testing 1");

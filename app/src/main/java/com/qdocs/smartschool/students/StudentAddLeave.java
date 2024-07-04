@@ -791,9 +791,8 @@ public class StudentAddLeave extends AppCompatActivity {
                 });
             }
         }
-
-
     }
+
   /*  private void uploadBitmap() throws IOException{
         url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + ;
         OkHttpClient client=new OkHttpClient();

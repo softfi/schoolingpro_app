@@ -68,10 +68,27 @@
         android:id="@+id/studentHostel_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-
     </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/nodata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/no_data"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/noData"/>
+
+        </LinearLayout>
     </LinearLayout>
     </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>

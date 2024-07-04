@@ -1,10 +1,12 @@
 package com.qdocs.smartschool.students;
 
 import static android.widget.Toast.makeText;
+
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
@@ -19,6 +21,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +35,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
@@ -43,8 +47,10 @@ import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,6 +60,8 @@ import java.io.OutputStream;
 import java.net.URLConnection;
 import java.util.Calendar;
 import java.util.Map;
+import java.util.Objects;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -64,10 +72,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class StudentOfflinePayment extends BaseActivity implements DatePickerDialog.OnDateSetListener  {
-    EditText dateofPayment,paymentMode,paymentFrom,reference,amount;
+public class StudentOfflinePayment extends BaseActivity implements DatePickerDialog.OnDateSetListener {
+    EditText dateofPayment, paymentMode, paymentFrom, reference, amount;
     CardView card_view_outer;
-    String defaultDateFormat,startweek,feesTypeId,feesId,feesSessionId,paymenttype,transfeesIdList;
+    String defaultDateFormat, startweek, feesTypeId, feesId, feesSessionId, paymenttype, transfeesIdList;
     String paymentdate = "";
     Context mContext = this;
     private static final String TAG = "StudentOfflinePayment";
@@ -83,15 +91,15 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
     ImageView imageView;
     TextView textView;
     ProgressDialog progress;
-    String extension="",name="";
+    String extension = "", name = "";
     EditText amountTextInputLayout;
     String[] mimeTypes =
-            {"application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .doc & .docx
-                    "application/vnd.ms-powerpoint","application/vnd.openxmlformats-officedocument.presentationml.presentation", // .ppt & .pptx
-                    "application/vnd.ms-excel","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // .xls & .xlsx
+            {"application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .doc & .docx
+                    "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.presentationml.presentation", // .ppt & .pptx
+                    "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // .xls & .xlsx
                     "text/plain",
                     "application/pdf",
-                    "application/zip","image/*"};
+                    "application/zip", "image/*"};
     Bitmap bitmap;
     Button buttonUploadImage;
     public TextView buttonSelectImage;
@@ -100,6 +108,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
     String url;
     private static final int REQUEST_PERMISSIONS = 100;
     private static final int PICK_IMAGE_REQUEST = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,11 +122,11 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         feesSessionId = getIntent().getStringExtra("feesSessionId");
         paymenttype = getIntent().getStringExtra("paymenttype");
         transfeesIdList = getIntent().getStringExtra("transfeesIdList");
-       // amountTextInputLayout = findViewById(R.id.amountTextInputLayout);
-      //  amountTextInputLayout.setHint(getApplicationContext().getString(R.string.amount)+" ("+Utility.getSharedPreferences(getApplicationContext(), Constants.currency)+")");
+        // amountTextInputLayout = findViewById(R.id.amountTextInputLayout);
+        //  amountTextInputLayout.setHint(getApplicationContext().getString(R.string.amount)+" ("+Utility.getSharedPreferences(getApplicationContext(), Constants.currency)+")");
         card_view_outer = findViewById(R.id.card_view_outer);
         card_view_outer.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
-        buttonUploadImage =  findViewById(R.id.buttonUploadImage);
+        buttonUploadImage = findViewById(R.id.buttonUploadImage);
         buttonSelectImage = findViewById(R.id.buttonSelectImage);
         instruction = findViewById(R.id.instruction);
         instruction.getSettings().setJavaScriptEnabled(true);
@@ -127,13 +136,13 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         instruction.getSettings().setDefaultFontSize(40);
         instruction.getSettings().setTextZoom(100);
         submit = findViewById(R.id.addLeave_dialog_submitBtn);
-        dateofPayment=findViewById(R.id.dateofPayment);
-        paymentMode=findViewById(R.id.paymentMode);
-        paymentFrom=findViewById(R.id.paymentFrom);
-        reference=findViewById(R.id.reference);
-        amount=findViewById(R.id.amount);
-        imageView =  findViewById(R.id.imageView);
-        textView =  findViewById(R.id.textview);
+        dateofPayment = findViewById(R.id.dateofPayment);
+        paymentMode = findViewById(R.id.paymentMode);
+        paymentFrom = findViewById(R.id.paymentFrom);
+        reference = findViewById(R.id.reference);
+        amount = findViewById(R.id.amount);
+        imageView = findViewById(R.id.imageView);
+        textView = findViewById(R.id.textview);
         defaultDateFormat = Utility.getSharedPreferences(getApplicationContext(), "dateFormat");
         startweek = Utility.getSharedPreferences(getApplicationContext(), "startWeek");
         final Calendar c = Calendar.getInstance();
@@ -141,25 +150,25 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         int starthMonth = c.get(Calendar.MONTH);
         int startDay = c.get(Calendar.DAY_OF_MONTH);
 
-        if(Utility.isConnectingToInternet(StudentOfflinePayment.this)){
+        if (Utility.isConnectingToInternet(StudentOfflinePayment.this)) {
             StudentOfflineInstruction();
-        }else{
+        } else {
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
         final DatePickerDialog datePickerDialog = new DatePickerDialog(StudentOfflinePayment.this, StudentOfflinePayment.this, startYear, starthMonth, startDay);
-        if(startweek.equals("Monday")){
+        if (startweek.equals("Monday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.MONDAY);
-        }else if(startweek.equals("Tuesday")){
+        } else if (startweek.equals("Tuesday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.TUESDAY);
-        }else if(startweek.equals("Wednesday")){
+        } else if (startweek.equals("Wednesday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.WEDNESDAY);
-        }else if(startweek.equals("Thursday")){
+        } else if (startweek.equals("Thursday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.THURSDAY);
-        }else if(startweek.equals("Friday")){
+        } else if (startweek.equals("Friday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.FRIDAY);
-        }else if(startweek.equals("Saturday")){
+        } else if (startweek.equals("Saturday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.SATURDAY);
-        }else if(startweek.equals("Sunday")){
+        } else if (startweek.equals("Sunday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.SUNDAY);
         }
         dateofPayment.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +182,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
             @Override
             public void onClick(View view) {
 
-                if(Build.VERSION.SDK_INT <= 12) {
+                if (Build.VERSION.SDK_INT <= 12) {
                     if ((ContextCompat.checkSelfPermission(getApplicationContext(),
                             Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(getApplicationContext(),
                             Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
@@ -190,7 +199,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
                         Log.e("Else", "Else");
                         showFileChooser();
                     }
-                }else{
+                } else {
                     Log.e("Else", "Else");
                     ActivityCompat.requestPermissions(StudentOfflinePayment.this, permissions(), 1);
                     showFileChooser();
@@ -204,19 +213,19 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
                 try {
                    /* makeText(mContext, Utility.changeAmounttousd(amount.getText().toString(), Utility.getSharedPreferences(getApplicationContext(), Constants.currency),
                             Utility.getSharedPreferences(getApplicationContext(), Constants.currency_price)), Toast.LENGTH_SHORT).show();*/
-                    if(!istoDateSelected) {
+                    if (!istoDateSelected) {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.paymentdateError), Toast.LENGTH_LONG).show();
-                    }else if(paymentMode.getText().toString().equals("")) {
+                    } else if (paymentMode.getText().toString().equals("")) {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.paymentmodeError), Toast.LENGTH_LONG).show();
-                    }else if(paymentFrom.getText().toString().equals("")) {
+                    } else if (paymentFrom.getText().toString().equals("")) {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.paymentfromError), Toast.LENGTH_LONG).show();
-                    }else if(amount.getText().toString().equals("")) {
+                    } else if (amount.getText().toString().equals("")) {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.paymentamountError), Toast.LENGTH_LONG).show();
-                    }else {
-                        if(Utility.isConnectingToInternet(getApplicationContext())){
+                    } else {
+                        if (Utility.isConnectingToInternet(getApplicationContext())) {
                             uploadBitmap();
-                        }else{
-                            makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
+                        } else {
+                            makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                         }
                     }
                 } catch (IOException e) {
@@ -225,6 +234,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
             }
         });
     }
+
     private void showFileChooser() {
         final Dialog dialog = new Dialog(StudentOfflinePayment.this);
         dialog.setContentView(R.layout.choose_file);
@@ -267,6 +277,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
+
     private void opengallery() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -283,7 +294,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
                 for (String mimeType : mimeTypes) {
                     mimeTypesStr += mimeType + "|";
                 }
-                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+                intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
             }
             isKitKat = true;
             startActivityForResult(Intent.createChooser(intent, "Select file"), PICK_IMAGE_REQUEST);
@@ -302,11 +313,12 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
                 for (String mimeType : mimeTypes) {
                     mimeTypesStr += mimeType + "|";
                 }
-                intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+                intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
             }
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
         }
     }
+
     @TargetApi(19)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -361,19 +373,18 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
             file_body = RequestBody.create(MediaType.parse(mimeType), f);
             System.out.println("file_bodypathasd" + file_body);
             System.out.println("bitmap image==" + selectedImageString);
-        } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        } else if (requestCode == CAMERA_REQUEST) {
+            Bitmap bitmap = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
             if (bitmap != null) {
                 progress = new ProgressDialog(StudentOfflinePayment.this);
                 progress.setTitle("uploading");
                 progress.setMessage("Please Wait....");
                 progress.show();
                 imageView.setVisibility(View.VISIBLE);
-                textView.setText(getApplicationContext().getString(R.string.fileselected));
                 imageView.setImageBitmap(bitmap);
-                Uri tempUri = getImageUri(getApplicationContext(), bitmap);
-                filePath = getRealPathFromURI(tempUri);
-                System.out.println("pathasd" + filePath);
+                // Uri imageuri = getImageUri(getApplicationContext(), bitmap);
+                filePath = saveBitmap(bitmap);
+                Log.d(TAG, "onActivityResulvfbt: " + filePath);
                 File f = new File(filePath);
                 String mimeType = URLConnection.guessContentTypeFromName(f.getName());
                 file_body = RequestBody.create(MediaType.parse(mimeType), f);
@@ -383,6 +394,27 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         }
     }
 
+    public static String saveBitmap(Bitmap bitmap) {
+        String filePath = null;
+        File file = null;
+        try {
+            File directory = new File(Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_PICTURES), "MyApp");
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+            file = new File(directory, "image_" + System.currentTimeMillis() + ".jpg");
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+
+            filePath = file.getAbsolutePath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -402,7 +434,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
 
         OutputStream out;
         File file = new File(getFilename(context));
-        System.out.println("filenamepath==="+file);
+        System.out.println("filenamepath===" + file);
 
         try {
             if (file.createNewFile()) {
@@ -419,6 +451,7 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
 
         return file.getAbsolutePath();
     }
+
     private byte[] getBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
         int bufferSize = 1024;
@@ -430,14 +463,15 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         }
         return byteBuffer.toByteArray();
     }
+
     private String getFilename(Context context) {
         File mediaStorageDir = new File(context.getExternalFilesDir(""), "Soers_Images");
         if (!mediaStorageDir.exists()) {
             mediaStorageDir.mkdirs();
         }
-        String mImageName=name+"."+extension;
-        System.out.println("mImageName=="+mImageName);
-        System.out.println("Image=="+mediaStorageDir.getAbsolutePath() + "/" + mImageName);
+        String mImageName = name + "." + extension;
+        System.out.println("mImageName==" + mImageName);
+        System.out.println("Image==" + mediaStorageDir.getAbsolutePath() + "/" + mImageName);
         return mediaStorageDir.getAbsolutePath() + "/" + mImageName;
     }
 
@@ -462,64 +496,66 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         }
         return p;
     }
+
     private void uploadBitmap() throws IOException {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
         pd.show();
         url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.addofflinepaymentUrl;
-        OkHttpClient client=new OkHttpClient();
+        OkHttpClient client = new OkHttpClient();
         Log.i("url=", url);
 
-        if(filePath==null || file_body==null){
+        if (filePath == null || file_body == null) {
 
-            RequestBody requestBody=new MultipartBody.Builder()
+            RequestBody requestBody = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("file","")
-                    .addFormDataPart("student_session_id",feesSessionId)
-                    .addFormDataPart("fee_groups_feetype_id",feesTypeId)
-                    .addFormDataPart("student_fees_master_id",feesId)
+                    .addFormDataPart("file", "")
+                    .addFormDataPart("student_session_id", feesSessionId)
+                    .addFormDataPart("fee_groups_feetype_id", feesTypeId)
+                    .addFormDataPart("student_fees_master_id", feesId)
                     .addFormDataPart("payment_date", paymentdate)
-                    .addFormDataPart("amount",  Utility.changeAmountToUSD(amount.getText().toString(), Utility.getSharedPreferences(getApplicationContext(), Constants.currency),
-                                    Utility.getSharedPreferences(getApplicationContext(), Constants.currency_price)))
+                    .addFormDataPart("amount", Utility.changeAmountToUSD(amount.getText().toString(), Utility.getSharedPreferences(getApplicationContext(), Constants.currency),
+                            Utility.getSharedPreferences(getApplicationContext(), Constants.currency_price)))
                     .addFormDataPart("reference", reference.getText().toString())
-                    .addFormDataPart("bank_account_transferred",paymentFrom.getText().toString())
+                    .addFormDataPart("bank_account_transferred", paymentFrom.getText().toString())
                     .addFormDataPart("payment_type", paymenttype)
                     .addFormDataPart("student_transport_fee_id", transfeesIdList)
                     .build();
 
-            Request request=new Request.Builder()
+            Request request = new Request.Builder()
                     .url(url)
                     .header("Client-Service", Constants.clientService)
                     .header("Auth-Key", Constants.authKey)
-                    .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), "userId"))
-                    .header("Authorization",Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
+                    .header("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"))
+                    .header("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
                     .post(requestBody)
                     .build();
 
             client.newCall(request).enqueue(new Callback() {
                 @Override
-                public void onFailure(Call call, IOException e) { }
+                public void onFailure(Call call, IOException e) {
+                }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     ResponseBody body = response.body();
                     pd.dismiss();
-                    if(body != null) {
+                    if (body != null) {
                         try {
                             String jsonData = response.body().string();
                             try {
                                 final JSONObject Jobject = new JSONObject(jsonData);
                                 String Jarray = Jobject.getString("status");
-                                if(Jarray.equals("1")){
-                                    runOnUiThread(new Runnable(){
+                                if (Jarray.equals("1")) {
+                                    runOnUiThread(new Runnable() {
                                         public void run() {
                                             Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
                                             finish();
                                         }
                                     });
-                                }else{
-                                    runOnUiThread(new Runnable(){
+                                } else {
+                                    runOnUiThread(new Runnable() {
                                         public void run() {
                                             try {
                                                 JSONObject error = Jobject.getJSONObject("error");
@@ -541,59 +577,59 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
 
             });
 
-        }else{
-            String file_name=filePath.substring(filePath.lastIndexOf("/")+1);
-            System.out.println("file_name== "+file_name);
+        } else {
+            String file_name = filePath.substring(filePath.lastIndexOf("/") + 1);
+            System.out.println("file_name== " + file_name);
 
-            RequestBody requestBody=new MultipartBody.Builder()
+            RequestBody requestBody = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("file",file_name,file_body)
-                    .addFormDataPart("student_session_id",feesSessionId)
-                    .addFormDataPart("fee_groups_feetype_id",feesTypeId)
-                    .addFormDataPart("student_fees_master_id",feesId)
+                    .addFormDataPart("file", file_name, file_body)
+                    .addFormDataPart("student_session_id", feesSessionId)
+                    .addFormDataPart("fee_groups_feetype_id", feesTypeId)
+                    .addFormDataPart("student_fees_master_id", feesId)
                     .addFormDataPart("payment_date", paymentdate)
-                    .addFormDataPart("amount", Utility.changeAmountToUSD(amount.getText().toString(), Utility.getSharedPreferences(getApplicationContext(), Constants.currency),
-                            Utility.getSharedPreferences(getApplicationContext(), Constants.currency_price)))
+                    .addFormDataPart("amount", Utility.changeAmountToUSD(amount.getText().toString(), Utility.getSharedPreferences(getApplicationContext(), Constants.currency), Utility.getSharedPreferences(getApplicationContext(), Constants.currency_price)))
                     .addFormDataPart("reference", reference.getText().toString())
-                    .addFormDataPart("bank_account_transferred",paymentFrom.getText().toString())
+                    .addFormDataPart("bank_account_transferred", paymentFrom.getText().toString())
                     .addFormDataPart("payment_type", paymenttype)
                     .addFormDataPart("student_transport_fee_id", transfeesIdList)
                     .build();
 
-            Request request=new Request.Builder()
+            Request request = new Request.Builder()
                     .url(url)
                     .header("Client-Service", Constants.clientService)
                     .header("Auth-Key", Constants.authKey)
-                    .header("User-ID",Utility.getSharedPreferences(getApplicationContext(), "userId"))
-                    .header("Authorization",Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
+                    .header("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"))
+                    .header("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"))
                     .post(requestBody)
                     .build();
 
             client.newCall(request).enqueue(new Callback() {
                 @Override
-                public void onFailure(Call call, IOException e) { }
+                public void onFailure(Call call, IOException e) {
+                }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     ResponseBody body = response.body();
                     pd.dismiss();
-                    if(body != null) {
+                    if (body != null) {
                         try {
                             String jsonData = response.body().string();
                             try {
                                 final JSONObject Jobject = new JSONObject(jsonData);
                                 String Jarray = Jobject.getString("status");
 
-                                if(Jarray.equals("1")){
-                                    runOnUiThread(new Runnable(){
+                                if (Jarray.equals("1")) {
+                                    runOnUiThread(new Runnable() {
                                         public void run() {
                                             Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
                                             finish();
                                         }
                                     });
 
-                                }else{
-                                    runOnUiThread(new Runnable(){
+                                } else {
+                                    runOnUiThread(new Runnable() {
                                         public void run() {
                                             try {
                                                 JSONObject error = Jobject.getJSONObject("error");
@@ -606,7 +642,8 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
                                     });
                                 }
                             } catch (JSONException e) {
-                                e.printStackTrace();}
+                                e.printStackTrace();
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -620,10 +657,10 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-        paymentdate = year+"-"+(++monthOfYear)+"-"+dayOfMonth;
+        paymentdate = year + "-" + (++monthOfYear) + "-" + dayOfMonth;
         //createTaskParams.put("date", date);
-        System.out.println("Date=="+Utility.parseDate("yyyy-MM-dd", defaultDateFormat,paymentdate));
-        dateofPayment.setText(Utility.parseDate("yyyy-MM-dd", defaultDateFormat,paymentdate));
+        System.out.println("Date==" + Utility.parseDate("yyyy-MM-dd", defaultDateFormat, paymentdate));
+        dateofPayment.setText(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, paymentdate));
         istoDateSelected = true;
     }
 
@@ -633,8 +670,8 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
         pd.setCancelable(false);
         pd.show();
 
-        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+ Constants.getOfflineBankPaymentInstructionUrl;
-        System.out.println("url=="+url);
+        String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl") + Constants.getOfflineBankPaymentInstructionUrl;
+        System.out.println("url==" + url);
         StringRequest stringRequest = new StringRequest(com.android.volley.Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
@@ -642,9 +679,9 @@ public class StudentOfflinePayment extends BaseActivity implements DatePickerDia
                 try {
                     JSONObject object = new JSONObject(result);
                     String offline_bank_payment_instruction = object.getString("offline_bank_payment_instruction");
-                    Utility.setSharedPreference(getApplicationContext(),"offline_bank_payment_instruction",offline_bank_payment_instruction);
-                    System.out.println("offline_bank_payment_instruction="+offline_bank_payment_instruction);
-                    instruction.loadDataWithBaseURL(null,offline_bank_payment_instruction,"text/html; charset=utf-8", "utf-8", null);
+                    Utility.setSharedPreference(getApplicationContext(), "offline_bank_payment_instruction", offline_bank_payment_instruction);
+                    System.out.println("offline_bank_payment_instruction=" + offline_bank_payment_instruction);
+                    instruction.loadDataWithBaseURL(null, offline_bank_payment_instruction, "text/html; charset=utf-8", "utf-8", null);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
