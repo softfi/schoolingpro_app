@@ -37,7 +37,7 @@ import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.adapters.StudentApplyLeaveAdapter;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -213,7 +213,7 @@ public class StudentAppyLeave extends BaseActivity {
                                 docslist.add(dataArray.getJSONObject(i).getString("docs"));
                                 sfromlist.add(dataArray.getJSONObject(i).getString("from_date"));
                                 stolist.add(dataArray.getJSONObject(i).getString("to_date"));
-                                sapplylist.add(dataArray.getJSONObject(i).getString("apply_date"));
+                                sapplylist.add(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, dataArray.getJSONObject(i).getString("apply_date")));
                             }
                             adapter.notifyDataSetChanged();
                         } else {

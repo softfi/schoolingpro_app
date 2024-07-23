@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.StudentCoursePerformance;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.webkit.DownloadListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 

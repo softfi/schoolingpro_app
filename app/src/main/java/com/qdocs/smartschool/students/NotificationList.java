@@ -9,7 +9,7 @@ import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.NotificationModel;
 import com.qdocs.smartschool.adapters.NotificationViewAdapter;
 import com.qdocs.smartschool.utils.DatabaseHelper;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 
 public class NotificationList extends BaseActivity  {

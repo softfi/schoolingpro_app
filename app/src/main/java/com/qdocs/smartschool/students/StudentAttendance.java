@@ -29,7 +29,7 @@ import com.qdocs.smartschool.adapters.StudentSubjectAttendenceAdapter;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.CustomCalendar;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -111,9 +111,8 @@ public class StudentAttendance extends BaseActivity implements CustomCalendar.Ro
                         newDate.set(selectedyear, selectedmonth, selectedday);
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                         attendate=sdf.format(newDate.getTime());
-                        SimpleDateFormat sdfdate = new SimpleDateFormat("dd-MM-yyyy");
-                        attendence_date.setText((Utility.parseDate("dd-MM-yyyy", defaultDateFormat,String.valueOf(sdfdate.format(newDate.getTime())))));
-
+                        SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy");
+                        attendence_date.setText((Utility.parseDate("dd-MM-yyyy", defaultDateFormat,String.valueOf(sdfDate.format(newDate.getTime())))));
                         isattenDateSelected=true;
 
                         if(Utility.isConnectingToInternet(getApplicationContext())){
@@ -128,7 +127,6 @@ public class StudentAttendance extends BaseActivity implements CustomCalendar.Ro
                         }else {
                             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 }, mYear, mMonth, mDay);
                 if(startweek.equals("Monday")){

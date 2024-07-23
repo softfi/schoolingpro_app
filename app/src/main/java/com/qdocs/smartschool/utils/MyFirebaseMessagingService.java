@@ -19,7 +19,7 @@ import com.qdocs.smartschool.students.StudentExaminationList;
 import com.qdocs.smartschool.students.StudentFees;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.StudentHomeworkNew;
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -5,13 +5,10 @@ import static android.widget.Toast.makeText;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,9 +21,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -40,37 +35,24 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
-import java.util.regex.Pattern;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -89,8 +71,8 @@ public class StudentAddLeave extends AppCompatActivity {
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String> headers = new HashMap<String, String>();
     protected FrameLayout mDrawerLayout, actionBar;
-    String applydate = "";
-    String fromdate = "";
+    String applyDate = "";
+    String fromDate = "";
     String filePath;
     ProgressDialog progress;
     String toDate = "";
@@ -99,9 +81,6 @@ public class StudentAddLeave extends AppCompatActivity {
     Bitmap bitmap;
     Button submit;
     private static final int CAMERA_REQUEST = 100;
-
-    private static final int IMAGEPICK_GALLERY_REQUEST = 300;
-    private static final int IMAGE_PICKCAMERA_REQUEST = 400;
     String url;
     private static final int PICK_IMAGE_REQUEST = 1;
     RequestBody file_body;
@@ -145,6 +124,7 @@ public class StudentAddLeave extends AppCompatActivity {
                 finish();
             }
         });
+
         titleTV.setText(getApplicationContext().getString(R.string.applyleave));
         apply_dateTV = findViewById(R.id.addLeave_dialog_apply_dateTV);
         fromDateTV = findViewById(R.id.addLeave_dialog_fromdateTV);
@@ -197,7 +177,7 @@ public class StudentAddLeave extends AppCompatActivity {
         }
         SimpleDateFormat timeFormat = new SimpleDateFormat(newFormat);
         assert myDate != null;
-        applydate = timeFormat.format(myDate);
+        applyDate = timeFormat.format(myDate);
 
         submit.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         submit.setOnClickListener(new View.OnClickListener() {
@@ -232,14 +212,14 @@ public class StudentAddLeave extends AppCompatActivity {
                 int mYear = mCurrentDate.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(StudentAddLeave.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                    public void onDateSet(DatePicker datepicker, int selectedYear, int selectedMonth, int selectedDay) {
                         //month = month + 1;
                         Calendar newDate = Calendar.getInstance();
-                        newDate.set(selectedyear, selectedmonth, selectedday);
+                        newDate.set(selectedYear, selectedMonth, selectedDay);
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        fromdate = sdf.format(newDate.getTime());
-                        SimpleDateFormat sdfdate = new SimpleDateFormat("dd-MM-yyyy");
-                        fromDateTV.setText(sdfdate.format(newDate.getTime()));
+                        fromDate = sdf.format(newDate.getTime());
+                        SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy");
+                        fromDateTV.setText(sdfDate.format(newDate.getTime()));
                         isFromDateSelected = true;
                     }
                 }, mYear, mMonth, mDay);
@@ -285,8 +265,8 @@ public class StudentAddLeave extends AppCompatActivity {
                         newDate.set(selectedyear, selectedmonth, selectedday);
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                         toDate = sdf.format(newDate.getTime());
-                        SimpleDateFormat sdfdate = new SimpleDateFormat("dd-MM-yyyy");
-                        toDateTV.setText(sdfdate.format(newDate.getTime()));
+                        SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy");
+                        toDateTV.setText(sdfDate.format(newDate.getTime()));
                         istoDateSelected = true;
                     }
                 }, mYear, mMonth, mDay);
@@ -316,17 +296,13 @@ public class StudentAddLeave extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-
     }
 
     private void decorate() {
         actionBar.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
-        }
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
     }
 
     private void showFileChooser() {
@@ -382,6 +358,7 @@ public class StudentAddLeave extends AppCompatActivity {
          camerIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageuri);
          startActivityForResult(camerIntent, CAMERA_REQUEST);
      }*/
+
     private void opengallery() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -402,6 +379,7 @@ public class StudentAddLeave extends AppCompatActivity {
             }
             isKitKat = true;
             startActivityForResult(Intent.createChooser(intent, "Select file"), PICK_IMAGE_REQUEST);
+
         } else {
             isKitKat = false;
             Intent intent = new Intent();
@@ -434,73 +412,212 @@ public class StudentAddLeave extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-  /*  public Uri getImageUri(Context inContext, Bitmap inImage) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-        return Uri.parse(path);
-    }*/
-
-    public static Uri getImageUri(Context context, Bitmap bitmap) {
-        // Save the bitmap to a file
-        File imageFile = saveBitmapToFile(context, bitmap);
-        if (imageFile != null) {
-            // Return the URI of the saved file
-            return Uri.fromFile(imageFile);
-        } else {
-            return null;
-        }
-    }
-    private static File saveBitmapToFile(Context context, Bitmap bitmap) {
-        // Create a directory for saving the image
-        File directory = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "MyAppImages");
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-
-        // Create the image file
-        File imageFile = new File(directory,  ".jpg");
-
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(imageFile);
-            // Compress the bitmap and write to the output stream
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            fos.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return imageFile;
-    }
-
-
-    public String getRealPathFromURI(Uri uri) {
-        String[] projection = { MediaStore.Images.Media.DATA };
-        ContentResolver contentResolver = getApplicationContext().getContentResolver();
-        Cursor cursor = contentResolver.query(uri, projection, null, null, null);
-        if (cursor != null) {
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            String filePath = cursor.getString(column_index);
-            cursor.close();
-            return filePath;
-        }
-        return null;
-    }
-
-
     @TargetApi(19)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == PICK_IMAGE_REQUEST) {
+                Uri selectedImageUri = data.getData();
+                try {
+                    textView.setText("File Selected");
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageBitmap(bitmap);
+                    filePath = saveBitmap(bitmap);
+                    Log.d(TAG, "onActivityResulvfbt: " + filePath);
+                    File f = new File(filePath);
+                    String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                    file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                    System.out.println("file_bodypathasd" + file_body);
+                    progress.dismiss();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (requestCode == CAMERA_REQUEST) {
+                Bitmap bitmap = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
+                if (bitmap != null) {
+                    progress = new ProgressDialog(StudentAddLeave.this);
+                    progress.setTitle("uploading");
+                    progress.setMessage("Please Wait....");
+                    progress.show();
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageBitmap(bitmap);
+                    filePath = saveBitmap(bitmap);
+                    Log.d(TAG, "onActivityResulvfbt: " + filePath);
+                    File f = new File(filePath);
+                    String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                    file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                    System.out.println("file_bodypathasd" + file_body);
+                    progress.dismiss();
+                }
+            }
+        }
+
+        /*if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            boolean isImageFromGoogleDrive = false;
+
+            Uri uri = data.getData();
+
+            if (isKitKat && DocumentsContract.isDocumentUri(getApplicationContext(), uri)) {
+                if ("com.android.externalstorage.documents".equals(uri.getAuthority())) {
+                    String docId = DocumentsContract.getDocumentId(uri);
+                    String[] split = docId.split(":");
+                    String type = split[0];
+
+                    if ("primary".equalsIgnoreCase(type)) {
+                        filePath = Environment.getExternalStorageDirectory() + "/" + split[1];
+                    } else {
+                        Pattern DIR_SEPORATOR = Pattern.compile("/");
+                        Set<String> rv = new HashSet<>();
+                        String rawExternalStorage = System.getenv("EXTERNAL_STORAGE");
+                        String rawSecondaryStoragesStr = System.getenv("SECONDARY_STORAGE");
+                        String rawEmulatedStorageTarget = System.getenv("EMULATED_STORAGE_TARGET");
+                        if (TextUtils.isEmpty(rawEmulatedStorageTarget)) {
+                            if (TextUtils.isEmpty(rawExternalStorage)) {
+                                rv.add("/storage/sdcard0");
+                            } else {
+                                rv.add(rawExternalStorage);
+                            }
+                        } else {
+                            String rawUserId;
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                                rawUserId = "";
+                            } else {
+                                String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+                                String[] folders = DIR_SEPORATOR.split(path);
+                                String lastFolder = folders[folders.length - 1];
+                                boolean isDigit = false;
+                                try {
+                                    Integer.valueOf(lastFolder);
+                                    isDigit = true;
+                                } catch (NumberFormatException ignored) {
+                                }
+                                rawUserId = isDigit ? lastFolder : "";
+                            }
+                            if (TextUtils.isEmpty(rawUserId)) {
+                                rv.add(rawEmulatedStorageTarget);
+                            } else {
+                                rv.add(rawEmulatedStorageTarget + File.separator + rawUserId);
+                            }
+                        }
+                        if (!TextUtils.isEmpty(rawSecondaryStoragesStr)) {
+                            String[] rawSecondaryStorages = rawSecondaryStoragesStr.split(File.pathSeparator);
+                            Collections.addAll(rv, rawSecondaryStorages);
+                        }
+                        String[] temp = rv.toArray(new String[rv.size()]);
+                        for (int i = 0; i < temp.length; i++) {
+                            File tempf = new File(temp[i] + "/" + split[1]);
+                            if (tempf.exists()) {
+                                filePath = temp[i] + "/" + split[1];
+                            }
+                        }
+                    }
+                } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
+                    String id = DocumentsContract.getDocumentId(uri);
+                    Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+
+                    Cursor cursor = null;
+                    String column = "_data";
+                    String[] projection = {column};
+                    try {
+                        cursor = getApplicationContext().getContentResolver().query(contentUri, projection, null, null,
+                                null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            int column_index = cursor.getColumnIndexOrThrow(column);
+                            filePath = cursor.getString(column_index);
+                        }
+                    } finally {
+                        if (cursor != null)
+                            cursor.close();
+                    }
+                } else if ("com.android.providers.media.documents".equals(uri.getAuthority())) {
+                    String docId = DocumentsContract.getDocumentId(uri);
+                    String[] split = docId.split(":");
+                    String type = split[0];
+
+                    Uri contentUri = null;
+                    if ("image".equals(type)) {
+                        contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                    } else if ("video".equals(type)) {
+                        contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                    } else if ("audio".equals(type)) {
+                        contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                    }
+
+                    String selection = "_id=?";
+                    String[] selectionArgs = new String[]{split[1]};
+
+                    Cursor cursor = null;
+                    String column = "_data";
+                    String[] projection = {column};
+
+                    try {
+                        cursor = getApplicationContext().getContentResolver().query(contentUri, projection, selection, selectionArgs, null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            int column_index = cursor.getColumnIndexOrThrow(column);
+                            filePath = cursor.getString(column_index);
+                        }
+                    } finally {
+                        if (cursor != null)
+                            cursor.close();
+                    }
+                } else if ("com.google.android.apps.docs.storage".equals(uri.getAuthority())) {
+                    isImageFromGoogleDrive = true;
+                }
+            }
+            else if ("content".equalsIgnoreCase(uri.getScheme())) {
+                Cursor cursor = null;
+                String column = "_data";
+                String[] projection = {column};
+
+                try {
+                    cursor = getApplicationContext().getContentResolver().query(uri, projection, null, null, null);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        int column_index = cursor.getColumnIndexOrThrow(column);
+                        filePath = cursor.getString(column_index);
+                    }
+                } finally {
+                    if (cursor != null)
+                        cursor.close();
+                }
+            } else if ("file".equalsIgnoreCase(uri.getScheme())) {
+                filePath = uri.getPath();
+            }
+
+            try {
+                Log.d(TAG, "Real Path 1 : " + filePath);
+                System.out.println("Real Path 1" + filePath);
+                textView.setText("File Selected");
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                System.out.println("bitmap image==" + bitmap);
+                String file_name = filePath.substring(filePath.lastIndexOf("/") + 1);
+                String[] filenameArray = file_name.split("\\.");
+                String extension = filenameArray[filenameArray.length - 1];
+                System.out.println("extension" + extension);
+                if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageBitmap(bitmap);
+                } else {
+                    imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
+                }
+                File f = new File(filePath);
+                String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                System.out.println("file_bodypathasd" + file_body);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else*/
+
+    }
+
+  /*  public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
@@ -677,7 +794,7 @@ public class StudentAddLeave extends AppCompatActivity {
                 progress.dismiss();
             }
         }
-    }
+    }*/
 
     public static String saveBitmap(Bitmap bitmap) {
         String filePath = null;
@@ -715,15 +832,15 @@ public class StudentAddLeave extends AppCompatActivity {
                         .setType(MultipartBody.FORM)
                         .addFormDataPart("file", file_name, file_body)
                         .addFormDataPart("to_date", toDate)
-                        .addFormDataPart("apply_date", applydate)
-                        .addFormDataPart("from_date", fromdate)
+                        .addFormDataPart("apply_date", applyDate)
+                        .addFormDataPart("from_date", fromDate)
                         .addFormDataPart("reason", reason.getText().toString())
                         .addFormDataPart("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId))
                         .addFormDataPart("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId))
                         .build();
                 Log.d(TAG, "uploadBitmap: " + toDate);
                 Log.d(TAG, "uploadBitmap: " + reason.getText().toString());
-                Log.d(TAG, "uploadBitmap: " + fromdate);
+                Log.d(TAG, "uploadBitmap: " + fromDate);
                 Request request = new Request.Builder()
                         .url(url)
                         .header("Client-Service", Constants.clientService)
@@ -754,10 +871,10 @@ public class StudentAddLeave extends AppCompatActivity {
                                 String jsonData = response.body().string();
                                 Log.d(TAG, "onResponsef: " + jsonData);
                                 try {
-                                    final JSONObject Jobject = new JSONObject(jsonData);
-                                    String Jarray = Jobject.getString("status");
+                                    final JSONObject Object = new JSONObject(jsonData);
+                                    String Array = Object.getString("status");
                                     Log.d(TAG, "onResponsef: " + jsonData);
-                                    if (Jarray.equals("1")) {
+                                    if (Array.equals("1")) {
                                         runOnUiThread(new Runnable() {
                                             public void run() {
                                                 Toast.makeText(mContext, getApplicationContext().getString(R.string.submit_success), Toast.LENGTH_SHORT).show();
@@ -769,13 +886,12 @@ public class StudentAddLeave extends AppCompatActivity {
                                         runOnUiThread(new Runnable() {
                                             public void run() {
                                                 try {
-                                                    final JSONObject Jobject = new JSONObject(jsonData);
-                                                    String error = Jobject.getString("error");
+                                                    final JSONObject Object = new JSONObject(jsonData);
+                                                    String error = Object.getString("error");
                                                     Toast.makeText(mContext, error, Toast.LENGTH_SHORT).show();
                                                 } catch (JSONException e) {
                                                     e.printStackTrace();
                                                 }
-
                                             }
                                         });
                                     }

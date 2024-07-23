@@ -30,7 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.adapters.StudentDocumentsAdapter;
 
 import org.json.JSONArray;

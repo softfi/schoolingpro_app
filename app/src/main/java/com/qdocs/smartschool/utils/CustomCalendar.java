@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Locale;
@@ -25,7 +25,7 @@ public class CustomCalendar extends LinearLayout {
     private ImageView leftButton;
     private ImageView rightButton;
     private View rootView;
-    public String startweek;
+    public String startWeek;
     private ViewGroup robotoCalendarMonthLayout;
     String dateText;
     private RobotoCalendarListener robotoCalendarListener;
@@ -63,7 +63,7 @@ public class CustomCalendar extends LinearLayout {
         onCreateView();
     }
 
-    private View onCreateView() {
+    private void onCreateView() {
         LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         rootView = inflate.inflate(R.layout.roboto_calendar_picker_layout, this, true);
         findViewsById(rootView);
@@ -72,7 +72,6 @@ public class CustomCalendar extends LinearLayout {
         Calendar currentCalendar = Calendar.getInstance();
         setCalendar(currentCalendar);
 
-        return rootView;
     }
 
     private void findViewsById(View view) {
@@ -168,22 +167,22 @@ public class CustomCalendar extends LinearLayout {
     private void setUpWeekDaysLayout() {
         TextView dayOfWeek;
         String dayOfTheWeekString;
-        startweek = Utility.getSharedPreferences(context.getApplicationContext(), "startWeek");
-        if(startweek.equals("Sunday")){
+        startWeek = Utility.getSharedPreferences(context.getApplicationContext(), "startWeek");
+        if(startWeek.equals("Sunday")){
             weekDaysArray = new DateFormatSymbols(Locale.getDefault()).getWeekdays();
-        }else if(startweek.equals("Monday")){
+        }else if(startWeek.equals("Monday")){
             weekDaysArray = new String[] {"", context.getApplicationContext().getString(R.string.monday), context.getApplicationContext().getString(R.string.tuesday), context.getApplicationContext().getString(R.string.wednesday), context.getApplicationContext().getString(R.string.thursday), context.getApplicationContext().getString(R.string.friday), context.getApplicationContext().getString(R.string.saturday), context.getApplicationContext().getString(R.string.sunday) };
-        }else if(startweek.equals("Tuesday")){
+        }else if(startWeek.equals("Tuesday")){
             weekDaysArray = new String[] {"", context.getApplicationContext().getString(R.string.tuesday), context.getApplicationContext().getString(R.string.wednesday), context.getApplicationContext().getString(R.string.thursday), context.getApplicationContext().getString(R.string.friday), context.getApplicationContext().getString(R.string.saturday), context.getApplicationContext().getString(R.string.sunday), context.getApplicationContext().getString(R.string.monday) };
-        }else if(startweek.equals("Wednesday")){
+        }else if(startWeek.equals("Wednesday")){
             weekDaysArray = new String[] {"", context.getApplicationContext().getString(R.string.wednesday), context.getApplicationContext().getString(R.string.thursday), context.getApplicationContext().getString(R.string.friday), context.getApplicationContext().getString(R.string.saturday), context.getApplicationContext().getString(R.string.sunday), context.getApplicationContext().getString(R.string.monday), context.getApplicationContext().getString(R.string.tuesday) };
-        }else if(startweek.equals("Thursday")){
+        }else if(startWeek.equals("Thursday")){
             weekDaysArray = new String[] {"", context.getApplicationContext().getString(R.string.thursday), context.getApplicationContext().getString(R.string.friday), context.getApplicationContext().getString(R.string.saturday), context.getApplicationContext().getString(R.string.sunday), context.getApplicationContext().getString(R.string.monday), context.getApplicationContext().getString(R.string.tuesday), context.getApplicationContext().getString(R.string.wednesday) };
-        }else if(startweek.equals("Friday")){
+        }else if(startWeek.equals("Friday")){
             weekDaysArray = new String[] {"", context.getApplicationContext().getString(R.string.friday), context.getApplicationContext().getString(R.string.saturday), context.getApplicationContext().getString(R.string.sunday), context.getApplicationContext().getString(R.string.monday), context.getApplicationContext().getString(R.string.tuesday), context.getApplicationContext().getString(R.string.wednesday), context.getApplicationContext().getString(R.string.thursday) };
-        }else if(startweek.equals("Saturday")){
+        }else if(startWeek.equals("Saturday")){
             weekDaysArray = new String[] {"", context.getApplicationContext().getString(R.string.saturday), context.getApplicationContext().getString(R.string.sunday), context.getApplicationContext().getString(R.string.monday), context.getApplicationContext().getString(R.string.tuesday), context.getApplicationContext().getString(R.string.wednesday), context.getApplicationContext().getString(R.string.thursday), context.getApplicationContext().getString(R.string.friday) };
-        }else if(startweek.equals("")){
+        }else if(startWeek.equals("")){
             weekDaysArray = new DateFormatSymbols(Locale.getDefault()).getWeekdays();
         }
 
@@ -253,19 +252,19 @@ public class CustomCalendar extends LinearLayout {
         int firstDayOfMonth = auxCalendar.get(Calendar.DAY_OF_WEEK);
         System.out.println("firstDayOfMonth=="+firstDayOfMonth);
 
-        if(startweek.equals("Sunday")){
+        if(startWeek.equals("Sunday")){
             firstDayOfMonth=firstDayOfMonth;
-        }else if(startweek.equals("Monday")){
+        }else if(startWeek.equals("Monday")){
             firstDayOfMonth=firstDayOfMonth+6;
-        }else if(startweek.equals("Tuesday")){
+        }else if(startWeek.equals("Tuesday")){
             firstDayOfMonth=firstDayOfMonth+5;
-        }else if(startweek.equals("Wednesday")){
+        }else if(startWeek.equals("Wednesday")){
             firstDayOfMonth=firstDayOfMonth+4;
-        }else if(startweek.equals("Thursday")){
+        }else if(startWeek.equals("Thursday")){
             firstDayOfMonth=firstDayOfMonth+3;
-        }else if(startweek.equals("Friday")){
+        }else if(startWeek.equals("Friday")){
             firstDayOfMonth=firstDayOfMonth+2;
-        }else if(startweek.equals("Saturday")){
+        }else if(startWeek.equals("Saturday")){
             firstDayOfMonth=firstDayOfMonth+1;
         }
 
@@ -643,25 +642,25 @@ public class CustomCalendar extends LinearLayout {
 
     private View getView(String key, Calendar currentCalendar) {
         int index=0;
-        if(startweek.equals("Sunday")){
+        if(startWeek.equals("Sunday")){
              index = getDayIndexByDate(currentCalendar);
             System.out.println("index==="+index);
-        }else if(startweek.equals("Monday")){
+        }else if(startWeek.equals("Monday")){
              index = getDayIndexByDate(currentCalendar)+6;
               System.out.println("index==="+index);
-        }else if(startweek.equals("Tuesday")){
+        }else if(startWeek.equals("Tuesday")){
              index = getDayIndexByDate(currentCalendar)+5;
             System.out.println("index==="+index);
-        }else if(startweek.equals("Wednesday")){
+        }else if(startWeek.equals("Wednesday")){
              index = getDayIndexByDate(currentCalendar)+4;
             System.out.println("index==="+index);
-        }else if(startweek.equals("Thursday")){
+        }else if(startWeek.equals("Thursday")){
              index = getDayIndexByDate(currentCalendar)+3;
             System.out.println("index==="+index);
-        }else if(startweek.equals("Friday")){
+        }else if(startWeek.equals("Friday")){
              index = getDayIndexByDate(currentCalendar)+2;
             System.out.println("index==="+index);
-        }else if(startweek.equals("Saturday")){
+        }else if(startWeek.equals("Saturday")){
              index = getDayIndexByDate(currentCalendar)+1;
             System.out.println("index==="+index);
         }

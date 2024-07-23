@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.model.AssismentTypeModel;
 import com.qdocs.smartschool.model.CbseExamModel;
 import com.qdocs.smartschool.model.SubjectModel;

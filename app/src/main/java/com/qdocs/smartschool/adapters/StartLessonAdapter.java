@@ -48,7 +48,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.OpenPdf;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.StudentOnlineCourseQuiz;
 import com.qdocs.smartschool.students.StudentOnlineQuizResult;
 import com.qdocs.smartschool.students.StudentStartLessonActivity;

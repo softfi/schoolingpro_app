@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.Payment;
 import com.qdocs.smartschool.students.StudentOfflinePayment;
 import com.qdocs.smartschool.students.StudentProcessingFees;

@@ -20,7 +20,7 @@ import com.qdocs.smartschool.students.StudentUploadHomework;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import com.qdocs.smartschool.OpenPdf;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 
 
@@ -151,7 +151,7 @@ public class StudentHomeworkAdapter extends RecyclerView.Adapter<StudentHomework
             holder.pending_status_layout.setVisibility(View.GONE);
             holder.submitted_status_layout.setVisibility(View.VISIBLE);
             holder.evaluated_status_layout.setVisibility(View.GONE);
-            holder.uploadBtn.setVisibility(View.VISIBLE);
+            holder.uploadBtn.setVisibility(View.GONE);
         }else if(homeworkstatusList.get(position).equals("evaluated")){
             holder.pending_status_layout.setVisibility(View.GONE);
             holder.submitted_status_layout.setVisibility(View.GONE);

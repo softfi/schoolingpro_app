@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.qdocs.smartschool"
-    android:versionCode="2"
-    android:versionName="4.0" >
+    package="com.qdocs.smartschools"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -42,10 +42,10 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="com.qdocs.smartschool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.qdocs.smartschools.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.qdocs.smartschool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.qdocs.smartschools.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:name="com.qdocs.smartschool.utils.MyApp"
@@ -299,7 +299,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.qdocs.smartschool.provider"
+            android:authorities="com.qdocs.smartschools.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -336,7 +336,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.qdocs.smartschool.firebaseinitprovider"
+            android:authorities="com.qdocs.smartschools.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
 
@@ -351,11 +351,11 @@
 
         <provider
             android:name="com.squareup.picasso.PicassoProvider"
-            android:authorities="com.qdocs.smartschool.com.squareup.picasso"
+            android:authorities="com.qdocs.smartschools.com.squareup.picasso"
             android:exported="false" />
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.qdocs.smartschool.androidx-startup"
+            android:authorities="com.qdocs.smartschools.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

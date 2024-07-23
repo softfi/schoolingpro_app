@@ -37,7 +37,7 @@ import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.adapters.StudentTaskAdapter;
 
 import org.json.JSONArray;
@@ -45,6 +45,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -59,6 +60,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
     FloatingActionButton addTaskBtn;
     StudentTaskAdapter adapter;
     String startweek;
+    String date;
     private boolean isDateSelected = false;
     ArrayList<String> taskIdList = new ArrayList<>();
     ArrayList<String> taskTitleList = new ArrayList<>();
@@ -78,12 +80,14 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
         mDrawerLayout.addView(contentView, 0);
         titleTV.setText(getApplicationContext().getString(R.string.toDo));
         taskListView = (RecyclerView) findViewById(R.id.studentTasks_listview);
+
         addTaskBtn = findViewById(R.id.studentTasks_fab);
         startweek = Utility.getSharedPreferences(getApplicationContext(), "startWeek");
         //DECORATE
 //     addTaskBtn.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         addTaskBtn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour))));
         //DECORATE
+
         addTaskBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +108,8 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
                 loadData();
             }
         });
+
+
     }
 
     public void loadData() {
@@ -117,6 +123,12 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loadData();
     }
 
     private void showAddDialog(Context context) {
@@ -156,7 +168,39 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
 
         dateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                Calendar mcurrentDate = Calendar.getInstance();
+                int mDay   = mcurrentDate.get(Calendar.DAY_OF_MONTH);
+                int mMonth = mcurrentDate.get(Calendar.MONTH);
+                int mYear  = mcurrentDate.get(Calendar.YEAR);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(StudentTasks.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                        //month = month + 1;
+                        Calendar newDate = Calendar.getInstance();
+                        newDate.set(selectedyear, selectedmonth, selectedday);
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        date=sdf.format(newDate.getTime());
+                        SimpleDateFormat sdfdate = new SimpleDateFormat("yyyy-MM-dd");
+                        dateTV.setText(Utility.parseDate("yyyy-MM-dd", defaultDateFormat,sdfdate.format(newDate.getTime())));
+                        isDateSelected=true;
+                    }
+                }, mYear, mMonth, mDay);
+                if(startweek.equals("Monday")){
+                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.MONDAY);
+                }else if(startweek.equals("Tuesday")){
+                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.TUESDAY);
+                }else if(startweek.equals("Wednesday")){
+                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.WEDNESDAY);
+                }else if(startweek.equals("Thursday")){
+                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.THURSDAY);
+                }else if(startweek.equals("Friday")) {
+                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.FRIDAY);
+                }else if(startweek.equals("Saturday")){
+                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.SATURDAY);
+                }else if(startweek.equals("Sunday")){
+                    datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.SUNDAY);
+                }
                 datePickerDialog.show();
             }
         });

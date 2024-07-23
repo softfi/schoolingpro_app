@@ -39,7 +39,7 @@ import com.qdocs.smartschool.students.StudentTasks;
 import com.qdocs.smartschool.students.StudentTasksEdit;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.qdocs.smartschool.app-mergeDebugResources-40:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "com.qdocs.smartschools.app-mergeDebugResources-40:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\lenovo\\.gradle\\caches\\transforms-3\\b5575a86ee5ccf20f778177f2b298974\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",

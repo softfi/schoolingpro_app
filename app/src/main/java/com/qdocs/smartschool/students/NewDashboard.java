@@ -51,7 +51,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.qdocs.smartschool.AboutSchool;
 import com.qdocs.smartschool.LoaderView;
 import com.qdocs.smartschool.Login;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.SettingActivity;
 import com.qdocs.smartschool.adapters.AcademicModuleAdapter;
 import com.qdocs.smartschool.adapters.CommunicateModuleAdapter;
@@ -131,7 +131,7 @@ public class NewDashboard extends AppCompatActivity {
     Runnable runnable;
 
     int delay = 5000;
-    LoaderView loaderView;
+
     CardView elearning_card, academic_card, communicate_card, other_card;
 
     @Override
@@ -421,7 +421,7 @@ public class NewDashboard extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                loaderView.setVisibility(View.GONE);
+
                 pd.dismiss();
                 Log.e("Volley Error", volleyError.toString());
                 Toast.makeText(NewDashboard.this, R.string.apiErrorMsg, Toast.LENGTH_LONG).show();
@@ -517,7 +517,6 @@ public class NewDashboard extends AppCompatActivity {
                     }
                 } else {
                     pd.dismiss();
-                    loaderView.setVisibility(View.GONE);
                 }
             }
         }, new Response.ErrorListener() {
@@ -867,7 +866,6 @@ public class NewDashboard extends AppCompatActivity {
         }
     }
 
-
     private void decorate() {
 
         Utility.setLocale(getApplicationContext(), Utility.getSharedPreferences(getApplicationContext(), Constants.langCode));
@@ -1056,9 +1054,6 @@ public class NewDashboard extends AppCompatActivity {
         //Adding request to the queue
         requestQueue.add(stringRequest);
     }
-
-
-
 
     private void prepareNavList() {
         if (Utility.isConnectingToInternet(getApplicationContext())) {

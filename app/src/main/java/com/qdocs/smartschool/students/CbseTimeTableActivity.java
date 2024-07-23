@@ -21,7 +21,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.BaseActivity;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.adapters.CbseTimeTableAdapter;
 import com.qdocs.smartschool.model.CbseExamTimeTableModel;
 import com.qdocs.smartschool.model.CbseTimetableModel;

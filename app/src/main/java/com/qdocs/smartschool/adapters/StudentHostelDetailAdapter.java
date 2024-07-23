@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.qdocs.smartschool.students.StudentHostel;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 
 import java.util.ArrayList;
 

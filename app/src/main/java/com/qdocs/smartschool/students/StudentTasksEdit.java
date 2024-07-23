@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.cardview.widget.CardView;
@@ -25,7 +26,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 import com.qdocs.smartschool.BaseActivity;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import org.json.JSONException;
@@ -51,6 +52,7 @@ public class StudentTasksEdit extends BaseActivity   {
     SwipeRefreshLayout pullToRefresh;
     CardView card_view_outer;
     EditText titleET;
+    RelativeLayout layout;
     TextView dateTV;
     String title,date,id;
     Button submitBtn;
@@ -67,6 +69,8 @@ public class StudentTasksEdit extends BaseActivity   {
         titleTV.setText(getApplicationContext().getString(R.string.edittask));
         startweek = Utility.getSharedPreferences(getApplicationContext(), "startWeek");
         titleET=findViewById(R.id.addTask_dialog_titleET);
+        layout=findViewById(R.id.addTask_dialog_header);
+        layout.setVisibility(View.GONE);
         dateTV=findViewById(R.id.addTask_dialog_dateTV);
         submitBtn=findViewById(R.id.addTask_dialog_submitBtn);
         Bundle bundle = getIntent().getExtras();
@@ -143,6 +147,7 @@ public class StudentTasksEdit extends BaseActivity   {
         });
     }
 
+
     private void createTaskApi (String bodyParams) {
 
         final ProgressDialog pd = new ProgressDialog(this);
@@ -152,7 +157,7 @@ public class StudentTasksEdit extends BaseActivity   {
 
         final String requestBody = bodyParams;
         String url = Utility.getSharedPreferences(getApplicationContext(), "apiUrl")+Constants.createTaskUrl;
-        Log.e("URL",url);
+        Log.d("TAG", "createTaskApi: "+ requestBody+url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {

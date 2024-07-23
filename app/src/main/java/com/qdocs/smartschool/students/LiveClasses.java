@@ -18,7 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 import com.qdocs.smartschool.BaseActivity;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 
 public class LiveClasses extends BaseActivity {
     WebView webView;

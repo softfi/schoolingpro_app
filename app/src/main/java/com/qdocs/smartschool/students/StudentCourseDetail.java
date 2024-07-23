@@ -46,7 +46,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputEditText;
 import com.qdocs.smartschool.BaseActivity;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.adapters.CourseCurriculumAdapterNew;
 import com.qdocs.smartschool.adapters.CourseReviewAdapterNew;
 import com.qdocs.smartschool.model.LessonModel;

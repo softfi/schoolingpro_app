@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.qdocs.smartschool">
+    package="com.qdocs.smartschools">
 
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -34,7 +34,7 @@
         android:required="true" />
 
     <application
-        android:name=".utils.MyApp"
+        android:name="com.qdocs.smartschool.utils.MyApp"
         android:allowBackup="false"
         android:configChanges="orientation|screenSize"
         android:exported="true"
@@ -48,97 +48,97 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LoaderView"
+            android:name="com.qdocs.smartschool.LoaderView"
             android:exported="false" />
         <activity
-            android:name=".students.CreateTaskActivity"
+            android:name="com.qdocs.smartschool.students.CreateTaskActivity"
             android:exported="false" />
         <activity
-            android:name=".students.CbseExaminationActivity"
+            android:name="com.qdocs.smartschool.students.CbseExaminationActivity"
             android:exported="false" />
         <activity
-            android:name=".students.CbseTimeTableActivity"
+            android:name="com.qdocs.smartschool.students.CbseTimeTableActivity"
             android:exported="false" />
         <activity
-            android:name=".students.StudentOfflinePayment"
+            android:name="com.qdocs.smartschool.students.StudentOfflinePayment"
             android:exported="false" />
         <activity
-            android:name=".students.BehaviourComment"
+            android:name="com.qdocs.smartschool.students.BehaviourComment"
             android:exported="true" />
         <activity
-            android:name=".students.StudentVideoTutorialPlay"
+            android:name="com.qdocs.smartschool.students.StudentVideoTutorialPlay"
             android:exported="true" />
         <activity
-            android:name=".students.StudentHomeworkNew"
+            android:name="com.qdocs.smartschool.students.StudentHomeworkNew"
             android:exported="true" />
         <activity
-            android:name=".students.NewDashboard"
+            android:name="com.qdocs.smartschool.students.NewDashboard"
             android:exported="true" />
         <activity
-            android:name=".students.StudentCoursePerformance"
+            android:name="com.qdocs.smartschool.students.StudentCoursePerformance"
             android:exported="true" />
         <activity
-            android:name=".students.StudentUploadDocument"
+            android:name="com.qdocs.smartschool.students.StudentUploadDocument"
             android:exported="true" />
         <activity
-            android:name=".students.StudentDailyAssignment"
+            android:name="com.qdocs.smartschool.students.StudentDailyAssignment"
             android:exported="true" />
         <activity
-            android:name=".students.StudentProcessingFees"
+            android:name="com.qdocs.smartschool.students.StudentProcessingFees"
             android:exported="true" />
         <activity
-            android:name=".students.StudentCourseDetail"
+            android:name="com.qdocs.smartschool.students.StudentCourseDetail"
             android:configChanges="orientation|keyboardHidden|screenSize|layoutDirection"
             android:exported="true" />
         <activity
-            android:name=".students.StudentOnlineCourse"
+            android:name="com.qdocs.smartschool.students.StudentOnlineCourse"
             android:exported="true" />
         <activity
-            android:name=".students.StudentStartLessonActivity"
+            android:name="com.qdocs.smartschool.students.StudentStartLessonActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection|uiMode"
             android:exported="true" />
         <activity
-            android:name=".students.StudentLiveClasses"
+            android:name="com.qdocs.smartschool.students.StudentLiveClasses"
             android:exported="true" />
         <activity
-            android:name=".students.StudentOfflinePaymentList"
+            android:name="com.qdocs.smartschool.students.StudentOfflinePaymentList"
             android:exported="true" />
         <activity
-            android:name=".students.StudentGmeetLiveClasses"
+            android:name="com.qdocs.smartschool.students.StudentGmeetLiveClasses"
             android:exported="true" />
         <activity
-            android:name=".students.StudentBehaviourReport"
+            android:name="com.qdocs.smartschool.students.StudentBehaviourReport"
             android:exported="true" />
         <activity
-            android:name=".students.NotificationList"
+            android:name="com.qdocs.smartschool.students.NotificationList"
             android:exported="true" />
         <activity
-            android:name=".students.StudentOnlineExamQuestionsNew"
+            android:name="com.qdocs.smartschool.students.StudentOnlineExamQuestionsNew"
             android:configChanges="orientation|screenSize"
             android:exported="true" />
         <activity
-            android:name=".students.StudentOnlineExamResult"
+            android:name="com.qdocs.smartschool.students.StudentOnlineExamResult"
             android:exported="true" />
         <activity
-            android:name=".students.StudentOnlineExam"
+            android:name="com.qdocs.smartschool.students.StudentOnlineExam"
             android:exported="true" />
         <activity
-            android:name=".AboutSchool"
+            android:name="com.qdocs.smartschool.AboutSchool"
             android:exported="true" />
         <activity
-            android:name=".students.StudentTimeline"
+            android:name="com.qdocs.smartschool.students.StudentTimeline"
             android:exported="true" />
         <activity
-            android:name=".students.StudentAddTimeLine"
+            android:name="com.qdocs.smartschool.students.StudentAddTimeLine"
             android:exported="true" />
         <activity
-            android:name=".students.StudentEditTimeLine"
+            android:name="com.qdocs.smartschool.students.StudentEditTimeLine"
             android:exported="true" />
         <activity
-            android:name=".students.StudentDocuments"
+            android:name="com.qdocs.smartschool.students.StudentDocuments"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.qdocs.smartschool.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -147,133 +147,133 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.qdocs.smartschool.Login"
             android:exported="true" />
         <activity
-            android:name=".students.StudentProfileDetailsNew"
+            android:name="com.qdocs.smartschool.students.StudentProfileDetailsNew"
             android:exported="true" />
         <activity
-            android:name=".students.StudentAddAssignment"
+            android:name="com.qdocs.smartschool.students.StudentAddAssignment"
             android:exported="true" />
         <activity
-            android:name=".students.StudentEditAssignment"
+            android:name="com.qdocs.smartschool.students.StudentEditAssignment"
             android:exported="true" />
         <activity
-            android:name=".students.StudentUploadHomework"
+            android:name="com.qdocs.smartschool.students.StudentUploadHomework"
             android:exported="true" />
         <activity
-            android:name=".ForgotPassword"
+            android:name="com.qdocs.smartschool.ForgotPassword"
             android:exported="true" />
         <activity
-            android:name=".BaseActivity"
+            android:name="com.qdocs.smartschool.BaseActivity"
             android:exported="true" />
         <activity
-            android:name=".students.StudentFees"
+            android:name="com.qdocs.smartschool.students.StudentFees"
             android:exported="true" />
         <activity
-            android:name=".students.StudentNoticeBoard"
+            android:name="com.qdocs.smartschool.students.StudentNoticeBoard"
             android:exported="true" />
         <activity
-            android:name=".students.StudentExaminationList"
+            android:name="com.qdocs.smartschool.students.StudentExaminationList"
             android:exported="true" />
         <activity
-            android:name=".students.StudentReportCard_ExamListResult"
+            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamListResult"
             android:exported="true" />
         <activity
-            android:name=".students.StudentSubjectList"
+            android:name="com.qdocs.smartschool.students.StudentSubjectList"
             android:exported="true" />
         <activity
-            android:name=".students.StudentTeachersList"
+            android:name="com.qdocs.smartschool.students.StudentTeachersList"
             android:exported="true" />
         <activity
-            android:name=".students.StudentTransportRoutes"
+            android:name="com.qdocs.smartschool.students.StudentTransportRoutes"
             android:exported="true" />
         <activity
-            android:name=".students.StudentDownloads"
+            android:name="com.qdocs.smartschool.students.StudentDownloads"
             android:exported="true" />
         <activity
-            android:name=".students.StudentAttendance"
+            android:name="com.qdocs.smartschool.students.StudentAttendance"
             android:exported="true" />
         <activity
-            android:name=".students.StudentReportCard_ExamList"
+            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamList"
             android:exported="true" />
         <activity
-            android:name=".students.StudentExamSchedule_ExamList"
+            android:name="com.qdocs.smartschool.students.StudentExamSchedule_ExamList"
             android:exported="true" />
         <activity
-            android:name=".students.StudentExamSchedule"
+            android:name="com.qdocs.smartschool.students.StudentExamSchedule"
             android:exported="true" />
         <activity
-            android:name=".students.StudentVisitorBook"
+            android:name="com.qdocs.smartschool.students.StudentVisitorBook"
             android:exported="true" />
         <activity
-            android:name=".students.StudentHostel"
+            android:name="com.qdocs.smartschool.students.StudentHostel"
             android:exported="true" />
         <activity
-            android:name=".students.StudentLibraryBook"
+            android:name="com.qdocs.smartschool.students.StudentLibraryBook"
             android:exported="true" />
         <activity
-            android:name=".students.StudentClassTimetable"
+            android:name="com.qdocs.smartschool.students.StudentClassTimetable"
             android:exported="true" />
         <activity
-            android:name=".students.StudentSyllabusTimetable"
+            android:name="com.qdocs.smartschool.students.StudentSyllabusTimetable"
             android:exported="true" />
         <activity
-            android:name=".students.StudentSyllabusStatus"
+            android:name="com.qdocs.smartschool.students.StudentSyllabusStatus"
             android:exported="true" />
         <activity
-            android:name=".students.StudentLibraryBookIssued"
+            android:name="com.qdocs.smartschool.students.StudentLibraryBookIssued"
             android:exported="true" />
         <activity
-            android:name=".students.StudentAppyLeave"
+            android:name="com.qdocs.smartschool.students.StudentAppyLeave"
             android:exported="true" />
         <activity
-            android:name=".students.StudentAddLeave"
+            android:name="com.qdocs.smartschool.students.StudentAddLeave"
             android:exported="true" />
         <activity
-            android:name=".students.StudentEditLeave"
+            android:name="com.qdocs.smartschool.students.StudentEditLeave"
             android:exported="true" />
         <activity
-            android:name=".students.StudentSyllabus"
+            android:name="com.qdocs.smartschool.students.StudentSyllabus"
             android:exported="true" />
         <activity
-            android:name=".students.StudentOnlineQuizResult"
+            android:name="com.qdocs.smartschool.students.StudentOnlineQuizResult"
             android:exported="true" />
         <activity
-            android:name=".students.StudentSyllabuslesson"
+            android:name="com.qdocs.smartschool.students.StudentSyllabuslesson"
             android:exported="true" />
         <activity
-            android:name=".students.StudentOnlineCourseQuiz"
+            android:name="com.qdocs.smartschool.students.StudentOnlineCourseQuiz"
             android:exported="true" />
         <activity
-            android:name=".SettingActivity"
+            android:name="com.qdocs.smartschool.SettingActivity"
             android:exported="true" />
         <activity
-            android:name=".OpenPdf"
+            android:name="com.qdocs.smartschool.OpenPdf"
             android:exported="true" />
         <activity
-            android:name=".students.StudentTasks"
+            android:name="com.qdocs.smartschool.students.StudentTasks"
             android:exported="true" />
         <activity
-            android:name=".students.StudentTasksEdit"
+            android:name="com.qdocs.smartschool.students.StudentTasksEdit"
             android:exported="true" />
         <activity
-            android:name=".students.Payment"
+            android:name="com.qdocs.smartschool.students.Payment"
             android:exported="true" />
         <activity
-            android:name=".students.CoursePayment"
+            android:name="com.qdocs.smartschool.students.CoursePayment"
             android:exported="true" />
         <activity
-            android:name=".students.CourseVideoPlay"
+            android:name="com.qdocs.smartschool.students.CourseVideoPlay"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".students.LiveClasses"
+            android:name="com.qdocs.smartschool.students.LiveClasses"
             android:exported="false" />
 
         <service
-            android:name=".utils.MyFirebaseMessagingService"
+            android:name="com.qdocs.smartschool.utils.MyFirebaseMessagingService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

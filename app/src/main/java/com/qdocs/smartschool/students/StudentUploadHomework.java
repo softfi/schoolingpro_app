@@ -38,7 +38,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 
@@ -347,7 +347,48 @@ public class StudentUploadHomework extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == PICK_IMAGE_REQUEST) {
+                Uri selectedImageUri = data.getData();
+                try {
+                    textView.setText("File Selected");
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageBitmap(bitmap);
+                    filePath = saveBitmap(bitmap);
+                    Log.d(TAG, "onActivityResulvfbt: " + filePath);
+                    File f = new File(filePath);
+                    String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                    file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                    System.out.println("file_bodypathasd" + file_body);
+                    progress.dismiss();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (requestCode == CAMERA_REQUEST) {
+                Bitmap bitmap = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
+                if (bitmap != null) {
+                    progress = new ProgressDialog(StudentUploadHomework.this);
+                    progress.setTitle("uploading");
+                    progress.setMessage("Please Wait....");
+                    progress.show();
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageBitmap(bitmap);
+                    // Uri imageuri = getImageUri(getApplicationContext(), bitmap);
+                    filePath = saveBitmap(bitmap);
+                    Log.d(TAG, "onActivityResulvfbt: " + filePath);
+                    File f = new File(filePath);
+                    String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                    file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                    System.out.println("file_bodypathasd" + file_body);
+                    progress.dismiss();
+                }
+            }
+        }
+
+        /*if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             boolean isImageFromGoogleDrive = false;
 
@@ -459,7 +500,8 @@ public class StudentUploadHomework extends AppCompatActivity {
                 } else if ("com.google.android.apps.docs.storage".equals(uri.getAuthority())) {
                     isImageFromGoogleDrive = true;
                 }
-            } else if ("content".equalsIgnoreCase(uri.getScheme())) {
+            }
+            else if ("content".equalsIgnoreCase(uri.getScheme())) {
                 Cursor cursor = null;
                 String column = "_data";
                 String[] projection = {column};
@@ -485,7 +527,7 @@ public class StudentUploadHomework extends AppCompatActivity {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 System.out.println("bitmap image==" + bitmap);
                 String file_name = filePath.substring(filePath.lastIndexOf("/") + 1);
-                String filenameArray[] = file_name.split("\\.");
+                String[] filenameArray = file_name.split("\\.");
                 String extension = filenameArray[filenameArray.length - 1];
                 System.out.println("extension" + extension);
                 if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
@@ -501,25 +543,9 @@ public class StudentUploadHomework extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if (requestCode == CAMERA_REQUEST) {
-            Bitmap bitmap = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
-            if (bitmap != null) {
-                progress = new ProgressDialog(StudentUploadHomework.this);
-                progress.setTitle("uploading");
-                progress.setMessage("Please Wait....");
-                progress.show();
-                imageView.setVisibility(View.VISIBLE);
-                imageView.setImageBitmap(bitmap);
-                //Uri tempUri = getImageUri(getApplicationContext(), bitmap);
-                filePath = saveBitmap(bitmap);
-                System.out.println("pathasd" + filePath);
-                File f = new File(filePath);
-                String mimeType = URLConnection.guessContentTypeFromName(f.getName());
-                file_body = RequestBody.create(MediaType.parse(mimeType), f);
-                System.out.println("file_bodypathasd" + file_body);
-                progress.dismiss();
-            }
         }
+        else*/
+
     }
 
     public static String saveBitmap(Bitmap bitmap) {

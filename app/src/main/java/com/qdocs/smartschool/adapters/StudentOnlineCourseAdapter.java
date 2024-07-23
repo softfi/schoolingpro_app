@@ -17,7 +17,7 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.CoursePayment;
 import com.qdocs.smartschool.students.StudentCourseDetail;
 import com.qdocs.smartschool.students.StudentStartLessonActivity;

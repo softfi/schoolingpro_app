@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.qdocs.smartschool.adapters.StudentProfileAdapter;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

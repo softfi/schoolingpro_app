@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import com.qdocs.smartschools.R;
 
 import com.github.ybq.android.spinkit.SpinKitView;
 

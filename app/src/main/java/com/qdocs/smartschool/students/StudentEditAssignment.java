@@ -43,7 +43,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import org.json.JSONArray;
@@ -98,6 +98,7 @@ public class StudentEditAssignment extends AppCompatActivity {
                     "application/zip","image/*"};
     CardView card_view_outer;
     String subjectid="";
+    String subject="";
     String titlevalue,description,id,subject_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +113,7 @@ public class StudentEditAssignment extends AppCompatActivity {
         description = bundle.getString("description");
         id = bundle.getString("id");
         subject_id = bundle.getString("subjectid");
+        subject = bundle.getString("subject");
         if(Utility.isConnectingToInternet(getApplicationContext())){
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
@@ -169,11 +171,10 @@ public class StudentEditAssignment extends AppCompatActivity {
                             makeText(getApplicationContext(),R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                         }
                     }
-
             }
         });
 
-        subjectlist.add(getApplicationContext().getString(R.string.select));
+        subjectlist.add(subject);
         subjectidlist.add("");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(StudentEditAssignment.this, android.R.layout.simple_spinner_item, subjectlist);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -196,9 +197,12 @@ public class StudentEditAssignment extends AppCompatActivity {
 
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+
             if(ActivityCompat.checkSelfPermission(this,Manifest.permission.
                     READ_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED){
+
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},100);
+
                 return;
             }
         }
@@ -226,8 +230,8 @@ public class StudentEditAssignment extends AppCompatActivity {
 
                         if(dataArray.length() != 0) {
                             for(int i = 0; i < dataArray.length(); i++) {
-                                subjectlist.add(dataArray.getJSONObject(i).getString("name")+" ("+dataArray.getJSONObject(i).getString("code")+")");
-                                subjectidlist.add(dataArray.getJSONObject(i).getString("subject_group_subjects_id"));
+                               // subjectlist.add(dataArray.getJSONObject(i).getString("name")+" ("+dataArray.getJSONObject(i).getString("code")+")");
+                               // subjectidlist.add(dataArray.getJSONObject(i).getString("subject_group_subjects_id"));
                             }
 
                         }
@@ -343,14 +347,15 @@ public class StudentEditAssignment extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-
     private void decorate() {
         actionBar.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         }
+
     }
 
    /* private void showFileChooser() {

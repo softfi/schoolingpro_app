@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.RecyclerView;
 import com.qdocs.smartschool.OpenPdf;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.StudentVisitorBook;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
@@ -102,23 +104,29 @@ public class StudentVisitorBookAdapter extends RecyclerView.Adapter<StudentVisit
         holder.intimeTV.setText(in_timelist.get(position));
         holder.outtimeTV.setText(out_timelist.get(position));
 
-        if(imagelist.get(position).equals("")){
+       /* if(){
             holder.downloadBtn.setVisibility(View.GONE);
         }else{
             holder.downloadBtn.setVisibility(View.VISIBLE);
-        }
+        }*/
 
         holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String urlStr = Utility.getSharedPreferences(context.getApplicationContext(), Constants.imagesUrl);
-                urlStr += "uploads/front_office/visitors/"+imagelist.get(position);
-                System.out.println("Attachment="+urlStr);
-                downloadID = Utility.beginDownload(context, imagelist.get(position), urlStr);
-                Intent intent=new Intent(context.getApplicationContext(), OpenPdf.class);
-                intent.putExtra("imageUrl",urlStr);
-                context.startActivity(intent);
+                if (imagelist.get(position).equals("")){
+                    Toast.makeText(context, "Image is Empty", Toast.LENGTH_SHORT).show();
+                }else{
+                    String urlStr = Utility.getSharedPreferences(context.getApplicationContext(), Constants.imagesUrl);
+                    urlStr += "uploads/front_office/visitors/"+imagelist.get(position);
+                    System.out.println("Attachment="+urlStr);
+                    downloadID = Utility.beginDownload(context, imagelist.get(position), urlStr);
+                    Intent intent=new Intent(context.getApplicationContext(), OpenPdf.class);
+                    intent.putExtra("imageUrl",urlStr);
+                    context.startActivity(intent);
+                }
+
+
             }
         });
 

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.qdocs.smartschool.adapters.StudentProfileAdapter;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.HashMap;

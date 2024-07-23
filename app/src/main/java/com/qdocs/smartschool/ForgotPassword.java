@@ -32,6 +32,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Random;
+import com.qdocs.smartschools.R;
 import static android.widget.Toast.makeText;
 
 public class ForgotPassword extends AppCompatActivity {
@@ -61,6 +62,7 @@ public class ForgotPassword extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.textHeading));
         }
+
         String appLogo = Utility.getSharedPreferences(this, Constants.appLogo)+"?"+new Random().nextInt(11);
         Log.e("appLogo", appLogo);
         Picasso.get().load(appLogo).into(logoIV);

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.qdocs.smartschool.students.StudentSyllabuslesson;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import java.util.ArrayList;

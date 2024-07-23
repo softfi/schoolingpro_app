@@ -32,6 +32,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+import com.qdocs.smartschools.R;
 
 public class BaseActivity extends AppCompatActivity {
 

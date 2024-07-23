@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.qdocs.smartschool.app-mergeDebugResources-40:/values-lv/values-lv.xml",
+            "outputFile": "com.qdocs.smartschools.app-mergeDebugResources-40:/values-lv/values-lv.xml",
             "map": [
                 {
                     "source": "C:\\Users\\lenovo\\.gradle\\caches\\transforms-3\\2e6153425324545fcd287a2f319ce459\\transformed\\core-1.9.0\\res\\values-lv\\values-lv.xml",

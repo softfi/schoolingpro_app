@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qdocs.smartschools"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="34" />
+
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.CALL_PHONE"
+        android:required="false" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_FILE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="false" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.qdocs.smartschools.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.qdocs.smartschools.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
+    <application
+        android:name="com.qdocs.smartschool.utils.MyApp"
+        android:allowBackup="false"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:configChanges="orientation|screenSize"
+        android:exported="true"
+        android:extractNativeLibs="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/smart_icon"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/smart_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name="com.qdocs.smartschool.LoaderView"
+            android:exported="false" />
+        <activity
+            android:name="com.qdocs.smartschool.students.CreateTaskActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.qdocs.smartschool.students.CbseExaminationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.qdocs.smartschool.students.CbseTimeTableActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOfflinePayment"
+            android:exported="false" />
+        <activity
+            android:name="com.qdocs.smartschool.students.BehaviourComment"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentVideoTutorialPlay"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentHomeworkNew"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.NewDashboard"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentCoursePerformance"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentUploadDocument"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentDailyAssignment"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentProcessingFees"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentCourseDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize|layoutDirection"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOnlineCourse"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentStartLessonActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection|uiMode"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentLiveClasses"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOfflinePaymentList"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentGmeetLiveClasses"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentBehaviourReport"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.NotificationList"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOnlineExamQuestionsNew"
+            android:configChanges="orientation|screenSize"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOnlineExamResult"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOnlineExam"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.AboutSchool"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentTimeline"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentAddTimeLine"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentEditTimeLine"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentDocuments"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.qdocs.smartschool.Login"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentProfileDetailsNew"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentAddAssignment"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentEditAssignment"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentUploadHomework"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.ForgotPassword"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.BaseActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentFees"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentNoticeBoard"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentExaminationList"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamListResult"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentSubjectList"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentTeachersList"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentTransportRoutes"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentDownloads"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentAttendance"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentReportCard_ExamList"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentExamSchedule_ExamList"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentExamSchedule"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentVisitorBook"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentHostel"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentLibraryBook"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentClassTimetable"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentSyllabusTimetable"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentSyllabusStatus"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentLibraryBookIssued"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentAppyLeave"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentAddLeave"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentEditLeave"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentSyllabus"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOnlineQuizResult"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentSyllabuslesson"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentOnlineCourseQuiz"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.OpenPdf"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentTasks"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.StudentTasksEdit"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.Payment"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.CoursePayment"
+            android:exported="true" />
+        <activity
+            android:name="com.qdocs.smartschool.students.CourseVideoPlay"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.qdocs.smartschool.students.LiveClasses"
+            android:exported="false" />
+
+        <service
+            android:name="com.qdocs.smartschool.utils.MyFirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.qdocs.smartschools.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <!--
+             FirebaseMessagingService performs security checks at runtime,
+             but set to not exported to explicitly avoid allowing another app to call it.
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="false" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.qdocs.smartschools.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.qdocs.smartschools.com.squareup.picasso"
+            android:exported="false" />
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.qdocs.smartschools.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 
 import java.util.ArrayList;
 

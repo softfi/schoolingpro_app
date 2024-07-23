@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.qdocs.smartschool.test",
+  "applicationId": "com.qdocs.smartschools.test",
   "variantName": "debugAndroidTest",
   "elements": [
     {

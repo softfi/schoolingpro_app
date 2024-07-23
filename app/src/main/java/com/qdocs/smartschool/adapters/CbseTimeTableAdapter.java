@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.model.CbseExamTimeTableModel;
 import com.qdocs.smartschool.model.CbseTimetableModel;
 import com.qdocs.smartschool.students.CbseTimeTableActivity;

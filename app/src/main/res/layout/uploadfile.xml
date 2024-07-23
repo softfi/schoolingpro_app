@@ -72,6 +72,13 @@
             </LinearLayout>
 
         </FrameLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,7 +118,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/addLeave_dialog_apply_dateBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,7 +137,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/textHeading" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/addLeave_dialog_dateBtn"
@@ -268,7 +275,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/primaryText"
             android:textStyle="bold" />
-
+        </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 </LinearLayout>

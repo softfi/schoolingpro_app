@@ -17,7 +17,7 @@ import com.qdocs.smartschool.fragments.StudentDownloadAssignmentFragment;
 import com.qdocs.smartschool.fragments.StudentDownloadVideosFragment;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;

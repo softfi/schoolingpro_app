@@ -15,7 +15,7 @@ import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;

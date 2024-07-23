@@ -25,7 +25,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.adapters.DashboardBottomsheet;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.CustomCalendar;
 import com.qdocs.smartschool.utils.Utility;
@@ -78,14 +78,14 @@ public class DashboardCalender extends Fragment implements CustomCalendar.Roboto
         mainLay = (RelativeLayout) mainView.findViewById(R.id.attendance_mainLay);
 
         calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
-        Date begining = calendar.getTime();
+        Date beginning = calendar.getTime();
         //Toast.makeText(getActivity(), ""+calendar.getTime(), Toast.LENGTH_SHORT).show();
         calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
         Date end = calendar.getTime();
 
         if(Utility.getSharedPreferences(getActivity(), Constants.loginType).equals("parent")){
             if (Utility.isConnectingToInternet(getActivity())) {
-                params.put("date_from", dateFormatter.format(begining));
+                params.put("date_from", dateFormatter.format(beginning));
                 params.put("date_to", dateFormatter.format(end));
                 params.put("student_id", Utility.getSharedPreferences(getActivity().getApplicationContext(), "studentId"));
                 params.put("role", Utility.getSharedPreferences(getActivity(), Constants.loginType));
@@ -98,7 +98,7 @@ public class DashboardCalender extends Fragment implements CustomCalendar.Roboto
             }
         }else{
             if (Utility.isConnectingToInternet(getActivity())) {
-                params.put("date_from", dateFormatter.format(begining));
+                params.put("date_from", dateFormatter.format(beginning));
                 params.put("date_to", dateFormatter.format(end));
                 params.put("student_id", Utility.getSharedPreferences(getActivity().getApplicationContext(), "studentId"));
                 params.put("role", Utility.getSharedPreferences(getActivity(), Constants.loginType));

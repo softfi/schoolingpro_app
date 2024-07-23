@@ -258,8 +258,8 @@
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/circle_blue"
-                        android:tint="@color/roboto_calendar_circle_1"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        app:tint="@color/roboto_calendar_circle_1" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -279,8 +279,8 @@
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/circle_blue"
-                        android:tint="@color/roboto_calendar_circle_2"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        app:tint="@color/roboto_calendar_circle_2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -300,8 +300,8 @@
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/circle_blue"
-                        android:tint="@color/roboto_calendar_circle_3"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        app:tint="@color/roboto_calendar_circle_3" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -329,8 +329,8 @@
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/circle_blue"
-                        android:tint="@color/roboto_calendar_circle_4"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        app:tint="@color/roboto_calendar_circle_4" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -350,8 +350,8 @@
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/circle_blue"
-                        android:tint="@color/roboto_calendar_circle_5"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        app:tint="@color/roboto_calendar_circle_5" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -372,8 +372,8 @@
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/circle_blue"
-                        android:tint="@color/roboto_calendar_circle_5"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        app:tint="@color/roboto_calendar_circle_5" />
 
                     <TextView
                         android:layout_width="wrap_content"

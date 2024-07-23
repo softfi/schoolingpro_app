@@ -13,7 +13,7 @@ import com.qdocs.smartschool.students.StudentExamSchedule;
 import com.qdocs.smartschool.students.StudentExamSchedule_ExamList;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 
 public class StudentExamSchedule_ExamListAdapter extends RecyclerView.Adapter<StudentExamSchedule_ExamListAdapter.MyViewHolder> {

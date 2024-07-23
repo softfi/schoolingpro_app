@@ -25,7 +25,7 @@ import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.adapters.StudentTransportAdapter;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;

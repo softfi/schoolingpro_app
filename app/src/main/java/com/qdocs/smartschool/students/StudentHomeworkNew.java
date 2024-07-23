@@ -31,7 +31,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.LoaderView;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.adapters.StudentHomeworkAdapter;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
@@ -123,7 +123,6 @@ public class StudentHomeworkNew extends BaseActivity {
                     params.put("homework_status", status);
                     params.put("session_id", Utility.getSharedPreferences(getApplicationContext(), Constants.sessionId));
                     params.put("subject_group_subject_id", "");
-
                     JSONObject obj = new JSONObject(params);
                     Log.e("params ", obj.toString());
                     getDataFromApi(obj.toString());
@@ -245,10 +244,10 @@ public class StudentHomeworkNew extends BaseActivity {
             }
         });
 
-        loaddata();
+        loadData();
     }
 
-    public void loaddata() {
+    public void loadData() {
         if (Utility.isConnectingToInternet(StudentHomeworkNew.this)) {
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
             params.put("homework_status", "pending");

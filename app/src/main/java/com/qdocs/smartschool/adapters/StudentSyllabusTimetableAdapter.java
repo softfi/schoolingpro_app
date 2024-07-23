@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.qdocs.smartschool.students.StudentSyllabus;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 
 public class StudentSyllabusTimetableAdapter extends RecyclerView.Adapter<StudentSyllabusTimetableAdapter.MyViewHolder> {

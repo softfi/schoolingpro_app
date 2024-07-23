@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.StudentOnlineExamQuestionsNew;
 import com.qdocs.smartschool.students.StudentOnlineExamResult;
 import com.qdocs.smartschool.utils.Constants;

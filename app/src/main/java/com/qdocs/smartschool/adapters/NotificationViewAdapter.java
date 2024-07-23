@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.daimajia.swipe.SwipeLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.qdocs.smartschool.NotificationModel;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.NotificationList;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.DatabaseHelper;

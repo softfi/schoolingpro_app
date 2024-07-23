@@ -23,7 +23,7 @@ import com.qdocs.smartschool.utils.Utility;
 import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import com.qdocs.smartschools.R;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
@@ -55,6 +55,7 @@ public class AboutSchool extends BaseActivity {
         sessionStartMonthTV = findViewById(R.id.about_sessionMonthTV);
         nameLayout = findViewById(R.id.about_nameLay);
         nameLayout.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.secondaryColour)));
+
         if (Utility.isConnectingToInternet(getApplicationContext())) {
 
             params.put("student_id", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
@@ -68,6 +69,7 @@ public class AboutSchool extends BaseActivity {
     }
 
     private void getDataFromApi (String bodyParams) {
+
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Loading");
         pd.setCancelable(false);
@@ -128,7 +130,7 @@ public class AboutSchool extends BaseActivity {
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";
             }
-            public byte[] getBody() throws AuthFailureError {
+            public byte[] getBody() {
                 try {
                     return requestBody == null ? null : requestBody.getBytes("utf-8");
                 } catch (UnsupportedEncodingException uee) {

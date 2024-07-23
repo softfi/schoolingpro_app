@@ -25,7 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.adapters.StudentSyllabusTimetableAdapter;
 import org.json.JSONArray;
 import org.json.JSONException;

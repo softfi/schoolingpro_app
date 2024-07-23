@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.qdocs.smartschool.students.StudentSubjectList;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 
 public class StudentClassSubjectListNewAdapter extends RecyclerView.Adapter<StudentClassSubjectListNewAdapter.MyViewHolder> {

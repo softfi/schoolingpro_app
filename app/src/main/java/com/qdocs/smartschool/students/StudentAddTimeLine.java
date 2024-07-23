@@ -40,7 +40,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import com.google.android.material.textfield.TextInputEditText;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
 import org.json.JSONException;
@@ -59,6 +59,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
 import okhttp3.Call;
@@ -406,72 +407,42 @@ public class StudentAddTimeLine extends AppCompatActivity {
 
     @TargetApi(19)
     @Override
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            System.out.println("uri==" + uri);
 
-            String path = new File(uri.getPath()).getAbsolutePath();
-            System.out.println("path==" + path);
-
-            if (path != null) {
-                uri = data.getData();
-
-                String filenames;
-                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-
-                if (cursor == null) filenames = uri.getPath();
-                else {
-                    cursor.moveToFirst();
-                    int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
-                    filenames = cursor.getString(idx);
-                    cursor.close();
+        if (resultCode == RESULT_OK) {
+            if (requestCode == PICK_IMAGE_REQUEST) {
+                Uri selectedImageUri = data.getData();
+                try {
+                    textView.setText("File Selected");
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageBitmap(bitmap);
+                    filePath = saveBitmap(bitmap);
+                    Log.d(TAG, "onActivityResulvfbt: " + filePath);
+                    File f = new File(filePath);
+                    String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                    file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                    System.out.println("file_bodypathasd" + file_body);
+                    progress.dismiss();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                name = filenames.substring(0, filenames.lastIndexOf("."));
-                System.out.println("name==" + name);
-                extension = filenames.substring(filenames.lastIndexOf(".") + 1);
-                System.out.println("extension==" + extension);
-            } else {
-                makeText(this, "Please select file", Toast.LENGTH_SHORT).show();
             }
-
-            try {
-                selectedImageString = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            textView.setText(getApplicationContext().getString(R.string.fileselected));
-
-            filePath = getgalleryRealPathFromURI(StudentAddTimeLine.this, uri);
-            if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
-                imageView.setVisibility(View.VISIBLE);
-                imageView.setImageBitmap(selectedImageString);
-            } else if (extension.equals("PDF") || extension.equals("pdf") || extension.equals("doc") || extension.equals("docx") || extension.equals("txt")) {
-                imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
-            }
-            f = new File(filePath);
-            System.out.println("file==" + filePath);
-            String mimeType = URLConnection.guessContentTypeFromName(f.getName());
-            file_body = RequestBody.create(MediaType.parse(mimeType), f);
-            System.out.println("file_bodypathasd" + file_body);
-            System.out.println("bitmap image==" + selectedImageString);
-        } else if (resultCode != RESULT_CANCELED) {
-            if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            if (requestCode == CAMERA_REQUEST) {
+                Bitmap bitmap = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
                 if (bitmap != null) {
                     progress = new ProgressDialog(StudentAddTimeLine.this);
                     progress.setTitle("uploading");
                     progress.setMessage("Please Wait....");
                     progress.show();
                     imageView.setVisibility(View.VISIBLE);
-                    textView.setText(getApplicationContext().getString(R.string.fileselected));
                     imageView.setImageBitmap(bitmap);
-                  //  Uri tempUri = getImageUri(getApplicationContext(), bitmap);
+                    // Uri imageuri = getImageUri(getApplicationContext(), bitmap);
                     filePath = saveBitmap(bitmap);
-                    System.out.println("pathasd" + filePath);
+                    Log.d(TAG, "onActivityResulvfbt: " + filePath);
                     File f = new File(filePath);
                     String mimeType = URLConnection.guessContentTypeFromName(f.getName());
                     file_body = RequestBody.create(MediaType.parse(mimeType), f);
@@ -480,7 +451,167 @@ public class StudentAddTimeLine extends AppCompatActivity {
                 }
             }
         }
+
+        /*if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            boolean isImageFromGoogleDrive = false;
+
+            Uri uri = data.getData();
+
+            if (isKitKat && DocumentsContract.isDocumentUri(getApplicationContext(), uri)) {
+                if ("com.android.externalstorage.documents".equals(uri.getAuthority())) {
+                    String docId = DocumentsContract.getDocumentId(uri);
+                    String[] split = docId.split(":");
+                    String type = split[0];
+
+                    if ("primary".equalsIgnoreCase(type)) {
+                        filePath = Environment.getExternalStorageDirectory() + "/" + split[1];
+                    } else {
+                        Pattern DIR_SEPORATOR = Pattern.compile("/");
+                        Set<String> rv = new HashSet<>();
+                        String rawExternalStorage = System.getenv("EXTERNAL_STORAGE");
+                        String rawSecondaryStoragesStr = System.getenv("SECONDARY_STORAGE");
+                        String rawEmulatedStorageTarget = System.getenv("EMULATED_STORAGE_TARGET");
+                        if (TextUtils.isEmpty(rawEmulatedStorageTarget)) {
+                            if (TextUtils.isEmpty(rawExternalStorage)) {
+                                rv.add("/storage/sdcard0");
+                            } else {
+                                rv.add(rawExternalStorage);
+                            }
+                        } else {
+                            String rawUserId;
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                                rawUserId = "";
+                            } else {
+                                String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+                                String[] folders = DIR_SEPORATOR.split(path);
+                                String lastFolder = folders[folders.length - 1];
+                                boolean isDigit = false;
+                                try {
+                                    Integer.valueOf(lastFolder);
+                                    isDigit = true;
+                                } catch (NumberFormatException ignored) {
+                                }
+                                rawUserId = isDigit ? lastFolder : "";
+                            }
+                            if (TextUtils.isEmpty(rawUserId)) {
+                                rv.add(rawEmulatedStorageTarget);
+                            } else {
+                                rv.add(rawEmulatedStorageTarget + File.separator + rawUserId);
+                            }
+                        }
+                        if (!TextUtils.isEmpty(rawSecondaryStoragesStr)) {
+                            String[] rawSecondaryStorages = rawSecondaryStoragesStr.split(File.pathSeparator);
+                            Collections.addAll(rv, rawSecondaryStorages);
+                        }
+                        String[] temp = rv.toArray(new String[rv.size()]);
+                        for (int i = 0; i < temp.length; i++) {
+                            File tempf = new File(temp[i] + "/" + split[1]);
+                            if (tempf.exists()) {
+                                filePath = temp[i] + "/" + split[1];
+                            }
+                        }
+                    }
+                } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
+                    String id = DocumentsContract.getDocumentId(uri);
+                    Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+
+                    Cursor cursor = null;
+                    String column = "_data";
+                    String[] projection = {column};
+                    try {
+                        cursor = getApplicationContext().getContentResolver().query(contentUri, projection, null, null,
+                                null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            int column_index = cursor.getColumnIndexOrThrow(column);
+                            filePath = cursor.getString(column_index);
+                        }
+                    } finally {
+                        if (cursor != null)
+                            cursor.close();
+                    }
+                } else if ("com.android.providers.media.documents".equals(uri.getAuthority())) {
+                    String docId = DocumentsContract.getDocumentId(uri);
+                    String[] split = docId.split(":");
+                    String type = split[0];
+
+                    Uri contentUri = null;
+                    if ("image".equals(type)) {
+                        contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                    } else if ("video".equals(type)) {
+                        contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                    } else if ("audio".equals(type)) {
+                        contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                    }
+
+                    String selection = "_id=?";
+                    String[] selectionArgs = new String[]{split[1]};
+
+                    Cursor cursor = null;
+                    String column = "_data";
+                    String[] projection = {column};
+
+                    try {
+                        cursor = getApplicationContext().getContentResolver().query(contentUri, projection, selection, selectionArgs, null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            int column_index = cursor.getColumnIndexOrThrow(column);
+                            filePath = cursor.getString(column_index);
+                        }
+                    } finally {
+                        if (cursor != null)
+                            cursor.close();
+                    }
+                } else if ("com.google.android.apps.docs.storage".equals(uri.getAuthority())) {
+                    isImageFromGoogleDrive = true;
+                }
+            }
+            else if ("content".equalsIgnoreCase(uri.getScheme())) {
+                Cursor cursor = null;
+                String column = "_data";
+                String[] projection = {column};
+
+                try {
+                    cursor = getApplicationContext().getContentResolver().query(uri, projection, null, null, null);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        int column_index = cursor.getColumnIndexOrThrow(column);
+                        filePath = cursor.getString(column_index);
+                    }
+                } finally {
+                    if (cursor != null)
+                        cursor.close();
+                }
+            } else if ("file".equalsIgnoreCase(uri.getScheme())) {
+                filePath = uri.getPath();
+            }
+
+            try {
+                Log.d(TAG, "Real Path 1 : " + filePath);
+                System.out.println("Real Path 1" + filePath);
+                textView.setText("File Selected");
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                System.out.println("bitmap image==" + bitmap);
+                String file_name = filePath.substring(filePath.lastIndexOf("/") + 1);
+                String[] filenameArray = file_name.split("\\.");
+                String extension = filenameArray[filenameArray.length - 1];
+                System.out.println("extension" + extension);
+                if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
+                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setImageBitmap(bitmap);
+                } else {
+                    imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
+                }
+                File f = new File(filePath);
+                String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                System.out.println("file_bodypathasd" + file_body);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else*/
+
     }
+
     public static String[] storage_permissions = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE
@@ -656,5 +787,79 @@ public class StudentAddTimeLine extends AppCompatActivity {
     }
 }
 
+ /* public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri uri = data.getData();
+            System.out.println("uri==" + uri);
+
+            String path = new File(uri.getPath()).getAbsolutePath();
+            System.out.println("path==" + path);
+
+            if (path != null) {
+                uri = data.getData();
+
+                String filenames;
+                Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+
+                if (cursor == null) filenames = uri.getPath();
+                else {
+                    cursor.moveToFirst();
+                    int idx = cursor.getColumnIndex(MediaStore.Files.FileColumns.DISPLAY_NAME);
+                    filenames = cursor.getString(idx);
+                    cursor.close();
+                }
+
+                name = filenames.substring(0, filenames.lastIndexOf("."));
+                System.out.println("name==" + name);
+                extension = filenames.substring(filenames.lastIndexOf(".") + 1);
+                System.out.println("extension==" + extension);
+            } else {
+                makeText(this, "Please select file", Toast.LENGTH_SHORT).show();
+            }
+
+            try {
+                selectedImageString = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            textView.setText(getApplicationContext().getString(R.string.fileselected));
+
+            filePath = getgalleryRealPathFromURI(StudentAddTimeLine.this, uri);
+            if (extension.equals("jpg") || extension.equals("png") || extension.equals("jpeg")) {
+                imageView.setVisibility(View.VISIBLE);
+                imageView.setImageBitmap(selectedImageString);
+            } else if (extension.equals("PDF") || extension.equals("pdf") || extension.equals("doc") || extension.equals("docx") || extension.equals("txt")) {
+                imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.selected_file));
+            }
+            f = new File(filePath);
+            System.out.println("file==" + filePath);
+            String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+            file_body = RequestBody.create(MediaType.parse(mimeType), f);
+            System.out.println("file_bodypathasd" + file_body);
+            System.out.println("bitmap image==" + selectedImageString);
+        } else if (resultCode != RESULT_CANCELED) {
+            if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                if (bitmap != null) {
+                    progress = new ProgressDialog(StudentAddTimeLine.this);
+                    progress.setTitle("uploading");
+                    progress.setMessage("Please Wait....");
+                    progress.show();
+                    imageView.setVisibility(View.VISIBLE);
+                    textView.setText(getApplicationContext().getString(R.string.fileselected));
+                    imageView.setImageBitmap(bitmap);
+                  //  Uri tempUri = getImageUri(getApplicationContext(), bitmap);
+                    filePath = saveBitmap(bitmap);
+                    System.out.println("pathasd" + filePath);
+                    File f = new File(filePath);
+                    String mimeType = URLConnection.guessContentTypeFromName(f.getName());
+                    file_body = RequestBody.create(MediaType.parse(mimeType), f);
+                    System.out.println("file_bodypathasd" + file_body);
+                    progress.dismiss();
+                }
+            }
+        }
+    }*/
 

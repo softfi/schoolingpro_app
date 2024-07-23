@@ -31,7 +31,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.qdocs.smartschool.OpenPdf;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.students.StudentDailyAssignment;
 import com.qdocs.smartschool.students.StudentEditAssignment;
 import com.qdocs.smartschool.utils.Constants;
@@ -161,6 +161,7 @@ public class StudentDailyAssignmentAdapter extends RecyclerView.Adapter<StudentD
                     intent.putExtra("description",descriptionList.get(position));
                     intent.putExtra("id",idList.get(position));
                     intent.putExtra("subjectid",subjectidList.get(position));
+                    intent.putExtra("subject",subject_nameList.get(position));
                     context.startActivity(intent);
                 }
             });

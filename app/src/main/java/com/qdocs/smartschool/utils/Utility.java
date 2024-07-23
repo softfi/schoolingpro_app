@@ -10,7 +10,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

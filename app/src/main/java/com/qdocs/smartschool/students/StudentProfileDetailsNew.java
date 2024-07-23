@@ -41,7 +41,7 @@ import com.qdocs.smartschool.fragments.StudentParentsDetailNew;
 import com.qdocs.smartschool.fragments.StudentPersonalDetailNew;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;

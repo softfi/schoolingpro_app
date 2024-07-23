@@ -11,7 +11,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
-
+import com.qdocs.smartschools.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.qdocs.smartschool.students.NewDashboard;

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.qdocs.smartschool.students.StudentReportCard_ExamListResult;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 
 public class StudentExamResultAdapter extends RecyclerView.Adapter<StudentExamResultAdapter.MyViewHolder> {

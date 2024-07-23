@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.qdocs.smartschool.students.StudentSyllabuslesson;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;

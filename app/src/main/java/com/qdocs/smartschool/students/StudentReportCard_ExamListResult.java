@@ -29,7 +29,7 @@ import com.qdocs.smartschool.BaseActivity;
 import com.qdocs.smartschool.adapters.StudentConsolidateDetailsAdapter;
 import com.qdocs.smartschool.utils.Constants;
 import com.qdocs.smartschool.utils.Utility;
-import com.qdocs.smartschool.R;
+import com.qdocs.smartschools.R;
 import com.qdocs.smartschool.adapters.StudentExamResultAdapter;
 import com.qdocs.smartschool.adapters.StudentExamResultGpaAdapter;
 import org.json.JSONArray;

@@ -59,7 +59,7 @@ import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-
+import com.qdocs.smartschools.R;
 import static android.content.ContentValues.TAG;
 import static android.widget.Toast.makeText;
 
@@ -97,6 +97,7 @@ public class Login extends Activity {
                 System.out.println("DEVICE TOKEN="+device_token);
             }
         });
+
         tv_forgotPass = (TextView)findViewById(R.id.tv_passwordReset_login);
         btn_login = (LinearLayout)findViewById(R.id.btn_login);
         et_userName = (EditText)findViewById(R.id.et_username_login);
