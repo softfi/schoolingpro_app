@@ -47,10 +47,10 @@ public class StudentDailyAssignment extends BaseActivity {
     ArrayList<String> titleList = new ArrayList<>();
     ArrayList<String> descriptionList = new ArrayList<>();
     ArrayList<String> remarkList = new ArrayList<>();
-    ArrayList<String> submissiondateList = new ArrayList<>();
+    ArrayList<String> submissionDateList = new ArrayList<>();
     ArrayList<String> evaluation_dateList = new ArrayList<>();
     ArrayList<String> attachmentList = new ArrayList<>();
-    ArrayList<String> subjectidList = new ArrayList<>();
+    ArrayList<String> subjectIdList = new ArrayList<>();
     FloatingActionButton add_assignment;
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String>  headers = new HashMap<String, String>();
@@ -77,7 +77,7 @@ public class StudentDailyAssignment extends BaseActivity {
         documentListView = findViewById(R.id.studentDocument_listview);
 
         adapter = new StudentDailyAssignmentAdapter(StudentDailyAssignment.this,idList,subject_nameList,titleList,descriptionList,
-                remarkList,submissiondateList,evaluation_dateList, attachmentList,subjectidList);
+                remarkList, submissionDateList,evaluation_dateList, attachmentList, subjectIdList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         documentListView.setLayoutManager(mLayoutManager);
         documentListView.setItemAnimator(new DefaultItemAnimator());
@@ -139,10 +139,10 @@ public class StudentDailyAssignment extends BaseActivity {
                         titleList.clear();
                         descriptionList.clear();
                         remarkList.clear();
-                        submissiondateList.clear();
+                        submissionDateList.clear();
                         evaluation_dateList.clear();
                         attachmentList.clear();
-                        subjectidList.clear();
+                        subjectIdList.clear();
                         if (dataArray.length() != 0) {
                             for(int i = 0; i < dataArray.length(); i++) {
                                 idList.add(dataArray.getJSONObject(i).getString("id"));
@@ -150,10 +150,10 @@ public class StudentDailyAssignment extends BaseActivity {
                                 titleList.add(dataArray.getJSONObject(i).getString("title"));
                                 descriptionList.add(dataArray.getJSONObject(i).getString("description"));
                                 remarkList.add(dataArray.getJSONObject(i).getString("remark"));
-                                submissiondateList.add(dataArray.getJSONObject(i).getString("date"));
+                                submissionDateList.add(dataArray.getJSONObject(i).getString("date"));
                                 evaluation_dateList.add(dataArray.getJSONObject(i).getString("evaluation_date"));
                                 attachmentList.add(dataArray.getJSONObject(i).getString("attachment"));
-                                subjectidList.add(dataArray.getJSONObject(i).getString("subject_group_subject_id"));
+                                subjectIdList.add(dataArray.getJSONObject(i).getString("subject_group_subject_id"));
                             }
                             adapter.notifyDataSetChanged();
 

@@ -102,11 +102,11 @@ public class StudentAddTimeLine extends AppCompatActivity {
     Uri uri;
     ImageView imageView;
     EditText title;
-    TextView textView;
+    TextView textView,dateET;
     public TextView titleTV,buttonSelectImage;
     Button buttonUploadImage;
     private static final String TAG = "StudentAddLeave";
-    EditText titleET, dateET, descriptionET;
+    EditText titleET , descriptionET;
     public static Boolean camera = false;
     public static Boolean gallery = false;
     boolean isKitKat = false;

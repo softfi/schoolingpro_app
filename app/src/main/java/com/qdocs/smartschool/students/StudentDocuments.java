@@ -105,6 +105,12 @@ public class StudentDocuments extends BaseActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        loadData();
+    }
+
+    @Override
     public void onRestart() {
         super.onRestart();
         loadData();

@@ -142,21 +142,25 @@ public class StudentHomeworkAdapter extends RecyclerView.Adapter<StudentHomework
                 holder.createdByTV.setText(homeworkCreatedByList.get(position));
             }
         }
-        if(homeworkstatusList.get(position).equals("pending")){
-            holder.pending_status_layout.setVisibility(View.VISIBLE);
-            holder.submitted_status_layout.setVisibility(View.GONE);
-            holder.evaluated_status_layout.setVisibility(View.GONE);
-            holder.uploadBtn.setVisibility(View.VISIBLE);
-        }else if(homeworkstatusList.get(position).equals("submitted")){
-            holder.pending_status_layout.setVisibility(View.GONE);
-            holder.submitted_status_layout.setVisibility(View.VISIBLE);
-            holder.evaluated_status_layout.setVisibility(View.GONE);
-            holder.uploadBtn.setVisibility(View.GONE);
-        }else if(homeworkstatusList.get(position).equals("evaluated")){
-            holder.pending_status_layout.setVisibility(View.GONE);
-            holder.submitted_status_layout.setVisibility(View.GONE);
-            holder.evaluated_status_layout.setVisibility(View.VISIBLE);
-            holder.uploadBtn.setVisibility(View.GONE);
+        switch (homeworkstatusList.get(position)) {
+            case "pending":
+                holder.pending_status_layout.setVisibility(View.VISIBLE);
+                holder.submitted_status_layout.setVisibility(View.GONE);
+                holder.evaluated_status_layout.setVisibility(View.GONE);
+                holder.uploadBtn.setVisibility(View.VISIBLE);
+                break;
+            case "submitted":
+                holder.pending_status_layout.setVisibility(View.GONE);
+                holder.submitted_status_layout.setVisibility(View.VISIBLE);
+                holder.evaluated_status_layout.setVisibility(View.GONE);
+                holder.uploadBtn.setVisibility(View.GONE);
+                break;
+            case "evaluated":
+                holder.pending_status_layout.setVisibility(View.GONE);
+                holder.submitted_status_layout.setVisibility(View.GONE);
+                holder.evaluated_status_layout.setVisibility(View.VISIBLE);
+                holder.uploadBtn.setVisibility(View.GONE);
+                break;
         }
 
         holder.uploadBtn.setOnClickListener(new View.OnClickListener() {

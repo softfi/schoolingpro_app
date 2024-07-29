@@ -61,6 +61,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
     StudentTaskAdapter adapter;
     String startweek;
     String date;
+    String dates;
     private boolean isDateSelected = false;
     ArrayList<String> taskIdList = new ArrayList<>();
     ArrayList<String> taskTitleList = new ArrayList<>();
@@ -68,6 +69,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
     ArrayList<String> taskDateList = new ArrayList<>();
     public Map<String, String> params = new Hashtable<String, String>();
     public Map<String, String> createTaskParams = new Hashtable<String, String>();
+
     public Map<String, String> headers = new HashMap<String, String>();
     TextView dateTV;
     SwipeRefreshLayout pullToRefresh;
@@ -83,6 +85,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
 
         addTaskBtn = findViewById(R.id.studentTasks_fab);
         startweek = Utility.getSharedPreferences(getApplicationContext(), "startWeek");
+        Log.d("TAG", "onCreate======: "+startweek);
         //DECORATE
 //     addTaskBtn.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         addTaskBtn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour))));
@@ -109,7 +112,6 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
             }
         });
 
-
     }
 
     public void loadData() {
@@ -122,7 +124,6 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
         } else {
             makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
@@ -133,28 +134,30 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
 
     private void showAddDialog(Context context) {
 
-        final Dialog dialog = new Dialog(context);
-        dialog.setContentView(R.layout.add_task_dialog);
+        final Dialog addDialog = new Dialog(context);
+        addDialog.setContentView(R.layout.add_task_dialog);
 
-        RelativeLayout headerLay = (RelativeLayout) dialog.findViewById(R.id.addTask_dialog_header);
-        RelativeLayout dateBtn = (RelativeLayout) dialog.findViewById(R.id.addTask_dialog_dateBtn);
-        ImageView closeBtn = (ImageView) dialog.findViewById(R.id.addTask_dialog_crossIcon);
+        RelativeLayout headerLay = (RelativeLayout) addDialog.findViewById(R.id.addTask_dialog_header);
+        RelativeLayout dateBtn = (RelativeLayout) addDialog.findViewById(R.id.addTask_dialog_dateBtn);
+        ImageView closeBtn = (ImageView) addDialog.findViewById(R.id.addTask_dialog_crossIcon);
 
-        dateTV = dialog.findViewById(R.id.addTask_dialog_dateTV);
-        final EditText titleET = dialog.findViewById(R.id.addTask_dialog_titleET);
-        Button submitBtn = dialog.findViewById(R.id.addTask_dialog_submitBtn);
+        dateTV = addDialog.findViewById(R.id.addTask_dialog_dateTV);
+        final EditText titleET = addDialog.findViewById(R.id.addTask_dialog_titleET);
+        Button submitBtn = addDialog.findViewById(R.id.addTask_dialog_submitBtn);
 
         final Calendar c = Calendar.getInstance();
         int startYear = c.get(Calendar.YEAR);
-        int starthMonth = c.get(Calendar.MONTH);
+        int startMonth = c.get(Calendar.MONTH);
         int startDay = c.get(Calendar.DAY_OF_MONTH);
 
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(context, StudentTasks.this, startYear, starthMonth, startDay);
+        final DatePickerDialog datePickerDialog = new DatePickerDialog(context, StudentTasks.this, startYear, startMonth, startDay);
         if (startweek.equals("Monday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.MONDAY);
-        } else if (startweek.equals("Tuesday")) {
+        }
+        else if (startweek.equals("Tuesday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.TUESDAY);
-        } else if (startweek.equals("Wednesday")) {
+        }
+        else if (startweek.equals("Wednesday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.WEDNESDAY);
         } else if (startweek.equals("Thursday")) {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.THURSDAY);
@@ -216,16 +219,17 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
                 } else {
                     // createTaskParams.put("task_date", date);
                     if (Utility.isConnectingToInternet(getApplicationContext())) {
-                        createTaskParams.put("user_id", Utility.getSharedPreferences(getApplicationContext(), "userId"));
+                        createTaskParams.put("user_id", Utility.getSharedPreferences(getApplicationContext(), Constants.userId));
                         createTaskParams.put("event_title", titleET.getText().toString());
-                        params.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
+                        createTaskParams.put("date", date);
+                        createTaskParams.put("studentId", Utility.getSharedPreferences(getApplicationContext(), Constants.studentId));
                         JSONObject obj = new JSONObject(createTaskParams);
-                        Log.e("params ", obj.toString());
+                        Log.d("TAG",  "createTaskApi: " + obj);
                         createTaskApi(obj.toString());
+
                     } else {
                         makeText(getApplicationContext(), R.string.noInternetMsg, Toast.LENGTH_SHORT).show();
                     }
-
                 }
             }
         });
@@ -233,7 +237,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
         closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                addDialog.dismiss();
             }
         });
 
@@ -241,7 +245,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
         headerLay.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         submitBtn.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
         //DECORATE
-        dialog.show();
+        addDialog.show();
     }
 
     private void getDataFromApi(String bodyParams) {
@@ -262,7 +266,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
                 if (result != null) {
                     pd.dismiss();
                     try {
-                        Log.e("Result", result);
+                        Log.d("TAG",   "createTaskApi: " + result);
                         JSONObject object = new JSONObject(result);
                         JSONArray dataArray = object.getJSONArray("tasks");
                         taskIdList.clear();
@@ -353,7 +357,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
                     try {
                         Log.e("Result", result);
                         JSONObject object = new JSONObject(result);
-
+                        Log.d("TAG",   "createTaskApi: " + object);
                         String status = object.getString("status");
 
                         Toast.makeText(getApplicationContext(), object.getString("msg"), Toast.LENGTH_LONG).show();
@@ -367,7 +371,6 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
                     }
                 } else {
                     pd.dismiss();
-
                 }
             }
         }, new Response.ErrorListener() {
@@ -379,7 +382,7 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
             }
         }) {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 headers.put("Client-Service", Constants.clientService);
                 headers.put("Auth-Key", Constants.authKey);
                 headers.put("Content-Type", Constants.contentType);
@@ -409,14 +412,9 @@ public class StudentTasks extends BaseActivity implements DatePickerDialog.OnDat
     }
 
     @Override
-    public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-        String date = year + "-" + (++monthOfYear) + "-" + dayOfMonth;
-        createTaskParams.put("date", date);
-        dateTV.setText(date);
-        isDateSelected = true;
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
     }
-
 }
 
 /*

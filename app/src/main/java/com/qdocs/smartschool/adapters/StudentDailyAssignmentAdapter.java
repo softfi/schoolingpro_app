@@ -220,7 +220,6 @@ public class StudentDailyAssignmentAdapter extends RecyclerView.Adapter<StudentD
                     }
                 } else {
                     pd.dismiss();
-
                 }
             }
         }, new Response.ErrorListener() {

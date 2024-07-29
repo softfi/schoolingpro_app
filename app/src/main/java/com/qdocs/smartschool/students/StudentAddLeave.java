@@ -155,18 +155,17 @@ public class StudentAddLeave extends AppCompatActivity {
                     }
                 } else {
 
-
                 }*/
 
             }
         });
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String currentDateAndTime = sdf.format(new Date());
         apply_dateTV.setText(currentDateAndTime);
 
-        String mStringDate = apply_dateTV.getText().toString();
-        String oldFormat = "MM/dd/yyyy";
+        String mStringDate = currentDateAndTime;
+        String oldFormat = "dd-MM-yyyy";
         String newFormat = "yyyy-MM-dd";
         SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat);
         Date myDate = null;
@@ -841,6 +840,7 @@ public class StudentAddLeave extends AppCompatActivity {
                 Log.d(TAG, "uploadBitmap: " + toDate);
                 Log.d(TAG, "uploadBitmap: " + reason.getText().toString());
                 Log.d(TAG, "uploadBitmap: " + fromDate);
+                Log.d(TAG, "uploadBitmaprr: " + applyDate);
                 Request request = new Request.Builder()
                         .url(url)
                         .header("Client-Service", Constants.clientService)

@@ -37,12 +37,10 @@ public class StudentTransportAdapter extends RecyclerView.Adapter<StudentTranspo
         this.pickupname = pickupname;
     }
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView pickuppoint, distance, pickuptime;
         View lineView,horizontallineView;
-        LinearLayout adapter_headLayout;
-        CardView card_view_inner;
+        LinearLayout adapter_headLayout,card_view_inner;
 
         public MyViewHolder(View view) {
             super(view);
@@ -83,7 +81,7 @@ public class StudentTransportAdapter extends RecyclerView.Adapter<StudentTranspo
         System.out.println("pickupname"+pickupname);
         if(pickup_pointList.get(position).equals(pickupname)){
             System.out.println("yes");
-            holder.card_view_inner.setBackgroundColor(Color.parseColor("#B0DD38"));
+            holder.card_view_inner.setBackgroundColor(Color.parseColor("#6A910C"));
         }else{
             System.out.println("no");
             holder.adapter_headLayout.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(context.getApplicationContext(), Constants.secondaryColour)));

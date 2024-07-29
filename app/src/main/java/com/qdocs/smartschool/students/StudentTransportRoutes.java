@@ -188,6 +188,4 @@ public class StudentTransportRoutes extends BaseActivity {
         requestQueue.add(stringRequest);
     }
 
-
-
 }

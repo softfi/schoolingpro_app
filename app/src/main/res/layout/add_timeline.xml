@@ -126,7 +126,7 @@
                 android:textColor="#000000"
                 android:textSize="@dimen/primaryText"
                 android:textStyle="bold" />
-            <EditText
+            <TextView
                 android:id="@+id/dateET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

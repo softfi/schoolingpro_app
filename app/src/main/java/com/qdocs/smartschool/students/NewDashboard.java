@@ -250,7 +250,6 @@ public class NewDashboard extends AppCompatActivity {
         other_recyclerView.setAdapter(otherModuleAdapter);
         // other();
 
-
         notification_alert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1249,10 +1248,9 @@ public class NewDashboard extends AppCompatActivity {
             public void onResponse(String result) {
                 if (result != null) {
                     try {
-                        Log.d("TAG", "onResponsejhjhk: " + result);
+                        Log.d("TAG", "onResponsejhjhk====: " + result);
                         JSONObject object = new JSONObject(result);
-                        //TODO success
-                        String success = "1"; //object.getString("success");
+                        String success = "1";
                         if (success.equals("1")) {
 
                             Utility.setSharedPreference(getApplicationContext(), Constants.classId, object.getString("class_id"));
@@ -1286,6 +1284,7 @@ public class NewDashboard extends AppCompatActivity {
                 headers.put("Content-Type", Constants.contentType);
                 headers.put("User-ID", Utility.getSharedPreferences(getApplicationContext(), "userId"));
                 headers.put("Authorization", Utility.getSharedPreferences(getApplicationContext(), "accessToken"));
+                Log.d("TAG", "getHeaders: "+headers);
                 return headers;
             }
 

@@ -56,6 +56,7 @@ import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -102,7 +103,7 @@ public class StudentEditLeave extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 1888;
     Button buttonUploadImage;
     public TextView titleTV,buttonSelectImage;
-    String url;
+    String url,applyDate;
     private static final String TAG = "StudentAddLeave";
     String fromlist,tolist,applylist,reasonlist,leaveid;
     public static Boolean camera = false;
@@ -163,9 +164,23 @@ public class StudentEditLeave extends AppCompatActivity {
         submit.setBackgroundColor(Color.parseColor(Utility.getSharedPreferences(getApplicationContext(), Constants.primaryColour)));
 
         fromdateTV.setText(Utility.parseDate("yyyy-MM-dd", defaultDateFormat,fromlist));
-        apply_dateTV.setText(Utility.parseDate("dd-MM-yyyy", defaultDateFormat,applylist));
+        apply_dateTV.setText(applylist);
         todateTV.setText(Utility.parseDate("yyyy-MM-dd", defaultDateFormat,tolist));
         reason.setText(reasonlist);
+
+        String mStringDate = apply_dateTV.getText().toString();
+        String oldFormat = "dd-MM-yyyy";
+        String newFormat = "yyyy-MM-dd";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat);
+        Date myDate = null;
+        try {
+            myDate = dateFormat.parse(mStringDate);
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat timeFormat = new SimpleDateFormat(newFormat);
+        assert myDate != null;
+        applyDate = timeFormat.format(myDate);
 
         buttonSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -669,7 +684,7 @@ public class StudentEditLeave extends AppCompatActivity {
                     .setType(MultipartBody.FORM)
                     .addFormDataPart("file","")
                     .addFormDataPart("to_date",tolist)
-                    .addFormDataPart("apply_date",applylist)
+                    .addFormDataPart("apply_date",applyDate)
                     .addFormDataPart("from_date",fromlist)
                     .addFormDataPart("reason",reason.getText().toString())
                     .addFormDataPart("id",leaveid)
@@ -697,6 +712,7 @@ public class StudentEditLeave extends AppCompatActivity {
                             try {
                                 final JSONObject Jobject = new JSONObject(jsonData);
                                 String Jarray = Jobject.getString("status");
+                                Log.d(TAG, "onResponse:8888888888"+Jarray);
                                 if(Jarray.equals("1")){
                                     runOnUiThread(new Runnable(){
                                         public void run() {
@@ -733,12 +749,14 @@ public class StudentEditLeave extends AppCompatActivity {
 
             RequestBody requestBody=new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("userfile",file_name,file_body)
-                    .addFormDataPart("homework_date",tolist)
-                    .addFormDataPart("submit_date   ",fromlist)
-                    .addFormDataPart("id",leaveid)
+                    .addFormDataPart("file","")
+                    .addFormDataPart("to_date",tolist)
+                    .addFormDataPart("apply_date",applyDate)
+                    .addFormDataPart("from_date",fromlist)
                     .addFormDataPart("reason",reason.getText().toString())
+                    .addFormDataPart("id",leaveid)
                     .build();
+
 
             Request request=new Request.Builder()
                     .url(url)
@@ -759,9 +777,11 @@ public class StudentEditLeave extends AppCompatActivity {
                     if(body != null) {
                         try {
                             String jsonData = response.body().string();
+                            Log.d(TAG, "onResponse:8888"+jsonData);
                             try {
                                 final JSONObject Jobject = new JSONObject(jsonData);
                                 String Jarray = Jobject.getString("status");
+                                Log.d(TAG, "onResponse:8888"+Jarray);
 
                                 if(Jarray.equals("1")){
                                     runOnUiThread(new Runnable(){

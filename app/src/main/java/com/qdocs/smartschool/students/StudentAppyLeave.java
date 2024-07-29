@@ -213,7 +213,8 @@ public class StudentAppyLeave extends BaseActivity {
                                 docslist.add(dataArray.getJSONObject(i).getString("docs"));
                                 sfromlist.add(dataArray.getJSONObject(i).getString("from_date"));
                                 stolist.add(dataArray.getJSONObject(i).getString("to_date"));
-                                sapplylist.add(Utility.parseDate("yyyy-MM-dd", defaultDateFormat, dataArray.getJSONObject(i).getString("apply_date")));
+                                Log.d("TAG", "onResponse+++++: "+apply_datelist);
+                                //sapplylist.add(Utility.parseDate("dd-MM-yyyy", defaultDateFormat, dataArray.getJSONObject(i).getString("apply_date")));
                             }
                             adapter.notifyDataSetChanged();
                         } else {

@@ -142,10 +142,11 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
             holder.downloadBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Log.d("TAG", "onClick======: "+docslist.get(position));
                     String urlStr = Utility.getSharedPreferences(context.getApplicationContext(), Constants.imagesUrl);
                     urlStr += "uploads/student_leavedocuments/"+docslist.get(position);
                     downloadID = Utility.beginDownload(context, docslist.get(position), urlStr);
+                    Log.d("TAG", "onClick======: "+urlStr);
                     Intent intent=new Intent(context.getApplicationContext(), OpenPdf.class);
                     intent.putExtra("imageUrl",urlStr);
                     context.startActivity(intent);
@@ -192,7 +193,7 @@ public class StudentApplyLeaveAdapter extends RecyclerView.Adapter<StudentApplyL
                 Intent intent = new Intent(context.getApplicationContext(), StudentEditLeave.class);
                 intent.putExtra("fromlist",sfromlist.get(position));
                 intent.putExtra("tolist",stolist.get(position));
-                intent.putExtra("applylist",sapplylist.get(position));
+                intent.putExtra("applylist",apply_datelist.get(position));
                 intent.putExtra("reasonlist",reasonlist.get(position));
                 intent.putExtra("idlist",idlist.get(position));
                 context.startActivity(intent);
