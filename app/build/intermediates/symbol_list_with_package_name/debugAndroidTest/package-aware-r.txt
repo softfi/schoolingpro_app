@@ -1,3 +1,0 @@
-com.qdocs.smartschools.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

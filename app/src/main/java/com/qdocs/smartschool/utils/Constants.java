@@ -123,7 +123,7 @@ public class Constants {
     public static final String getSchoolDetailsUrl = "webservice/getSchoolDetails";
     public static final String parent_getStudentList = "webservice/Parent_GetStudentsList";
     public static final String getExamResultDetailsUrl = "webservice/getExamResultDetails";
-    public static final String privacyPolicyUrl = "privacy-policy";
+    public static final String privacyPolicyUrl = "privacy_policy";
     public static final String downloadDirectory = "SmartSchool";
     public static final String defaultSecondaryColour = "#daf6fc";
     public static final String defaultPrimaryColour = "#2e4b5f";
